@@ -5,6 +5,7 @@ namespace Perfumer\Microservices\Contract;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
 use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
+use Perfumer\Microservices\Pages\Request\GetModuleRequest;
 use Perfumer\Microservices\Pages\Request\GetModulesRequest;
 use Perfumer\Microservices\Pages\Request\GetPageRequest;
 use Perfumer\Microservices\Pages\Request\GetPagesRequest;
@@ -18,6 +19,7 @@ use Perfumer\Microservices\Pages\Request\SaveRevisionRequest;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
 use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
+use Perfumer\Microservices\Pages\Response\GetModuleResponse;
 use Perfumer\Microservices\Pages\Response\GetModulesResponse;
 use Perfumer\Microservices\Pages\Response\GetPageResponse;
 use Perfumer\Microservices\Pages\Response\GetPagesResponse;
@@ -31,6 +33,8 @@ use Perfumer\Microservices\Pages\Response\SaveRevisionResponse;
 
 interface Pages
 {
+    public function getModule(GetModuleRequest $request): GetModuleResponse;
+
     public function getModules(GetModulesRequest $request): GetModulesResponse;
 
     public function saveModule(SaveModuleRequest $request): SaveModuleResponse;

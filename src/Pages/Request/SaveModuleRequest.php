@@ -3,9 +3,12 @@
 namespace Perfumer\Microservices\Pages\Request;
 
 use Perfumer\Microservices\Request;
+use Perfumer\Microservices\RequestTrait\MeshSaveTrait;
 
 class SaveModuleRequest extends Request
 {
+    use MeshSaveTrait;
+
     /**
      * @var string
      */
@@ -15,14 +18,4 @@ class SaveModuleRequest extends Request
      * @var string
      */
     public $code;
-
-    /**
-     * @var array
-     */
-    public $parents;
-
-    /**
-     * @var array
-     */
-    public $children;
 }

@@ -6,6 +6,7 @@ use Perfumer\Microservices\Microservice;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
 use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
+use Perfumer\Microservices\Pages\Request\GetModuleRequest;
 use Perfumer\Microservices\Pages\Request\GetModulesRequest;
 use Perfumer\Microservices\Pages\Request\GetPageRequest;
 use Perfumer\Microservices\Pages\Request\GetPagesRequest;
@@ -19,6 +20,7 @@ use Perfumer\Microservices\Pages\Request\SaveRevisionRequest;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
 use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
+use Perfumer\Microservices\Pages\Response\GetModuleResponse;
 use Perfumer\Microservices\Pages\Response\GetModulesResponse;
 use Perfumer\Microservices\Pages\Response\GetPageResponse;
 use Perfumer\Microservices\Pages\Response\GetPagesResponse;
@@ -37,9 +39,28 @@ class Pages extends Microservice implements \Perfumer\Microservices\Contract\Pag
         $this->host = $host;
     }
 
+    public function getModule(GetModuleRequest $request): GetModuleResponse
+    {
+        $url = '/module?code=' . $request->code;
+
+        /** @var GetModuleResponse $response */
+        $response = $this->doRequest(new GetModuleResponse(), 'get', $url);
+
+        $array = $this->fetchKeyFromContent($response->content, 'module');
+
+        $response->module = $array;
+
+        return $response;
+    }
+
     public function getModules(GetModulesRequest $request): GetModulesResponse
     {
         $url = '/modules';
+        $collection_trait_query_string = $request->getCollectionTraitQueryString();
+
+        if ($collection_trait_query_string) {
+            $url .= '?' . $collection_trait_query_string;
+        }
 
         /** @var GetModulesResponse $response */
         $response = $this->doRequest(new GetModulesResponse(), 'get', $url);
