@@ -4,6 +4,10 @@ namespace Perfumer\Microservices\Pages\Response;
 
 use Perfumer\Microservices\Response;
 
-class SaveModuleResponse extends Response
+class GetPagesResponse extends Response
 {
+    /**
+     * @var array
+     */
+    public $pages;
 }
