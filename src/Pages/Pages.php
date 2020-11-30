@@ -3,6 +3,7 @@
 namespace Perfumer\Microservices\Pages;
 
 use Perfumer\Microservices\Microservice;
+use Perfumer\Microservices\Pages\Request\DeleteModuleRequest;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
 use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
@@ -17,6 +18,7 @@ use Perfumer\Microservices\Pages\Request\SaveModuleRequest;
 use Perfumer\Microservices\Pages\Request\SavePageEnvRequest;
 use Perfumer\Microservices\Pages\Request\SavePageRequest;
 use Perfumer\Microservices\Pages\Request\SaveRevisionRequest;
+use Perfumer\Microservices\Pages\Response\DeleteModuleResponse;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
 use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
@@ -82,6 +84,18 @@ class Pages extends Microservice implements \Perfumer\Microservices\Contract\Pag
             'code' => $request->code,
             'parents' => $request->parents,
             'children' => $request->children,
+        ]);
+
+        return $response;
+    }
+
+    public function deleteModule(DeleteModuleRequest $request): DeleteModuleResponse
+    {
+        $url = '/module';
+
+        /** @var DeleteModuleResponse $response */
+        $response = $this->doRequest(new DeleteModuleResponse(), 'delete', $url, [
+            'code' => $request->code,
         ]);
 
         return $response;
