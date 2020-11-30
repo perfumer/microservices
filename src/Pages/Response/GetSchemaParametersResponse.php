@@ -9,5 +9,5 @@ class GetSchemaParametersResponse extends Response
     /**
      * @var array
      */
-    public $schema_parameters;
+    public $parameters;
 }

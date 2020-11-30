@@ -6,4 +6,8 @@ use Perfumer\Microservices\Response;
 
 class SaveRevisionResponse extends Response
 {
+    /**
+     * @var array
+     */
+    public $revision;
 }

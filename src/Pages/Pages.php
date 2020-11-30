@@ -1,4 +1,4 @@
-<?php /** @noinspection PhpIncompatibleReturnTypeInspection */
+<?php
 
 namespace Perfumer\Microservices\Pages;
 
@@ -55,6 +55,7 @@ class Pages extends Microservice implements \Perfumer\Microservices\Contract\Pag
     {
         $url = '/module';
 
+        /** @var SaveModuleResponse $response */
         $response = $this->doRequest(new SaveModuleResponse(), 'post', $url, [
             'name' => $request->name,
             'code' => $request->code,
@@ -97,6 +98,7 @@ class Pages extends Microservice implements \Perfumer\Microservices\Contract\Pag
     {
         $url = '/page';
 
+        /** @var SavePageResponse $response */
         $response = $this->doRequest(new SavePageResponse(), 'post', $url, [
             'name' => $request->name,
             'address' => $request->address,
@@ -140,6 +142,7 @@ class Pages extends Microservice implements \Perfumer\Microservices\Contract\Pag
     {
         $url = '/revision';
 
+        /** @var SaveRevisionResponse $response */
         $response = $this->doRequest(new SaveRevisionResponse(), 'post', $url, [
             'id' => $request->id,
             'name' => $request->name,
@@ -148,6 +151,10 @@ class Pages extends Microservice implements \Perfumer\Microservices\Contract\Pag
             'blocks' => $request->blocks,
             'parameters' => $request->parameters,
         ]);
+
+        $array = $this->fetchKeyFromContent($response->content, 'revision');
+
+        $response->revision = $array;
 
         return $response;
     }
