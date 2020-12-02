@@ -43,10 +43,12 @@ class Pages extends Microservice implements \Perfumer\Microservices\Contract\Pag
 
     public function getModule(GetModuleRequest $request): GetModuleResponse
     {
-        $url = '/module?code=' . $request->code;
+        $url = '/module';
 
         /** @var GetModuleResponse $response */
-        $response = $this->doRequest(new GetModuleResponse(), 'get', $url);
+        $response = $this->doRequest(new GetModuleResponse(), 'get', $url, [
+            'code' => $request->code,
+        ]);
 
         $array = $this->fetchKeyFromContent($response->content, 'module');
 
@@ -58,14 +60,14 @@ class Pages extends Microservice implements \Perfumer\Microservices\Contract\Pag
     public function getModules(GetModulesRequest $request): GetModulesResponse
     {
         $url = '/modules';
-        $collection_trait_query_string = $request->getCollectionTraitQueryString();
-
-        if ($collection_trait_query_string) {
-            $url .= '?' . $collection_trait_query_string;
-        }
 
         /** @var GetModulesResponse $response */
-        $response = $this->doRequest(new GetModulesResponse(), 'get', $url);
+        $response = $this->doRequest(new GetModulesResponse(), 'get', $url, [
+            'parent' => $request->parent,
+            'child' => $request->child,
+            'limit' => $request->limit,
+            'offset' => $request->offset,
+        ]);
 
         $array = $this->fetchKeyFromContent($response->content, 'modules');
 
