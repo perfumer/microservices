@@ -10,4 +10,14 @@ class GetModulesRequest extends Request
 {
     use CollectionTrait;
     use MeshCollectionTrait;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $code;
 }

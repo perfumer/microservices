@@ -63,6 +63,8 @@ class Pages extends Microservice implements \Perfumer\Microservices\Contract\Pag
 
         /** @var GetModulesResponse $response */
         $response = $this->doRequest(new GetModulesResponse(), 'get', $url, [
+            'name' => $request->name,
+            'code' => $request->code,
             'parent' => $request->parent,
             'child' => $request->child,
             'limit' => $request->limit,
