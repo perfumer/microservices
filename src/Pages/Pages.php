@@ -124,7 +124,13 @@ class Pages extends Microservice implements \Perfumer\Microservices\Contract\Pag
         $url = '/pages';
 
         /** @var GetPagesResponse $response */
-        $response = $this->doRequest(new GetPagesResponse(), 'get', $url);
+        $response = $this->doRequest(new GetPagesResponse(), 'get', $url, [
+            'name' => $request->name,
+            'address' => $request->address,
+            'module' => $request->module,
+            'limit' => $request->limit,
+            'offset' => $request->offset,
+        ]);
 
         $array = $this->fetchKeyFromContent($response->content, 'pages');
 
