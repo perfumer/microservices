@@ -12,17 +12,7 @@ class SaveTranslationRequest extends Request
     public $key;
 
     /**
-     * @var string
-     */
-    public $locale;
-
-    /**
-     * @var string
-     */
-    public $text;
-
-    /**
      * @var array
      */
-    public $batch;
+    public $text;
 }

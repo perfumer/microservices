@@ -3,10 +3,12 @@
 namespace Perfumer\Microservices\I18n;
 
 use Perfumer\Microservices\I18n\Request\DeleteTranslationRequest;
+use Perfumer\Microservices\I18n\Request\DumpRequest;
 use Perfumer\Microservices\I18n\Request\GetTranslationRequest;
 use Perfumer\Microservices\I18n\Request\GetTranslationsRequest;
 use Perfumer\Microservices\I18n\Request\SaveTranslationRequest;
 use Perfumer\Microservices\I18n\Response\DeleteTranslationResponse;
+use Perfumer\Microservices\I18n\Response\DumpResponse;
 use Perfumer\Microservices\I18n\Response\GetTranslationResponse;
 use Perfumer\Microservices\I18n\Response\GetTranslationsResponse;
 use Perfumer\Microservices\I18n\Response\SaveTranslationResponse;
@@ -26,7 +28,6 @@ class I18n extends Microservice implements \Perfumer\Microservices\Contract\I18n
         /** @var GetTranslationResponse $response */
         $response = $this->doRequest(new GetTranslationResponse(), 'get', $url, [
             'key' => $request->key,
-            'locale' => $request->locale,
         ]);
 
         $array = $this->fetchKeyFromContent($response->content, 'translation');
@@ -39,14 +40,13 @@ class I18n extends Microservice implements \Perfumer\Microservices\Contract\I18n
     public function getTranslations(GetTranslationsRequest $request): GetTranslationsResponse
     {
         $url = '/translations';
-        $collection_trait_query_string = $request->getCollectionTraitQueryString();
-
-        if ($collection_trait_query_string) {
-            $url .= '?' . $collection_trait_query_string;
-        }
 
         /** @var GetTranslationsResponse $response */
-        $response = $this->doRequest(new GetTranslationsResponse(), 'get', $url);
+        $response = $this->doRequest(new GetTranslationsResponse(), 'get', $url, [
+            'key' => $request->key,
+            'limit' => $request->limit,
+            'offset' => $request->offset,
+        ]);
 
         $array = $this->fetchKeyFromContent($response->content, 'translations');
 
@@ -62,9 +62,7 @@ class I18n extends Microservice implements \Perfumer\Microservices\Contract\I18n
         /** @var SaveTranslationResponse $response */
         $response = $this->doRequest(new SaveTranslationResponse(), 'post', $url, [
             'key' => $request->key,
-            'locale' => $request->locale,
             'text' => $request->text,
-            'batch' => $request->batch,
         ]);
 
         return $response;
@@ -79,6 +77,22 @@ class I18n extends Microservice implements \Perfumer\Microservices\Contract\I18n
             'key' => $request->key,
             'locale' => $request->locale,
         ]);
+
+        return $response;
+    }
+
+    public function dump(DumpRequest $request): DumpResponse
+    {
+        $url = '/dump';
+
+        /** @var DumpResponse $response */
+        $response = $this->doRequest(new DumpResponse(), 'get', $url, [
+            'locale' => $request->locale,
+        ]);
+
+        $array = $this->fetchKeyFromContent($response->content, 'translations');
+
+        $response->translations = $array;
 
         return $response;
     }

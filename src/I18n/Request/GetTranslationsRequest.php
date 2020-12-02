@@ -12,5 +12,5 @@ class GetTranslationsRequest extends Request
     /**
      * @var string
      */
-    public $locale;
+    public $key;
 }
