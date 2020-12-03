@@ -7,14 +7,12 @@ use Perfumer\Microservices\Es\Request\AddDocumentsRequest;
 use Perfumer\Microservices\Es\Request\CreateIndexRequest;
 use Perfumer\Microservices\Es\Request\DeleteDocumentRequest;
 use Perfumer\Microservices\Es\Request\DeleteIndexRequest;
-use Perfumer\Microservices\Es\Request\ReindexRequest;
 use Perfumer\Microservices\Es\Request\SearchDocumentsRequest;
 use Perfumer\Microservices\Es\Response\AddDocumentResponse;
 use Perfumer\Microservices\Es\Response\AddDocumentsResponse;
 use Perfumer\Microservices\Es\Response\CreateIndexResponse;
 use Perfumer\Microservices\Es\Response\DeleteDocumentResponse;
 use Perfumer\Microservices\Es\Response\DeleteIndexResponse;
-use Perfumer\Microservices\Es\Response\ReindexResponse;
 use Perfumer\Microservices\Es\Response\SearchDocumentsResponse;
 use Perfumer\Microservices\Microservice;
 
@@ -63,21 +61,6 @@ class Es extends Microservice implements \Perfumer\Microservices\Contract\Es
         $response = $this->doRequest(new DeleteIndexResponse(), 'delete', '/index', ['name' => $request->name]);
 
         return $response;
-    }
-
-    public function reindex(ReindexRequest $request): ReindexResponse
-    {
-        $deleteRequest       = new DeleteIndexRequest();
-        $deleteRequest->name = $request->name;
-
-        $this->deleteIndex($deleteRequest);
-
-        $createRequest       = new CreateIndexRequest();
-        $createRequest->name = $request->name;
-
-        $this->createIndex($createRequest);
-
-        return new ReindexResponse();
     }
 
     public function searchDocuments(SearchDocumentsRequest $request): SearchDocumentsResponse

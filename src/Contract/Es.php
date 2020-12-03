@@ -7,14 +7,12 @@ use Perfumer\Microservices\Es\Request\AddDocumentsRequest;
 use Perfumer\Microservices\Es\Request\CreateIndexRequest;
 use Perfumer\Microservices\Es\Request\DeleteDocumentRequest;
 use Perfumer\Microservices\Es\Request\DeleteIndexRequest;
-use Perfumer\Microservices\Es\Request\ReindexRequest;
 use Perfumer\Microservices\Es\Request\SearchDocumentsRequest;
 use Perfumer\Microservices\Es\Response\AddDocumentResponse;
 use Perfumer\Microservices\Es\Response\AddDocumentsResponse;
 use Perfumer\Microservices\Es\Response\CreateIndexResponse;
 use Perfumer\Microservices\Es\Response\DeleteDocumentResponse;
 use Perfumer\Microservices\Es\Response\DeleteIndexResponse;
-use Perfumer\Microservices\Es\Response\ReindexResponse;
 use Perfumer\Microservices\Es\Response\SearchDocumentsResponse;
 
 interface Es
@@ -22,8 +20,6 @@ interface Es
     public function createIndex(CreateIndexRequest $request): CreateIndexResponse;
 
     public function deleteIndex(DeleteIndexRequest $request): DeleteIndexResponse;
-
-    public function reindex(ReindexRequest $request): ReindexResponse;
 
     public function searchDocuments(SearchDocumentsRequest $request): SearchDocumentsResponse;
 
