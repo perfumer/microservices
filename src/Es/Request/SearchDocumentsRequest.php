@@ -19,7 +19,7 @@ class SearchDocumentsRequest extends Request
     /**
      * @var string
      */
-    public $locale = 'ru';
+    public $locale;
 
     /**
      * @var int

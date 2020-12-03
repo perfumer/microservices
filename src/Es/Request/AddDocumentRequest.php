@@ -29,5 +29,5 @@ class AddDocumentRequest extends Request
     /**
      * @var string
      */
-    public $locale = 'ru';
+    public $locale;
 }

@@ -19,5 +19,5 @@ class DeleteDocumentRequest extends Request
     /**
      * @var string
      */
-    public $locale = 'ru';
+    public $locale;
 }
