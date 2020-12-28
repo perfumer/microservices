@@ -1,0 +1,36 @@
+{
+  "name": "perfumer/microservices",
+  "type": "library",
+  "description": "Set of classes for dealing with Perfumer microservices",
+  "homepage": "https://github.com/perfumer/microservices",
+  "authors": [
+    {
+      "name": "Ilyas Makashev",
+      "email": "mehmatovec@gmail.com",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "~6|~7",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "perfumerlabs/perfumer": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Perfumer\\Microservices\\": "src/",
+      "Generated\\Perfumer\\Microservices\\": "generated/src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Generated\\Annotation\\": "generated/annotation/",
+      "Generated\\Tests\\Perfumer\\Microservices\\": "generated/tests/",
+      "Tests\\Perfumer\\Microservices\\": "tests/"
+    }
+  },
+  "config": {
+    "preferred-install": "dist"
+  }
+}
