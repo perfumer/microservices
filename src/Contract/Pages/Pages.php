@@ -2,9 +2,10 @@
 
 namespace Perfumer\Microservices\Contract\Pages;
 
+use Perfumer\Microservices\Annotation\DeleteModel;
+use Perfumer\Microservices\Annotation\DeleteModelByCode;
 use Perfumer\Microservices\Pages\Request\CopyRevisionRequest;
 use Perfumer\Microservices\Pages\Request\CreatePageRequest;
-use Perfumer\Microservices\Pages\Request\DeleteModuleRequest;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
 use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
@@ -21,7 +22,6 @@ use Perfumer\Microservices\Pages\Request\SaveRevisionRequest;
 use Perfumer\Microservices\Pages\Request\UpdatePageRequest;
 use Perfumer\Microservices\Pages\Response\CopyRevisionResponse;
 use Perfumer\Microservices\Pages\Response\CreatePageResponse;
-use Perfumer\Microservices\Pages\Response\DeleteModuleResponse;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
 use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
@@ -37,6 +37,11 @@ use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
 use Perfumer\Microservices\Pages\Response\SaveRevisionResponse;
 use Perfumer\Microservices\Pages\Response\UpdatePageResponse;
 
+/**
+ * @DeleteModelByCode(microservice="pages", model="module")
+ * @DeleteModel(microservice="pages", model="revision", fields={"id"})
+ * @DeleteModel(microservice="pages", model="page", fields={"id"})
+ */
 interface Pages
 {
     public function getModule(GetModuleRequest $request): GetModuleResponse;
@@ -44,8 +49,6 @@ interface Pages
     public function getModules(GetModulesRequest $request): GetModulesResponse;
 
     public function saveModule(SaveModuleRequest $request): SaveModuleResponse;
-
-    public function deleteModule(DeleteModuleRequest $request): DeleteModuleResponse;
 
     public function getPage(GetPageRequest $request): GetPageResponse;
 
