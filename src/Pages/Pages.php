@@ -7,14 +7,11 @@ use Perfumer\Microservices\Pages\Request\CreatePageRequest;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
 use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
-use Perfumer\Microservices\Pages\Request\GetModuleRequest;
-use Perfumer\Microservices\Pages\Request\GetModulesRequest;
 use Perfumer\Microservices\Pages\Request\GetPageRequest;
 use Perfumer\Microservices\Pages\Request\GetPagesRequest;
 use Perfumer\Microservices\Pages\Request\GetRevisionRequest;
 use Perfumer\Microservices\Pages\Request\GetRevisionsRequest;
 use Perfumer\Microservices\Pages\Request\GetSchemaParametersRequest;
-use Perfumer\Microservices\Pages\Request\SaveModuleRequest;
 use Perfumer\Microservices\Pages\Request\SavePageEnvRequest;
 use Perfumer\Microservices\Pages\Request\SaveRevisionRequest;
 use Perfumer\Microservices\Pages\Request\UpdatePageRequest;
@@ -23,14 +20,11 @@ use Perfumer\Microservices\Pages\Response\CreatePageResponse;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
 use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
-use Perfumer\Microservices\Pages\Response\GetModuleResponse;
-use Perfumer\Microservices\Pages\Response\GetModulesResponse;
 use Perfumer\Microservices\Pages\Response\GetPageResponse;
 use Perfumer\Microservices\Pages\Response\GetPagesResponse;
 use Perfumer\Microservices\Pages\Response\GetRevisionResponse;
 use Perfumer\Microservices\Pages\Response\GetRevisionsResponse;
 use Perfumer\Microservices\Pages\Response\GetSchemaParametersResponse;
-use Perfumer\Microservices\Pages\Response\SaveModuleResponse;
 use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
 use Perfumer\Microservices\Pages\Response\SaveRevisionResponse;
 use Perfumer\Microservices\Pages\Response\UpdatePageResponse;
@@ -40,58 +34,6 @@ class Pages extends \Generated\Perfumer\Microservices\Pages\Pages
     public function __construct($host)
     {
         $this->host = $host;
-    }
-
-    public function getModule(GetModuleRequest $request): GetModuleResponse
-    {
-        $url = '/module';
-
-        /** @var GetModuleResponse $response */
-        $response = $this->doRequest(new GetModuleResponse(), 'get', $url, [
-            'code' => $request->code,
-        ]);
-
-        $array = $this->fetchKeyFromContent($response->_content, 'module');
-
-        $response->module = $array;
-
-        return $response;
-    }
-
-    public function getModules(GetModulesRequest $request): GetModulesResponse
-    {
-        $url = '/modules';
-
-        /** @var GetModulesResponse $response */
-        $response = $this->doRequest(new GetModulesResponse(), 'get', $url, [
-            'name' => $request->name,
-            'code' => $request->code,
-            'parent' => $request->parent,
-            'child' => $request->child,
-            'limit' => $request->limit,
-            'offset' => $request->offset,
-        ]);
-
-        $array = $this->fetchKeyFromContent($response->_content, 'modules');
-
-        $response->modules = $array;
-
-        return $response;
-    }
-
-    public function saveModule(SaveModuleRequest $request): SaveModuleResponse
-    {
-        $url = '/module';
-
-        /** @var SaveModuleResponse $response */
-        $response = $this->doRequest(new SaveModuleResponse(), 'post', $url, [
-            'name' => $request->name,
-            'code' => $request->code,
-            'parents' => $request->parents,
-            'children' => $request->children,
-        ]);
-
-        return $response;
     }
 
     public function getPage(GetPageRequest $request): GetPageResponse
