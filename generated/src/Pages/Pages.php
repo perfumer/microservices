@@ -104,6 +104,53 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function createPage(\Perfumer\Microservices\Pages\Request\Page\CreatePageRequest $request): \Perfumer\Microservices\Pages\Response\Page\CreatePageResponse
+    {
+        $url = '/page';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Page\CreatePageResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Page\CreatePageResponse(), 'post', $url, [
+        'name' => $request->name,
+        'address' => $request->address,
+        'description' => $request->description,
+        'module_id' => $request->module_id,
+        'module_code' => $request->module_code,
+        ]);
+
+        /** @var \Perfumer\Microservices\Pages\Response\Page\CreatePageResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'page');
+
+        if (null !== $array) {
+            $response->page = $array;
+        }
+
+        return $response;
+    }
+
+    public function updatePage(\Perfumer\Microservices\Pages\Request\Page\UpdatePageRequest $request): \Perfumer\Microservices\Pages\Response\Page\UpdatePageResponse
+    {
+        $url = '/page';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Page\UpdatePageResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Page\UpdatePageResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'name' => $request->name,
+        'address' => $request->address,
+        'description' => $request->description,
+        'module_id' => $request->module_id,
+        'module_code' => $request->module_code,
+        ]);
+
+        /** @var \Perfumer\Microservices\Pages\Response\Page\UpdatePageResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'page');
+
+        if (null !== $array) {
+            $response->page = $array;
+        }
+
+        return $response;
+    }
+
     public function deletePage(\Perfumer\Microservices\Pages\Request\Page\DeletePageRequest $request): \Perfumer\Microservices\Pages\Response\Page\DeletePageResponse
     {
         $url = '/page';

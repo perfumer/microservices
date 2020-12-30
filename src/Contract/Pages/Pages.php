@@ -2,13 +2,14 @@
 
 namespace Perfumer\Microservices\Contract\Pages;
 
+use Perfumer\Microservices\Annotation\CreateModel;
 use Perfumer\Microservices\Annotation\DeleteModel;
 use Perfumer\Microservices\Annotation\GetMeshModels;
 use Perfumer\Microservices\Annotation\GetModel;
 use Perfumer\Microservices\Annotation\GetModels;
 use Perfumer\Microservices\Annotation\SaveMeshModel;
+use Perfumer\Microservices\Annotation\UpdateModel;
 use Perfumer\Microservices\Pages\Request\CopyRevisionRequest;
-use Perfumer\Microservices\Pages\Request\CreatePageRequest;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
 use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
@@ -17,9 +18,7 @@ use Perfumer\Microservices\Pages\Request\GetRevisionsRequest;
 use Perfumer\Microservices\Pages\Request\GetSchemaParametersRequest;
 use Perfumer\Microservices\Pages\Request\SavePageEnvRequest;
 use Perfumer\Microservices\Pages\Request\SaveRevisionRequest;
-use Perfumer\Microservices\Pages\Request\UpdatePageRequest;
 use Perfumer\Microservices\Pages\Response\CopyRevisionResponse;
-use Perfumer\Microservices\Pages\Response\CreatePageResponse;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
 use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
@@ -28,7 +27,6 @@ use Perfumer\Microservices\Pages\Response\GetRevisionsResponse;
 use Perfumer\Microservices\Pages\Response\GetSchemaParametersResponse;
 use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
 use Perfumer\Microservices\Pages\Response\SaveRevisionResponse;
-use Perfumer\Microservices\Pages\Response\UpdatePageResponse;
 
 /**
  * @GetModel(microservice="pages", model="module", fields={"id", "code"})
@@ -39,15 +37,13 @@ use Perfumer\Microservices\Pages\Response\UpdatePageResponse;
  * @DeleteModel(microservice="pages", model="revision", fields={"id"})
  *
  * @GetModel(microservice="pages", model="page", fields={"id"})
+ * @CreateModel(microservice="pages", model="page", fields={"name", "address", "description", "module_id", "module_code"})
+ * @UpdateModel(microservice="pages", model="page", fields={"id", "name", "address", "description", "module_id", "module_code"})
  * @DeleteModel(microservice="pages", model="page", fields={"id"})
  * @GetModels(microservice="pages", model="pages", fields={"name", "address", "module_id", "module_code"})
  */
 interface Pages
 {
-    public function createPage(CreatePageRequest $request): CreatePageResponse;
-
-    public function updatePage(UpdatePageRequest $request): UpdatePageResponse;
-
     public function savePageEnv(SavePageEnvRequest $request): SavePageEnvResponse;
 
     public function getRevision(GetRevisionRequest $request): GetRevisionResponse;
