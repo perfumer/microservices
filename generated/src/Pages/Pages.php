@@ -88,6 +88,22 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function getPage(\Perfumer\Microservices\Pages\Request\Page\GetPageRequest $request): \Perfumer\Microservices\Pages\Response\Page\GetPageResponse
+    {
+        $url = '/page';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Page\GetPageResponse(), 'get', $url, [
+        'id' => $request->id,
+        ]);
+
+        /** @var \Perfumer\Microservices\Pages\Response\Page\GetPageResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'page');
+
+        $response->page = $array;
+
+        return $response;
+    }
+
     public function deletePage(\Perfumer\Microservices\Pages\Request\Page\DeletePageRequest $request): \Perfumer\Microservices\Pages\Response\Page\DeletePageResponse
     {
         $url = '/page';
@@ -96,6 +112,25 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Page\DeletePageResponse(), 'delete', $url, [
         'id' => $request->id,
         ]);
+
+        return $response;
+    }
+
+    public function getPages(\Perfumer\Microservices\Pages\Request\Pages\GetPagesRequest $request): \Perfumer\Microservices\Pages\Response\Pages\GetPagesResponse
+    {
+        $url = '/pages';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Pages\GetPagesResponse(), 'get', $url, [
+        'name' => $request->name,
+        'address' => $request->address,
+        'module_id' => $request->module_id,
+        'module_code' => $request->module_code,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        ]);
+
+        /* @var \Perfumer\Microservices\Pages\Response\Pages\GetPagesResponse $response */
+        $response->pages = $this->fetchKeyFromContent($response->_content, 'pages');
 
         return $response;
     }

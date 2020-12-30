@@ -5,14 +5,13 @@ namespace Perfumer\Microservices\Contract\Pages;
 use Perfumer\Microservices\Annotation\DeleteModel;
 use Perfumer\Microservices\Annotation\GetMeshModels;
 use Perfumer\Microservices\Annotation\GetModel;
+use Perfumer\Microservices\Annotation\GetModels;
 use Perfumer\Microservices\Annotation\SaveMeshModel;
 use Perfumer\Microservices\Pages\Request\CopyRevisionRequest;
 use Perfumer\Microservices\Pages\Request\CreatePageRequest;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
 use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
-use Perfumer\Microservices\Pages\Request\GetPageRequest;
-use Perfumer\Microservices\Pages\Request\GetPagesRequest;
 use Perfumer\Microservices\Pages\Request\GetRevisionRequest;
 use Perfumer\Microservices\Pages\Request\GetRevisionsRequest;
 use Perfumer\Microservices\Pages\Request\GetSchemaParametersRequest;
@@ -24,8 +23,6 @@ use Perfumer\Microservices\Pages\Response\CreatePageResponse;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
 use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
-use Perfumer\Microservices\Pages\Response\GetPageResponse;
-use Perfumer\Microservices\Pages\Response\GetPagesResponse;
 use Perfumer\Microservices\Pages\Response\GetRevisionResponse;
 use Perfumer\Microservices\Pages\Response\GetRevisionsResponse;
 use Perfumer\Microservices\Pages\Response\GetSchemaParametersResponse;
@@ -41,14 +38,12 @@ use Perfumer\Microservices\Pages\Response\UpdatePageResponse;
  *
  * @DeleteModel(microservice="pages", model="revision", fields={"id"})
  *
+ * @GetModel(microservice="pages", model="page", fields={"id"})
  * @DeleteModel(microservice="pages", model="page", fields={"id"})
+ * @GetModels(microservice="pages", model="pages", fields={"name", "address", "module_id", "module_code"})
  */
 interface Pages
 {
-    public function getPage(GetPageRequest $request): GetPageResponse;
-
-    public function getPages(GetPagesRequest $request): GetPagesResponse;
-
     public function createPage(CreatePageRequest $request): CreatePageResponse;
 
     public function updatePage(UpdatePageRequest $request): UpdatePageResponse;

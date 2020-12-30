@@ -7,8 +7,6 @@ use Perfumer\Microservices\Pages\Request\CreatePageRequest;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
 use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
-use Perfumer\Microservices\Pages\Request\GetPageRequest;
-use Perfumer\Microservices\Pages\Request\GetPagesRequest;
 use Perfumer\Microservices\Pages\Request\GetRevisionRequest;
 use Perfumer\Microservices\Pages\Request\GetRevisionsRequest;
 use Perfumer\Microservices\Pages\Request\GetSchemaParametersRequest;
@@ -20,8 +18,6 @@ use Perfumer\Microservices\Pages\Response\CreatePageResponse;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
 use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
-use Perfumer\Microservices\Pages\Response\GetPageResponse;
-use Perfumer\Microservices\Pages\Response\GetPagesResponse;
 use Perfumer\Microservices\Pages\Response\GetRevisionResponse;
 use Perfumer\Microservices\Pages\Response\GetRevisionsResponse;
 use Perfumer\Microservices\Pages\Response\GetSchemaParametersResponse;
@@ -34,42 +30,6 @@ class Pages extends \Generated\Perfumer\Microservices\Pages\Pages
     public function __construct($host)
     {
         $this->host = $host;
-    }
-
-    public function getPage(GetPageRequest $request): GetPageResponse
-    {
-        $url = '/page';
-
-        /** @var GetPageResponse $response */
-        $response = $this->doRequest(new GetPageResponse(), 'get', $url, [
-            'id' => $request->id,
-        ]);
-
-        $array = $this->fetchKeyFromContent($response->_content, 'page');
-
-        $response->page = $array;
-
-        return $response;
-    }
-
-    public function getPages(GetPagesRequest $request): GetPagesResponse
-    {
-        $url = '/pages';
-
-        /** @var GetPagesResponse $response */
-        $response = $this->doRequest(new GetPagesResponse(), 'get', $url, [
-            'name' => $request->name,
-            'address' => $request->address,
-            'module' => $request->module,
-            'limit' => $request->limit,
-            'offset' => $request->offset,
-        ]);
-
-        $array = $this->fetchKeyFromContent($response->_content, 'pages');
-
-        $response->pages = $array;
-
-        return $response;
     }
 
     public function createPage(CreatePageRequest $request): CreatePageResponse
