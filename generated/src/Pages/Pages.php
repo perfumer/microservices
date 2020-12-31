@@ -49,6 +49,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'id' => $request->id,
         'code' => $request->code,
         'name' => $request->name,
+        'description' => $request->description,
         'parents' => $request->parents,
         'children' => $request->children,
         ]);

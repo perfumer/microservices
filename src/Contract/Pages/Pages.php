@@ -31,7 +31,7 @@ use Perfumer\Microservices\Pages\Response\SaveRevisionResponse;
 /**
  * @GetModel(microservice="pages", model="module", fields={"id", "code"})
  * @GetMeshModels(microservice="pages", model="modules", fields={"name", "code"})
- * @SaveMeshModel(microservice="pages", model="module", fields={"id", "code", "name"})
+ * @SaveMeshModel(microservice="pages", model="module", fields={"id", "code", "name", "description"})
  * @DeleteModel(microservice="pages", model="module", fields={"id", "code"})
  *
  * @DeleteModel(microservice="pages", model="revision", fields={"id"})
