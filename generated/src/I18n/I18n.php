@@ -43,6 +43,7 @@ abstract class I18n extends \Perfumer\Microservices\Microservice implements \Per
         'text' => $request->text,
         'is_immutable' => $request->is_immutable,
         'is_richtext' => $request->is_richtext,
+        'tags' => $request->tags,
         ]);
 
         /** @var \Perfumer\Microservices\I18n\Response\Translation\CreateTranslationResponse $response */
@@ -66,6 +67,7 @@ abstract class I18n extends \Perfumer\Microservices\Microservice implements \Per
         'text' => $request->text,
         'is_immutable' => $request->is_immutable,
         'is_richtext' => $request->is_richtext,
+        'tags' => $request->tags,
         ]);
 
         /** @var \Perfumer\Microservices\I18n\Response\Translation\UpdateTranslationResponse $response */
@@ -122,6 +124,7 @@ abstract class I18n extends \Perfumer\Microservices\Microservice implements \Per
         'key' => $request->key,
         'is_immutable' => $request->is_immutable,
         'is_richtext' => $request->is_richtext,
+        'tag' => $request->tag,
         'limit' => $request->limit,
         'offset' => $request->offset,
         ]);

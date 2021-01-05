@@ -35,6 +35,11 @@ class GetTranslationsRequest extends \Perfumer\Microservices\Request
     public $is_richtext = null;
 
     /**
+     * @var string
+     */
+    public $tag = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -52,6 +57,7 @@ class GetTranslationsRequest extends \Perfumer\Microservices\Request
         $this->key = new \Perfumer\Microservices\Undefined();
         $this->is_immutable = new \Perfumer\Microservices\Undefined();
         $this->is_richtext = new \Perfumer\Microservices\Undefined();
+        $this->tag = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
     }
