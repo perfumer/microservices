@@ -65,6 +65,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'description' => $request->description,
         'parent' => $request->parent,
         'child' => $request->child,
+        'root' => $request->root,
         'limit' => $request->limit,
         'offset' => $request->offset,
         ]);
@@ -266,6 +267,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'category' => $request->category,
         'parent' => $request->parent,
         'child' => $request->child,
+        'root' => $request->root,
         'limit' => $request->limit,
         'offset' => $request->offset,
         ]);
@@ -337,6 +339,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'process' => $request->process,
         'parent' => $request->parent,
         'child' => $request->child,
+        'root' => $request->root,
         'limit' => $request->limit,
         'offset' => $request->offset,
         ]);

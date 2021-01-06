@@ -10,7 +10,7 @@ class GetMeshModels extends GetModels
 {
     public function onCreate(): void
     {
-        $this->fields = array_merge($this->fields, ['parent', 'child']);
+        $this->fields = array_merge($this->fields, ['parent', 'child', 'root.bool']);
 
         parent::onCreate();
     }

@@ -30,6 +30,11 @@ class GetGroupsRequest extends \Perfumer\Microservices\Request
     public $child = null;
 
     /**
+     * @var bool
+     */
+    public $root = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -46,6 +51,7 @@ class GetGroupsRequest extends \Perfumer\Microservices\Request
         $this->category = new \Perfumer\Microservices\Undefined();
         $this->parent = new \Perfumer\Microservices\Undefined();
         $this->child = new \Perfumer\Microservices\Undefined();
+        $this->root = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
     }
