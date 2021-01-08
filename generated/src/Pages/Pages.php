@@ -110,7 +110,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
     public function getRevisions(\Perfumer\Microservices\Pages\Request\Revisions\GetRevisionsRequest $request): \Perfumer\Microservices\Pages\Response\Revisions\GetRevisionsResponse
     {
-        $url = '/revisions';
+        $url = '/page/revisions';
 
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revisions\GetRevisionsResponse(), 'get', $url, [
         'name' => $request->name,
