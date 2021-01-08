@@ -6,79 +6,20 @@ use Perfumer\Microservices\Pages\Request\CopyRevisionRequest;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
 use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
-use Perfumer\Microservices\Pages\Request\GetRevisionRequest;
-use Perfumer\Microservices\Pages\Request\GetRevisionsRequest;
 use Perfumer\Microservices\Pages\Request\GetSchemaParametersRequest;
 use Perfumer\Microservices\Pages\Request\SavePageEnvRequest;
-use Perfumer\Microservices\Pages\Request\SaveRevisionRequest;
 use Perfumer\Microservices\Pages\Response\CopyRevisionResponse;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
 use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
-use Perfumer\Microservices\Pages\Response\GetRevisionResponse;
-use Perfumer\Microservices\Pages\Response\GetRevisionsResponse;
 use Perfumer\Microservices\Pages\Response\GetSchemaParametersResponse;
 use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
-use Perfumer\Microservices\Pages\Response\SaveRevisionResponse;
 
 class Pages extends \Generated\Perfumer\Microservices\Pages\Pages
 {
     public function __construct($host)
     {
         $this->host = $host;
-    }
-
-    public function getRevision(GetRevisionRequest $request): GetRevisionResponse
-    {
-        $url = '/revision';
-
-        /** @var GetRevisionResponse $response */
-        $response = $this->doRequest(new GetRevisionResponse(), 'get', $url, [
-            'id' => $request->id,
-        ]);
-
-        $array = $this->fetchKeyFromContent($response->_content, 'revision');
-
-        $response->revision = $array;
-
-        return $response;
-    }
-
-    public function getRevisions(GetRevisionsRequest $request): GetRevisionsResponse
-    {
-        $url = '/page/revisions';
-
-        /** @var GetRevisionsResponse $response */
-        $response = $this->doRequest(new GetRevisionsResponse(), 'get', $url, [
-            'page_id' => $request->page_id,
-        ]);
-
-        $array = $this->fetchKeyFromContent($response->_content, 'revisions');
-
-        $response->revisions = $array;
-
-        return $response;
-    }
-
-    public function saveRevision(SaveRevisionRequest $request): SaveRevisionResponse
-    {
-        $url = '/revision';
-
-        /** @var SaveRevisionResponse $response */
-        $response = $this->doRequest(new SaveRevisionResponse(), 'post', $url, [
-            'id' => $request->id,
-            'name' => $request->name,
-            'description' => $request->description,
-            'page_id' => $request->page_id,
-            'blocks' => $request->blocks,
-            'parameters' => $request->parameters,
-        ]);
-
-        $array = $this->fetchKeyFromContent($response->_content, 'revision');
-
-        $response->revision = $array;
-
-        return $response;
     }
 
     public function copyRevision(CopyRevisionRequest $request): CopyRevisionResponse

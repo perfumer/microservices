@@ -28,6 +28,8 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Modules\GetModulesResponse(), 'get', $url, [
         'name' => $request->name,
         'code' => $request->code,
+        'description' => $request->description,
+        'is_archived' => $request->is_archived,
         'parent' => $request->parent,
         'child' => $request->child,
         'root' => $request->root,
@@ -78,6 +80,22 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function getRevision(\Perfumer\Microservices\Pages\Request\Revision\GetRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\GetRevisionResponse
+    {
+        $url = '/revision';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\GetRevisionResponse(), 'get', $url, [
+        'id' => $request->id,
+        ]);
+
+        /** @var \Perfumer\Microservices\Pages\Response\Revision\GetRevisionResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'revision');
+
+        $response->revision = $array;
+
+        return $response;
+    }
+
     public function deleteRevision(\Perfumer\Microservices\Pages\Request\Revision\DeleteRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\DeleteRevisionResponse
     {
         $url = '/revision';
@@ -86,6 +104,49 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\DeleteRevisionResponse(), 'delete', $url, [
         'id' => $request->id,
         ]);
+
+        return $response;
+    }
+
+    public function getRevisions(\Perfumer\Microservices\Pages\Request\Revisions\GetRevisionsRequest $request): \Perfumer\Microservices\Pages\Response\Revisions\GetRevisionsResponse
+    {
+        $url = '/revisions';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revisions\GetRevisionsResponse(), 'get', $url, [
+        'name' => $request->name,
+        'description' => $request->description,
+        'is_archived' => $request->is_archived,
+        'page_id' => $request->page_id,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        ]);
+
+        /* @var \Perfumer\Microservices\Pages\Response\Revisions\GetRevisionsResponse $response */
+        $response->revisions = $this->fetchKeyFromContent($response->_content, 'revisions');
+
+        return $response;
+    }
+
+    public function saveRevision(\Perfumer\Microservices\Pages\Request\Revision\SaveRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\SaveRevisionResponse
+    {
+        $url = '/revision';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Revision\SaveRevisionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\SaveRevisionResponse(), 'post', $url, [
+        'id' => $request->id,
+        'page_id' => $request->page_id,
+        'name' => $request->name,
+        'description' => $request->description,
+        'blocks' => $request->blocks,
+        'parameters' => $request->parameters,
+        ]);
+
+        /** @var \Perfumer\Microservices\Pages\Response\Revision\SaveRevisionResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'revision');
+
+        if (null !== $array) {
+            $response->revision = $array;
+        }
 
         return $response;
     }
@@ -171,6 +232,8 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Pages\GetPagesResponse(), 'get', $url, [
         'name' => $request->name,
+        'description' => $request->description,
+        'is_archived' => $request->is_archived,
         'address' => $request->address,
         'module_id' => $request->module_id,
         'module_code' => $request->module_code,
