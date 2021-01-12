@@ -284,4 +284,75 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         return $response;
     }
+
+    public function getArticle(\Perfumer\Microservices\Forms\Request\Article\GetArticleRequest $request): \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse
+    {
+        $url = '/article';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse(), 'get', $url, [
+        'id' => $request->id,
+        'locale' => $request->locale,
+        ]);
+
+        /** @var \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'article');
+
+        $response->article = $array;
+
+        return $response;
+    }
+
+    public function deleteArticle(\Perfumer\Microservices\Forms\Request\Article\DeleteArticleRequest $request): \Perfumer\Microservices\Forms\Response\Article\DeleteArticleResponse
+    {
+        $url = '/article';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Article\DeleteArticleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\DeleteArticleResponse(), 'delete', $url, [
+        'id' => $request->id,
+        'locale' => $request->locale,
+        ]);
+
+        return $response;
+    }
+
+    public function saveArticle(\Perfumer\Microservices\Forms\Request\Article\SaveArticleRequest $request): \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse
+    {
+        $url = '/article';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse(), 'post', $url, [
+        'description' => $request->description,
+        'code' => $request->code,
+        'html' => $request->html,
+        'json' => $request->json,
+        'locale' => $request->locale,
+        ]);
+
+        /** @var \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'article');
+
+        if (null !== $array) {
+            $response->article = $array;
+        }
+
+        return $response;
+    }
+
+    public function getArticles(\Perfumer\Microservices\Forms\Request\Articles\GetArticlesRequest $request): \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse
+    {
+        $url = '/articles';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse(), 'get', $url, [
+        'description' => $request->description,
+        'code' => $request->code,
+        'locale' => $request->locale,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        ]);
+
+        /* @var \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse $response */
+        $response->articles = $this->fetchKeyFromContent($response->_content, 'articles');
+
+        return $response;
+    }
 }

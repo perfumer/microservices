@@ -2,6 +2,7 @@
 
 namespace Perfumer\Microservices\Contract\Forms;
 
+use Perfumer\Microservices\Annotation\DeleteModel;
 use Perfumer\Microservices\Annotation\DeleteModelByCode;
 use Perfumer\Microservices\Annotation\GetMeshModels;
 use Perfumer\Microservices\Annotation\GetModel;
@@ -30,6 +31,11 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @DeleteModelByCode(microservice="forms", model="reference")
  * @SaveModel(microservice="forms", model="reference", fields={"name", "code"})
  * @GetModels(microservice="forms", model="references", fields={"name", "code"})
+ *
+ * @GetModel(microservice="forms", model="article", fields={"id", "locale"})
+ * @DeleteModel(microservice="forms", model="article", fields={"id", "locale"})
+ * @SaveModel(microservice="forms", model="article", fields={"description", "code", "html", "json", "locale"})
+ * @GetModels(microservice="forms", model="articles", fields={"description", "code", "locale"})
  */
 interface Forms
 {
