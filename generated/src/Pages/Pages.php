@@ -102,7 +102,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
     public function unarchiveModule(\Perfumer\Microservices\Pages\Request\Module\UnarchiveModuleRequest $request): \Perfumer\Microservices\Pages\Response\Module\UnarchiveModuleResponse
     {
-        $url = '/module/unarchive';
+        $url = '/module/archive';
 
         /** @var \Perfumer\Microservices\Pages\Response\Module\UnarchiveModuleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Module\UnarchiveModuleResponse(), 'delete', $url, [
@@ -149,7 +149,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
     public function getRevisions(\Perfumer\Microservices\Pages\Request\Revisions\GetRevisionsRequest $request): \Perfumer\Microservices\Pages\Response\Revisions\GetRevisionsResponse
     {
-        $url = '/page/revisions';
+        $url = '/revisions';
 
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revisions\GetRevisionsResponse(), 'get', $url, [
         'name' => $request->name,
@@ -212,7 +212,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
     public function unarchiveRevision(\Perfumer\Microservices\Pages\Request\Revision\UnarchiveRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\UnarchiveRevisionResponse
     {
-        $url = '/revision/unarchive';
+        $url = '/revision/archive';
 
         /** @var \Perfumer\Microservices\Pages\Response\Revision\UnarchiveRevisionResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\UnarchiveRevisionResponse(), 'delete', $url, [
@@ -348,7 +348,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
     public function unarchivePage(\Perfumer\Microservices\Pages\Request\Page\UnarchivePageRequest $request): \Perfumer\Microservices\Pages\Response\Page\UnarchivePageResponse
     {
-        $url = '/page/unarchive';
+        $url = '/page/archive';
 
         /** @var \Perfumer\Microservices\Pages\Response\Page\UnarchivePageResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Page\UnarchivePageResponse(), 'delete', $url, [

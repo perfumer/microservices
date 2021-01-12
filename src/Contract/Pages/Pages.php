@@ -30,15 +30,15 @@ use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
  * @DeleteModel(microservice="pages", model="module", fields={"id", "code"})
  * 
  * @SaveModel(microservice="pages", model="module", fields={"id.int"}, url="/module/archive", action="archive")
- * @SaveModel(microservice="pages", model="module", fields={"id.int"}, url="/module/unarchive", action="unarchive", request_method="delete")
+ * @SaveModel(microservice="pages", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
  *
  * @GetModel(microservice="pages", model="revision", fields={"id"})
  * @DeleteModel(microservice="pages", model="revision", fields={"id"})
- * @GetModels(microservice="pages", model="revisions", fields={"name", "description", "is_archived.bool", "page_id.int"}, url="/page/revisions")
+ * @GetModels(microservice="pages", model="revisions", fields={"name", "description", "is_archived.bool", "page_id.int"})
  * @SaveModel(microservice="pages", model="revision", fields={"id.int", "page_id.int", "name", "description", "blocks.array", "parameters.array", "is_archived.bool"})
  *
  * @SaveModel(microservice="pages", model="revision", fields={"id.int"}, url="/revision/archive", action="archive")
- * @SaveModel(microservice="pages", model="revision", fields={"id.int"}, url="/revision/unarchive", action="unarchive", request_method="delete")
+ * @SaveModel(microservice="pages", model="revision", fields={"id.int"}, url="/revision/archive", action="unarchive", request_method="delete")
  *
  * @GetModel(microservice="pages", model="page", fields={"id"})
  * @CreateModel(microservice="pages", model="page", fields={"name", "address", "description", "module_id", "module_code", "is_archived.bool"})
@@ -47,7 +47,7 @@ use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
  * @GetModels(microservice="pages", model="pages", fields={"name", "description", "is_archived.bool", "address", "module_id", "module_code"})
  *
  * @SaveModel(microservice="pages", model="page", fields={"id.int"}, url="/page/archive", action="archive")
- * @SaveModel(microservice="pages", model="page", fields={"id.int"}, url="/page/unarchive", action="unarchive", request_method="delete")
+ * @SaveModel(microservice="pages", model="page", fields={"id.int"}, url="/page/archive", action="unarchive", request_method="delete")
  */
 interface Pages
 {
