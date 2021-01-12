@@ -28,6 +28,9 @@ use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
  * @GetMeshModels(microservice="pages", model="modules", fields={"name", "code", "description", "is_archived.bool"})
  * @SaveMeshModel(microservice="pages", model="module", fields={"id", "code", "name", "description", "is_archived.bool"})
  * @DeleteModel(microservice="pages", model="module", fields={"id", "code"})
+ * 
+ * @SaveModel(microservice="pages", model="module", fields={"id.int"}, url="/module/archive", action="archive")
+ * @SaveModel(microservice="pages", model="module", fields={"id.int"}, url="/module/unarchive", action="unarchive", request_method="delete")
  *
  * @GetModel(microservice="pages", model="revision", fields={"id"})
  * @DeleteModel(microservice="pages", model="revision", fields={"id"})
@@ -42,6 +45,9 @@ use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
  * @UpdateModel(microservice="pages", model="page", fields={"id", "name", "address", "description", "module_id", "module_code", "is_archived.bool"})
  * @DeleteModel(microservice="pages", model="page", fields={"id"})
  * @GetModels(microservice="pages", model="pages", fields={"name", "description", "is_archived.bool", "address", "module_id", "module_code"})
+ *
+ * @SaveModel(microservice="pages", model="page", fields={"id.int"}, url="/page/archive", action="archive")
+ * @SaveModel(microservice="pages", model="page", fields={"id.int"}, url="/page/unarchive", action="unarchive", request_method="delete")
  */
 interface Pages
 {

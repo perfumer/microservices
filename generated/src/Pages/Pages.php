@@ -81,6 +81,44 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function archiveModule(\Perfumer\Microservices\Pages\Request\Module\ArchiveModuleRequest $request): \Perfumer\Microservices\Pages\Response\Module\ArchiveModuleResponse
+    {
+        $url = '/module/archive';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Module\ArchiveModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Module\ArchiveModuleResponse(), 'post', $url, [
+        'id' => $request->id,
+        ]);
+
+        /** @var \Perfumer\Microservices\Pages\Response\Module\ArchiveModuleResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'module');
+
+        if (null !== $array) {
+            $response->module = $array;
+        }
+
+        return $response;
+    }
+
+    public function unarchiveModule(\Perfumer\Microservices\Pages\Request\Module\UnarchiveModuleRequest $request): \Perfumer\Microservices\Pages\Response\Module\UnarchiveModuleResponse
+    {
+        $url = '/module/unarchive';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Module\UnarchiveModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Module\UnarchiveModuleResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ]);
+
+        /** @var \Perfumer\Microservices\Pages\Response\Module\UnarchiveModuleResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'module');
+
+        if (null !== $array) {
+            $response->module = $array;
+        }
+
+        return $response;
+    }
+
     public function getRevision(\Perfumer\Microservices\Pages\Request\Revision\GetRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\GetRevisionResponse
     {
         $url = '/revision';
@@ -285,6 +323,44 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
         /* @var \Perfumer\Microservices\Pages\Response\Pages\GetPagesResponse $response */
         $response->pages = $this->fetchKeyFromContent($response->_content, 'pages');
+
+        return $response;
+    }
+
+    public function archivePage(\Perfumer\Microservices\Pages\Request\Page\ArchivePageRequest $request): \Perfumer\Microservices\Pages\Response\Page\ArchivePageResponse
+    {
+        $url = '/page/archive';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Page\ArchivePageResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Page\ArchivePageResponse(), 'post', $url, [
+        'id' => $request->id,
+        ]);
+
+        /** @var \Perfumer\Microservices\Pages\Response\Page\ArchivePageResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'page');
+
+        if (null !== $array) {
+            $response->page = $array;
+        }
+
+        return $response;
+    }
+
+    public function unarchivePage(\Perfumer\Microservices\Pages\Request\Page\UnarchivePageRequest $request): \Perfumer\Microservices\Pages\Response\Page\UnarchivePageResponse
+    {
+        $url = '/page/unarchive';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Page\UnarchivePageResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Page\UnarchivePageResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ]);
+
+        /** @var \Perfumer\Microservices\Pages\Response\Page\UnarchivePageResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'page');
+
+        if (null !== $array) {
+            $response->page = $array;
+        }
 
         return $response;
     }
