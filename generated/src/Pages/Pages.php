@@ -153,6 +153,44 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function archiveRevision(\Perfumer\Microservices\Pages\Request\Revision\ArchiveRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\ArchiveRevisionResponse
+    {
+        $url = '/revision/archive';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Revision\ArchiveRevisionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\ArchiveRevisionResponse(), 'post', $url, [
+        'id' => $request->id,
+        ]);
+
+        /** @var \Perfumer\Microservices\Pages\Response\Revision\ArchiveRevisionResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'revision');
+
+        if (null !== $array) {
+            $response->revision = $array;
+        }
+
+        return $response;
+    }
+
+    public function unarchiveRevision(\Perfumer\Microservices\Pages\Request\Revision\UnarchiveRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\UnarchiveRevisionResponse
+    {
+        $url = '/revision/unarchive';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Revision\UnarchiveRevisionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\UnarchiveRevisionResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ]);
+
+        /** @var \Perfumer\Microservices\Pages\Response\Revision\UnarchiveRevisionResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'revision');
+
+        if (null !== $array) {
+            $response->revision = $array;
+        }
+
+        return $response;
+    }
+
     public function getPage(\Perfumer\Microservices\Pages\Request\Page\GetPageRequest $request): \Perfumer\Microservices\Pages\Response\Page\GetPageResponse
     {
         $url = '/page';
