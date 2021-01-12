@@ -53,6 +53,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'code' => $request->code,
         'name' => $request->name,
         'description' => $request->description,
+        'is_archived' => $request->is_archived,
         'parents' => $request->parents,
         'children' => $request->children,
         ]);
@@ -139,6 +140,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'description' => $request->description,
         'blocks' => $request->blocks,
         'parameters' => $request->parameters,
+        'is_archived' => $request->is_archived,
         ]);
 
         /** @var \Perfumer\Microservices\Pages\Response\Revision\SaveRevisionResponse $response */
@@ -178,6 +180,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'description' => $request->description,
         'module_id' => $request->module_id,
         'module_code' => $request->module_code,
+        'is_archived' => $request->is_archived,
         ]);
 
         /** @var \Perfumer\Microservices\Pages\Response\Page\CreatePageResponse $response */
@@ -202,6 +205,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'description' => $request->description,
         'module_id' => $request->module_id,
         'module_code' => $request->module_code,
+        'is_archived' => $request->is_archived,
         ]);
 
         /** @var \Perfumer\Microservices\Pages\Response\Page\UpdatePageResponse $response */

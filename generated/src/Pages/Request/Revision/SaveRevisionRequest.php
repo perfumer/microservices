@@ -36,6 +36,11 @@ class SaveRevisionRequest extends \Perfumer\Microservices\Request
     public $parameters = [
     ];
 
+    /**
+     * @var bool
+     */
+    public $is_archived = null;
+
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
@@ -44,5 +49,6 @@ class SaveRevisionRequest extends \Perfumer\Microservices\Request
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->blocks = new \Perfumer\Microservices\Undefined();
         $this->parameters = new \Perfumer\Microservices\Undefined();
+        $this->is_archived = new \Perfumer\Microservices\Undefined();
     }
 }

@@ -29,6 +29,11 @@ class CreatePageRequest extends \Perfumer\Microservices\Request
      */
     public $module_code = null;
 
+    /**
+     * @var bool
+     */
+    public $is_archived = null;
+
     public function __construct()
     {
         $this->name = new \Perfumer\Microservices\Undefined();
@@ -36,5 +41,6 @@ class CreatePageRequest extends \Perfumer\Microservices\Request
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->module_code = new \Perfumer\Microservices\Undefined();
+        $this->is_archived = new \Perfumer\Microservices\Undefined();
     }
 }

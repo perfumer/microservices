@@ -26,17 +26,17 @@ use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
 /**
  * @GetModel(microservice="pages", model="module", fields={"id", "code"})
  * @GetMeshModels(microservice="pages", model="modules", fields={"name", "code", "description", "is_archived.bool"})
- * @SaveMeshModel(microservice="pages", model="module", fields={"id", "code", "name", "description"})
+ * @SaveMeshModel(microservice="pages", model="module", fields={"id", "code", "name", "description", "is_archived.bool"})
  * @DeleteModel(microservice="pages", model="module", fields={"id", "code"})
  *
  * @GetModel(microservice="pages", model="revision", fields={"id"})
  * @DeleteModel(microservice="pages", model="revision", fields={"id"})
  * @GetModels(microservice="pages", model="revisions", fields={"name", "description", "is_archived.bool", "page_id.int"}, url="/page/revisions")
- * @SaveModel(microservice="pages", model="revision", fields={"id.int", "page_id.int", "name", "description", "blocks.array", "parameters.array"})
+ * @SaveModel(microservice="pages", model="revision", fields={"id.int", "page_id.int", "name", "description", "blocks.array", "parameters.array", "is_archived.bool"})
  *
  * @GetModel(microservice="pages", model="page", fields={"id"})
- * @CreateModel(microservice="pages", model="page", fields={"name", "address", "description", "module_id", "module_code"})
- * @UpdateModel(microservice="pages", model="page", fields={"id", "name", "address", "description", "module_id", "module_code"})
+ * @CreateModel(microservice="pages", model="page", fields={"name", "address", "description", "module_id", "module_code", "is_archived.bool"})
+ * @UpdateModel(microservice="pages", model="page", fields={"id", "name", "address", "description", "module_id", "module_code", "is_archived.bool"})
  * @DeleteModel(microservice="pages", model="page", fields={"id"})
  * @GetModels(microservice="pages", model="pages", fields={"name", "description", "is_archived.bool", "address", "module_id", "module_code"})
  */

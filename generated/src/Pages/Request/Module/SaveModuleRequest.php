@@ -25,6 +25,11 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
     public $description = null;
 
     /**
+     * @var bool
+     */
+    public $is_archived = null;
+
+    /**
      * @var array
      */
     public $parents = [
@@ -42,6 +47,7 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
+        $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->children = new \Perfumer\Microservices\Undefined();
     }
