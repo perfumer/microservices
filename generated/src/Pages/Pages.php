@@ -35,9 +35,11 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'root' => $request->root,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Pages\Response\Modules\GetModulesResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->modules = $this->fetchKeyFromContent($response->_content, 'modules');
 
         return $response;
@@ -158,9 +160,11 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'page_id' => $request->page_id,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Pages\Response\Revisions\GetRevisionsResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->revisions = $this->fetchKeyFromContent($response->_content, 'revisions');
 
         return $response;
@@ -319,9 +323,11 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'module_code' => $request->module_code,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Pages\Response\Pages\GetPagesResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->pages = $this->fetchKeyFromContent($response->_content, 'pages');
 
         return $response;

@@ -10,6 +10,11 @@ class GetTranslationsResponse extends \Perfumer\Microservices\Response
     public $nb_translations = null;
 
     /**
+     * @var int
+     */
+    public $nb_results = null;
+
+    /**
      * @var array
      */
     public $translations = [

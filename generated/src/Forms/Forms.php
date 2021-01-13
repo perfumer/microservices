@@ -67,9 +67,11 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'module' => $request->module,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Forms\Response\Forms\GetFormsResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->forms = $this->fetchKeyFromContent($response->_content, 'forms');
 
         return $response;
@@ -184,9 +186,11 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'root' => $request->root,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Forms\Response\Items\GetItemsResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->items = $this->fetchKeyFromContent($response->_content, 'items');
 
         return $response;
@@ -223,9 +227,11 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'root' => $request->root,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->modules = $this->fetchKeyFromContent($response->_content, 'modules');
 
         return $response;
@@ -328,9 +334,11 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'is_archived' => $request->is_archived,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Forms\Response\References\GetReferencesResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->references = $this->fetchKeyFromContent($response->_content, 'references');
 
         return $response;
@@ -399,9 +407,11 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'locale' => $request->locale,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->articles = $this->fetchKeyFromContent($response->_content, 'articles');
 
         return $response;

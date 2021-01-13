@@ -68,9 +68,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'root' => $request->root,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Permissions\GetPermissionsResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->permissions = $this->fetchKeyFromContent($response->_content, 'permissions');
 
         return $response;
@@ -133,9 +135,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Calendars\GetCalendarsResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->calendars = $this->fetchKeyFromContent($response->_content, 'calendars');
 
         return $response;
@@ -198,9 +202,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Roles\GetRolesResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->roles = $this->fetchKeyFromContent($response->_content, 'roles');
 
         return $response;
@@ -270,9 +276,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'root' => $request->root,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Groups\GetGroupsResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->groups = $this->fetchKeyFromContent($response->_content, 'groups');
 
         return $response;
@@ -342,9 +350,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'root' => $request->root,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Modules\GetModulesResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->modules = $this->fetchKeyFromContent($response->_content, 'modules');
 
         return $response;
@@ -409,9 +419,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'priority' => $request->priority,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Activities\GetActivitiesResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->activities = $this->fetchKeyFromContent($response->_content, 'activities');
 
         return $response;
@@ -478,9 +490,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Users\GetUsersResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->users = $this->fetchKeyFromContent($response->_content, 'users');
 
         return $response;
@@ -553,9 +567,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'calendar' => $request->calendar,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Schedules\GetSchedulesResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->schedules = $this->fetchKeyFromContent($response->_content, 'schedules');
 
         return $response;
@@ -621,9 +637,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'group' => $request->group,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Accesses\GetAccessesResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->accesses = $this->fetchKeyFromContent($response->_content, 'accesses');
 
         return $response;

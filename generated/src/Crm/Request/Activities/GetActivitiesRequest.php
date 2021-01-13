@@ -29,6 +29,11 @@ class GetActivitiesRequest extends \Perfumer\Microservices\Request
      */
     public $offset = null;
 
+    /**
+     * @var int
+     */
+    public $count = null;
+
     public function __construct()
     {
         $this->name = new \Perfumer\Microservices\Undefined();
@@ -36,5 +41,6 @@ class GetActivitiesRequest extends \Perfumer\Microservices\Request
         $this->priority = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
+        $this->count = new \Perfumer\Microservices\Undefined();
     }
 }

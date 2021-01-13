@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\I18n\Request\Translations;
 class GetTranslationsRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var bool
+     * @var int
      */
     public $count = null;
 

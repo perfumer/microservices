@@ -131,6 +131,7 @@ abstract class I18n extends \Perfumer\Microservices\Microservice implements \Per
 
         /* @var \Perfumer\Microservices\I18n\Response\Translations\GetTranslationsResponse $response */
         $response->nb_translations = $this->fetchKeyFromContent($response->_content, 'nb_translations');
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->translations = $this->fetchKeyFromContent($response->_content, 'translations');
 
         return $response;

@@ -24,12 +24,12 @@ class GetModels extends LayoutAnnotation
     /**
      * @var array
      */
-    public $fields;
+    public $fields = [];
 
     /**
      * @var array
      */
-    public $response_fields;
+    public $response_fields = [];
 
     /**
      * @var string
@@ -49,7 +49,8 @@ class GetModels extends LayoutAnnotation
     public function onCreate(): void
     {
         if ($this->paginate) {
-            $this->fields = array_merge($this->fields, ['limit.int', 'offset.int']);
+            $this->fields = array_merge($this->fields, ['limit.int', 'offset.int', 'count.int']);
+            $this->response_fields = array_merge($this->response_fields, ['nb_results.int']);
         }
 
         parent::onCreate();

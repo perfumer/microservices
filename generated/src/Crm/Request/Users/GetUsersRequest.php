@@ -34,6 +34,11 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
      */
     public $offset = null;
 
+    /**
+     * @var int
+     */
+    public $count = null;
+
     public function __construct()
     {
         $this->last_name = new \Perfumer\Microservices\Undefined();
@@ -42,5 +47,6 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
+        $this->count = new \Perfumer\Microservices\Undefined();
     }
 }
