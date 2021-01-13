@@ -113,7 +113,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'name' => $request->name,
         'code' => $request->code,
         'new_code' => $request->new_code,
-        'reference' => $request->reference,
+        'reference_code' => $request->reference_code,
+        'reference_id' => $request->reference_id,
         'parents' => $request->parents,
         'children' => $request->children,
         ]);
@@ -155,6 +156,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $url = '/module';
 
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse(), 'get', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ]);
 
@@ -166,14 +168,24 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function deleteModule(\Perfumer\Microservices\Forms\Request\Module\DeleteModuleRequest $request): \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse
+    public function getModules(\Perfumer\Microservices\Forms\Request\Modules\GetModulesRequest $request): \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse
     {
-        $url = '/module';
+        $url = '/modules';
 
-        /** @var \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse(), 'delete', $url, [
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse(), 'get', $url, [
+        'name' => $request->name,
         'code' => $request->code,
+        'description' => $request->description,
+        'is_archived' => $request->is_archived,
+        'parent' => $request->parent,
+        'child' => $request->child,
+        'root' => $request->root,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
         ]);
+
+        /* @var \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse $response */
+        $response->modules = $this->fetchKeyFromContent($response->_content, 'modules');
 
         return $response;
     }
@@ -184,8 +196,11 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Module\SaveModuleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\SaveModuleResponse(), 'post', $url, [
-        'name' => $request->name,
+        'id' => $request->id,
         'code' => $request->code,
+        'name' => $request->name,
+        'description' => $request->description,
+        'is_archived' => $request->is_archived,
         'parents' => $request->parents,
         'children' => $request->children,
         ]);
@@ -200,22 +215,15 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function getModules(\Perfumer\Microservices\Forms\Request\Modules\GetModulesRequest $request): \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse
+    public function deleteModule(\Perfumer\Microservices\Forms\Request\Module\DeleteModuleRequest $request): \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse
     {
-        $url = '/modules';
+        $url = '/module';
 
-        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse(), 'get', $url, [
-        'name' => $request->name,
+        /** @var \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse(), 'delete', $url, [
+        'id' => $request->id,
         'code' => $request->code,
-        'parent' => $request->parent,
-        'child' => $request->child,
-        'root' => $request->root,
-        'limit' => $request->limit,
-        'offset' => $request->offset,
         ]);
-
-        /* @var \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse $response */
-        $response->modules = $this->fetchKeyFromContent($response->_content, 'modules');
 
         return $response;
     }
@@ -256,6 +264,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Reference\SaveReferenceResponse(), 'post', $url, [
         'name' => $request->name,
         'code' => $request->code,
+        'is_archived' => $request->is_archived,
         ]);
 
         /** @var \Perfumer\Microservices\Forms\Response\Reference\SaveReferenceResponse $response */
@@ -275,6 +284,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\References\GetReferencesResponse(), 'get', $url, [
         'name' => $request->name,
         'code' => $request->code,
+        'is_archived' => $request->is_archived,
         'limit' => $request->limit,
         'offset' => $request->offset,
         ]);

@@ -22,7 +22,12 @@ class SaveItemRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $reference = null;
+    public $reference_code = null;
+
+    /**
+     * @var string
+     */
+    public $reference_id = null;
 
     /**
      * @var array
@@ -41,7 +46,8 @@ class SaveItemRequest extends \Perfumer\Microservices\Request
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->new_code = new \Perfumer\Microservices\Undefined();
-        $this->reference = new \Perfumer\Microservices\Undefined();
+        $this->reference_code = new \Perfumer\Microservices\Undefined();
+        $this->reference_id = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->children = new \Perfumer\Microservices\Undefined();
     }

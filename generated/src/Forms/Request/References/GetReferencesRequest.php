@@ -15,6 +15,11 @@ class GetReferencesRequest extends \Perfumer\Microservices\Request
     public $code = null;
 
     /**
+     * @var bool
+     */
+    public $is_archived = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -28,6 +33,7 @@ class GetReferencesRequest extends \Perfumer\Microservices\Request
     {
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
+        $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
     }

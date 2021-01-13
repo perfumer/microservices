@@ -19,18 +19,18 @@ use Perfumer\Microservices\Annotation\SaveModel;
  *
  * @GetModel(microservice="forms", model="item", fields={"code", "locale"})
  * @DeleteModelByCode(microservice="forms", model="item")
- * @SaveMeshModel(microservice="forms", model="item", fields={"name", "code", "new_code", "reference"})
+ * @SaveMeshModel(microservice="forms", model="item", fields={"name", "code", "new_code", "reference_code", "reference_id"})
  * @GetMeshModels(microservice="forms", model="items", fields={"name", "code", "locale", "reference"})
  *
- * @GetModelByCode(microservice="forms", model="module")
- * @DeleteModelByCode(microservice="forms", model="module")
- * @SaveMeshModel(microservice="forms", model="module", fields={"name", "code"})
- * @GetMeshModels(microservice="forms", model="modules", fields={"name", "code"})
+ * @GetModel(microservice="forms", model="module", fields={"id", "code"})
+ * @GetMeshModels(microservice="forms", model="modules", fields={"name", "code", "description", "is_archived.bool"})
+ * @SaveMeshModel(microservice="forms", model="module", fields={"id", "code", "name", "description", "is_archived.bool"})
+ * @DeleteModel(microservice="forms", model="module", fields={"id", "code"})
  *
  * @GetModelByCode(microservice="forms", model="reference")
  * @DeleteModelByCode(microservice="forms", model="reference")
- * @SaveModel(microservice="forms", model="reference", fields={"name", "code"})
- * @GetModels(microservice="forms", model="references", fields={"name", "code"})
+ * @SaveModel(microservice="forms", model="reference", fields={"name", "code", "is_archived.bool"})
+ * @GetModels(microservice="forms", model="references", fields={"name", "code", "is_archived.bool"})
  *
  * @GetModel(microservice="forms", model="article", fields={"id", "locale"})
  * @DeleteModel(microservice="forms", model="article", fields={"id", "locale"})
