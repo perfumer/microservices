@@ -56,6 +56,14 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @DeleteModel(microservice="crm", model="access", fields={"role", "group"})
  * @SaveModel(microservice="crm", model="access", fields={"role", "group", "permissions.array"})
  * @GetModels(microservice="crm", model="accesses", fields={"role", "group"})
+ *
+ * @GetModelByCode(microservice="crm", model="ticket")
+ * @DeleteModelByCode(microservice="crm", model="ticket")
+ * @SaveModel(microservice="crm", model="ticket", fields={"name", "customer", "module", "status", "code", "deadline_at", "opened_at", "closed_at", "payload"})
+ * @GetModels(microservice="crm", model="tickets", fields={"name", "customer", "module", "status", "code", "deadline_at", "opened_at", "closed_at", "payload"})
+ *
+ * @SaveModel(microservice="crm", model="ticket", url="ticket/form", action="saveForm", fields={"ticket", "form", "category", "payload"})
+ * @DeleteModelByCode(microservice="crm", model="ticket", url="ticket/form", action="deleteForm")
  */
 interface Crm
 {
