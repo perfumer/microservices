@@ -75,6 +75,44 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function archiveModule(\Perfumer\Microservices\Forms\Request\Module\ArchiveModuleRequest $request): \Perfumer\Microservices\Forms\Response\Module\ArchiveModuleResponse
+    {
+        $url = '/module/archive';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Module\ArchiveModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\ArchiveModuleResponse(), 'post', $url, [
+        'id' => $request->id,
+        ]);
+
+        /** @var \Perfumer\Microservices\Forms\Response\Module\ArchiveModuleResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'module');
+
+        if (null !== $array) {
+            $response->module = $array;
+        }
+
+        return $response;
+    }
+
+    public function unarchiveModule(\Perfumer\Microservices\Forms\Request\Module\UnarchiveModuleRequest $request): \Perfumer\Microservices\Forms\Response\Module\UnarchiveModuleResponse
+    {
+        $url = '/module/archive';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Module\UnarchiveModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\UnarchiveModuleResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ]);
+
+        /** @var \Perfumer\Microservices\Forms\Response\Module\UnarchiveModuleResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'module');
+
+        if (null !== $array) {
+            $response->module = $array;
+        }
+
+        return $response;
+    }
+
     public function getItem(\Perfumer\Microservices\Forms\Request\Item\GetItemRequest $request): \Perfumer\Microservices\Forms\Response\Item\GetItemResponse
     {
         $url = '/item';

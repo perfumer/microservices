@@ -17,6 +17,9 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @SaveModel(microservice="forms", model="form", fields={"name", "code", "schema", "module", "fields.array", "payload.array"})
  * @GetModels(microservice="forms", model="forms", fields={"name", "code", "schema", "module"})
  *
+ * @SaveModel(microservice="forms", model="module", fields={"id.int"}, url="/module/archive", action="archive")
+ * @SaveModel(microservice="forms", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
+ *
  * @GetModel(microservice="forms", model="item", fields={"code", "locale"})
  * @DeleteModelByCode(microservice="forms", model="item")
  * @SaveMeshModel(microservice="forms", model="item", fields={"name", "code", "new_code", "reference_code", "reference_id"})
