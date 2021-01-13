@@ -7,6 +7,11 @@ class SaveItemRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $id = null;
+
+    /**
+     * @var string
+     */
     public $name = null;
 
     /**
@@ -43,6 +48,7 @@ class SaveItemRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->id = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->new_code = new \Perfumer\Microservices\Undefined();
