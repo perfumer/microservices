@@ -32,10 +32,12 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @SaveMeshModel(microservice="crm", model="group", fields={"name", "code", "category"})
  * @GetMeshModels(microservice="crm", model="groups", fields={"name", "code", "category"})
  *
- * @GetModelByCode(microservice="crm", model="module")
- * @DeleteModelByCode(microservice="crm", model="module")
- * @SaveMeshModel(microservice="crm", model="module", fields={"name", "code", "process"})
- * @GetMeshModels(microservice="crm", model="modules", fields={"name", "code", "process"})
+ * @GetModel(microservice="crm", model="module", fields={"id", "code"})
+ * @GetMeshModels(microservice="crm", model="modules", fields={"name", "code", "description", "is_archived.bool", "process"})
+ * @SaveMeshModel(microservice="crm", model="module", fields={"id", "code", "name", "description", "is_archived.bool", "process"})
+ * @DeleteModel(microservice="crm", model="module", fields={"id", "code"})
+ * @SaveModel(microservice="crm", model="module", fields={"id.int"}, url="/module/archive", action="archive")
+ * @SaveModel(microservice="crm", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
  *
  * @GetModelByCode(microservice="crm", model="activity")
  * @DeleteModelByCode(microservice="crm", model="activity")

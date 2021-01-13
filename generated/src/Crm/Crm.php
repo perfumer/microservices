@@ -291,6 +291,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $url = '/module';
 
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Module\GetModuleResponse(), 'get', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ]);
 
@@ -302,14 +303,27 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
-    public function deleteModule(\Perfumer\Microservices\Crm\Request\Module\DeleteModuleRequest $request): \Perfumer\Microservices\Crm\Response\Module\DeleteModuleResponse
+    public function getModules(\Perfumer\Microservices\Crm\Request\Modules\GetModulesRequest $request): \Perfumer\Microservices\Crm\Response\Modules\GetModulesResponse
     {
-        $url = '/module';
+        $url = '/modules';
 
-        /** @var \Perfumer\Microservices\Crm\Response\Module\DeleteModuleResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Module\DeleteModuleResponse(), 'delete', $url, [
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Modules\GetModulesResponse(), 'get', $url, [
+        'name' => $request->name,
         'code' => $request->code,
+        'description' => $request->description,
+        'is_archived' => $request->is_archived,
+        'process' => $request->process,
+        'parent' => $request->parent,
+        'child' => $request->child,
+        'root' => $request->root,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
         ]);
+
+        /* @var \Perfumer\Microservices\Crm\Response\Modules\GetModulesResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
+        $response->modules = $this->fetchKeyFromContent($response->_content, 'modules');
 
         return $response;
     }
@@ -320,8 +334,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Module\SaveModuleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Module\SaveModuleResponse(), 'post', $url, [
-        'name' => $request->name,
+        'id' => $request->id,
         'code' => $request->code,
+        'name' => $request->name,
+        'description' => $request->description,
+        'is_archived' => $request->is_archived,
         'process' => $request->process,
         'parents' => $request->parents,
         'children' => $request->children,
@@ -337,25 +354,53 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
-    public function getModules(\Perfumer\Microservices\Crm\Request\Modules\GetModulesRequest $request): \Perfumer\Microservices\Crm\Response\Modules\GetModulesResponse
+    public function deleteModule(\Perfumer\Microservices\Crm\Request\Module\DeleteModuleRequest $request): \Perfumer\Microservices\Crm\Response\Module\DeleteModuleResponse
     {
-        $url = '/modules';
+        $url = '/module';
 
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Modules\GetModulesResponse(), 'get', $url, [
-        'name' => $request->name,
+        /** @var \Perfumer\Microservices\Crm\Response\Module\DeleteModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Module\DeleteModuleResponse(), 'delete', $url, [
+        'id' => $request->id,
         'code' => $request->code,
-        'process' => $request->process,
-        'parent' => $request->parent,
-        'child' => $request->child,
-        'root' => $request->root,
-        'limit' => $request->limit,
-        'offset' => $request->offset,
-        'count' => $request->count,
         ]);
 
-        /* @var \Perfumer\Microservices\Crm\Response\Modules\GetModulesResponse $response */
-        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
-        $response->modules = $this->fetchKeyFromContent($response->_content, 'modules');
+        return $response;
+    }
+
+    public function archiveModule(\Perfumer\Microservices\Crm\Request\Module\ArchiveModuleRequest $request): \Perfumer\Microservices\Crm\Response\Module\ArchiveModuleResponse
+    {
+        $url = '/module/archive';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Module\ArchiveModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Module\ArchiveModuleResponse(), 'post', $url, [
+        'id' => $request->id,
+        ]);
+
+        /** @var \Perfumer\Microservices\Crm\Response\Module\ArchiveModuleResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'module');
+
+        if (null !== $array) {
+            $response->module = $array;
+        }
+
+        return $response;
+    }
+
+    public function unarchiveModule(\Perfumer\Microservices\Crm\Request\Module\UnarchiveModuleRequest $request): \Perfumer\Microservices\Crm\Response\Module\UnarchiveModuleResponse
+    {
+        $url = '/module/archive';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Module\UnarchiveModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Module\UnarchiveModuleResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ]);
+
+        /** @var \Perfumer\Microservices\Crm\Response\Module\UnarchiveModuleResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'module');
+
+        if (null !== $array) {
+            $response->module = $array;
+        }
 
         return $response;
     }

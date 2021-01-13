@@ -17,9 +17,6 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @SaveModel(microservice="forms", model="form", fields={"name", "code", "schema", "module", "fields.array", "payload.array"})
  * @GetModels(microservice="forms", model="forms", fields={"name", "code", "schema", "module"})
  *
- * @SaveModel(microservice="forms", model="module", fields={"id.int"}, url="/module/archive", action="archive")
- * @SaveModel(microservice="forms", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
- *
  * @GetModel(microservice="forms", model="item", fields={"id", "code", "locale", "reference"})
  * @DeleteModel(microservice="forms", model="item", fields={"id"})
  * @SaveMeshModel(microservice="forms", model="item", fields={"id", "name", "code", "new_code", "reference_code", "reference_id"})
@@ -29,6 +26,8 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @GetMeshModels(microservice="forms", model="modules", fields={"name", "code", "description", "is_archived.bool"})
  * @SaveMeshModel(microservice="forms", model="module", fields={"id", "code", "name", "description", "is_archived.bool"})
  * @DeleteModel(microservice="forms", model="module", fields={"id", "code"})
+ * @SaveModel(microservice="forms", model="module", fields={"id.int"}, url="/module/archive", action="archive")
+ * @SaveModel(microservice="forms", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
  *
  * @GetModelByCode(microservice="forms", model="reference")
  * @DeleteModelByCode(microservice="forms", model="reference")
