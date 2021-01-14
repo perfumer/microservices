@@ -17,7 +17,7 @@ class SaveArticleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $title = null;
 
     /**
      * @var string
@@ -54,7 +54,7 @@ class SaveArticleRequest extends \Perfumer\Microservices\Request
     {
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->category_id = new \Perfumer\Microservices\Undefined();
-        $this->name = new \Perfumer\Microservices\Undefined();
+        $this->title = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->html = new \Perfumer\Microservices\Undefined();

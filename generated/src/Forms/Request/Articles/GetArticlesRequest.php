@@ -12,7 +12,7 @@ class GetArticlesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $title = null;
 
     /**
      * @var string
@@ -52,7 +52,7 @@ class GetArticlesRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->category_id = new \Perfumer\Microservices\Undefined();
-        $this->name = new \Perfumer\Microservices\Undefined();
+        $this->title = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();

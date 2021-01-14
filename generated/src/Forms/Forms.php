@@ -382,7 +382,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse(), 'post', $url, [
         'id' => $request->id,
         'category_id' => $request->category_id,
-        'name' => $request->name,
+        'title' => $request->title,
         'description' => $request->description,
         'code' => $request->code,
         'html' => $request->html,
@@ -407,7 +407,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse(), 'get', $url, [
         'category_id' => $request->category_id,
-        'name' => $request->name,
+        'title' => $request->title,
         'description' => $request->description,
         'code' => $request->code,
         'locale' => $request->locale,
