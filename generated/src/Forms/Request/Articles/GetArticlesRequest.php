@@ -20,6 +20,11 @@ class GetArticlesRequest extends \Perfumer\Microservices\Request
     public $locale = null;
 
     /**
+     * @var string
+     */
+    public $ticket_module = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -39,6 +44,7 @@ class GetArticlesRequest extends \Perfumer\Microservices\Request
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
+        $this->ticket_module = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();

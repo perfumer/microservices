@@ -385,6 +385,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'html' => $request->html,
         'json' => $request->json,
         'locale' => $request->locale,
+        'ticket_modules' => $request->ticket_modules,
         ]);
 
         /** @var \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse $response */
@@ -405,6 +406,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'description' => $request->description,
         'code' => $request->code,
         'locale' => $request->locale,
+        'ticket_module' => $request->ticket_module,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,

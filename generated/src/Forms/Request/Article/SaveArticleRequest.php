@@ -29,6 +29,11 @@ class SaveArticleRequest extends \Perfumer\Microservices\Request
      */
     public $locale = null;
 
+    /**
+     * @var string
+     */
+    public $ticket_modules = null;
+
     public function __construct()
     {
         $this->description = new \Perfumer\Microservices\Undefined();
@@ -36,5 +41,6 @@ class SaveArticleRequest extends \Perfumer\Microservices\Request
         $this->html = new \Perfumer\Microservices\Undefined();
         $this->json = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
+        $this->ticket_modules = new \Perfumer\Microservices\Undefined();
     }
 }

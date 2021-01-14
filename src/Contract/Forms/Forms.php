@@ -36,8 +36,8 @@ use Perfumer\Microservices\Annotation\SaveModel;
  *
  * @GetModel(microservice="forms", model="article", fields={"id", "locale"})
  * @DeleteModel(microservice="forms", model="article", fields={"id", "locale"})
- * @SaveModel(microservice="forms", model="article", fields={"description", "code", "html", "json", "locale"})
- * @GetModels(microservice="forms", model="articles", fields={"description", "code", "locale"})
+ * @SaveModel(microservice="forms", model="article", fields={"description", "code", "html", "json", "locale", "ticket_modules"})
+ * @GetModels(microservice="forms", model="articles", fields={"description", "code", "locale", "ticket_module"})
  */
 interface Forms
 {
