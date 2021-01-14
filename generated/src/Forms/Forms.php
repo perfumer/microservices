@@ -380,6 +380,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse(), 'post', $url, [
+        'id' => $request->id,
         'description' => $request->description,
         'code' => $request->code,
         'html' => $request->html,
