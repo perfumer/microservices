@@ -9,14 +9,8 @@ class DeleteArticleRequest extends \Perfumer\Microservices\Request
      */
     public $id = null;
 
-    /**
-     * @var string
-     */
-    public $locale = null;
-
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
-        $this->locale = new \Perfumer\Microservices\Undefined();
     }
 }

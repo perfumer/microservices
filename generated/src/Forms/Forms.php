@@ -351,6 +351,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse(), 'get', $url, [
         'id' => $request->id,
         'locale' => $request->locale,
+        'code' => $request->code,
         ]);
 
         /** @var \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse $response */
@@ -368,7 +369,6 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Article\DeleteArticleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\DeleteArticleResponse(), 'delete', $url, [
         'id' => $request->id,
-        'locale' => $request->locale,
         ]);
 
         return $response;
@@ -381,6 +381,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse(), 'post', $url, [
         'id' => $request->id,
+        'category_id' => $request->category_id,
+        'name' => $request->name,
         'description' => $request->description,
         'code' => $request->code,
         'html' => $request->html,
@@ -404,6 +406,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $url = '/articles';
 
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse(), 'get', $url, [
+        'category_id' => $request->category_id,
+        'name' => $request->name,
         'description' => $request->description,
         'code' => $request->code,
         'locale' => $request->locale,

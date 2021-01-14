@@ -5,6 +5,16 @@ namespace Generated\Perfumer\Microservices\Forms\Request\Articles;
 class GetArticlesRequest extends \Perfumer\Microservices\Request
 {
     /**
+     * @var int
+     */
+    public $category_id = null;
+
+    /**
+     * @var string
+     */
+    public $name = null;
+
+    /**
      * @var string
      */
     public $description = null;
@@ -41,6 +51,8 @@ class GetArticlesRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->category_id = new \Perfumer\Microservices\Undefined();
+        $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();

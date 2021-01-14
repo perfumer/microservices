@@ -10,6 +10,16 @@ class SaveArticleRequest extends \Perfumer\Microservices\Request
     public $id = null;
 
     /**
+     * @var int
+     */
+    public $category_id = null;
+
+    /**
+     * @var string
+     */
+    public $name = null;
+
+    /**
      * @var string
      */
     public $description = null;
@@ -35,13 +45,16 @@ class SaveArticleRequest extends \Perfumer\Microservices\Request
     public $locale = null;
 
     /**
-     * @var string
+     * @var array
      */
-    public $ticket_modules = null;
+    public $ticket_modules = [
+    ];
 
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
+        $this->category_id = new \Perfumer\Microservices\Undefined();
+        $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->html = new \Perfumer\Microservices\Undefined();
