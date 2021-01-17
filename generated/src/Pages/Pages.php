@@ -4,6 +4,43 @@ namespace Generated\Perfumer\Microservices\Pages;
 
 abstract class Pages extends \Perfumer\Microservices\Microservice implements \Perfumer\Microservices\Contract\Pages\Pages
 {
+    public function getSite(\Perfumer\Microservices\Pages\Request\Site\GetSiteRequest $request): \Perfumer\Microservices\Pages\Response\Site\GetSiteResponse
+    {
+        $url = '/site';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Site\GetSiteResponse(), 'get', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        ]);
+
+        /** @var \Perfumer\Microservices\Pages\Response\Site\GetSiteResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'site');
+
+        $response->site = $array;
+
+        return $response;
+    }
+
+    public function getSites(\Perfumer\Microservices\Pages\Request\Sites\GetSitesRequest $request): \Perfumer\Microservices\Pages\Response\Sites\GetSitesResponse
+    {
+        $url = '/sites';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Sites\GetSitesResponse(), 'get', $url, [
+        'name' => $request->name,
+        'code' => $request->code,
+        'description' => $request->description,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        ]);
+
+        /* @var \Perfumer\Microservices\Pages\Response\Sites\GetSitesResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
+        $response->sites = $this->fetchKeyFromContent($response->_content, 'sites');
+
+        return $response;
+    }
+
     public function getModule(\Perfumer\Microservices\Pages\Request\Module\GetModuleRequest $request): \Perfumer\Microservices\Pages\Response\Module\GetModuleResponse
     {
         $url = '/module';
@@ -259,6 +296,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'address' => $request->address,
         'description' => $request->description,
         'module_id' => $request->module_id,
+        'site_id' => $request->site_id,
         'module_code' => $request->module_code,
         'is_archived' => $request->is_archived,
         ]);
@@ -284,6 +322,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'address' => $request->address,
         'description' => $request->description,
         'module_id' => $request->module_id,
+        'site_id' => $request->site_id,
         'module_code' => $request->module_code,
         'is_archived' => $request->is_archived,
         ]);

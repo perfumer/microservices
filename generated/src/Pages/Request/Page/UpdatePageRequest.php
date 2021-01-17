@@ -25,9 +25,14 @@ class UpdatePageRequest extends \Perfumer\Microservices\Request
     public $description = null;
 
     /**
-     * @var string
+     * @var int
      */
     public $module_id = null;
+
+    /**
+     * @var int
+     */
+    public $site_id = null;
 
     /**
      * @var string
@@ -46,6 +51,7 @@ class UpdatePageRequest extends \Perfumer\Microservices\Request
         $this->address = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->module_id = new \Perfumer\Microservices\Undefined();
+        $this->site_id = new \Perfumer\Microservices\Undefined();
         $this->module_code = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
     }
