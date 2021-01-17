@@ -342,6 +342,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'process' => $request->process,
         'payload' => $request->payload,
         'fields' => $request->fields,
+        'fields_page_id' => $request->fields_page_id,
         'parents' => $request->parents,
         'children' => $request->children,
         ]);

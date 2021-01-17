@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Module;
 class SaveModuleRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 
@@ -47,6 +47,11 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
     ];
 
     /**
+     * @var int
+     */
+    public $fields_page_id = null;
+
+    /**
      * @var array
      */
     public $parents = [
@@ -68,6 +73,7 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
         $this->process = new \Perfumer\Microservices\Undefined();
         $this->payload = new \Perfumer\Microservices\Undefined();
         $this->fields = new \Perfumer\Microservices\Undefined();
+        $this->fields_page_id = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->children = new \Perfumer\Microservices\Undefined();
     }
