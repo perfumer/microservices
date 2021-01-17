@@ -37,6 +37,18 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var array
      */
+    public $payload = [
+    ];
+
+    /**
+     * @var array
+     */
+    public $fields = [
+    ];
+
+    /**
+     * @var array
+     */
     public $parents = [
     ];
 
@@ -54,6 +66,8 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->process = new \Perfumer\Microservices\Undefined();
+        $this->payload = new \Perfumer\Microservices\Undefined();
+        $this->fields = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->children = new \Perfumer\Microservices\Undefined();
     }

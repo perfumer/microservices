@@ -359,6 +359,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'is_archived' => $request->is_archived,
         'address' => $request->address,
         'module_id' => $request->module_id,
+        'site_id' => $request->site_id,
         'module_code' => $request->module_code,
         'limit' => $request->limit,
         'offset' => $request->offset,
