@@ -1,8 +1,8 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Crm\Request\Ticket;
+namespace Generated\Perfumer\Microservices\Crm\Request\Tickets;
 
-class SaveFormTicketRequest extends \Perfumer\Microservices\Request
+class GetFormsTicketsRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var string
@@ -20,16 +20,21 @@ class SaveFormTicketRequest extends \Perfumer\Microservices\Request
     public $category = null;
 
     /**
-     * @var array
+     * @var int
      */
-    public $payload = [
-    ];
+    public $limit = null;
+
+    /**
+     * @var int
+     */
+    public $offset = null;
 
     public function __construct()
     {
         $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->form = new \Perfumer\Microservices\Undefined();
         $this->category = new \Perfumer\Microservices\Undefined();
-        $this->payload = new \Perfumer\Microservices\Undefined();
+        $this->limit = new \Perfumer\Microservices\Undefined();
+        $this->offset = new \Perfumer\Microservices\Undefined();
     }
 }

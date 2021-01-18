@@ -1,8 +1,8 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Crm\Request\Ticket;
+namespace Generated\Perfumer\Microservices\Crm\Request\Form;
 
-class SaveFormTicketRequest extends \Perfumer\Microservices\Request
+class SaveFormFormRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var string

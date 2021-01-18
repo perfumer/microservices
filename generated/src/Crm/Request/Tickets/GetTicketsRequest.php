@@ -45,11 +45,6 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
     public $closed_at = null;
 
     /**
-     * @var string
-     */
-    public $payload = null;
-
-    /**
      * @var int
      */
     public $limit = null;
@@ -69,7 +64,6 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
         $this->deadline_at = new \Perfumer\Microservices\Undefined();
         $this->opened_at = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();
-        $this->payload = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
     }

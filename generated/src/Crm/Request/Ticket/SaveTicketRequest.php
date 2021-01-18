@@ -45,9 +45,10 @@ class SaveTicketRequest extends \Perfumer\Microservices\Request
     public $closed_at = null;
 
     /**
-     * @var string
+     * @var array
      */
-    public $payload = null;
+    public $payload = [
+    ];
 
     public function __construct()
     {
