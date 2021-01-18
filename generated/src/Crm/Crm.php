@@ -694,4 +694,308 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         return $response;
     }
+
+    public function getTicket(\Perfumer\Microservices\Crm\Request\Ticket\GetTicketRequest $request): \Perfumer\Microservices\Crm\Response\Ticket\GetTicketResponse
+    {
+        $url = '/ticket';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Ticket\GetTicketResponse(), 'get', $url, [
+        'code' => $request->code,
+        ]);
+
+        /** @var \Perfumer\Microservices\Crm\Response\Ticket\GetTicketResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'ticket');
+
+        $response->ticket = $array;
+
+        return $response;
+    }
+
+    public function deleteTicket(\Perfumer\Microservices\Crm\Request\Ticket\DeleteTicketRequest $request): \Perfumer\Microservices\Crm\Response\Ticket\DeleteTicketResponse
+    {
+        $url = '/ticket';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Ticket\DeleteTicketResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Ticket\DeleteTicketResponse(), 'delete', $url, [
+        'code' => $request->code,
+        ]);
+
+        return $response;
+    }
+
+    public function saveTicket(\Perfumer\Microservices\Crm\Request\Ticket\SaveTicketRequest $request): \Perfumer\Microservices\Crm\Response\Ticket\SaveTicketResponse
+    {
+        $url = '/ticket';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Ticket\SaveTicketResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Ticket\SaveTicketResponse(), 'post', $url, [
+        'name' => $request->name,
+        'customer' => $request->customer,
+        'module' => $request->module,
+        'status' => $request->status,
+        'code' => $request->code,
+        'deadline_at' => $request->deadline_at,
+        'opened_at' => $request->opened_at,
+        'closed_at' => $request->closed_at,
+        'payload' => $request->payload,
+        ]);
+
+        /** @var \Perfumer\Microservices\Crm\Response\Ticket\SaveTicketResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'ticket');
+
+        if (null !== $array) {
+            $response->ticket = $array;
+        }
+
+        return $response;
+    }
+
+    public function getTickets(\Perfumer\Microservices\Crm\Request\Tickets\GetTicketsRequest $request): \Perfumer\Microservices\Crm\Response\Tickets\GetTicketsResponse
+    {
+        $url = '/tickets';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tickets\GetTicketsResponse(), 'get', $url, [
+        'name' => $request->name,
+        'customer' => $request->customer,
+        'module' => $request->module,
+        'status' => $request->status,
+        'code' => $request->code,
+        'deadline_at' => $request->deadline_at,
+        'opened_at' => $request->opened_at,
+        'closed_at' => $request->closed_at,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        ]);
+
+        /* @var \Perfumer\Microservices\Crm\Response\Tickets\GetTicketsResponse $response */
+        $response->tickets = $this->fetchKeyFromContent($response->_content, 'tickets');
+
+        return $response;
+    }
+
+    public function saveTicketForm(\Perfumer\Microservices\Crm\Request\Form\SaveTicketFormRequest $request): \Perfumer\Microservices\Crm\Response\Form\SaveTicketFormResponse
+    {
+        $url = '/ticket/form';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Form\SaveTicketFormResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Form\SaveTicketFormResponse(), 'post', $url, [
+        'ticket' => $request->ticket,
+        'form' => $request->form,
+        'category' => $request->category,
+        'payload' => $request->payload,
+        ]);
+
+        /** @var \Perfumer\Microservices\Crm\Response\Form\SaveTicketFormResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'form');
+
+        if (null !== $array) {
+            $response->form = $array;
+        }
+
+        return $response;
+    }
+
+    public function deleteTicketForm(\Perfumer\Microservices\Crm\Request\Form\DeleteTicketFormRequest $request): \Perfumer\Microservices\Crm\Response\Form\DeleteTicketFormResponse
+    {
+        $url = '/ticket/form';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Form\DeleteTicketFormResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Form\DeleteTicketFormResponse(), 'delete', $url, [
+        'code' => $request->code,
+        ]);
+
+        return $response;
+    }
+
+    public function getTicketForms(\Perfumer\Microservices\Crm\Request\Forms\GetTicketFormsRequest $request): \Perfumer\Microservices\Crm\Response\Forms\GetTicketFormsResponse
+    {
+        $url = '/ticket/forms';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Forms\GetTicketFormsResponse(), 'get', $url, [
+        'ticket' => $request->ticket,
+        'form' => $request->form,
+        'category' => $request->category,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        ]);
+
+        /* @var \Perfumer\Microservices\Crm\Response\Forms\GetTicketFormsResponse $response */
+        $response->forms = $this->fetchKeyFromContent($response->_content, 'forms');
+
+        return $response;
+    }
+
+    public function saveTicketLog(\Perfumer\Microservices\Crm\Request\Log\SaveTicketLogRequest $request): \Perfumer\Microservices\Crm\Response\Log\SaveTicketLogResponse
+    {
+        $url = '/ticket/log';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Log\SaveTicketLogResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Log\SaveTicketLogResponse(), 'post', $url, [
+        'ticket' => $request->ticket,
+        'text' => $request->text,
+        'user' => $request->user,
+        'code' => $request->code,
+        'status' => $request->status,
+        'form' => $request->form,
+        'payload' => $request->payload,
+        ]);
+
+        /** @var \Perfumer\Microservices\Crm\Response\Log\SaveTicketLogResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'log');
+
+        if (null !== $array) {
+            $response->log = $array;
+        }
+
+        return $response;
+    }
+
+    public function deleteTicketLog(\Perfumer\Microservices\Crm\Request\Log\DeleteTicketLogRequest $request): \Perfumer\Microservices\Crm\Response\Log\DeleteTicketLogResponse
+    {
+        $url = '/ticket/log';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Log\DeleteTicketLogResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Log\DeleteTicketLogResponse(), 'delete', $url, [
+        'code' => $request->code,
+        ]);
+
+        return $response;
+    }
+
+    public function getTicketLogs(\Perfumer\Microservices\Crm\Request\Logs\GetTicketLogsRequest $request): \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse
+    {
+        $url = '/ticket/logs';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse(), 'get', $url, [
+        'ticket' => $request->ticket,
+        'text' => $request->text,
+        'user' => $request->user,
+        'code' => $request->code,
+        'status' => $request->status,
+        'form' => $request->form,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        ]);
+
+        /* @var \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse $response */
+        $response->logs = $this->fetchKeyFromContent($response->_content, 'logs');
+
+        return $response;
+    }
+
+    public function getTicketTasks(\Perfumer\Microservices\Crm\Request\Tasks\GetTicketTasksRequest $request): \Perfumer\Microservices\Crm\Response\Tasks\GetTicketTasksResponse
+    {
+        $url = '/ticket/tasks';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tasks\GetTicketTasksResponse(), 'get', $url, [
+        'user' => $request->user,
+        'activity' => $request->activity,
+        'ticket' => $request->ticket,
+        'group' => $request->group,
+        'code' => $request->code,
+        'deadline_at' => $request->deadline_at,
+        'wake_at' => $request->wake_at,
+        'closed_at' => $request->closed_at,
+        'complexity' => $request->complexity,
+        'state' => $request->state,
+        'description' => $request->description,
+        'link' => $request->link,
+        'close_status' => $request->close_status,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        ]);
+
+        /* @var \Perfumer\Microservices\Crm\Response\Tasks\GetTicketTasksResponse $response */
+        $response->tasks = $this->fetchKeyFromContent($response->_content, 'tasks');
+
+        return $response;
+    }
+
+    public function getTask(\Perfumer\Microservices\Crm\Request\Task\GetTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\GetTaskResponse
+    {
+        $url = '/task';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\GetTaskResponse(), 'get', $url, [
+        'code' => $request->code,
+        ]);
+
+        /** @var \Perfumer\Microservices\Crm\Response\Task\GetTaskResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'task');
+
+        $response->task = $array;
+
+        return $response;
+    }
+
+    public function deleteTask(\Perfumer\Microservices\Crm\Request\Task\DeleteTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\DeleteTaskResponse
+    {
+        $url = '/task';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Task\DeleteTaskResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\DeleteTaskResponse(), 'delete', $url, [
+        'code' => $request->code,
+        ]);
+
+        return $response;
+    }
+
+    public function saveTask(\Perfumer\Microservices\Crm\Request\Task\SaveTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\SaveTaskResponse
+    {
+        $url = '/task';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Task\SaveTaskResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\SaveTaskResponse(), 'post', $url, [
+        'user' => $request->user,
+        'activity' => $request->activity,
+        'ticket' => $request->ticket,
+        'group' => $request->group,
+        'code' => $request->code,
+        'deadline_at' => $request->deadline_at,
+        'wake_at' => $request->wake_at,
+        'closed_at' => $request->closed_at,
+        'complexity' => $request->complexity,
+        'state' => $request->state,
+        'description' => $request->description,
+        'link' => $request->link,
+        'close_status' => $request->close_status,
+        'payload' => $request->payload,
+        ]);
+
+        /** @var \Perfumer\Microservices\Crm\Response\Task\SaveTaskResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'task');
+
+        if (null !== $array) {
+            $response->task = $array;
+        }
+
+        return $response;
+    }
+
+    public function getTasks(\Perfumer\Microservices\Crm\Request\Tasks\GetTasksRequest $request): \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse
+    {
+        $url = '/tasks';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse(), 'get', $url, [
+        'user' => $request->user,
+        'activity' => $request->activity,
+        'ticket' => $request->ticket,
+        'group' => $request->group,
+        'code' => $request->code,
+        'deadline_at' => $request->deadline_at,
+        'wake_at' => $request->wake_at,
+        'closed_at' => $request->closed_at,
+        'complexity' => $request->complexity,
+        'state' => $request->state,
+        'description' => $request->description,
+        'link' => $request->link,
+        'close_status' => $request->close_status,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        ]);
+
+        /* @var \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse $response */
+        $response->tasks = $this->fetchKeyFromContent($response->_content, 'tasks');
+
+        return $response;
+    }
 }

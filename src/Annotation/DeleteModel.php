@@ -26,6 +26,16 @@ class DeleteModel extends LayoutAnnotation
      */
     public $fields;
 
+    /**
+     * @var string
+     */
+    public $url;
+
+    /**
+     * @var string
+     */
+    public $action = 'delete';
+
     public function onBuild(): void
     {
         parent::onBuild();
@@ -33,16 +43,18 @@ class DeleteModel extends LayoutAnnotation
         $ucfirst_model = ucfirst($this->model);
         $lcfirst_model = lcfirst($this->model);
         $microservice = ucfirst($this->microservice);
+        $ucfirst_action = ucfirst($this->action);
+        $lcfirst_action = lcfirst($this->action);
 
-        $parameter_type = sprintf('\\Perfumer\\Microservices\\%s\\Request\\%s\\Delete%sRequest', $microservice, $ucfirst_model, $ucfirst_model);
-        $return_type = sprintf('\\Perfumer\\Microservices\\%s\\Response\\%s\\Delete%sResponse', $microservice, $ucfirst_model, $ucfirst_model);
+        $parameter_type = sprintf('\\Perfumer\\Microservices\\%s\\Request\\%s\\%s%sRequest', $microservice, $ucfirst_model, $ucfirst_action, $ucfirst_model);
+        $return_type = sprintf('\\Perfumer\\Microservices\\%s\\Response\\%s\\%s%sResponse', $microservice, $ucfirst_model, $ucfirst_action, $ucfirst_model);
 
         $parameter = new ParameterGenerator();
         $parameter->setName('request');
         $parameter->setType($parameter_type);
 
         $method = new MethodGenerator();
-        $method->setName('delete' . $ucfirst_model);
+        $method->setName($lcfirst_action . $ucfirst_model);
         $method->setParameter($parameter);
         $method->setReturnType($return_type);
 
@@ -65,8 +77,11 @@ class DeleteModel extends LayoutAnnotation
             $properties[$name] = $type;
         }
 
+        $url = $this->url ?: $lcfirst_model;
+        $url = trim($url, '/');
+
         $body = <<<EOD
-\$url = '/$lcfirst_model';
+\$url = '/$url';
 
 /** @var $return_type \$response */
 \$response = \$this->doRequest(new $return_type(), 'delete', \$url, [
@@ -85,7 +100,7 @@ EOD;
 
         $method->setBody($body);
 
-        $this->generateRequest('delete', $properties);
-        $this->generateResponse('delete');
+        $this->generateRequest($lcfirst_action, $properties);
+        $this->generateResponse($lcfirst_action);
     }
 }
