@@ -44,6 +44,11 @@ class GetTicketLogsRequest extends \Perfumer\Microservices\Request
      */
     public $offset = null;
 
+    /**
+     * @var int
+     */
+    public $count = null;
+
     public function __construct()
     {
         $this->ticket = new \Perfumer\Microservices\Undefined();
@@ -54,5 +59,6 @@ class GetTicketLogsRequest extends \Perfumer\Microservices\Request
         $this->form = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
+        $this->count = new \Perfumer\Microservices\Undefined();
     }
 }

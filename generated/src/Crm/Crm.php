@@ -765,9 +765,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'closed_at' => $request->closed_at,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Tickets\GetTicketsResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->tickets = $this->fetchKeyFromContent($response->_content, 'tickets');
 
         return $response;
@@ -817,9 +819,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'category' => $request->category,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Forms\GetTicketFormsResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->forms = $this->fetchKeyFromContent($response->_content, 'forms');
 
         return $response;
@@ -875,9 +879,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'form' => $request->form,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->logs = $this->fetchKeyFromContent($response->_content, 'logs');
 
         return $response;
@@ -903,9 +909,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'close_status' => $request->close_status,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Tasks\GetTicketTasksResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->tasks = $this->fetchKeyFromContent($response->_content, 'tasks');
 
         return $response;
@@ -991,10 +999,96 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'close_status' => $request->close_status,
         'limit' => $request->limit,
         'offset' => $request->offset,
+        'count' => $request->count,
         ]);
 
         /* @var \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
         $response->tasks = $this->fetchKeyFromContent($response->_content, 'tasks');
+
+        return $response;
+    }
+
+    public function getCustomer(\Perfumer\Microservices\Crm\Request\Customer\GetCustomerRequest $request): \Perfumer\Microservices\Crm\Response\Customer\GetCustomerResponse
+    {
+        $url = '/customer';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Customer\GetCustomerResponse(), 'get', $url, [
+        'last_name' => $request->last_name,
+        'first_name' => $request->first_name,
+        'mid_name' => $request->mid_name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'iin' => $request->iin,
+        'code' => $request->code,
+        ]);
+
+        /** @var \Perfumer\Microservices\Crm\Response\Customer\GetCustomerResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'customer');
+
+        $response->customer = $array;
+
+        return $response;
+    }
+
+    public function deleteCustomer(\Perfumer\Microservices\Crm\Request\Customer\DeleteCustomerRequest $request): \Perfumer\Microservices\Crm\Response\Customer\DeleteCustomerResponse
+    {
+        $url = '/customer';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Customer\DeleteCustomerResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Customer\DeleteCustomerResponse(), 'delete', $url, [
+        'code' => $request->code,
+        ]);
+
+        return $response;
+    }
+
+    public function saveCustomer(\Perfumer\Microservices\Crm\Request\Customer\SaveCustomerRequest $request): \Perfumer\Microservices\Crm\Response\Customer\SaveCustomerResponse
+    {
+        $url = '/customer';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Customer\SaveCustomerResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Customer\SaveCustomerResponse(), 'post', $url, [
+        'last_name' => $request->last_name,
+        'first_name' => $request->first_name,
+        'mid_name' => $request->mid_name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'iin' => $request->iin,
+        'code' => $request->code,
+        'password' => $request->password,
+        ]);
+
+        /** @var \Perfumer\Microservices\Crm\Response\Customer\SaveCustomerResponse $response */
+        $array = $this->fetchKeyFromContent($response->_content, 'customer');
+
+        if (null !== $array) {
+            $response->customer = $array;
+        }
+
+        return $response;
+    }
+
+    public function getCustomers(\Perfumer\Microservices\Crm\Request\Customers\GetCustomersRequest $request): \Perfumer\Microservices\Crm\Response\Customers\GetCustomersResponse
+    {
+        $url = '/customers';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Customers\GetCustomersResponse(), 'get', $url, [
+        'last_name' => $request->last_name,
+        'first_name' => $request->first_name,
+        'mid_name' => $request->mid_name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'iin' => $request->iin,
+        'code' => $request->code,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        ]);
+
+        /* @var \Perfumer\Microservices\Crm\Response\Customers\GetCustomersResponse $response */
+        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
+        $response->customers = $this->fetchKeyFromContent($response->_content, 'customers');
 
         return $response;
     }
