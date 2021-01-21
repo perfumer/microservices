@@ -28,7 +28,9 @@ class GetModels extends RequestModel
         $ucfirst_model = ucfirst($this->model);
         $lcfirst_model = lcfirst($this->model);
 
-        $this->submodel = $ucfirst_model;
+        if (!$this->submodel) {
+            $this->submodel = $ucfirst_model;
+        }
 
         if ($this->paginate) {
             $this->fields = array_merge($this->fields, ['limit.int', 'offset.int', 'count.int']);

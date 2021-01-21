@@ -152,7 +152,7 @@ EOD;
 
         $method->setBody($body);
 
-        $this->generateRequest($this->action, $properties);
-        $this->generateResponse($this->action, $response_fields);
+        $this->generateRequest($this->action, $this->submodel, $properties);
+        $this->generateResponse($this->action, $this->submodel, $response_fields);
     }
 }

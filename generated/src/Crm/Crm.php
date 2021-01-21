@@ -509,12 +509,12 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
-    public function UserCredentials(\Perfumer\Microservices\Crm\Request\User\UserCredentialsRequest $request): \Perfumer\Microservices\Crm\Response\User\UserCredentialsResponse
+    public function getUserCredentials(\Perfumer\Microservices\Crm\Request\User\GetUserCredentialsRequest $request): \Perfumer\Microservices\Crm\Response\User\GetUserCredentialsResponse
     {
         $url = '/user/credentials';
 
-        /** @var \Perfumer\Microservices\Crm\Response\User\UserCredentialsResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\UserCredentialsResponse(), '', $url, [
+        /** @var \Perfumer\Microservices\Crm\Response\User\GetUserCredentialsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\GetUserCredentialsResponse(), 'get', $url, [
         'iin' => $request->iin,
         'phone' => $request->phone,
         'email' => $request->email,
@@ -1112,12 +1112,12 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
-    public function CustomerCredentials(\Perfumer\Microservices\Crm\Request\Customer\CustomerCredentialsRequest $request): \Perfumer\Microservices\Crm\Response\Customer\CustomerCredentialsResponse
+    public function getCustomerCredentials(\Perfumer\Microservices\Crm\Request\Customer\GetCustomerCredentialsRequest $request): \Perfumer\Microservices\Crm\Response\Customer\GetCustomerCredentialsResponse
     {
         $url = '/customer/credentials';
 
-        /** @var \Perfumer\Microservices\Crm\Response\Customer\CustomerCredentialsResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Customer\CustomerCredentialsResponse(), '', $url, [
+        /** @var \Perfumer\Microservices\Crm\Response\Customer\GetCustomerCredentialsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Customer\GetCustomerCredentialsResponse(), 'get', $url, [
         'iin' => $request->iin,
         'phone' => $request->phone,
         'email' => $request->email,

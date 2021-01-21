@@ -1,8 +1,8 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Crm\Request\Customer;
+namespace Generated\Perfumer\Microservices\Crm\Request\User;
 
-class CustomerRequest extends \Perfumer\Microservices\Request
+class GetUserCredentialsRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var string

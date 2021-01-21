@@ -23,7 +23,10 @@ class SaveModel extends RequestModel
         $ucfirst_model = ucfirst($this->model);
         $lcfirst_model = lcfirst($this->model);
 
-        $this->submodel = $ucfirst_model;
+        if (!$this->submodel) {
+            $this->submodel = $ucfirst_model;
+        }
+
         $this->response_fields[] = $lcfirst_model . '.array';
 
         parent::onCreate();

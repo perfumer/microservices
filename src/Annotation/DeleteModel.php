@@ -22,7 +22,9 @@ class DeleteModel extends RequestModel
     {
         $ucfirst_model = ucfirst($this->model);
 
-        $this->submodel = $ucfirst_model;
+        if (!$this->submodel) {
+            $this->submodel = $ucfirst_model;
+        }
 
         parent::onCreate();
     }

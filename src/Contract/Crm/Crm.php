@@ -45,7 +45,7 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @SaveModel(microservice="crm", model="activity", fields={"name", "code", "priority"})
  * @GetModels(microservice="crm", model="activities", fields={"name", "code", "priority"})
  *
- * @RequestModel(microservice="crm", model="user", submodel="UserCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"user"}, url="/user/credentials")
+ * @GetModel(microservice="crm", model="user", submodel="UserCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"user"}, url="/user/credentials")
  * @GetModel(microservice="crm", model="user", fields={"id", "code"})
  * @DeleteModel(microservice="crm", model="user", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="user", fields={"id", "last_name", "first_name", "mid_name", "code"})
@@ -81,7 +81,7 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @SaveModel(microservice="crm", model="task", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status", "payload.array"})
  * @GetModels(microservice="crm", model="tasks", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status"})
 
- * @RequestModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"customer"}, url="/customer/credentials")
+ * @GetModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"customer"}, url="/customer/credentials")
  * @GetModel(microservice="crm", model="customer", fields={"id", "code"})
  * @DeleteModel(microservice="crm", model="customer", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="customer", fields={"id", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
