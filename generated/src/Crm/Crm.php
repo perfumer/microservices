@@ -482,6 +482,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $url = '/user';
 
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\GetUserResponse(), 'get', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ]);
 
@@ -499,6 +500,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\User\DeleteUserResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\DeleteUserResponse(), 'delete', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ]);
 
@@ -511,6 +513,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\User\SaveUserResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\SaveUserResponse(), 'post', $url, [
+        'id' => $request->id,
         'last_name' => $request->last_name,
         'first_name' => $request->first_name,
         'mid_name' => $request->mid_name,
@@ -1014,12 +1017,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $url = '/customer';
 
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Customer\GetCustomerResponse(), 'get', $url, [
-        'last_name' => $request->last_name,
-        'first_name' => $request->first_name,
-        'mid_name' => $request->mid_name,
-        'email' => $request->email,
-        'phone' => $request->phone,
-        'iin' => $request->iin,
+        'id' => $request->id,
         'code' => $request->code,
         ]);
 
@@ -1037,6 +1035,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Customer\DeleteCustomerResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Customer\DeleteCustomerResponse(), 'delete', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ]);
 
@@ -1049,6 +1048,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Customer\SaveCustomerResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Customer\SaveCustomerResponse(), 'post', $url, [
+        'id' => $request->id,
         'last_name' => $request->last_name,
         'first_name' => $request->first_name,
         'mid_name' => $request->mid_name,
