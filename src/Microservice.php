@@ -12,13 +12,9 @@ class Microservice
 
     protected function fetchKeyFromContent($content, $key)
     {
-        $return = null;
+        $return = new Undefined();
 
-        if (!is_array($content)) {
-            return null;
-        }
-
-        if (isset($content[$key])) {
+        if (is_array($content) && isset($content[$key])) {
             $return = $content[$key];
         }
 
