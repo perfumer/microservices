@@ -12,10 +12,11 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
 use Perfumer\Microservices\Annotation\SaveModel;
 
 /**
- * @GetModelByCode(microservice="forms", model="form")
- * @DeleteModelByCode(microservice="forms", model="form")
- * @SaveModel(microservice="forms", model="form", fields={"name", "code", "schema", "module", "fields.array", "payload.array"})
- * @GetModels(microservice="forms", model="forms", fields={"name", "code", "schema", "module"})
+ * @GetModel(microservice="forms", model="form", fields={"code", "ticket_id.int", "module", "id.int"})
+ * @DeleteModel(microservice="forms", model="form", fields={"code", "ticket_id.int", "module", "id.int"})
+ * @SaveModel(microservice="forms", model="form", fields={"name", "code", "ticket_id.int", "user_id.int", "customer_id.int", "schema", "module", "fields.array", "payload.array"})
+ * @SaveModel(microservice="forms", model="forms", submodel="FormsTicket", url="/forms/ticket", fields={"code", "ticket_id.int", "module"})
+ * @GetModels(microservice="forms", model="forms", fields={"name", "code", "schema", "module", "ticket_id.int", "user_id.int", "customer_id.int"})
  *
  * @GetModel(microservice="forms", model="item", fields={"id", "code", "locale", "reference"})
  * @DeleteModel(microservice="forms", model="item", fields={"id"})
@@ -36,7 +37,7 @@ use Perfumer\Microservices\Annotation\SaveModel;
  *
  * @GetModel(microservice="forms", model="article", fields={"id", "locale", "code"})
  * @DeleteModel(microservice="forms", model="article", fields={"id"})
- * @SaveModel(microservice="forms", model="article", fields={"id", "category_id.int", "title", "description", "code", "html", "json", "locale", "ticket_modules.array"})
+ * @SaveModel(microservice="forms", model="article", fields={"id", "image", "category_id.int", "title", "description", "code", "html", "json", "locale", "ticket_modules.array"})
  * @GetModels(microservice="forms", model="articles", fields={"category_id.int", "title", "description", "code", "locale", "ticket_module"})
  */
 interface Forms

@@ -10,6 +10,11 @@ class SaveArticleRequest extends \Perfumer\Microservices\Request
     public $id = null;
 
     /**
+     * @var string
+     */
+    public $image = null;
+
+    /**
      * @var int
      */
     public $category_id = null;
@@ -53,6 +58,7 @@ class SaveArticleRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
+        $this->image = new \Perfumer\Microservices\Undefined();
         $this->category_id = new \Perfumer\Microservices\Undefined();
         $this->title = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();

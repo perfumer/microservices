@@ -11,6 +11,9 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Form\GetFormResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\GetFormResponse(), 'get', $url, [
         'code' => $request->code,
+        'ticket_id' => $request->ticket_id,
+        'module' => $request->module,
+        'id' => $request->id,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'form');
 
@@ -28,6 +31,9 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Form\DeleteFormResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\DeleteFormResponse(), 'delete', $url, [
         'code' => $request->code,
+        'ticket_id' => $request->ticket_id,
+        'module' => $request->module,
+        'id' => $request->id,
         ]);
 
         return $response;
@@ -41,6 +47,9 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\SaveFormResponse(), 'post', $url, [
         'name' => $request->name,
         'code' => $request->code,
+        'ticket_id' => $request->ticket_id,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
         'schema' => $request->schema,
         'module' => $request->module,
         'fields' => $request->fields,
@@ -50,6 +59,25 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->form = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveFormsTicket(\Perfumer\Microservices\Forms\Request\Forms\SaveFormsTicketRequest $request): \Perfumer\Microservices\Forms\Response\Forms\SaveFormsTicketResponse
+    {
+        $url = '/forms/ticket';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Forms\SaveFormsTicketResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Forms\SaveFormsTicketResponse(), 'post', $url, [
+        'code' => $request->code,
+        'ticket_id' => $request->ticket_id,
+        'module' => $request->module,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'forms');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->forms = $item;
         }
 
         return $response;
@@ -65,6 +93,9 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'code' => $request->code,
         'schema' => $request->schema,
         'module' => $request->module,
+        'ticket_id' => $request->ticket_id,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
@@ -402,6 +433,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse(), 'post', $url, [
         'id' => $request->id,
+        'image' => $request->image,
         'category_id' => $request->category_id,
         'title' => $request->title,
         'description' => $request->description,
