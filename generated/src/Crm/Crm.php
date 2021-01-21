@@ -12,10 +12,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Crm\Response\Permission\GetPermissionResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'permission');
-
-        $response->permission = $array;
+        /* @var \Perfumer\Microservices\Crm\Response\Permission\GetPermissionResponse $response */
+        $response->permission = $this->fetchKeyFromContent($response->_content, 'permission');
 
         return $response;
     }
@@ -86,10 +84,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Crm\Response\Calendar\GetCalendarResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'calendar');
-
-        $response->calendar = $array;
+        /* @var \Perfumer\Microservices\Crm\Response\Calendar\GetCalendarResponse $response */
+        $response->calendar = $this->fetchKeyFromContent($response->_content, 'calendar');
 
         return $response;
     }
@@ -153,10 +149,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Crm\Response\Role\GetRoleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'role');
-
-        $response->role = $array;
+        /* @var \Perfumer\Microservices\Crm\Response\Role\GetRoleResponse $response */
+        $response->role = $this->fetchKeyFromContent($response->_content, 'role');
 
         return $response;
     }
@@ -220,10 +214,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Crm\Response\Group\GetGroupResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'group');
-
-        $response->group = $array;
+        /* @var \Perfumer\Microservices\Crm\Response\Group\GetGroupResponse $response */
+        $response->group = $this->fetchKeyFromContent($response->_content, 'group');
 
         return $response;
     }
@@ -295,10 +287,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Crm\Response\Module\GetModuleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'module');
-
-        $response->module = $array;
+        /* @var \Perfumer\Microservices\Crm\Response\Module\GetModuleResponse $response */
+        $response->module = $this->fetchKeyFromContent($response->_content, 'module');
 
         return $response;
     }
@@ -416,10 +406,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Crm\Response\Activity\GetActivityResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'activity');
-
-        $response->activity = $array;
+        /* @var \Perfumer\Microservices\Crm\Response\Activity\GetActivityResponse $response */
+        $response->activity = $this->fetchKeyFromContent($response->_content, 'activity');
 
         return $response;
     }
@@ -486,10 +474,27 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Crm\Response\User\GetUserResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'user');
+        /* @var \Perfumer\Microservices\Crm\Response\User\GetUserResponse $response */
+        $response->user = $this->fetchKeyFromContent($response->_content, 'user');
 
-        $response->user = $array;
+        return $response;
+    }
+
+    public function getUserCredentials(\Perfumer\Microservices\Crm\Request\UserCredentials\GetUserCredentialsRequest $request): \Perfumer\Microservices\Crm\Response\UserCredentials\GetUserCredentialsResponse
+    {
+        $url = '/user/credentials';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\UserCredentials\GetUserCredentialsResponse(), 'get', $url, [
+        'iin' => $request->iin,
+        'phone' => $request->phone,
+        'email' => $request->email,
+        'password' => $request->password,
+        'code' => $request->code,
+        ]);
+
+        /* @var \Perfumer\Microservices\Crm\Response\UserCredentials\GetUserCredentialsResponse $response */
+        $response->user = $this->fetchKeyFromContent($response->_content, 'user');
+        $response->userCredentials = $this->fetchKeyFromContent($response->_content, 'userCredentials');
 
         return $response;
     }
@@ -562,10 +567,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'calendar' => $request->calendar,
         ]);
 
-        /** @var \Perfumer\Microservices\Crm\Response\Schedule\GetScheduleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'schedule');
-
-        $response->schedule = $array;
+        /* @var \Perfumer\Microservices\Crm\Response\Schedule\GetScheduleResponse $response */
+        $response->schedule = $this->fetchKeyFromContent($response->_content, 'schedule');
 
         return $response;
     }
@@ -637,10 +640,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'group' => $request->group,
         ]);
 
-        /** @var \Perfumer\Microservices\Crm\Response\Access\GetAccessResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'access');
-
-        $response->access = $array;
+        /* @var \Perfumer\Microservices\Crm\Response\Access\GetAccessResponse $response */
+        $response->access = $this->fetchKeyFromContent($response->_content, 'access');
 
         return $response;
     }
@@ -706,10 +707,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Crm\Response\Ticket\GetTicketResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'ticket');
-
-        $response->ticket = $array;
+        /* @var \Perfumer\Microservices\Crm\Response\Ticket\GetTicketResponse $response */
+        $response->ticket = $this->fetchKeyFromContent($response->_content, 'ticket');
 
         return $response;
     }
@@ -930,10 +929,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Crm\Response\Task\GetTaskResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'task');
-
-        $response->task = $array;
+        /* @var \Perfumer\Microservices\Crm\Response\Task\GetTaskResponse $response */
+        $response->task = $this->fetchKeyFromContent($response->_content, 'task');
 
         return $response;
     }
@@ -1021,10 +1018,27 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Crm\Response\Customer\GetCustomerResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'customer');
+        /* @var \Perfumer\Microservices\Crm\Response\Customer\GetCustomerResponse $response */
+        $response->customer = $this->fetchKeyFromContent($response->_content, 'customer');
 
-        $response->customer = $array;
+        return $response;
+    }
+
+    public function getCustomerCredentials(\Perfumer\Microservices\Crm\Request\CustomerCredentials\GetCustomerCredentialsRequest $request): \Perfumer\Microservices\Crm\Response\CustomerCredentials\GetCustomerCredentialsResponse
+    {
+        $url = '/customer/credentials';
+
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\CustomerCredentials\GetCustomerCredentialsResponse(), 'get', $url, [
+        'iin' => $request->iin,
+        'phone' => $request->phone,
+        'email' => $request->email,
+        'password' => $request->password,
+        'code' => $request->code,
+        ]);
+
+        /* @var \Perfumer\Microservices\Crm\Response\CustomerCredentials\GetCustomerCredentialsResponse $response */
+        $response->customer = $this->fetchKeyFromContent($response->_content, 'customer');
+        $response->customerCredentials = $this->fetchKeyFromContent($response->_content, 'customerCredentials');
 
         return $response;
     }

@@ -12,10 +12,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Forms\Response\Form\GetFormResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'form');
-
-        $response->form = $array;
+        /* @var \Perfumer\Microservices\Forms\Response\Form\GetFormResponse $response */
+        $response->form = $this->fetchKeyFromContent($response->_content, 'form');
 
         return $response;
     }
@@ -88,10 +86,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'reference' => $request->reference,
         ]);
 
-        /** @var \Perfumer\Microservices\Forms\Response\Item\GetItemResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'item');
-
-        $response->item = $array;
+        /* @var \Perfumer\Microservices\Forms\Response\Item\GetItemResponse $response */
+        $response->item = $this->fetchKeyFromContent($response->_content, 'item');
 
         return $response;
     }
@@ -167,10 +163,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'module');
-
-        $response->module = $array;
+        /* @var \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse $response */
+        $response->module = $this->fetchKeyFromContent($response->_content, 'module');
 
         return $response;
     }
@@ -283,10 +277,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Forms\Response\Reference\GetReferenceResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'reference');
-
-        $response->reference = $array;
+        /* @var \Perfumer\Microservices\Forms\Response\Reference\GetReferenceResponse $response */
+        $response->reference = $this->fetchKeyFromContent($response->_content, 'reference');
 
         return $response;
     }
@@ -354,10 +346,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'article');
-
-        $response->article = $array;
+        /* @var \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse $response */
+        $response->article = $this->fetchKeyFromContent($response->_content, 'article');
 
         return $response;
     }

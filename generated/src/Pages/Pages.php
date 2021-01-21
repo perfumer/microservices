@@ -13,10 +13,8 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Pages\Response\Site\GetSiteResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'site');
-
-        $response->site = $array;
+        /* @var \Perfumer\Microservices\Pages\Response\Site\GetSiteResponse $response */
+        $response->site = $this->fetchKeyFromContent($response->_content, 'site');
 
         return $response;
     }
@@ -50,10 +48,8 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'code' => $request->code,
         ]);
 
-        /** @var \Perfumer\Microservices\Pages\Response\Module\GetModuleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'module');
-
-        $response->module = $array;
+        /* @var \Perfumer\Microservices\Pages\Response\Module\GetModuleResponse $response */
+        $response->module = $this->fetchKeyFromContent($response->_content, 'module');
 
         return $response;
     }
@@ -166,10 +162,8 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'id' => $request->id,
         ]);
 
-        /** @var \Perfumer\Microservices\Pages\Response\Revision\GetRevisionResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'revision');
-
-        $response->revision = $array;
+        /* @var \Perfumer\Microservices\Pages\Response\Revision\GetRevisionResponse $response */
+        $response->revision = $this->fetchKeyFromContent($response->_content, 'revision');
 
         return $response;
     }
@@ -278,10 +272,8 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'id' => $request->id,
         ]);
 
-        /** @var \Perfumer\Microservices\Pages\Response\Page\GetPageResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'page');
-
-        $response->page = $array;
+        /* @var \Perfumer\Microservices\Pages\Response\Page\GetPageResponse $response */
+        $response->page = $this->fetchKeyFromContent($response->_content, 'page');
 
         return $response;
     }

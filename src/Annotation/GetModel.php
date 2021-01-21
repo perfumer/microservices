@@ -26,6 +26,26 @@ class GetModel extends LayoutAnnotation
      */
     public $fields;
 
+    /**
+     * @var array
+     */
+    public $response_fields = [];
+
+    /**
+     * @var string
+     */
+    public $url;
+
+    /**
+     * @var string
+     */
+    public $request_method = 'get';
+
+    /**
+     * @var string
+     */
+    public $action = 'get';
+
     public function onBuild(): void
     {
         parent::onBuild();
@@ -33,16 +53,20 @@ class GetModel extends LayoutAnnotation
         $ucfirst_model = ucfirst($this->model);
         $lcfirst_model = lcfirst($this->model);
         $microservice = ucfirst($this->microservice);
+        $ucfirst_action = ucfirst($this->action);
+        $lcfirst_action = lcfirst($this->action);
 
-        $parameter_type = sprintf('\\Perfumer\\Microservices\\%s\\Request\\%s\\Get%sRequest', $microservice, $ucfirst_model, $ucfirst_model);
-        $return_type = sprintf('\\Perfumer\\Microservices\\%s\\Response\\%s\\Get%sResponse', $microservice, $ucfirst_model, $ucfirst_model);
+        $parameter_type_string = '\\Perfumer\\Microservices\\%s\\Request\\%s\\%s%sRequest';
+        $return_type_string = '\\Perfumer\\Microservices\\%s\\Response\\%s\\%s%sResponse';
+        $parameter_type = sprintf($parameter_type_string, $microservice, $ucfirst_model, $ucfirst_action, $ucfirst_model);
+        $return_type = sprintf($return_type_string, $microservice, $ucfirst_model, $ucfirst_action, $ucfirst_model);
 
         $parameter = new ParameterGenerator();
         $parameter->setName('request');
         $parameter->setType($parameter_type);
 
         $method = new MethodGenerator();
-        $method->setName('get' . $ucfirst_model);
+        $method->setName($lcfirst_action . $ucfirst_model);
         $method->setParameter($parameter);
         $method->setReturnType($return_type);
 
@@ -69,10 +93,31 @@ class GetModel extends LayoutAnnotation
             $properties[$name] = $type;
         }
 
-        $body = <<<EOD
-\$url = '/$lcfirst_model';
+        $response_fields = [];
 
-\$response = \$this->doRequest(new $return_type(), 'get', \$url, [
+        foreach ($this->response_fields as $field) {
+            $field = explode('.', $field);
+
+            if (count($field) === 1) {
+                $name = $field[0];
+                $type = 'string';
+            } else {
+                $name = $field[0];
+                $type = $field[1];
+            }
+
+            $response_fields[$name] = $type;
+        }
+
+        $response_fields[$lcfirst_model] = 'array';
+
+        $url = $this->url ?: $lcfirst_model;
+        $url = trim($url, '/');
+
+        $body = <<<EOD
+\$url = '/$url';
+
+\$response = \$this->doRequest(new $return_type(), '$this->request_method', \$url, [
 
 EOD;
 
@@ -84,16 +129,24 @@ EOD;
 ]);
 
 /** @var $return_type \$response */
-\$array = \$this->fetchKeyFromContent(\$response->_content, '$lcfirst_model');
 
-\$response->$lcfirst_model = \$array;
+EOD;
+
+        foreach ($response_fields as $name => $type) {
+            $body .= <<<EOD
+\$response->$name = \$this->fetchKeyFromContent(\$response->_content, '$name');
+
+EOD;
+        }
+
+        $body .= <<<EOD
 
 return \$response;
 EOD;
 
         $method->setBody($body);
 
-        $this->generateRequest('get', $properties);
-        $this->generateResponse('get', [$lcfirst_model => 'array']);
+        $this->generateRequest($this->action, $properties);
+        $this->generateResponse($this->action, $response_fields);
     }
 }

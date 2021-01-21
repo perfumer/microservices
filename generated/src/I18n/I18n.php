@@ -12,10 +12,8 @@ abstract class I18n extends \Perfumer\Microservices\Microservice implements \Per
         'key' => $request->key,
         ]);
 
-        /** @var \Perfumer\Microservices\I18n\Response\Translation\GetTranslationResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'translation');
-
-        $response->translation = $array;
+        /* @var \Perfumer\Microservices\I18n\Response\Translation\GetTranslationResponse $response */
+        $response->translation = $this->fetchKeyFromContent($response->_content, 'translation');
 
         return $response;
     }

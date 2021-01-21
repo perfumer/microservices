@@ -45,6 +45,7 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @GetModels(microservice="crm", model="activities", fields={"name", "code", "priority"})
  *
  * @GetModel(microservice="crm", model="user", fields={"id", "code"})
+ * @GetModel(microservice="crm", model="userCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"user"}, url="/user/credentials")
  * @DeleteModel(microservice="crm", model="user", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="user", fields={"id", "last_name", "first_name", "mid_name", "code"})
  * @GetModels(microservice="crm", model="users", fields={"last_name", "first_name", "mid_name", "code"})
@@ -80,6 +81,7 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @GetModels(microservice="crm", model="tasks", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status"})
 
  * @GetModel(microservice="crm", model="customer", fields={"id", "code"})
+ * @GetModel(microservice="crm", model="customerCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"customer"}, url="/customer/credentials")
  * @DeleteModel(microservice="crm", model="customer", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="customer", fields={"id", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
  * @GetModels(microservice="crm", model="customers", fields={"last_name", "first_name", "mid_name", "email", "phone", "iin", "code"})
