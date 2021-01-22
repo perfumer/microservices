@@ -12,11 +12,6 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
-
-    /**
-     * @var string
-     */
     public $schema = null;
 
     /**
@@ -57,7 +52,6 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->name = new \Perfumer\Microservices\Undefined();
-        $this->code = new \Perfumer\Microservices\Undefined();
         $this->schema = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->ticket_id = new \Perfumer\Microservices\Undefined();

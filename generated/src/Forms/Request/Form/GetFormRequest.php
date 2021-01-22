@@ -5,9 +5,14 @@ namespace Generated\Perfumer\Microservices\Forms\Request\Form;
 class GetFormRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
-    public $code = null;
+    public $user_id = null;
+
+    /**
+     * @var int
+     */
+    public $customer_id = null;
 
     /**
      * @var int
@@ -26,7 +31,8 @@ class GetFormRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->code = new \Perfumer\Microservices\Undefined();
+        $this->user_id = new \Perfumer\Microservices\Undefined();
+        $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->ticket_id = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->id = new \Perfumer\Microservices\Undefined();

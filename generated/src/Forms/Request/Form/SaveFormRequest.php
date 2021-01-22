@@ -10,11 +10,6 @@ class SaveFormRequest extends \Perfumer\Microservices\Request
     public $name = null;
 
     /**
-     * @var string
-     */
-    public $code = null;
-
-    /**
      * @var int
      */
     public $ticket_id = null;
@@ -54,7 +49,6 @@ class SaveFormRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->name = new \Perfumer\Microservices\Undefined();
-        $this->code = new \Perfumer\Microservices\Undefined();
         $this->ticket_id = new \Perfumer\Microservices\Undefined();
         $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->customer_id = new \Perfumer\Microservices\Undefined();

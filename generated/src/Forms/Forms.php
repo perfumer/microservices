@@ -10,7 +10,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Form\GetFormResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\GetFormResponse(), 'get', $url, [
-        'code' => $request->code,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
         'ticket_id' => $request->ticket_id,
         'module' => $request->module,
         'id' => $request->id,
@@ -30,10 +31,11 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Form\DeleteFormResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\DeleteFormResponse(), 'delete', $url, [
-        'code' => $request->code,
+        'id' => $request->id,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
         'ticket_id' => $request->ticket_id,
         'module' => $request->module,
-        'id' => $request->id,
         ]);
 
         return $response;
@@ -46,7 +48,6 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Form\SaveFormResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\SaveFormResponse(), 'post', $url, [
         'name' => $request->name,
-        'code' => $request->code,
         'ticket_id' => $request->ticket_id,
         'user_id' => $request->user_id,
         'customer_id' => $request->customer_id,
@@ -70,7 +71,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Forms\SaveFormsTicketResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Forms\SaveFormsTicketResponse(), 'post', $url, [
-        'code' => $request->code,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
         'ticket_id' => $request->ticket_id,
         'module' => $request->module,
         ]);
@@ -90,7 +92,6 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Forms\GetFormsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Forms\GetFormsResponse(), 'get', $url, [
         'name' => $request->name,
-        'code' => $request->code,
         'schema' => $request->schema,
         'module' => $request->module,
         'ticket_id' => $request->ticket_id,

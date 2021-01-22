@@ -5,9 +5,19 @@ namespace Generated\Perfumer\Microservices\Forms\Request\Form;
 class DeleteFormRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
-    public $code = null;
+    public $id = null;
+
+    /**
+     * @var int
+     */
+    public $user_id = null;
+
+    /**
+     * @var int
+     */
+    public $customer_id = null;
 
     /**
      * @var int
@@ -19,16 +29,12 @@ class DeleteFormRequest extends \Perfumer\Microservices\Request
      */
     public $module = null;
 
-    /**
-     * @var int
-     */
-    public $id = null;
-
     public function __construct()
     {
-        $this->code = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->user_id = new \Perfumer\Microservices\Undefined();
+        $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->ticket_id = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
-        $this->id = new \Perfumer\Microservices\Undefined();
     }
 }
