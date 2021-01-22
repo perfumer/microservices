@@ -12,17 +12,27 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
-
-    /**
-     * @var string
-     */
     public $schema = null;
 
     /**
      * @var string
      */
     public $module = null;
+
+    /**
+     * @var int
+     */
+    public $ticket_id = null;
+
+    /**
+     * @var int
+     */
+    public $user_id = null;
+
+    /**
+     * @var int
+     */
+    public $customer_id = null;
 
     /**
      * @var int
@@ -42,9 +52,11 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->name = new \Perfumer\Microservices\Undefined();
-        $this->code = new \Perfumer\Microservices\Undefined();
         $this->schema = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
+        $this->ticket_id = new \Perfumer\Microservices\Undefined();
+        $this->user_id = new \Perfumer\Microservices\Undefined();
+        $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();

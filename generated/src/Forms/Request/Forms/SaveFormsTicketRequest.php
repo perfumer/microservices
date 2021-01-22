@@ -1,8 +1,8 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Forms\Request\Form;
+namespace Generated\Perfumer\Microservices\Forms\Request\Forms;
 
-class GetFormRequest extends \Perfumer\Microservices\Request
+class SaveFormsTicketRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var int
@@ -24,17 +24,11 @@ class GetFormRequest extends \Perfumer\Microservices\Request
      */
     public $module = null;
 
-    /**
-     * @var int
-     */
-    public $id = null;
-
     public function __construct()
     {
         $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->ticket_id = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
-        $this->id = new \Perfumer\Microservices\Undefined();
     }
 }

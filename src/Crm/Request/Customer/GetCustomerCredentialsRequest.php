@@ -2,23 +2,8 @@
 
 namespace Perfumer\Microservices\Crm\Request\Customer;
 
-use Perfumer\Microservices\Request;
-
-class GetCustomerCredentialsRequest extends Request
+class GetCustomerCredentialsRequest extends \Generated\Perfumer\Microservices\Crm\Request\Customer\GetCustomerCredentialsRequest
 {
-    /**
-     * @var string
-     */
-    public $iin = null;
 
-    /**
-     * @var string
-     */
-    public $password = null;
 
-    public function __construct()
-    {
-        $this->iin      = new \Perfumer\Microservices\Undefined();
-        $this->password = new \Perfumer\Microservices\Undefined();
-    }
 }

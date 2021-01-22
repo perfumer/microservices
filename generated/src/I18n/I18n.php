@@ -8,14 +8,15 @@ abstract class I18n extends \Perfumer\Microservices\Microservice implements \Per
     {
         $url = '/translation';
 
+        /** @var \Perfumer\Microservices\I18n\Response\Translation\GetTranslationResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\I18n\Response\Translation\GetTranslationResponse(), 'get', $url, [
         'key' => $request->key,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'translation');
 
-        /** @var \Perfumer\Microservices\I18n\Response\Translation\GetTranslationResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'translation');
-
-        $response->translation = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->translation = $item;
+        }
 
         return $response;
     }
@@ -45,12 +46,10 @@ abstract class I18n extends \Perfumer\Microservices\Microservice implements \Per
         'is_richtext' => $request->is_richtext,
         'tags' => $request->tags,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'translation');
 
-        /** @var \Perfumer\Microservices\I18n\Response\Translation\CreateTranslationResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'translation');
-
-        if (null !== $array) {
-            $response->translation = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->translation = $item;
         }
 
         return $response;
@@ -69,12 +68,10 @@ abstract class I18n extends \Perfumer\Microservices\Microservice implements \Per
         'is_richtext' => $request->is_richtext,
         'tags' => $request->tags,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'translation');
 
-        /** @var \Perfumer\Microservices\I18n\Response\Translation\UpdateTranslationResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'translation');
-
-        if (null !== $array) {
-            $response->translation = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->translation = $item;
         }
 
         return $response;
@@ -88,12 +85,10 @@ abstract class I18n extends \Perfumer\Microservices\Microservice implements \Per
         $response = $this->doRequest(new \Perfumer\Microservices\I18n\Response\Translations\SaveTranslationsResponse(), 'post', $url, [
         'translations' => $request->translations,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'translations');
 
-        /** @var \Perfumer\Microservices\I18n\Response\Translations\SaveTranslationsResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'translations');
-
-        if (null !== $array) {
-            $response->translations = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->translations = $item;
         }
 
         return $response;
@@ -103,12 +98,15 @@ abstract class I18n extends \Perfumer\Microservices\Microservice implements \Per
     {
         $url = '/dump';
 
+        /** @var \Perfumer\Microservices\I18n\Response\Translations\DumpTranslationsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\I18n\Response\Translations\DumpTranslationsResponse(), 'get', $url, [
         'locale' => $request->locale,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'translations');
 
-        /* @var \Perfumer\Microservices\I18n\Response\Translations\DumpTranslationsResponse $response */
-        $response->translations = $this->fetchKeyFromContent($response->_content, 'translations');
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->translations = $item;
+        }
 
         return $response;
     }
@@ -117,6 +115,7 @@ abstract class I18n extends \Perfumer\Microservices\Microservice implements \Per
     {
         $url = '/translations';
 
+        /** @var \Perfumer\Microservices\I18n\Response\Translations\GetTranslationsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\I18n\Response\Translations\GetTranslationsResponse(), 'get', $url, [
         'count' => $request->count,
         'text' => $request->text,
@@ -128,11 +127,21 @@ abstract class I18n extends \Perfumer\Microservices\Microservice implements \Per
         'limit' => $request->limit,
         'offset' => $request->offset,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_translations');
 
-        /* @var \Perfumer\Microservices\I18n\Response\Translations\GetTranslationsResponse $response */
-        $response->nb_translations = $this->fetchKeyFromContent($response->_content, 'nb_translations');
-        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
-        $response->translations = $this->fetchKeyFromContent($response->_content, 'translations');
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_translations = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'translations');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->translations = $item;
+        }
 
         return $response;
     }

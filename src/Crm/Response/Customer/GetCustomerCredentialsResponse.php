@@ -2,12 +2,8 @@
 
 namespace Perfumer\Microservices\Crm\Response\Customer;
 
-use Perfumer\Microservices\Response;
-
-class GetCustomerCredentialsResponse extends Response
+class GetCustomerCredentialsResponse extends \Generated\Perfumer\Microservices\Crm\Response\Customer\GetCustomerCredentialsResponse
 {
-    /**
-     * @var bool
-     */
-    public $is_valid;
+
+
 }

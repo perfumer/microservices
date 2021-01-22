@@ -8,14 +8,19 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/form';
 
-        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\GetFormResponse(), 'get', $url, [
-        'code' => $request->code,
-        ]);
-
         /** @var \Perfumer\Microservices\Forms\Response\Form\GetFormResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'form');
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\GetFormResponse(), 'get', $url, [
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
+        'ticket_id' => $request->ticket_id,
+        'module' => $request->module,
+        'id' => $request->id,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'form');
 
-        $response->form = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->form = $item;
+        }
 
         return $response;
     }
@@ -26,7 +31,11 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Form\DeleteFormResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\DeleteFormResponse(), 'delete', $url, [
-        'code' => $request->code,
+        'id' => $request->id,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
+        'ticket_id' => $request->ticket_id,
+        'module' => $request->module,
         ]);
 
         return $response;
@@ -39,18 +48,38 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Form\SaveFormResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\SaveFormResponse(), 'post', $url, [
         'name' => $request->name,
-        'code' => $request->code,
+        'ticket_id' => $request->ticket_id,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
         'schema' => $request->schema,
         'module' => $request->module,
         'fields' => $request->fields,
         'payload' => $request->payload,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'form');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Form\SaveFormResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'form');
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->form = $item;
+        }
 
-        if (null !== $array) {
-            $response->form = $array;
+        return $response;
+    }
+
+    public function saveFormsTicket(\Perfumer\Microservices\Forms\Request\Forms\SaveFormsTicketRequest $request): \Perfumer\Microservices\Forms\Response\Forms\SaveFormsTicketResponse
+    {
+        $url = '/forms/ticket';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Forms\SaveFormsTicketResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Forms\SaveFormsTicketResponse(), 'post', $url, [
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
+        'ticket_id' => $request->ticket_id,
+        'module' => $request->module,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'forms');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->forms = $item;
         }
 
         return $response;
@@ -60,19 +89,28 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/forms';
 
+        /** @var \Perfumer\Microservices\Forms\Response\Forms\GetFormsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Forms\GetFormsResponse(), 'get', $url, [
         'name' => $request->name,
-        'code' => $request->code,
         'schema' => $request->schema,
         'module' => $request->module,
+        'ticket_id' => $request->ticket_id,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
-        /* @var \Perfumer\Microservices\Forms\Response\Forms\GetFormsResponse $response */
-        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
-        $response->forms = $this->fetchKeyFromContent($response->_content, 'forms');
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'forms');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->forms = $item;
+        }
 
         return $response;
     }
@@ -81,17 +119,18 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/item';
 
+        /** @var \Perfumer\Microservices\Forms\Response\Item\GetItemResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Item\GetItemResponse(), 'get', $url, [
         'id' => $request->id,
         'code' => $request->code,
         'locale' => $request->locale,
         'reference' => $request->reference,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'item');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Item\GetItemResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'item');
-
-        $response->item = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->item = $item;
+        }
 
         return $response;
     }
@@ -123,12 +162,10 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'parents' => $request->parents,
         'children' => $request->children,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'item');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Item\SaveItemResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'item');
-
-        if (null !== $array) {
-            $response->item = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->item = $item;
         }
 
         return $response;
@@ -138,6 +175,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/items';
 
+        /** @var \Perfumer\Microservices\Forms\Response\Items\GetItemsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Items\GetItemsResponse(), 'get', $url, [
         'name' => $request->name,
         'code' => $request->code,
@@ -150,10 +188,16 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'offset' => $request->offset,
         'count' => $request->count,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
-        /* @var \Perfumer\Microservices\Forms\Response\Items\GetItemsResponse $response */
-        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
-        $response->items = $this->fetchKeyFromContent($response->_content, 'items');
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'items');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->items = $item;
+        }
 
         return $response;
     }
@@ -162,15 +206,16 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/module';
 
+        /** @var \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse(), 'get', $url, [
         'id' => $request->id,
         'code' => $request->code,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'module');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'module');
-
-        $response->module = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->module = $item;
+        }
 
         return $response;
     }
@@ -179,6 +224,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/modules';
 
+        /** @var \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse(), 'get', $url, [
         'name' => $request->name,
         'code' => $request->code,
@@ -191,10 +237,16 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'offset' => $request->offset,
         'count' => $request->count,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
-        /* @var \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse $response */
-        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
-        $response->modules = $this->fetchKeyFromContent($response->_content, 'modules');
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'modules');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->modules = $item;
+        }
 
         return $response;
     }
@@ -213,12 +265,10 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'parents' => $request->parents,
         'children' => $request->children,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'module');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Module\SaveModuleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'module');
-
-        if (null !== $array) {
-            $response->module = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->module = $item;
         }
 
         return $response;
@@ -245,12 +295,10 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\ArchiveModuleResponse(), 'post', $url, [
         'id' => $request->id,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'module');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Module\ArchiveModuleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'module');
-
-        if (null !== $array) {
-            $response->module = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->module = $item;
         }
 
         return $response;
@@ -264,12 +312,10 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\UnarchiveModuleResponse(), 'delete', $url, [
         'id' => $request->id,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'module');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Module\UnarchiveModuleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'module');
-
-        if (null !== $array) {
-            $response->module = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->module = $item;
         }
 
         return $response;
@@ -279,14 +325,15 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/reference';
 
+        /** @var \Perfumer\Microservices\Forms\Response\Reference\GetReferenceResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Reference\GetReferenceResponse(), 'get', $url, [
         'code' => $request->code,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'reference');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Reference\GetReferenceResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'reference');
-
-        $response->reference = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->reference = $item;
+        }
 
         return $response;
     }
@@ -313,12 +360,10 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'code' => $request->code,
         'is_archived' => $request->is_archived,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'reference');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Reference\SaveReferenceResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'reference');
-
-        if (null !== $array) {
-            $response->reference = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->reference = $item;
         }
 
         return $response;
@@ -328,6 +373,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/references';
 
+        /** @var \Perfumer\Microservices\Forms\Response\References\GetReferencesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\References\GetReferencesResponse(), 'get', $url, [
         'name' => $request->name,
         'code' => $request->code,
@@ -336,10 +382,16 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'offset' => $request->offset,
         'count' => $request->count,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
-        /* @var \Perfumer\Microservices\Forms\Response\References\GetReferencesResponse $response */
-        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
-        $response->references = $this->fetchKeyFromContent($response->_content, 'references');
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'references');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->references = $item;
+        }
 
         return $response;
     }
@@ -348,16 +400,17 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/article';
 
+        /** @var \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse(), 'get', $url, [
         'id' => $request->id,
         'locale' => $request->locale,
         'code' => $request->code,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'article');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'article');
-
-        $response->article = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->article = $item;
+        }
 
         return $response;
     }
@@ -381,6 +434,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse(), 'post', $url, [
         'id' => $request->id,
+        'image' => $request->image,
         'category_id' => $request->category_id,
         'title' => $request->title,
         'description' => $request->description,
@@ -390,12 +444,10 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'locale' => $request->locale,
         'ticket_modules' => $request->ticket_modules,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'article');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'article');
-
-        if (null !== $array) {
-            $response->article = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->article = $item;
         }
 
         return $response;
@@ -405,6 +457,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/articles';
 
+        /** @var \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse(), 'get', $url, [
         'category_id' => $request->category_id,
         'title' => $request->title,
@@ -416,10 +469,16 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'offset' => $request->offset,
         'count' => $request->count,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
-        /* @var \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse $response */
-        $response->nb_results = $this->fetchKeyFromContent($response->_content, 'nb_results');
-        $response->articles = $this->fetchKeyFromContent($response->_content, 'articles');
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'articles');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->articles = $item;
+        }
 
         return $response;
     }

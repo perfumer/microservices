@@ -46,7 +46,7 @@ class LayoutAnnotation extends ContractClassAnnotation
         file_put_contents($output_name, $code);
     }
 
-    protected function generateRequest($action, $properties = [])
+    protected function generateRequest($action, $submodel, $properties = [])
     {
         $action = ucfirst($action);
         $ucfirst_model = ucfirst($this->model);
@@ -55,7 +55,7 @@ class LayoutAnnotation extends ContractClassAnnotation
         // Base Request
         $base_generator = new ClassGenerator();
         $base_generator->setNamespaceName(sprintf('Generated\\Perfumer\\Microservices\\%s\\Request\\%s', $microservice, $ucfirst_model));
-        $base_generator->setName(sprintf('%s%sRequest', $action, $ucfirst_model));
+        $base_generator->setName(sprintf('%s%sRequest', $action, $submodel));
         $base_generator->setExtendedClass('\\Perfumer\\Microservices\\Request');
 
         $constructor = new MethodGenerator();
@@ -95,13 +95,13 @@ class LayoutAnnotation extends ContractClassAnnotation
         // Request
         $generator = new ClassGenerator();
         $generator->setNamespaceName(sprintf('Perfumer\\Microservices\\%s\\Request\\%s', $microservice, $ucfirst_model));
-        $generator->setName(sprintf('%s%sRequest', $action, $ucfirst_model));
+        $generator->setName(sprintf('%s%sRequest', $action, $submodel));
         $generator->setExtendedClass('\\' . $base_generator->getNamespaceName() . '\\' . $base_generator->getName());
 
         $this->generateClass($generator, 'Request', false);
     }
 
-    protected function generateResponse($action, $properties = [])
+    protected function generateResponse($action, $submodel, $properties = [])
     {
         $action = ucfirst($action);
         $ucfirst_model = ucfirst($this->model);
@@ -110,7 +110,7 @@ class LayoutAnnotation extends ContractClassAnnotation
         // Base response
         $base_generator = new ClassGenerator();
         $base_generator->setNamespaceName(sprintf('Generated\\Perfumer\\Microservices\\%s\\Response\\%s', $microservice, $ucfirst_model));
-        $base_generator->setName(sprintf('%s%sResponse', $action, $ucfirst_model));
+        $base_generator->setName(sprintf('%s%sResponse', $action, $submodel));
         $base_generator->setExtendedClass('\\Perfumer\\Microservices\\Response');
 
         foreach ($properties as $property_name => $property_type) {
@@ -145,7 +145,7 @@ class LayoutAnnotation extends ContractClassAnnotation
         // Response
         $generator = new ClassGenerator();
         $generator->setNamespaceName(sprintf('Perfumer\\Microservices\\%s\\Response\\%s', $microservice, $ucfirst_model));
-        $generator->setName(sprintf('%s%sResponse', $action, $ucfirst_model));
+        $generator->setName(sprintf('%s%sResponse', $action, $submodel));
         $generator->setExtendedClass('\\' . $base_generator->getNamespaceName() . '\\' . $base_generator->getName());
 
         $this->generateClass($generator, 'Response', false);

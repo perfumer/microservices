@@ -8,6 +8,7 @@ use Perfumer\Microservices\Annotation\GetMeshModels;
 use Perfumer\Microservices\Annotation\GetModel;
 use Perfumer\Microservices\Annotation\GetModelByCode;
 use Perfumer\Microservices\Annotation\GetModels;
+use Perfumer\Microservices\Annotation\RequestModel;
 use Perfumer\Microservices\Annotation\SaveMeshModel;
 use Perfumer\Microservices\Annotation\SaveModel;
 
@@ -44,9 +45,10 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @SaveModel(microservice="crm", model="activity", fields={"name", "code", "priority"})
  * @GetModels(microservice="crm", model="activities", fields={"name", "code", "priority"})
  *
- * @GetModelByCode(microservice="crm", model="user")
- * @DeleteModelByCode(microservice="crm", model="user")
- * @SaveModel(microservice="crm", model="user", fields={"last_name", "first_name", "mid_name", "code"})
+ * @GetModel(microservice="crm", model="user", submodel="UserCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"user"}, url="/user/credentials")
+ * @GetModel(microservice="crm", model="user", fields={"id", "code"})
+ * @DeleteModel(microservice="crm", model="user", fields={"id", "code"})
+ * @SaveModel(microservice="crm", model="user", fields={"id", "last_name", "first_name", "mid_name", "code"})
  * @GetModels(microservice="crm", model="users", fields={"last_name", "first_name", "mid_name", "code"})
  *
  * @GetModel(microservice="crm", model="schedule", fields={"role", "group", "activity", "calendar"})
@@ -78,10 +80,11 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @DeleteModelByCode(microservice="crm", model="task")
  * @SaveModel(microservice="crm", model="task", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status", "payload.array"})
  * @GetModels(microservice="crm", model="tasks", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status"})
- *
- * @GetModelByCode(microservice="crm", model="customer", fields={"last_name", "first_name", "mid_name", "email", "phone", "iin", "code"})
- * @DeleteModelByCode(microservice="crm", model="customer")
- * @SaveModel(microservice="crm", model="customer", fields={"last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
+
+ * @GetModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"customer"}, url="/customer/credentials")
+ * @GetModel(microservice="crm", model="customer", fields={"id", "code"})
+ * @DeleteModel(microservice="crm", model="customer", fields={"id", "code"})
+ * @SaveModel(microservice="crm", model="customer", fields={"id", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
  * @GetModels(microservice="crm", model="customers", fields={"last_name", "first_name", "mid_name", "email", "phone", "iin", "code"})
  */
 interface Crm
