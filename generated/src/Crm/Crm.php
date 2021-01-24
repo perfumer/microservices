@@ -775,6 +775,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Ticket\GetTicketResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Ticket\GetTicketResponse(), 'get', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'ticket');
@@ -921,10 +922,12 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\Log\SaveTicketLogResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Log\SaveTicketLogResponse(), 'post', $url, [
         'ticket' => $request->ticket,
+        'type' => $request->type,
         'text' => $request->text,
         'user' => $request->user,
         'code' => $request->code,
         'status' => $request->status,
+        'close_status' => $request->close_status,
         'form' => $request->form,
         'payload' => $request->payload,
         ]);
@@ -956,10 +959,12 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse(), 'get', $url, [
         'ticket' => $request->ticket,
+        'type' => $request->type,
         'text' => $request->text,
         'user' => $request->user,
         'code' => $request->code,
         'status' => $request->status,
+        'close_status' => $request->close_status,
         'form' => $request->form,
         'limit' => $request->limit,
         'offset' => $request->offset,

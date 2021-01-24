@@ -8,7 +8,6 @@ use Perfumer\Microservices\Annotation\GetMeshModels;
 use Perfumer\Microservices\Annotation\GetModel;
 use Perfumer\Microservices\Annotation\GetModelByCode;
 use Perfumer\Microservices\Annotation\GetModels;
-use Perfumer\Microservices\Annotation\RequestModel;
 use Perfumer\Microservices\Annotation\SaveMeshModel;
 use Perfumer\Microservices\Annotation\SaveModel;
 
@@ -61,7 +60,7 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @SaveModel(microservice="crm", model="access", fields={"role", "group", "permissions.array"})
  * @GetModels(microservice="crm", model="accesses", fields={"role", "group"})
  *
- * @GetModelByCode(microservice="crm", model="ticket")
+ * @GetModel(microservice="crm", model="ticket", fields={"id", "code"})
  * @DeleteModelByCode(microservice="crm", model="ticket")
  * @SaveModel(microservice="crm", model="ticket", fields={"name", "customer", "module", "status", "code", "deadline_at", "opened_at", "closed_at", "payload.array"})
  * @GetModels(microservice="crm", model="tickets", fields={"name", "customer", "module", "status", "code", "deadline_at", "opened_at", "closed_at"})
@@ -70,9 +69,9 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @DeleteModelByCode(microservice="crm", model="form", url="ticket/form", action="deleteTicket")
  * @GetModels(microservice="crm", model="forms", url="ticket/forms", action="getTicket", fields={"ticket", "form", "category"})
  *
- * @SaveModel(microservice="crm", model="log", url="ticket/log", action="saveTicket", fields={"ticket", "text", "user", "code", "status", "form", "payload.array"})
+ * @SaveModel(microservice="crm", model="log", url="ticket/log", action="saveTicket", fields={"ticket", "type", "text", "user", "code", "status", "close_status", "form", "payload.array"})
  * @DeleteModelByCode(microservice="crm", model="log", url="ticket/log", action="deleteTicket")
- * @GetModels(microservice="crm", model="logs", url="ticket/logs", action="getTicket", fields={"ticket", "text", "user", "code", "status", "form"})
+ * @GetModels(microservice="crm", model="logs", url="ticket/logs", action="getTicket", fields={"ticket", "type", "text", "user", "code", "status", "close_status", "form"})
  *
  * @GetModels(microservice="crm", model="tasks", url="ticket/tasks", action="getTicket", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status"})
  *

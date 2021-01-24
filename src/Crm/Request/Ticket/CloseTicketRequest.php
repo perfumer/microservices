@@ -1,11 +1,13 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Crm\Request\Ticket;
+namespace Perfumer\Microservices\Crm\Request\Ticket;
 
-class GetTicketRequest extends \Perfumer\Microservices\Request
+use Perfumer\Microservices\Request;
+
+class CloseTicketRequest extends Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 
