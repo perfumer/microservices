@@ -82,7 +82,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @GetModels(microservice="crm", model="tasks", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status"})
 
  * @GetModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"customer"}, url="/customer/credentials")
- * @GetModel(microservice="crm", model="customer", fields={"id", "code"})
+ * @GetModel(microservice="crm", model="customer", fields={"id", "code", "iin", "phone", "email"})
  * @DeleteModel(microservice="crm", model="customer", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="customer", fields={"avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
  * @UpdateModel(microservice="crm", model="customer", fields={"id", "avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})

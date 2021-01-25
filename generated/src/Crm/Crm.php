@@ -1146,6 +1146,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Customer\GetCustomerResponse(), 'get', $url, [
         'id' => $request->id,
         'code' => $request->code,
+        'iin' => $request->iin,
+        'phone' => $request->phone,
+        'email' => $request->email,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'customer');
 
