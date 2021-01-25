@@ -10,6 +10,7 @@ use Perfumer\Microservices\Annotation\GetModelByCode;
 use Perfumer\Microservices\Annotation\GetModels;
 use Perfumer\Microservices\Annotation\SaveMeshModel;
 use Perfumer\Microservices\Annotation\SaveModel;
+use Perfumer\Microservices\Annotation\UpdateModel;
 
 /**
  * @GetModelByCode(microservice="crm", model="permission")
@@ -83,7 +84,8 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @GetModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"customer"}, url="/customer/credentials")
  * @GetModel(microservice="crm", model="customer", fields={"id", "code"})
  * @DeleteModel(microservice="crm", model="customer", fields={"id", "code"})
- * @SaveModel(microservice="crm", model="customer", fields={"id", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
+ * @SaveModel(microservice="crm", model="customer", fields={"avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
+ * @UpdateModel(microservice="crm", model="customer", fields={"id", "avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
  * @GetModels(microservice="crm", model="customers", fields={"last_name", "first_name", "mid_name", "email", "phone", "iin", "code"})
  */
 interface Crm

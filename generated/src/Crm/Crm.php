@@ -1175,7 +1175,33 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Customer\SaveCustomerResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Customer\SaveCustomerResponse(), 'post', $url, [
+        'avatar' => $request->avatar,
+        'last_name' => $request->last_name,
+        'first_name' => $request->first_name,
+        'mid_name' => $request->mid_name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'iin' => $request->iin,
+        'code' => $request->code,
+        'password' => $request->password,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'customer');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->customer = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateCustomer(\Perfumer\Microservices\Crm\Request\Customer\UpdateCustomerRequest $request): \Perfumer\Microservices\Crm\Response\Customer\UpdateCustomerResponse
+    {
+        $url = '/customer';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Customer\UpdateCustomerResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Customer\UpdateCustomerResponse(), 'patch', $url, [
         'id' => $request->id,
+        'avatar' => $request->avatar,
         'last_name' => $request->last_name,
         'first_name' => $request->first_name,
         'mid_name' => $request->mid_name,
