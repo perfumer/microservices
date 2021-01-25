@@ -459,7 +459,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse(), 'get', $url, [
-        'category_id' => $request->category_id,
+        'category' => $request->category,
         'title' => $request->title,
         'description' => $request->description,
         'code' => $request->code,
