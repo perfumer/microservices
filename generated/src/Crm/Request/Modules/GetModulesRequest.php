@@ -37,7 +37,17 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $parents = null;
+
+    /**
+     * @var string
+     */
     public $child = null;
+
+    /**
+     * @var string
+     */
+    public $children = null;
 
     /**
      * @var bool
@@ -67,7 +77,9 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->process = new \Perfumer\Microservices\Undefined();
         $this->parent = new \Perfumer\Microservices\Undefined();
+        $this->parents = new \Perfumer\Microservices\Undefined();
         $this->child = new \Perfumer\Microservices\Undefined();
+        $this->children = new \Perfumer\Microservices\Undefined();
         $this->root = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
