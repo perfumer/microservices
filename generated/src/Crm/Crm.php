@@ -870,6 +870,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\Log\SaveTicketLogResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Log\SaveTicketLogResponse(), 'post', $url, [
         'ticket' => $request->ticket,
+        'ticket_id' => $request->ticket_id,
         'type' => $request->type,
         'text' => $request->text,
         'user' => $request->user,
@@ -907,6 +908,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse(), 'get', $url, [
         'ticket' => $request->ticket,
+        'ticket_id' => $request->ticket_id,
         'type' => $request->type,
         'text' => $request->text,
         'user' => $request->user,
@@ -960,6 +962,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'user' => $request->user,
         'activity' => $request->activity,
         'ticket' => $request->ticket,
+        'ticket_id' => $request->ticket_id,
         'group' => $request->group,
         'code' => $request->code,
         'deadline_at' => $request->deadline_at,

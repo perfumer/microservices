@@ -12,6 +12,11 @@ class GetTicketLogsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $ticket_id = null;
+
+    /**
+     * @var string
+     */
     public $type = null;
 
     /**
@@ -62,6 +67,7 @@ class GetTicketLogsRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->ticket = new \Perfumer\Microservices\Undefined();
+        $this->ticket_id = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
         $this->text = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();

@@ -22,6 +22,11 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $ticket_id = null;
+
+    /**
+     * @var string
+     */
     public $group = null;
 
     /**
@@ -89,6 +94,7 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
         $this->user = new \Perfumer\Microservices\Undefined();
         $this->activity = new \Perfumer\Microservices\Undefined();
         $this->ticket = new \Perfumer\Microservices\Undefined();
+        $this->ticket_id = new \Perfumer\Microservices\Undefined();
         $this->group = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->deadline_at = new \Perfumer\Microservices\Undefined();
