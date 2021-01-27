@@ -204,6 +204,85 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function getField(\Perfumer\Microservices\Forms\Request\Field\GetFieldRequest $request): \Perfumer\Microservices\Forms\Response\Field\GetFieldResponse
+    {
+        $url = '/field';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Field\GetFieldResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\GetFieldResponse(), 'get', $url, [
+        'id' => $request->id,
+        'locale' => $request->locale,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'field');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->field = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteField(\Perfumer\Microservices\Forms\Request\Field\DeleteFieldRequest $request): \Perfumer\Microservices\Forms\Response\Field\DeleteFieldResponse
+    {
+        $url = '/field';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Field\DeleteFieldResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\DeleteFieldResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ]);
+
+        return $response;
+    }
+
+    public function saveField(\Perfumer\Microservices\Forms\Request\Field\SaveFieldRequest $request): \Perfumer\Microservices\Forms\Response\Field\SaveFieldResponse
+    {
+        $url = '/field';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Field\SaveFieldResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\SaveFieldResponse(), 'post', $url, [
+        'id' => $request->id,
+        'label' => $request->label,
+        'model' => $request->model,
+        'new_model' => $request->new_model,
+        'module' => $request->module,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'field');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->field = $item;
+        }
+
+        return $response;
+    }
+
+    public function getFields(\Perfumer\Microservices\Forms\Request\Fields\GetFieldsRequest $request): \Perfumer\Microservices\Forms\Response\Fields\GetFieldsResponse
+    {
+        $url = '/fields';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Fields\GetFieldsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Fields\GetFieldsResponse(), 'get', $url, [
+        'label' => $request->label,
+        'model' => $request->model,
+        'locale' => $request->locale,
+        'module' => $request->module,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'fields');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->fields = $item;
+        }
+
+        return $response;
+    }
+
     public function getModule(\Perfumer\Microservices\Forms\Request\Module\GetModuleRequest $request): \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse
     {
         $url = '/module';

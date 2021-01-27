@@ -23,6 +23,11 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @SaveMeshModel(microservice="forms", model="item", fields={"id", "name", "code", "new_code", "reference_code", "reference_id"})
  * @GetMeshModels(microservice="forms", model="items", fields={"name", "code", "locale", "reference"})
  *
+ * @GetModel(microservice="forms", model="field", fields={"id", "locale"})
+ * @DeleteModel(microservice="forms", model="field", fields={"id"})
+ * @SaveModel(microservice="forms", model="field", fields={"id", "label", "model", "new_model", "module"})
+ * @GetModels(microservice="forms", model="fields", fields={"label", "model", "locale", "module"})
+ *
  * @GetModel(microservice="forms", model="module", fields={"id", "code"})
  * @GetMeshModels(microservice="forms", model="modules", fields={"name", "code", "description", "is_archived.bool"})
  * @SaveMeshModel(microservice="forms", model="module", fields={"id", "code", "name", "description", "is_archived.bool"})
