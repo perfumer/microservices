@@ -22,12 +22,17 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $status = null;
+    public $code = null;
 
     /**
-     * @var string
+     * @var int
      */
-    public $code = null;
+    public $process = null;
+
+    /**
+     * @var int
+     */
+    public $process_state = null;
 
     /**
      * @var string
@@ -64,8 +69,9 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->customer = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
-        $this->status = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
+        $this->process = new \Perfumer\Microservices\Undefined();
+        $this->process_state = new \Perfumer\Microservices\Undefined();
         $this->deadline_at = new \Perfumer\Microservices\Undefined();
         $this->opened_at = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();

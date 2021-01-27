@@ -63,16 +63,14 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  *
  * @GetModel(microservice="crm", model="ticket", fields={"id", "code"})
  * @DeleteModelByCode(microservice="crm", model="ticket")
- * @SaveModel(microservice="crm", model="ticket", fields={"name", "customer", "module", "status", "code", "deadline_at", "opened_at", "closed_at", "payload.array"})
- * @GetModels(microservice="crm", model="tickets", fields={"name", "customer", "module", "status", "code", "deadline_at", "opened_at", "closed_at"})
- *
- * @SaveModel(microservice="crm", model="form", url="ticket/form", action="saveTicket", fields={"ticket", "form", "category", "payload.array"})
- * @DeleteModelByCode(microservice="crm", model="form", url="ticket/form", action="deleteTicket")
- * @GetModels(microservice="crm", model="forms", url="ticket/forms", action="getTicket", fields={"ticket", "form", "category"})
+ * @SaveModel(microservice="crm", model="ticket", fields={"name", "customer", "module", "code", "process.int", "deadline_at", "opened_at", "closed_at", "payload.array"})
+ * @GetModels(microservice="crm", model="tickets", fields={"name", "customer", "module", "code", "process.int", "process_state.int", "deadline_at", "opened_at", "closed_at"})
  *
  * @SaveModel(microservice="crm", model="log", url="ticket/log", action="saveTicket", fields={"ticket", "type", "text", "user", "code", "status", "close_status", "form", "payload.array"})
  * @DeleteModelByCode(microservice="crm", model="log", url="ticket/log", action="deleteTicket")
  * @GetModels(microservice="crm", model="logs", url="ticket/logs", action="getTicket", fields={"ticket", "type", "text", "user", "code", "status", "close_status", "form"})
+ *
+ * @UpdateModel(microservice="crm", model="processState", url="ticket/process-state", action="updateTicket", fields={"id.int", "code", "process_state.int"})
  *
  * @GetModels(microservice="crm", model="tasks", url="ticket/tasks", action="getTicket", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status"})
  *

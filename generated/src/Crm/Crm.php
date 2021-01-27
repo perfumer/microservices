@@ -814,8 +814,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'name' => $request->name,
         'customer' => $request->customer,
         'module' => $request->module,
-        'status' => $request->status,
         'code' => $request->code,
+        'process' => $request->process,
         'deadline_at' => $request->deadline_at,
         'opened_at' => $request->opened_at,
         'closed_at' => $request->closed_at,
@@ -839,8 +839,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'name' => $request->name,
         'customer' => $request->customer,
         'module' => $request->module,
-        'status' => $request->status,
         'code' => $request->code,
+        'process' => $request->process,
+        'process_state' => $request->process_state,
         'deadline_at' => $request->deadline_at,
         'opened_at' => $request->opened_at,
         'closed_at' => $request->closed_at,
@@ -857,65 +858,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->tickets = $item;
-        }
-
-        return $response;
-    }
-
-    public function saveTicketForm(\Perfumer\Microservices\Crm\Request\Form\SaveTicketFormRequest $request): \Perfumer\Microservices\Crm\Response\Form\SaveTicketFormResponse
-    {
-        $url = '/ticket/form';
-
-        /** @var \Perfumer\Microservices\Crm\Response\Form\SaveTicketFormResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Form\SaveTicketFormResponse(), 'post', $url, [
-        'ticket' => $request->ticket,
-        'form' => $request->form,
-        'category' => $request->category,
-        'payload' => $request->payload,
-        ]);
-        $item = $this->fetchKeyFromContent($response->_content, 'form');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->form = $item;
-        }
-
-        return $response;
-    }
-
-    public function deleteTicketForm(\Perfumer\Microservices\Crm\Request\Form\DeleteTicketFormRequest $request): \Perfumer\Microservices\Crm\Response\Form\DeleteTicketFormResponse
-    {
-        $url = '/ticket/form';
-
-        /** @var \Perfumer\Microservices\Crm\Response\Form\DeleteTicketFormResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Form\DeleteTicketFormResponse(), 'delete', $url, [
-        'code' => $request->code,
-        ]);
-
-        return $response;
-    }
-
-    public function getTicketForms(\Perfumer\Microservices\Crm\Request\Forms\GetTicketFormsRequest $request): \Perfumer\Microservices\Crm\Response\Forms\GetTicketFormsResponse
-    {
-        $url = '/ticket/forms';
-
-        /** @var \Perfumer\Microservices\Crm\Response\Forms\GetTicketFormsResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Forms\GetTicketFormsResponse(), 'get', $url, [
-        'ticket' => $request->ticket,
-        'form' => $request->form,
-        'category' => $request->category,
-        'limit' => $request->limit,
-        'offset' => $request->offset,
-        'count' => $request->count,
-        ]);
-        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->nb_results = $item;
-        }
-        $item = $this->fetchKeyFromContent($response->_content, 'forms');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->forms = $item;
         }
 
         return $response;
@@ -985,6 +927,25 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->logs = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateTicketProcessState(\Perfumer\Microservices\Crm\Request\ProcessState\UpdateTicketProcessStateRequest $request): \Perfumer\Microservices\Crm\Response\ProcessState\UpdateTicketProcessStateResponse
+    {
+        $url = '/ticket/process-state';
+
+        /** @var \Perfumer\Microservices\Crm\Response\ProcessState\UpdateTicketProcessStateResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\ProcessState\UpdateTicketProcessStateResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        'process_state' => $request->process_state,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'processState');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->processState = $item;
         }
 
         return $response;
