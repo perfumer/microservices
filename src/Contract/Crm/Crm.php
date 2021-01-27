@@ -85,6 +85,17 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @SaveModel(microservice="crm", model="customer", fields={"avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
  * @UpdateModel(microservice="crm", model="customer", fields={"id", "avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
  * @GetModels(microservice="crm", model="customers", fields={"last_name", "first_name", "mid_name", "email", "phone", "iin", "code"})
+ *
+ * @GetModel(microservice="crm", model="process", fields={"id"})
+ * @DeleteModel(microservice="crm", model="process", fields={"id"})
+ * @SaveModel(microservice="crm", model="process", fields={"name", "description"})
+ * @UpdateModel(microservice="crm", model="process", fields={"id", "name", "description"})
+ * @GetModels(microservice="crm", model="processes", fields={"id", "name", "description"})
+ *
+ * @SaveModel(microservice="crm", model="state", url="process/state", action="saveProcess", fields={"process.int", "code", "activity", "group", "code", "task_link", "name", "description", "is_initial.bool", "is_final.bool", "log_text"})
+ * @UpdateModel(microservice="crm", model="state", url="process/state", action="updateProcess", fields={"id.int", "process.int", "code", "activity", "group", "code", "task_link", "name", "description", "is_initial.bool", "is_final.bool", "log_text"})
+ * @DeleteModel(microservice="crm", model="state", url="process/state", action="deleteProcess", fields={"id.int", "process.int"})
+ * @GetModels(microservice="crm", model="states", url="process/states", action="getProcess", fields={"process.int"})
  */
 interface Crm
 {
