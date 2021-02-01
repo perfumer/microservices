@@ -912,6 +912,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'ticket_id' => $request->ticket_id,
         'type' => $request->type,
         'text' => $request->text,
+        'html' => $request->html,
         'user' => $request->user,
         'code' => $request->code,
         'status' => $request->status,
@@ -945,6 +946,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse(), 'get', $url, [
+        'user_fio' => $request->user_fio,
         'ticket' => $request->ticket,
         'ticket_id' => $request->ticket_id,
         'type' => $request->type,
