@@ -5,19 +5,39 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Tickets;
 class GetTicketsRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
-     */
-    public $name = null;
-
-    /**
-     * @var string
+     * @var int
      */
     public $customer = null;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $customer_fio = null;
+
+    /**
+     * @var string
+     */
+    public $module_name = null;
+
+    /**
+     * @var string
+     */
+    public $opened_at_from = null;
+
+    /**
+     * @var string
+     */
+    public $opened_at_to = null;
+
+    /**
+     * @var string
+     */
+    public $deadline_at_from = null;
+
+    /**
+     * @var string
+     */
+    public $deadline_at_to = null;
 
     /**
      * @var string
@@ -33,16 +53,6 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
      * @var int
      */
     public $process_state = null;
-
-    /**
-     * @var string
-     */
-    public $deadline_at = null;
-
-    /**
-     * @var string
-     */
-    public $opened_at = null;
 
     /**
      * @var string
@@ -66,14 +76,16 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->name = new \Perfumer\Microservices\Undefined();
         $this->customer = new \Perfumer\Microservices\Undefined();
-        $this->module = new \Perfumer\Microservices\Undefined();
+        $this->customer_fio = new \Perfumer\Microservices\Undefined();
+        $this->module_name = new \Perfumer\Microservices\Undefined();
+        $this->opened_at_from = new \Perfumer\Microservices\Undefined();
+        $this->opened_at_to = new \Perfumer\Microservices\Undefined();
+        $this->deadline_at_from = new \Perfumer\Microservices\Undefined();
+        $this->deadline_at_to = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->process = new \Perfumer\Microservices\Undefined();
         $this->process_state = new \Perfumer\Microservices\Undefined();
-        $this->deadline_at = new \Perfumer\Microservices\Undefined();
-        $this->opened_at = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();

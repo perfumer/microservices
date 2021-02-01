@@ -16,7 +16,7 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @DeleteModel(microservice="forms", model="form", fields={"id.int", "user_id.int", "customer_id.int", "ticket_id.int", "module"})
  * @SaveModel(microservice="forms", model="form", fields={"name", "ticket_id.int", "user_id.int", "customer_id.int", "schema", "module", "fields.array", "payload.array"})
  * @SaveModel(microservice="forms", model="forms", submodel="FormsTicket", url="/forms/ticket", fields={"user_id.int", "customer_id.int", "ticket_id.int", "module"})
- * @GetModels(microservice="forms", model="forms", fields={"name", "schema", "module", "ticket_id.int", "user_id.int", "customer_id.int"})
+ * @GetModels(microservice="forms", model="forms", fields={"module_name", "customer_fio", "user_fio", "name", "schema", "module", "ticket_id.int", "user_id.int", "customer_id.int"})
  *
  * @GetModel(microservice="forms", model="item", fields={"id", "code", "locale", "reference"})
  * @DeleteModel(microservice="forms", model="item", fields={"id"})

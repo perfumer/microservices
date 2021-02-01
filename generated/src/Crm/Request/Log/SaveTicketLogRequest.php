@@ -45,11 +45,6 @@ class SaveTicketLogRequest extends \Perfumer\Microservices\Request
     public $close_status = null;
 
     /**
-     * @var string
-     */
-    public $form = null;
-
-    /**
      * @var array
      */
     public $payload = [
@@ -65,7 +60,6 @@ class SaveTicketLogRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->status = new \Perfumer\Microservices\Undefined();
         $this->close_status = new \Perfumer\Microservices\Undefined();
-        $this->form = new \Perfumer\Microservices\Undefined();
         $this->payload = new \Perfumer\Microservices\Undefined();
     }
 }
