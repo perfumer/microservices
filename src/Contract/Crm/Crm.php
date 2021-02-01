@@ -46,10 +46,11 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @GetModels(microservice="crm", model="activities", fields={"name", "code", "priority"})
  *
  * @GetModel(microservice="crm", model="user", submodel="UserCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"user"}, url="/user/credentials")
- * @GetModel(microservice="crm", model="user", fields={"id", "code"})
+ * @GetModel(microservice="crm", model="user", fields={"id", "code", "iin", "phone", "email"})
  * @DeleteModel(microservice="crm", model="user", fields={"id", "code"})
- * @SaveModel(microservice="crm", model="user", fields={"id", "last_name", "first_name", "mid_name", "code"})
- * @GetModels(microservice="crm", model="users", fields={"last_name", "first_name", "mid_name", "code"})
+ * @SaveModel(microservice="crm", model="user", fields={"id", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password", "is_admin"})
+ * @UpdateModel(microservice="crm", model="user", fields={"id", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password", "is_admin", "is_disabled"})
+ * @GetModels(microservice="crm", model="users", fields={"last_name", "first_name", "mid_name", "email", "phone", "iin", "code"})
  *
  * @SaveModel(microservice="crm", model="user", fields={"user_id", "group_id", "role_id"}, action="add", submodel="UserRole", url="/user-role")
  * @DeleteModel(microservice="crm", model="user", fields={"user_id", "group_id", "role_id"}, action="delete", submodel="UserRole", url="/user-role")
@@ -66,27 +67,27 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  *
  * @GetModel(microservice="crm", model="ticket", fields={"id", "code"})
  * @DeleteModelByCode(microservice="crm", model="ticket")
- * @SaveModel(microservice="crm", model="ticket", fields={"name", "customer", "module", "code", "process.int", "deadline_at", "opened_at", "closed_at", "payload.array"})
- * @GetModels(microservice="crm", model="tickets", fields={"name", "customer", "module", "code", "process.int", "process_state.int", "deadline_at", "opened_at", "closed_at"})
+ * @SaveModel(microservice="crm", model="ticket", fields={"customer", "module", "code", "process.int", "deadline_at", "opened_at", "closed_at", "payload.array"})
+ * @GetModels(microservice="crm", model="tickets", fields={"customer.int", "customer_fio", "module_name", "opened_at_from", "opened_at_to", "deadline_at_from", "deadline_at_to", "code", "process.int", "process_state.int", "closed_at"})
  *
- * @SaveModel(microservice="crm", model="log", url="ticket/log", action="saveTicket", fields={"ticket", "ticket_id", "type", "text", "user", "code", "status", "close_status", "form", "payload.array"})
+ * @SaveModel(microservice="crm", model="log", url="ticket/log", action="saveTicket", fields={"ticket", "ticket_id", "type", "text", "html", "user", "code", "status", "close_status", "payload.array"})
  * @DeleteModelByCode(microservice="crm", model="log", url="ticket/log", action="deleteTicket")
- * @GetModels(microservice="crm", model="logs", url="ticket/logs", action="getTicket", fields={"ticket", "ticket_id", "type", "text", "user", "code", "status", "close_status", "form"})
+ * @GetModels(microservice="crm", model="logs", url="ticket/logs", action="getTicket", fields={"user_fio", "ticket", "ticket_id", "type", "text", "user", "code", "status", "close_status"})
  *
  * @UpdateModel(microservice="crm", model="processState", url="ticket/process-state", action="updateTicket", fields={"id.int", "code", "process_state.int"})
  *
- * @GetModels(microservice="crm", model="tasks", url="ticket/tasks", action="getTicket", fields={"user", "activity", "ticket", "ticket_id", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status"})
+ * @GetModels(microservice="crm", model="tasks", url="ticket/tasks", action="getTicket", fields={"user_fio", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "activity", "ticket", "ticket_id.int", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
  *
- * @GetModelByCode(microservice="crm", model="task")
- * @DeleteModelByCode(microservice="crm", model="task")
+ * @GetModel(microservice="crm", model="task", fields={"id", "code"})
+ * @DeleteModel(microservice="crm", model="task", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="task", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status", "payload.array"})
- * @GetModels(microservice="crm", model="tasks", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status"})
+ * @GetModels(microservice="crm", model="tasks", fields={"user_fio", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
 
  * @GetModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"customer"}, url="/customer/credentials")
  * @GetModel(microservice="crm", model="customer", fields={"id", "code", "iin", "phone", "email"})
  * @DeleteModel(microservice="crm", model="customer", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="customer", fields={"avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
- * @UpdateModel(microservice="crm", model="customer", fields={"id", "avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
+ * @UpdateModel(microservice="crm", model="customer", fields={"id", "avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password", "is_disabled"})
  * @GetModels(microservice="crm", model="customers", fields={"last_name", "first_name", "mid_name", "email", "phone", "iin", "code"})
  *
  * @GetModel(microservice="crm", model="process", fields={"id"})

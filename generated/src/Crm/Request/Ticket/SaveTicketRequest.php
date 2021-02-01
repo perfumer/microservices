@@ -7,11 +7,6 @@ class SaveTicketRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
-
-    /**
-     * @var string
-     */
     public $customer = null;
 
     /**
@@ -52,7 +47,6 @@ class SaveTicketRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->name = new \Perfumer\Microservices\Undefined();
         $this->customer = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();

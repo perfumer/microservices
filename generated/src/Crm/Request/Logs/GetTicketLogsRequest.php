@@ -7,6 +7,11 @@ class GetTicketLogsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $user_fio = null;
+
+    /**
+     * @var string
+     */
     public $ticket = null;
 
     /**
@@ -45,11 +50,6 @@ class GetTicketLogsRequest extends \Perfumer\Microservices\Request
     public $close_status = null;
 
     /**
-     * @var string
-     */
-    public $form = null;
-
-    /**
      * @var int
      */
     public $limit = null;
@@ -66,6 +66,7 @@ class GetTicketLogsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->user_fio = new \Perfumer\Microservices\Undefined();
         $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->ticket_id = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
@@ -74,7 +75,6 @@ class GetTicketLogsRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->status = new \Perfumer\Microservices\Undefined();
         $this->close_status = new \Perfumer\Microservices\Undefined();
-        $this->form = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();

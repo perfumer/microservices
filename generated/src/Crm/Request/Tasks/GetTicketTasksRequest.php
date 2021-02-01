@@ -7,7 +7,32 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $user = null;
+    public $user_fio = null;
+
+    /**
+     * @var string
+     */
+    public $description = null;
+
+    /**
+     * @var string
+     */
+    public $wake_at_from = null;
+
+    /**
+     * @var string
+     */
+    public $wake_at_to = null;
+
+    /**
+     * @var string
+     */
+    public $deadline_at_from = null;
+
+    /**
+     * @var string
+     */
+    public $deadline_at_to = null;
 
     /**
      * @var string
@@ -20,7 +45,7 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
     public $ticket = null;
 
     /**
-     * @var string
+     * @var int
      */
     public $ticket_id = null;
 
@@ -37,16 +62,6 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $deadline_at = null;
-
-    /**
-     * @var string
-     */
-    public $wake_at = null;
-
-    /**
-     * @var string
-     */
     public $closed_at = null;
 
     /**
@@ -58,11 +73,6 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
      * @var string
      */
     public $state = null;
-
-    /**
-     * @var string
-     */
-    public $description = null;
 
     /**
      * @var string
@@ -91,18 +101,20 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->user = new \Perfumer\Microservices\Undefined();
+        $this->user_fio = new \Perfumer\Microservices\Undefined();
+        $this->description = new \Perfumer\Microservices\Undefined();
+        $this->wake_at_from = new \Perfumer\Microservices\Undefined();
+        $this->wake_at_to = new \Perfumer\Microservices\Undefined();
+        $this->deadline_at_from = new \Perfumer\Microservices\Undefined();
+        $this->deadline_at_to = new \Perfumer\Microservices\Undefined();
         $this->activity = new \Perfumer\Microservices\Undefined();
         $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->ticket_id = new \Perfumer\Microservices\Undefined();
         $this->group = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
-        $this->deadline_at = new \Perfumer\Microservices\Undefined();
-        $this->wake_at = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();
         $this->complexity = new \Perfumer\Microservices\Undefined();
         $this->state = new \Perfumer\Microservices\Undefined();
-        $this->description = new \Perfumer\Microservices\Undefined();
         $this->link = new \Perfumer\Microservices\Undefined();
         $this->close_status = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();

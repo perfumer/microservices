@@ -544,6 +544,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\GetUserResponse(), 'get', $url, [
         'id' => $request->id,
         'code' => $request->code,
+        'iin' => $request->iin,
+        'phone' => $request->phone,
+        'email' => $request->email,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'user');
 
@@ -577,7 +580,39 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'last_name' => $request->last_name,
         'first_name' => $request->first_name,
         'mid_name' => $request->mid_name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'iin' => $request->iin,
         'code' => $request->code,
+        'password' => $request->password,
+        'is_admin' => $request->is_admin,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateUser(\Perfumer\Microservices\Crm\Request\User\UpdateUserRequest $request): \Perfumer\Microservices\Crm\Response\User\UpdateUserResponse
+    {
+        $url = '/user';
+
+        /** @var \Perfumer\Microservices\Crm\Response\User\UpdateUserResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\UpdateUserResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'last_name' => $request->last_name,
+        'first_name' => $request->first_name,
+        'mid_name' => $request->mid_name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'iin' => $request->iin,
+        'code' => $request->code,
+        'password' => $request->password,
+        'is_admin' => $request->is_admin,
+        'is_disabled' => $request->is_disabled,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'user');
 
@@ -597,6 +632,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'last_name' => $request->last_name,
         'first_name' => $request->first_name,
         'mid_name' => $request->mid_name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'iin' => $request->iin,
         'code' => $request->code,
         'limit' => $request->limit,
         'offset' => $request->offset,
@@ -844,7 +882,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Ticket\SaveTicketResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Ticket\SaveTicketResponse(), 'post', $url, [
-        'name' => $request->name,
         'customer' => $request->customer,
         'module' => $request->module,
         'code' => $request->code,
@@ -869,14 +906,16 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Tickets\GetTicketsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tickets\GetTicketsResponse(), 'get', $url, [
-        'name' => $request->name,
         'customer' => $request->customer,
-        'module' => $request->module,
+        'customer_fio' => $request->customer_fio,
+        'module_name' => $request->module_name,
+        'opened_at_from' => $request->opened_at_from,
+        'opened_at_to' => $request->opened_at_to,
+        'deadline_at_from' => $request->deadline_at_from,
+        'deadline_at_to' => $request->deadline_at_to,
         'code' => $request->code,
         'process' => $request->process,
         'process_state' => $request->process_state,
-        'deadline_at' => $request->deadline_at,
-        'opened_at' => $request->opened_at,
         'closed_at' => $request->closed_at,
         'limit' => $request->limit,
         'offset' => $request->offset,
@@ -906,11 +945,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'ticket_id' => $request->ticket_id,
         'type' => $request->type,
         'text' => $request->text,
+        'html' => $request->html,
         'user' => $request->user,
         'code' => $request->code,
         'status' => $request->status,
         'close_status' => $request->close_status,
-        'form' => $request->form,
         'payload' => $request->payload,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'log');
@@ -940,6 +979,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse(), 'get', $url, [
+        'user_fio' => $request->user_fio,
         'ticket' => $request->ticket,
         'ticket_id' => $request->ticket_id,
         'type' => $request->type,
@@ -948,7 +988,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         'status' => $request->status,
         'close_status' => $request->close_status,
-        'form' => $request->form,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
@@ -992,18 +1031,20 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Tasks\GetTicketTasksResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tasks\GetTicketTasksResponse(), 'get', $url, [
-        'user' => $request->user,
+        'user_fio' => $request->user_fio,
+        'description' => $request->description,
+        'wake_at_from' => $request->wake_at_from,
+        'wake_at_to' => $request->wake_at_to,
+        'deadline_at_from' => $request->deadline_at_from,
+        'deadline_at_to' => $request->deadline_at_to,
         'activity' => $request->activity,
         'ticket' => $request->ticket,
         'ticket_id' => $request->ticket_id,
         'group' => $request->group,
         'code' => $request->code,
-        'deadline_at' => $request->deadline_at,
-        'wake_at' => $request->wake_at,
         'closed_at' => $request->closed_at,
         'complexity' => $request->complexity,
         'state' => $request->state,
-        'description' => $request->description,
         'link' => $request->link,
         'close_status' => $request->close_status,
         'limit' => $request->limit,
@@ -1030,6 +1071,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Task\GetTaskResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\GetTaskResponse(), 'get', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'task');
@@ -1047,6 +1089,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Task\DeleteTaskResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\DeleteTaskResponse(), 'delete', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ]);
 
@@ -1089,17 +1132,19 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse(), 'get', $url, [
-        'user' => $request->user,
+        'user_fio' => $request->user_fio,
+        'description' => $request->description,
+        'wake_at_from' => $request->wake_at_from,
+        'wake_at_to' => $request->wake_at_to,
+        'deadline_at_from' => $request->deadline_at_from,
+        'deadline_at_to' => $request->deadline_at_to,
         'activity' => $request->activity,
         'ticket' => $request->ticket,
         'group' => $request->group,
         'code' => $request->code,
-        'deadline_at' => $request->deadline_at,
-        'wake_at' => $request->wake_at,
         'closed_at' => $request->closed_at,
         'complexity' => $request->complexity,
         'state' => $request->state,
-        'description' => $request->description,
         'link' => $request->link,
         'close_status' => $request->close_status,
         'limit' => $request->limit,
@@ -1216,6 +1261,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'iin' => $request->iin,
         'code' => $request->code,
         'password' => $request->password,
+        'is_disabled' => $request->is_disabled,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'customer');
 
