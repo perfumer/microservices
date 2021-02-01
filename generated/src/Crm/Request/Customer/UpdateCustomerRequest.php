@@ -54,6 +54,11 @@ class UpdateCustomerRequest extends \Perfumer\Microservices\Request
      */
     public $password = null;
 
+    /**
+     * @var string
+     */
+    public $is_disabled = null;
+
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
@@ -66,5 +71,6 @@ class UpdateCustomerRequest extends \Perfumer\Microservices\Request
         $this->iin = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->password = new \Perfumer\Microservices\Undefined();
+        $this->is_disabled = new \Perfumer\Microservices\Undefined();
     }
 }

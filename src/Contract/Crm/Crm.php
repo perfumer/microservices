@@ -46,10 +46,11 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @GetModels(microservice="crm", model="activities", fields={"name", "code", "priority"})
  *
  * @GetModel(microservice="crm", model="user", submodel="UserCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"user"}, url="/user/credentials")
- * @GetModel(microservice="crm", model="user", fields={"id", "code"})
+ * @GetModel(microservice="crm", model="user", fields={"id", "code", "iin", "phone", "email"})
  * @DeleteModel(microservice="crm", model="user", fields={"id", "code"})
- * @SaveModel(microservice="crm", model="user", fields={"id", "last_name", "first_name", "mid_name", "code"})
- * @GetModels(microservice="crm", model="users", fields={"last_name", "first_name", "mid_name", "code"})
+ * @SaveModel(microservice="crm", model="user", fields={"id", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password", "is_admin"})
+ * @UpdateModel(microservice="crm", model="user", fields={"id", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password", "is_admin", "is_disabled"})
+ * @GetModels(microservice="crm", model="users", fields={"last_name", "first_name", "mid_name", "email", "phone", "iin", "code"})
  *
  * @GetModel(microservice="crm", model="schedule", fields={"role", "group", "activity", "calendar"})
  * @DeleteModel(microservice="crm", model="schedule", fields={"role", "group", "activity", "calendar"})
@@ -83,7 +84,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @GetModel(microservice="crm", model="customer", fields={"id", "code", "iin", "phone", "email"})
  * @DeleteModel(microservice="crm", model="customer", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="customer", fields={"avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
- * @UpdateModel(microservice="crm", model="customer", fields={"id", "avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password"})
+ * @UpdateModel(microservice="crm", model="customer", fields={"id", "avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password", "is_disabled"})
  * @GetModels(microservice="crm", model="customers", fields={"last_name", "first_name", "mid_name", "email", "phone", "iin", "code"})
  *
  * @GetModel(microservice="crm", model="process", fields={"id"})

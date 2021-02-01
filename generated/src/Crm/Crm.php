@@ -544,6 +544,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\GetUserResponse(), 'get', $url, [
         'id' => $request->id,
         'code' => $request->code,
+        'iin' => $request->iin,
+        'phone' => $request->phone,
+        'email' => $request->email,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'user');
 
@@ -577,7 +580,39 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'last_name' => $request->last_name,
         'first_name' => $request->first_name,
         'mid_name' => $request->mid_name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'iin' => $request->iin,
         'code' => $request->code,
+        'password' => $request->password,
+        'is_admin' => $request->is_admin,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateUser(\Perfumer\Microservices\Crm\Request\User\UpdateUserRequest $request): \Perfumer\Microservices\Crm\Response\User\UpdateUserResponse
+    {
+        $url = '/user';
+
+        /** @var \Perfumer\Microservices\Crm\Response\User\UpdateUserResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\UpdateUserResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'last_name' => $request->last_name,
+        'first_name' => $request->first_name,
+        'mid_name' => $request->mid_name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'iin' => $request->iin,
+        'code' => $request->code,
+        'password' => $request->password,
+        'is_admin' => $request->is_admin,
+        'is_disabled' => $request->is_disabled,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'user');
 
@@ -597,6 +632,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'last_name' => $request->last_name,
         'first_name' => $request->first_name,
         'mid_name' => $request->mid_name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'iin' => $request->iin,
         'code' => $request->code,
         'limit' => $request->limit,
         'offset' => $request->offset,
@@ -1183,6 +1221,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'iin' => $request->iin,
         'code' => $request->code,
         'password' => $request->password,
+        'is_disabled' => $request->is_disabled,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'customer');
 
