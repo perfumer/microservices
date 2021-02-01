@@ -1,9 +1,14 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Crm\Request\Users;
+namespace Generated\Perfumer\Microservices\Crm\Request\User;
 
-class GetUsersRequest extends \Perfumer\Microservices\Request
+class UpdateUserRequest extends \Perfumer\Microservices\Request
 {
+    /**
+     * @var string
+     */
+    public $id = null;
+
     /**
      * @var string
      */
@@ -40,22 +45,23 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
     public $code = null;
 
     /**
-     * @var int
+     * @var string
      */
-    public $limit = null;
+    public $password = null;
 
     /**
-     * @var int
+     * @var string
      */
-    public $offset = null;
+    public $is_admin = null;
 
     /**
-     * @var int
+     * @var string
      */
-    public $count = null;
+    public $is_disabled = null;
 
     public function __construct()
     {
+        $this->id = new \Perfumer\Microservices\Undefined();
         $this->last_name = new \Perfumer\Microservices\Undefined();
         $this->first_name = new \Perfumer\Microservices\Undefined();
         $this->mid_name = new \Perfumer\Microservices\Undefined();
@@ -63,8 +69,8 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
         $this->phone = new \Perfumer\Microservices\Undefined();
         $this->iin = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
-        $this->limit = new \Perfumer\Microservices\Undefined();
-        $this->offset = new \Perfumer\Microservices\Undefined();
-        $this->count = new \Perfumer\Microservices\Undefined();
+        $this->password = new \Perfumer\Microservices\Undefined();
+        $this->is_admin = new \Perfumer\Microservices\Undefined();
+        $this->is_disabled = new \Perfumer\Microservices\Undefined();
     }
 }
