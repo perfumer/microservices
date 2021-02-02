@@ -687,12 +687,12 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
-    public function getUserRoles(\Perfumer\Microservices\Crm\Request\UserRoles\GetUserRolesRequest $request): \Perfumer\Microservices\Crm\Response\UserRoles\GetUserRolesResponse
+    public function getUserRoles(\Perfumer\Microservices\Crm\Request\User\GetUserRolesRequest $request): \Perfumer\Microservices\Crm\Response\User\GetUserRolesResponse
     {
-        $url = '/userRoles';
+        $url = '/user-roles';
 
-        /** @var \Perfumer\Microservices\Crm\Response\UserRoles\GetUserRolesResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\UserRoles\GetUserRolesResponse(), 'get', $url, [
+        /** @var \Perfumer\Microservices\Crm\Response\User\GetUserRolesResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\GetUserRolesResponse(), 'get', $url, [
         'user_id' => $request->user_id,
         'group_id' => $request->group_id,
         'role_id' => $request->role_id,
@@ -705,10 +705,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->nb_results = $item;
         }
-        $item = $this->fetchKeyFromContent($response->_content, 'userRoles');
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->userRoles = $item;
+            $response->user = $item;
         }
 
         return $response;
