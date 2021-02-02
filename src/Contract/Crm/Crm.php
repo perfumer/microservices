@@ -76,12 +76,12 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  *
  * @UpdateModel(microservice="crm", model="processState", url="ticket/process-state", action="updateTicket", fields={"id.int", "code", "process_state.int"})
  *
- * @GetModels(microservice="crm", model="tasks", url="ticket/tasks", action="getTicket", fields={"state", "close_status", "user_fio", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "ticket_id.int", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
+ * @GetModels(microservice="crm", model="tasks", url="ticket/tasks", action="getTicket", fields={"state", "close_status", "user_fio", "user_id.int", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "ticket_id.int", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
  *
  * @GetModel(microservice="crm", model="task", fields={"id", "code"})
  * @DeleteModel(microservice="crm", model="task", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="task", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status", "payload.array"})
- * @GetModels(microservice="crm", model="tasks", fields={"state", "close_status", "user_fio", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
+ * @GetModels(microservice="crm", model="tasks", fields={"state", "close_status", "user_fio", "user_id.int", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
 
  * @GetModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"customer"}, url="/customer/credentials")
  * @GetModel(microservice="crm", model="customer", fields={"id", "code", "iin", "phone", "email"})
