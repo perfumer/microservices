@@ -551,8 +551,6 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'code' => $request->code,
         'locale' => $request->locale,
         'ticket_module' => $request->ticket_module,
-        'order_field' => $request->order_field,
-        'order_direction' => $request->order_direction,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
