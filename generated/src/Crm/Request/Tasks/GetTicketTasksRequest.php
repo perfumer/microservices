@@ -20,6 +20,11 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
     public $user_fio = null;
 
     /**
+     * @var int
+     */
+    public $user_id = null;
+
+    /**
      * @var string
      */
     public $description = null;
@@ -124,6 +129,7 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
         $this->state = new \Perfumer\Microservices\Undefined();
         $this->close_status = new \Perfumer\Microservices\Undefined();
         $this->user_fio = new \Perfumer\Microservices\Undefined();
+        $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->wake_at_from = new \Perfumer\Microservices\Undefined();
         $this->wake_at_to = new \Perfumer\Microservices\Undefined();
