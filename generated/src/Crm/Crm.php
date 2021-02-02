@@ -700,6 +700,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'offset' => $request->offset,
         'count' => $request->count,
         ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'user_roles');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user_roles = $item;
+        }
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
