@@ -49,6 +49,16 @@ class GetTranslationsRequest extends \Perfumer\Microservices\Request
      */
     public $offset = null;
 
+    /**
+     * @var string
+     */
+    public $order_field = null;
+
+    /**
+     * @var string
+     */
+    public $order_direction = null;
+
     public function __construct()
     {
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -60,5 +70,7 @@ class GetTranslationsRequest extends \Perfumer\Microservices\Request
         $this->tag = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
+        $this->order_field = new \Perfumer\Microservices\Undefined();
+        $this->order_direction = new \Perfumer\Microservices\Undefined();
     }
 }

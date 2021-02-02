@@ -71,6 +71,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -144,6 +146,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -217,6 +221,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -299,6 +305,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -351,6 +359,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -500,6 +510,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -639,6 +651,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -722,6 +736,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -798,6 +814,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -887,6 +905,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -958,6 +978,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1017,6 +1039,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1117,6 +1141,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1255,6 +1281,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1348,6 +1376,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1439,6 +1469,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 

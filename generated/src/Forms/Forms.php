@@ -103,6 +103,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -192,6 +194,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -271,6 +275,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -322,6 +328,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -467,6 +475,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -554,6 +564,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
