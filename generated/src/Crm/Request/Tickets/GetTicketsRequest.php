@@ -57,6 +57,11 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $process_state_name = null;
+
+    /**
+     * @var string
+     */
     public $closed_at = null;
 
     /**
@@ -86,6 +91,7 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->process = new \Perfumer\Microservices\Undefined();
         $this->process_state = new \Perfumer\Microservices\Undefined();
+        $this->process_state_name = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
