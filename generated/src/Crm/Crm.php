@@ -654,6 +654,39 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function addUserRole(\Perfumer\Microservices\Crm\Request\User\AddUserRoleRequest $request): \Perfumer\Microservices\Crm\Response\User\AddUserRoleResponse
+    {
+        $url = '/user-role';
+
+        /** @var \Perfumer\Microservices\Crm\Response\User\AddUserRoleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\AddUserRoleResponse(), 'post', $url, [
+        'user_id' => $request->user_id,
+        'group_id' => $request->group_id,
+        'role_id' => $request->role_id,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteUserRole(\Perfumer\Microservices\Crm\Request\User\DeleteUserRoleRequest $request): \Perfumer\Microservices\Crm\Response\User\DeleteUserRoleResponse
+    {
+        $url = '/user-role';
+
+        /** @var \Perfumer\Microservices\Crm\Response\User\DeleteUserRoleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\DeleteUserRoleResponse(), 'delete', $url, [
+        'user_id' => $request->user_id,
+        'group_id' => $request->group_id,
+        'role_id' => $request->role_id,
+        ]);
+
+        return $response;
+    }
+
     public function getSchedule(\Perfumer\Microservices\Crm\Request\Schedule\GetScheduleRequest $request): \Perfumer\Microservices\Crm\Response\Schedule\GetScheduleResponse
     {
         $url = '/schedule';
