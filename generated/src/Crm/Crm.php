@@ -687,6 +687,33 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function getUserRoles(\Perfumer\Microservices\Crm\Request\UserRoles\GetUserRolesRequest $request): \Perfumer\Microservices\Crm\Response\UserRoles\GetUserRolesResponse
+    {
+        $url = '/userRoles';
+
+        /** @var \Perfumer\Microservices\Crm\Response\UserRoles\GetUserRolesResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\UserRoles\GetUserRolesResponse(), 'get', $url, [
+        'user_id' => $request->user_id,
+        'group_id' => $request->group_id,
+        'role_id' => $request->role_id,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'userRoles');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->userRoles = $item;
+        }
+
+        return $response;
+    }
+
     public function getSchedule(\Perfumer\Microservices\Crm\Request\Schedule\GetScheduleRequest $request): \Perfumer\Microservices\Crm\Response\Schedule\GetScheduleResponse
     {
         $url = '/schedule';
