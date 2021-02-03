@@ -399,6 +399,44 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function getPageStageRevision(\Perfumer\Microservices\Pages\Request\Revision\GetPageStageRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\GetPageStageRevisionResponse
+    {
+        $url = '/page/revision/stage';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Revision\GetPageStageRevisionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\GetPageStageRevisionResponse(), 'get', $url, [
+        'page_id' => $request->page_id,
+        'address' => $request->address,
+        'site' => $request->site,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'revision');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->revision = $item;
+        }
+
+        return $response;
+    }
+
+    public function getPageProdRevision(\Perfumer\Microservices\Pages\Request\Revision\GetPageProdRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\GetPageProdRevisionResponse
+    {
+        $url = '/page/revision/prod';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Revision\GetPageProdRevisionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\GetPageProdRevisionResponse(), 'get', $url, [
+        'page_id' => $request->page_id,
+        'address' => $request->address,
+        'site' => $request->site,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'revision');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->revision = $item;
+        }
+
+        return $response;
+    }
+
     public function archivePage(\Perfumer\Microservices\Pages\Request\Page\ArchivePageRequest $request): \Perfumer\Microservices\Pages\Response\Page\ArchivePageResponse
     {
         $url = '/page/archive';
