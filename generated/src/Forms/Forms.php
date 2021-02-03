@@ -250,6 +250,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'label' => $request->label,
         'model' => $request->model,
         'module' => $request->module,
+        'is_required' => $request->is_required,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'field');
 
@@ -270,6 +271,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'label' => $request->label,
         'model' => $request->model,
         'module' => $request->module,
+        'is_required' => $request->is_required,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'field');
 
