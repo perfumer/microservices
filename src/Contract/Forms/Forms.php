@@ -26,8 +26,8 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  *
  * @GetModel(microservice="forms", model="field", fields={"id.int", "locale"})
  * @DeleteModel(microservice="forms", model="field", fields={"id.int"})
- * @SaveModel(microservice="forms", model="field", fields={"label.array", "model", "module"})
- * @UpdateModel(microservice="forms", model="field", fields={"id.int", "label.array", "model", "module"})
+ * @SaveModel(microservice="forms", model="field", fields={"label.array", "model", "module", "is_required.bool"})
+ * @UpdateModel(microservice="forms", model="field", fields={"id.int", "label.array", "model", "module", "is_required.bool"})
  * @GetModels(microservice="forms", model="fields", fields={"label", "model", "locale", "module"})
  *
  * @GetModel(microservice="forms", model="module", fields={"id", "code"})
