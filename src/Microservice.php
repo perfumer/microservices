@@ -21,7 +21,7 @@ class Microservice
         return $return;
     }
 
-    protected function doRequest(Response $target_response, $method, $url, $json = null): Response
+    protected function doRequest(Response $target_response, $method, $url, $json = null, $debug = false): Response
     {
         try {
             $url = $this->host . $url;
@@ -30,6 +30,7 @@ class Microservice
                 'connect_timeout' => 15,
                 'read_timeout' => 15,
                 'timeout' => 15,
+                'debug' => $debug,
             ];
 
             if ($json) {
@@ -55,10 +56,18 @@ class Microservice
             }
         } catch (ClientException $e) {
             $guzzle_response = $e->getResponse();
-            $guzzle_response = json_decode($guzzle_response->getBody()->getContents(), true);
+
+            $target_response->_http_status_code = $guzzle_response->getStatusCode();
+            $target_response->_raw = $guzzle_response->getBody()->getContents();
+
+            $guzzle_response = json_decode($target_response->_raw, true);
 
             if (isset($guzzle_response['status'])) {
                 $target_response->_status = (bool) $guzzle_response['status'];
+            }
+
+            if (isset($guzzle_response['status_code'])) {
+                $target_response->_status_code = (string) $guzzle_response['status_code'];
             }
 
             if (isset($guzzle_response['message'])) {
@@ -69,6 +78,10 @@ class Microservice
                 $target_response->_errors = $guzzle_response['errors'];
             }
         } catch (RequestException $e) {
+            $guzzle_response = $e->getResponse();
+
+            $target_response->_http_status_code = $guzzle_response->getStatusCode();
+            $target_response->_raw = $guzzle_response->getBody()->getContents();
             $target_response->_status = false;
             $target_response->_message = $e->getMessage();
         } catch (\Exception $e) {
