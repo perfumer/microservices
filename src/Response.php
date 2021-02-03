@@ -35,7 +35,7 @@ class Response
     public $_raw;
 
     /**
-     * @var string
+     * @var int
      */
     public $_http_status_code;
 }
