@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Forms\Request\Field;
 class GetFieldRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

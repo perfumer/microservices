@@ -247,10 +247,28 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Field\SaveFieldResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\SaveFieldResponse(), 'post', $url, [
+        'label' => $request->label,
+        'model' => $request->model,
+        'module' => $request->module,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'field');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->field = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateField(\Perfumer\Microservices\Forms\Request\Field\UpdateFieldRequest $request): \Perfumer\Microservices\Forms\Response\Field\UpdateFieldResponse
+    {
+        $url = '/field';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Field\UpdateFieldResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\UpdateFieldResponse(), 'patch', $url, [
         'id' => $request->id,
         'label' => $request->label,
         'model' => $request->model,
-        'new_model' => $request->new_model,
         'module' => $request->module,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'field');

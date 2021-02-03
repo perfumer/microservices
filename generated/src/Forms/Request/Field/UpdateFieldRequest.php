@@ -2,8 +2,13 @@
 
 namespace Generated\Perfumer\Microservices\Forms\Request\Field;
 
-class SaveFieldRequest extends \Perfumer\Microservices\Request
+class UpdateFieldRequest extends \Perfumer\Microservices\Request
 {
+    /**
+     * @var int
+     */
+    public $id = null;
+
     /**
      * @var array
      */
@@ -22,6 +27,7 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->id = new \Perfumer\Microservices\Undefined();
         $this->label = new \Perfumer\Microservices\Undefined();
         $this->model = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
