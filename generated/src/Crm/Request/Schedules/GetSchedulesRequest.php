@@ -7,22 +7,22 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $role = null;
+    public $role_id = null;
 
     /**
      * @var string
      */
-    public $group = null;
+    public $group_id = null;
 
     /**
      * @var string
      */
-    public $activity = null;
+    public $activity_id = null;
 
     /**
      * @var string
      */
-    public $calendar = null;
+    public $calendar_id = null;
 
     /**
      * @var int
@@ -51,10 +51,10 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->role = new \Perfumer\Microservices\Undefined();
-        $this->group = new \Perfumer\Microservices\Undefined();
-        $this->activity = new \Perfumer\Microservices\Undefined();
-        $this->calendar = new \Perfumer\Microservices\Undefined();
+        $this->role_id = new \Perfumer\Microservices\Undefined();
+        $this->group_id = new \Perfumer\Microservices\Undefined();
+        $this->activity_id = new \Perfumer\Microservices\Undefined();
+        $this->calendar_id = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
