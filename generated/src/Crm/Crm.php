@@ -804,10 +804,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Schedule\GetScheduleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Schedule\GetScheduleResponse(), 'get', $url, [
-        'role' => $request->role,
-        'group' => $request->group,
-        'activity' => $request->activity,
-        'calendar' => $request->calendar,
+        'role_id' => $request->role_id,
+        'group_id' => $request->group_id,
+        'activity_id' => $request->activity_id,
+        'calendar_id' => $request->calendar_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'schedule');
 
@@ -824,10 +824,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Schedule\DeleteScheduleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Schedule\DeleteScheduleResponse(), 'delete', $url, [
-        'role' => $request->role,
-        'group' => $request->group,
-        'activity' => $request->activity,
-        'calendar' => $request->calendar,
+        'role_id' => $request->role_id,
+        'group_id' => $request->group_id,
+        'activity_id' => $request->activity_id,
+        'calendar_id' => $request->calendar_id,
         ], $request->_debug);
 
         return $response;
@@ -839,10 +839,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Schedule\SaveScheduleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Schedule\SaveScheduleResponse(), 'post', $url, [
-        'role' => $request->role,
-        'group' => $request->group,
-        'activity' => $request->activity,
-        'calendar' => $request->calendar,
+        'role_id' => $request->role_id,
+        'group_id' => $request->group_id,
+        'activity_id' => $request->activity_id,
+        'calendar_id' => $request->calendar_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'schedule');
 
@@ -859,10 +859,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Schedules\GetSchedulesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Schedules\GetSchedulesResponse(), 'get', $url, [
-        'role' => $request->role,
-        'group' => $request->group,
-        'activity' => $request->activity,
-        'calendar' => $request->calendar,
+        'role_id' => $request->role_id,
+        'group_id' => $request->group_id,
+        'activity_id' => $request->activity_id,
+        'calendar_id' => $request->calendar_id,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
