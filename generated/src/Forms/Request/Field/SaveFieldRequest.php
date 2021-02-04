@@ -5,14 +5,10 @@ namespace Generated\Perfumer\Microservices\Forms\Request\Field;
 class SaveFieldRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var array
      */
-    public $id = null;
-
-    /**
-     * @var string
-     */
-    public $label = null;
+    public $label = [
+    ];
 
     /**
      * @var string
@@ -22,19 +18,18 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $new_model = null;
+    public $module = null;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $module = null;
+    public $is_required = null;
 
     public function __construct()
     {
-        $this->id = new \Perfumer\Microservices\Undefined();
         $this->label = new \Perfumer\Microservices\Undefined();
         $this->model = new \Perfumer\Microservices\Undefined();
-        $this->new_model = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
+        $this->is_required = new \Perfumer\Microservices\Undefined();
     }
 }

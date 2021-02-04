@@ -12,7 +12,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Site\GetSiteResponse(), 'get', $url, [
         'id' => $request->id,
         'code' => $request->code,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'site');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -34,7 +34,9 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
-        ]);
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -57,7 +59,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Module\GetModuleResponse(), 'get', $url, [
         'id' => $request->id,
         'code' => $request->code,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -85,7 +87,9 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
-        ]);
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -113,7 +117,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'is_archived' => $request->is_archived,
         'parents' => $request->parents,
         'children' => $request->children,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -131,7 +135,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Module\DeleteModuleResponse(), 'delete', $url, [
         'id' => $request->id,
         'code' => $request->code,
-        ]);
+        ], $request->_debug);
 
         return $response;
     }
@@ -143,7 +147,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Pages\Response\Module\ArchiveModuleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Module\ArchiveModuleResponse(), 'post', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -160,7 +164,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Pages\Response\Module\UnarchiveModuleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Module\UnarchiveModuleResponse(), 'delete', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -177,7 +181,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Pages\Response\Revision\GetRevisionResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\GetRevisionResponse(), 'get', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'revision');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -194,7 +198,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Pages\Response\Revision\DeleteRevisionResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\DeleteRevisionResponse(), 'delete', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
 
         return $response;
     }
@@ -212,7 +216,9 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
-        ]);
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -240,7 +246,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'blocks' => $request->blocks,
         'parameters' => $request->parameters,
         'is_archived' => $request->is_archived,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'revision');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -257,7 +263,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Pages\Response\Revision\ArchiveRevisionResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\ArchiveRevisionResponse(), 'post', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'revision');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -274,7 +280,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Pages\Response\Revision\UnarchiveRevisionResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\UnarchiveRevisionResponse(), 'delete', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'revision');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -291,7 +297,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Pages\Response\Page\GetPageResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Page\GetPageResponse(), 'get', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'page');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -314,7 +320,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'site_id' => $request->site_id,
         'module_code' => $request->module_code,
         'is_archived' => $request->is_archived,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'page');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -338,7 +344,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'site_id' => $request->site_id,
         'module_code' => $request->module_code,
         'is_archived' => $request->is_archived,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'page');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -355,7 +361,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Pages\Response\Page\DeletePageResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Page\DeletePageResponse(), 'delete', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
 
         return $response;
     }
@@ -376,7 +382,9 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
-        ]);
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -391,6 +399,44 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function getPageStageRevision(\Perfumer\Microservices\Pages\Request\Revision\GetPageStageRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\GetPageStageRevisionResponse
+    {
+        $url = '/page/revision/stage';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Revision\GetPageStageRevisionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\GetPageStageRevisionResponse(), 'get', $url, [
+        'page_id' => $request->page_id,
+        'address' => $request->address,
+        'site' => $request->site,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'revision');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->revision = $item;
+        }
+
+        return $response;
+    }
+
+    public function getPageProdRevision(\Perfumer\Microservices\Pages\Request\Revision\GetPageProdRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\GetPageProdRevisionResponse
+    {
+        $url = '/page/revision/prod';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Revision\GetPageProdRevisionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\GetPageProdRevisionResponse(), 'get', $url, [
+        'page_id' => $request->page_id,
+        'address' => $request->address,
+        'site' => $request->site,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'revision');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->revision = $item;
+        }
+
+        return $response;
+    }
+
     public function archivePage(\Perfumer\Microservices\Pages\Request\Page\ArchivePageRequest $request): \Perfumer\Microservices\Pages\Response\Page\ArchivePageResponse
     {
         $url = '/page/archive';
@@ -398,7 +444,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Pages\Response\Page\ArchivePageResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Page\ArchivePageResponse(), 'post', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'page');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -415,7 +461,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Pages\Response\Page\UnarchivePageResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Page\UnarchivePageResponse(), 'delete', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'page');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {

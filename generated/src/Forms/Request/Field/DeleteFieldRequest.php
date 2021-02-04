@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Forms\Request\Field;
 class DeleteFieldRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

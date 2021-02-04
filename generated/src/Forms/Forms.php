@@ -15,7 +15,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'ticket_id' => $request->ticket_id,
         'module' => $request->module,
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'form');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -36,7 +36,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'customer_id' => $request->customer_id,
         'ticket_id' => $request->ticket_id,
         'module' => $request->module,
-        ]);
+        ], $request->_debug);
 
         return $response;
     }
@@ -55,7 +55,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'module' => $request->module,
         'fields' => $request->fields,
         'payload' => $request->payload,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'form');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -75,7 +75,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'customer_id' => $request->customer_id,
         'ticket_id' => $request->ticket_id,
         'module' => $request->module,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'forms');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -103,7 +103,9 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
-        ]);
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -128,7 +130,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'code' => $request->code,
         'locale' => $request->locale,
         'reference' => $request->reference,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'item');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -145,7 +147,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Item\DeleteItemResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Item\DeleteItemResponse(), 'delete', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
 
         return $response;
     }
@@ -164,7 +166,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'reference_id' => $request->reference_id,
         'parents' => $request->parents,
         'children' => $request->children,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'item');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -192,7 +194,9 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
-        ]);
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -215,7 +219,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\GetFieldResponse(), 'get', $url, [
         'id' => $request->id,
         'locale' => $request->locale,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'field');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -232,7 +236,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Field\DeleteFieldResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\DeleteFieldResponse(), 'delete', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
 
         return $response;
     }
@@ -243,12 +247,32 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Field\SaveFieldResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\SaveFieldResponse(), 'post', $url, [
+        'label' => $request->label,
+        'model' => $request->model,
+        'module' => $request->module,
+        'is_required' => $request->is_required,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'field');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->field = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateField(\Perfumer\Microservices\Forms\Request\Field\UpdateFieldRequest $request): \Perfumer\Microservices\Forms\Response\Field\UpdateFieldResponse
+    {
+        $url = '/field';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Field\UpdateFieldResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\UpdateFieldResponse(), 'patch', $url, [
         'id' => $request->id,
         'label' => $request->label,
         'model' => $request->model,
-        'new_model' => $request->new_model,
         'module' => $request->module,
-        ]);
+        'is_required' => $request->is_required,
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'field');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -271,7 +295,9 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
-        ]);
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -294,7 +320,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse(), 'get', $url, [
         'id' => $request->id,
         'code' => $request->code,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -322,7 +348,9 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
-        ]);
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -350,7 +378,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'is_archived' => $request->is_archived,
         'parents' => $request->parents,
         'children' => $request->children,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -368,7 +396,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse(), 'delete', $url, [
         'id' => $request->id,
         'code' => $request->code,
-        ]);
+        ], $request->_debug);
 
         return $response;
     }
@@ -380,7 +408,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Module\ArchiveModuleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\ArchiveModuleResponse(), 'post', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -397,7 +425,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Module\UnarchiveModuleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\UnarchiveModuleResponse(), 'delete', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -414,7 +442,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Reference\GetReferenceResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Reference\GetReferenceResponse(), 'get', $url, [
         'code' => $request->code,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'reference');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -431,7 +459,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Reference\DeleteReferenceResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Reference\DeleteReferenceResponse(), 'delete', $url, [
         'code' => $request->code,
-        ]);
+        ], $request->_debug);
 
         return $response;
     }
@@ -445,7 +473,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'name' => $request->name,
         'code' => $request->code,
         'is_archived' => $request->is_archived,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'reference');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -467,7 +495,9 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
-        ]);
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -491,7 +521,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'id' => $request->id,
         'locale' => $request->locale,
         'code' => $request->code,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'article');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -508,7 +538,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Article\DeleteArticleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\DeleteArticleResponse(), 'delete', $url, [
         'id' => $request->id,
-        ]);
+        ], $request->_debug);
 
         return $response;
     }
@@ -529,7 +559,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'json' => $request->json,
         'locale' => $request->locale,
         'ticket_modules' => $request->ticket_modules,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'article');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -554,7 +584,9 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
-        ]);
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
