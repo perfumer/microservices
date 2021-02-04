@@ -10,6 +10,7 @@ use Perfumer\Microservices\Annotation\GetModelByCode;
 use Perfumer\Microservices\Annotation\GetModels;
 use Perfumer\Microservices\Annotation\SaveMeshModel;
 use Perfumer\Microservices\Annotation\SaveModel;
+use Perfumer\Microservices\Annotation\UpdateModel;
 
 /**
  * @GetModel(microservice="forms", model="form", fields={"user_id.int", "customer_id.int", "ticket_id.int", "module", "id.int"})
@@ -23,9 +24,10 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @SaveMeshModel(microservice="forms", model="item", fields={"id", "name", "code", "new_code", "reference_code", "reference_id"})
  * @GetMeshModels(microservice="forms", model="items", fields={"name", "code", "locale", "reference"})
  *
- * @GetModel(microservice="forms", model="field", fields={"id", "locale"})
- * @DeleteModel(microservice="forms", model="field", fields={"id"})
- * @SaveModel(microservice="forms", model="field", fields={"id", "label", "model", "new_model", "module"})
+ * @GetModel(microservice="forms", model="field", fields={"id.int", "locale"})
+ * @DeleteModel(microservice="forms", model="field", fields={"id.int"})
+ * @SaveModel(microservice="forms", model="field", fields={"label.array", "model", "module", "is_required.bool"})
+ * @UpdateModel(microservice="forms", model="field", fields={"id.int", "label.array", "model", "module", "is_required.bool"})
  * @GetModels(microservice="forms", model="fields", fields={"label", "model", "locale", "module"})
  *
  * @GetModel(microservice="forms", model="module", fields={"id", "code"})
