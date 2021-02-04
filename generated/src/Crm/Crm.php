@@ -244,40 +244,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Group\GetGroupResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Group\GetGroupResponse(), 'get', $url, [
+        'id' => $request->id,
         'code' => $request->code,
-        ], $request->_debug);
-        $item = $this->fetchKeyFromContent($response->_content, 'group');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->group = $item;
-        }
-
-        return $response;
-    }
-
-    public function deleteGroup(\Perfumer\Microservices\Crm\Request\Group\DeleteGroupRequest $request): \Perfumer\Microservices\Crm\Response\Group\DeleteGroupResponse
-    {
-        $url = '/group';
-
-        /** @var \Perfumer\Microservices\Crm\Response\Group\DeleteGroupResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Group\DeleteGroupResponse(), 'delete', $url, [
-        'code' => $request->code,
-        ], $request->_debug);
-
-        return $response;
-    }
-
-    public function saveGroup(\Perfumer\Microservices\Crm\Request\Group\SaveGroupRequest $request): \Perfumer\Microservices\Crm\Response\Group\SaveGroupResponse
-    {
-        $url = '/group';
-
-        /** @var \Perfumer\Microservices\Crm\Response\Group\SaveGroupResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Group\SaveGroupResponse(), 'post', $url, [
-        'name' => $request->name,
-        'code' => $request->code,
-        'category' => $request->category,
-        'parents' => $request->parents,
-        'children' => $request->children,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'group');
 
@@ -296,6 +264,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Groups\GetGroupsResponse(), 'get', $url, [
         'name' => $request->name,
         'code' => $request->code,
+        'is_archived' => $request->is_archived,
         'category' => $request->category,
         'parent' => $request->parent,
         'parents' => $request->parents,
@@ -317,6 +286,76 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->groups = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveGroup(\Perfumer\Microservices\Crm\Request\Group\SaveGroupRequest $request): \Perfumer\Microservices\Crm\Response\Group\SaveGroupResponse
+    {
+        $url = '/group';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Group\SaveGroupResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Group\SaveGroupResponse(), 'post', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        'name' => $request->name,
+        'is_archived' => $request->is_archived,
+        'category' => $request->category,
+        'parents' => $request->parents,
+        'children' => $request->children,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'group');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->group = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteGroup(\Perfumer\Microservices\Crm\Request\Group\DeleteGroupRequest $request): \Perfumer\Microservices\Crm\Response\Group\DeleteGroupResponse
+    {
+        $url = '/group';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Group\DeleteGroupResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Group\DeleteGroupResponse(), 'delete', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        ], $request->_debug);
+
+        return $response;
+    }
+
+    public function archiveGroup(\Perfumer\Microservices\Crm\Request\Group\ArchiveGroupRequest $request): \Perfumer\Microservices\Crm\Response\Group\ArchiveGroupResponse
+    {
+        $url = '/group/archive';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Group\ArchiveGroupResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Group\ArchiveGroupResponse(), 'post', $url, [
+        'id' => $request->id,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'group');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->group = $item;
+        }
+
+        return $response;
+    }
+
+    public function unarchiveGroup(\Perfumer\Microservices\Crm\Request\Group\UnarchiveGroupRequest $request): \Perfumer\Microservices\Crm\Response\Group\UnarchiveGroupResponse
+    {
+        $url = '/group/archive';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Group\UnarchiveGroupResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Group\UnarchiveGroupResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'group');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->group = $item;
         }
 
         return $response;

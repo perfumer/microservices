@@ -15,6 +15,11 @@ class GetGroupsRequest extends \Perfumer\Microservices\Request
     public $code = null;
 
     /**
+     * @var bool
+     */
+    public $is_archived = null;
+
+    /**
      * @var string
      */
     public $category = null;
@@ -73,6 +78,7 @@ class GetGroupsRequest extends \Perfumer\Microservices\Request
     {
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
+        $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->category = new \Perfumer\Microservices\Undefined();
         $this->parent = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();

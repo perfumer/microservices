@@ -28,10 +28,12 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @SaveModel(microservice="crm", model="role", fields={"name", "code"})
  * @GetModels(microservice="crm", model="roles", fields={"name", "code"})
  *
- * @GetModelByCode(microservice="crm", model="group")
- * @DeleteModelByCode(microservice="crm", model="group")
- * @SaveMeshModel(microservice="crm", model="group", fields={"name", "code", "category"})
- * @GetMeshModels(microservice="crm", model="groups", fields={"name", "code", "category"})
+ * @GetModel(microservice="crm", model="group", fields={"id", "code"})
+ * @GetMeshModels(microservice="crm", model="groups", fields={"name", "code", "is_archived.bool", "category"})
+ * @SaveMeshModel(microservice="crm", model="group", fields={"id.int", "code", "name", "is_archived.bool", "category"})
+ * @DeleteModel(microservice="crm", model="group", fields={"id.int", "code"})
+ * @SaveModel(microservice="crm", model="group", fields={"id.int"}, url="/group/archive", action="archive")
+ * @SaveModel(microservice="crm", model="group", fields={"id.int"}, url="/group/archive", action="unarchive", request_method="delete")
  *
  * @GetModel(microservice="crm", model="module", fields={"id", "code"})
  * @GetMeshModels(microservice="crm", model="modules", fields={"name", "code", "description", "is_archived.bool", "process"})
