@@ -1,8 +1,8 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Crm\Request\States;
+namespace Generated\Perfumer\Microservices\Crm\Request\Scenarios;
 
-class GetProcessStatesRequest extends \Perfumer\Microservices\Request
+class GetProcessScenariosRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var int
@@ -17,12 +17,12 @@ class GetProcessStatesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $from_state = null;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $to_state = null;
 
     /**
      * @var int
@@ -53,8 +53,8 @@ class GetProcessStatesRequest extends \Perfumer\Microservices\Request
     {
         $this->process = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
-        $this->name = new \Perfumer\Microservices\Undefined();
-        $this->description = new \Perfumer\Microservices\Undefined();
+        $this->from_state = new \Perfumer\Microservices\Undefined();
+        $this->to_state = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
