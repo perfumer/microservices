@@ -21,7 +21,7 @@ use Perfumer\Microservices\Annotation\GetModels;
  * @GetModels(microservice="events", model="participants", fields={"event_id", "customer_id"})
  * @GetModels(microservice="events", model="events", fields={"organizer_id", "locale", "author_id", "title", "image",
  *     "description", "opened_at_from", "opened_at_to", "closed_at_from", "closed_at_to", "apply_from_from",
- *     "apply_from_to", "apply_till_from", "apply_till_to"})
+ *     "apply_from_to", "apply_till_from", "apply_till_to", "published_at"})
  *
  * @SaveModel(microservice="events", model="participant", fields={"event_id", "customer_id"})
  * @UpdateModel(microservice="events", model="participant", fields={"id.int", "event_id", "customer_id"})
@@ -29,7 +29,7 @@ use Perfumer\Microservices\Annotation\GetModels;
  *
  * @GetModel(microservice="events", model="event", fields={"id.int", "locale"})
  * @SaveModel(microservice="events", model="event", fields={"organizer_id", "locale", "author_id", "title", "image",
- *     "description", "html", "json", "opened_at", "closed_at", "apply_from", "apply_till"})
+ *     "description", "html", "json", "opened_at", "closed_at", "apply_from", "apply_till", "published_at"})
  * @DeleteModel(microservice="events", model="event", fields={"id.int"})
  * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/on-moderation", action="onmoderation")
  * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/publish", action="publish")

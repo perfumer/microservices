@@ -64,6 +64,11 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
      */
     public $apply_till = null;
 
+    /**
+     * @var string
+     */
+    public $published_at = null;
+
     public function __construct()
     {
         $this->organizer_id = new \Perfumer\Microservices\Undefined();
@@ -78,5 +83,6 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
         $this->closed_at = new \Perfumer\Microservices\Undefined();
         $this->apply_from = new \Perfumer\Microservices\Undefined();
         $this->apply_till = new \Perfumer\Microservices\Undefined();
+        $this->published_at = new \Perfumer\Microservices\Undefined();
     }
 }

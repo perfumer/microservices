@@ -75,6 +75,11 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
     public $apply_till_to = null;
 
     /**
+     * @var string
+     */
+    public $published_at = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -115,6 +120,7 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         $this->apply_from_to = new \Perfumer\Microservices\Undefined();
         $this->apply_till_from = new \Perfumer\Microservices\Undefined();
         $this->apply_till_to = new \Perfumer\Microservices\Undefined();
+        $this->published_at = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();

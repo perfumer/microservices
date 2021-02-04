@@ -175,6 +175,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'apply_from_to' => $request->apply_from_to,
         'apply_till_from' => $request->apply_till_from,
         'apply_till_to' => $request->apply_till_to,
+        'published_at' => $request->published_at,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
@@ -280,7 +281,8 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'closed_at' => $request->closed_at,
         'apply_from' => $request->apply_from,
         'apply_till' => $request->apply_till,
-        ], $request->_debug);
+        'published_at' => $request->published_at,
+        ],  $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'event');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
