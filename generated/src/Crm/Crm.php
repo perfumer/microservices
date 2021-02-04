@@ -216,7 +216,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Role\UpdateRoleResponse(), 'patch', $url, [
         'id' => $request->id,
         'code' => $request->code,
-        'password' => $request->password,
         'name' => $request->name,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'role');
