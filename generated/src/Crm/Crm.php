@@ -165,6 +165,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Role\GetRoleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Role\GetRoleResponse(), 'get', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'role');
@@ -182,6 +183,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Role\DeleteRoleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Role\DeleteRoleResponse(), 'delete', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ]);
 
@@ -196,6 +198,26 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Role\SaveRoleResponse(), 'post', $url, [
         'name' => $request->name,
         'code' => $request->code,
+        ]);
+        $item = $this->fetchKeyFromContent($response->_content, 'role');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->role = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateRole(\Perfumer\Microservices\Crm\Request\Role\UpdateRoleRequest $request): \Perfumer\Microservices\Crm\Response\Role\UpdateRoleResponse
+    {
+        $url = '/role';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Role\UpdateRoleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Role\UpdateRoleResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        'password' => $request->password,
+        'name' => $request->name,
         ]);
         $item = $this->fetchKeyFromContent($response->_content, 'role');
 

@@ -23,9 +23,10 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @SaveModel(microservice="crm", model="calendar", fields={"name", "code"})
  * @GetModels(microservice="crm", model="calendars", fields={"name", "code"})
  *
- * @GetModelByCode(microservice="crm", model="role")
- * @DeleteModelByCode(microservice="crm", model="role")
+ * @GetModel(microservice="crm", model="role", fields={"id", "code"})
+ * @DeleteModel(microservice="crm", model="role", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="role", fields={"name", "code"})
+ * @UpdateModel(microservice="crm", model="role", fields={"id", "code", "password", "name"})
  * @GetModels(microservice="crm", model="roles", fields={"name", "code"})
  *
  * @GetModelByCode(microservice="crm", model="group")
