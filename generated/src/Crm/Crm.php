@@ -1126,20 +1126,21 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
-    public function updateTicketProcessState(\Perfumer\Microservices\Crm\Request\ProcessState\UpdateTicketProcessStateRequest $request): \Perfumer\Microservices\Crm\Response\ProcessState\UpdateTicketProcessStateResponse
+    public function updateProcessStateTicket(\Perfumer\Microservices\Crm\Request\Ticket\UpdateProcessStateTicketRequest $request): \Perfumer\Microservices\Crm\Response\Ticket\UpdateProcessStateTicketResponse
     {
         $url = '/ticket/process-state';
 
-        /** @var \Perfumer\Microservices\Crm\Response\ProcessState\UpdateTicketProcessStateResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\ProcessState\UpdateTicketProcessStateResponse(), 'patch', $url, [
+        /** @var \Perfumer\Microservices\Crm\Response\Ticket\UpdateProcessStateTicketResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Ticket\UpdateProcessStateTicketResponse(), 'patch', $url, [
         'id' => $request->id,
         'code' => $request->code,
-        'process_state' => $request->process_state,
+        'task' => $request->task,
+        'process_scenario' => $request->process_scenario,
         ], $request->_debug);
-        $item = $this->fetchKeyFromContent($response->_content, 'processState');
+        $item = $this->fetchKeyFromContent($response->_content, 'ticket');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->processState = $item;
+            $response->ticket = $item;
         }
 
         return $response;
@@ -1534,6 +1535,24 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function getProcessState(\Perfumer\Microservices\Crm\Request\State\GetProcessStateRequest $request): \Perfumer\Microservices\Crm\Response\State\GetProcessStateResponse
+    {
+        $url = '/process/state';
+
+        /** @var \Perfumer\Microservices\Crm\Response\State\GetProcessStateResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\State\GetProcessStateResponse(), 'get', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'state');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->state = $item;
+        }
+
+        return $response;
+    }
+
     public function saveProcessState(\Perfumer\Microservices\Crm\Request\State\SaveProcessStateRequest $request): \Perfumer\Microservices\Crm\Response\State\SaveProcessStateResponse
     {
         $url = '/process/state';
@@ -1542,8 +1561,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\State\SaveProcessStateResponse(), 'post', $url, [
         'process' => $request->process,
         'code' => $request->code,
-        'activity' => $request->activity,
-        'group' => $request->group,
         'task_link' => $request->task_link,
         'name' => $request->name,
         'description' => $request->description,
@@ -1569,8 +1586,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'id' => $request->id,
         'process' => $request->process,
         'code' => $request->code,
-        'activity' => $request->activity,
-        'group' => $request->group,
         'task_link' => $request->task_link,
         'name' => $request->name,
         'description' => $request->description,
@@ -1607,6 +1622,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\States\GetProcessStatesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\States\GetProcessStatesResponse(), 'get', $url, [
         'process' => $request->process,
+        'code' => $request->code,
+        'name' => $request->name,
+        'description' => $request->description,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
@@ -1622,6 +1640,203 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->states = $item;
+        }
+
+        return $response;
+    }
+
+    public function getProcessScenario(\Perfumer\Microservices\Crm\Request\Scenario\GetProcessScenarioRequest $request): \Perfumer\Microservices\Crm\Response\Scenario\GetProcessScenarioResponse
+    {
+        $url = '/process/scenario';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Scenario\GetProcessScenarioResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Scenario\GetProcessScenarioResponse(), 'get', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'scenario');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->scenario = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveProcessScenario(\Perfumer\Microservices\Crm\Request\Scenario\SaveProcessScenarioRequest $request): \Perfumer\Microservices\Crm\Response\Scenario\SaveProcessScenarioResponse
+    {
+        $url = '/process/scenario';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Scenario\SaveProcessScenarioResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Scenario\SaveProcessScenarioResponse(), 'post', $url, [
+        'code' => $request->code,
+        'from_state' => $request->from_state,
+        'to_state' => $request->to_state,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'scenario');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->scenario = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateProcessScenario(\Perfumer\Microservices\Crm\Request\Scenario\UpdateProcessScenarioRequest $request): \Perfumer\Microservices\Crm\Response\Scenario\UpdateProcessScenarioResponse
+    {
+        $url = '/process/scenario';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Scenario\UpdateProcessScenarioResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Scenario\UpdateProcessScenarioResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        'from_state' => $request->from_state,
+        'to_state' => $request->to_state,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'scenario');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->scenario = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteProcessScenario(\Perfumer\Microservices\Crm\Request\Scenario\DeleteProcessScenarioRequest $request): \Perfumer\Microservices\Crm\Response\Scenario\DeleteProcessScenarioResponse
+    {
+        $url = '/process/scenario';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Scenario\DeleteProcessScenarioResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Scenario\DeleteProcessScenarioResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ], $request->_debug);
+
+        return $response;
+    }
+
+    public function getProcessScenarios(\Perfumer\Microservices\Crm\Request\Scenarios\GetProcessScenariosRequest $request): \Perfumer\Microservices\Crm\Response\Scenarios\GetProcessScenariosResponse
+    {
+        $url = '/process/scenarios';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Scenarios\GetProcessScenariosResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Scenarios\GetProcessScenariosResponse(), 'get', $url, [
+        'process' => $request->process,
+        'code' => $request->code,
+        'from_state' => $request->from_state,
+        'to_state' => $request->to_state,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'scenarios');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->scenarios = $item;
+        }
+
+        return $response;
+    }
+
+    public function getProcessTask(\Perfumer\Microservices\Crm\Request\Task\GetProcessTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\GetProcessTaskResponse
+    {
+        $url = '/process/task';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Task\GetProcessTaskResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\GetProcessTaskResponse(), 'get', $url, [
+        'id' => $request->id,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'task');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->task = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveProcessTask(\Perfumer\Microservices\Crm\Request\Task\SaveProcessTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\SaveProcessTaskResponse
+    {
+        $url = '/process/task';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Task\SaveProcessTaskResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\SaveProcessTaskResponse(), 'post', $url, [
+        'state' => $request->state,
+        'activity' => $request->activity,
+        'group' => $request->group,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'task');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->task = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateProcessTask(\Perfumer\Microservices\Crm\Request\Task\UpdateProcessTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\UpdateProcessTaskResponse
+    {
+        $url = '/process/task';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Task\UpdateProcessTaskResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\UpdateProcessTaskResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'state' => $request->state,
+        'activity' => $request->activity,
+        'group' => $request->group,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'task');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->task = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteProcessTask(\Perfumer\Microservices\Crm\Request\Task\DeleteProcessTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\DeleteProcessTaskResponse
+    {
+        $url = '/process/task';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Task\DeleteProcessTaskResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\DeleteProcessTaskResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ], $request->_debug);
+
+        return $response;
+    }
+
+    public function getProcessTasks(\Perfumer\Microservices\Crm\Request\Tasks\GetProcessTasksRequest $request): \Perfumer\Microservices\Crm\Response\Tasks\GetProcessTasksResponse
+    {
+        $url = '/process/tasks';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Tasks\GetProcessTasksResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tasks\GetProcessTasksResponse(), 'get', $url, [
+        'process' => $request->process,
+        'state' => $request->state,
+        'activity' => $request->activity,
+        'group' => $request->group,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'tasks');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->tasks = $item;
         }
 
         return $response;

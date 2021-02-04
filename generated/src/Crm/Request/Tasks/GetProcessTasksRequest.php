@@ -1,8 +1,8 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Crm\Request\States;
+namespace Generated\Perfumer\Microservices\Crm\Request\Tasks;
 
-class GetProcessStatesRequest extends \Perfumer\Microservices\Request
+class GetProcessTasksRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var int
@@ -12,17 +12,17 @@ class GetProcessStatesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $state = null;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $activity = null;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $group = null;
 
     /**
      * @var int
@@ -52,9 +52,9 @@ class GetProcessStatesRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->process = new \Perfumer\Microservices\Undefined();
-        $this->code = new \Perfumer\Microservices\Undefined();
-        $this->name = new \Perfumer\Microservices\Undefined();
-        $this->description = new \Perfumer\Microservices\Undefined();
+        $this->state = new \Perfumer\Microservices\Undefined();
+        $this->activity = new \Perfumer\Microservices\Undefined();
+        $this->group = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();

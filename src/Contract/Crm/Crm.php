@@ -79,7 +79,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @DeleteModelByCode(microservice="crm", model="log", url="ticket/log", action="deleteTicket")
  * @GetModels(microservice="crm", model="logs", url="ticket/logs", action="getTicket", fields={"user_fio", "ticket", "ticket_id", "type", "text", "user", "code", "status", "close_status"})
  *
- * @UpdateModel(microservice="crm", model="processState", url="ticket/process-state", action="updateTicket", fields={"id.int", "code", "process_state.int"})
+ * @UpdateModel(microservice="crm", model="ticket", url="ticket/process-state", action="updateProcessState", fields={"id.int", "code", "task", "process_scenario"})
  *
  * @GetModels(microservice="crm", model="tasks", url="ticket/tasks", action="getTicket", fields={"state", "close_status", "user_fio", "user_id.int", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "ticket_id.int", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
  *
@@ -101,10 +101,23 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @UpdateModel(microservice="crm", model="process", fields={"id", "name", "description"})
  * @GetModels(microservice="crm", model="processes", fields={"id", "name", "description"})
  *
- * @SaveModel(microservice="crm", model="state", url="process/state", action="saveProcess", fields={"process.int", "code", "activity", "group", "code", "task_link", "name", "description", "is_initial.bool", "is_final.bool", "log_text"})
- * @UpdateModel(microservice="crm", model="state", url="process/state", action="updateProcess", fields={"id.int", "process.int", "code", "activity", "group", "code", "task_link", "name", "description", "is_initial.bool", "is_final.bool", "log_text"})
+ * @GetModel(microservice="crm", model="state", url="process/state", action="getProcess", fields={"id.int", "code"})
+ * @SaveModel(microservice="crm", model="state", url="process/state", action="saveProcess", fields={"process.int", "code", "task_link", "name", "description", "is_initial.bool", "is_final.bool", "log_text"})
+ * @UpdateModel(microservice="crm", model="state", url="process/state", action="updateProcess", fields={"id.int", "process.int", "code", "task_link", "name", "description", "is_initial.bool", "is_final.bool", "log_text"})
  * @DeleteModel(microservice="crm", model="state", url="process/state", action="deleteProcess", fields={"id.int", "process.int"})
- * @GetModels(microservice="crm", model="states", url="process/states", action="getProcess", fields={"process.int"})
+ * @GetModels(microservice="crm", model="states", url="process/states", action="getProcess", fields={"process.int", "code", "name", "description"})
+ *
+ * @GetModel(microservice="crm", model="scenario", url="process/scenario", action="getProcess", fields={"id.int", "code"})
+ * @SaveModel(microservice="crm", model="scenario", url="process/scenario", action="saveProcess", fields={"code", "from_state", "to_state"})
+ * @UpdateModel(microservice="crm", model="scenario", url="process/scenario", action="updateProcess", fields={"id.int", "code", "from_state", "to_state"})
+ * @DeleteModel(microservice="crm", model="scenario", url="process/scenario", action="deleteProcess", fields={"id.int"})
+ * @GetModels(microservice="crm", model="scenarios", url="process/scenarios", action="getProcess", fields={"process.int", "code", "from_state", "to_state"})
+ *
+ * @GetModel(microservice="crm", model="task", url="process/task", action="getProcess", fields={"id.int"})
+ * @SaveModel(microservice="crm", model="task", url="process/task", action="saveProcess", fields={"state", "activity", "group"})
+ * @UpdateModel(microservice="crm", model="task", url="process/task", action="updateProcess", fields={"id.int", "state", "activity", "group"})
+ * @DeleteModel(microservice="crm", model="task", url="process/task", action="deleteProcess", fields={"id.int"})
+ * @GetModels(microservice="crm", model="tasks", url="process/tasks", action="getProcess", fields={"process.int", "state", "activity", "group"})
  */
 interface Crm
 {

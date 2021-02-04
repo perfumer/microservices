@@ -22,16 +22,6 @@ class UpdateProcessStateRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $activity = null;
-
-    /**
-     * @var string
-     */
-    public $group = null;
-
-    /**
-     * @var string
-     */
     public $task_link = null;
 
     /**
@@ -64,8 +54,6 @@ class UpdateProcessStateRequest extends \Perfumer\Microservices\Request
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->process = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
-        $this->activity = new \Perfumer\Microservices\Undefined();
-        $this->group = new \Perfumer\Microservices\Undefined();
         $this->task_link = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
