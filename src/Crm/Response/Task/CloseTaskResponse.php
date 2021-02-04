@@ -2,8 +2,8 @@
 
 namespace Perfumer\Microservices\Crm\Response\Task;
 
-use Perfumer\Microservices\Response;
-
-class CloseTaskResponse extends Response
+class CloseTaskResponse extends \Generated\Perfumer\Microservices\Crm\Response\Task\CloseTaskResponse
 {
+
+
 }

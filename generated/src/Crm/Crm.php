@@ -1126,26 +1126,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
-    public function updateProcessStateTicket(\Perfumer\Microservices\Crm\Request\Ticket\UpdateProcessStateTicketRequest $request): \Perfumer\Microservices\Crm\Response\Ticket\UpdateProcessStateTicketResponse
-    {
-        $url = '/ticket/process-state';
-
-        /** @var \Perfumer\Microservices\Crm\Response\Ticket\UpdateProcessStateTicketResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Ticket\UpdateProcessStateTicketResponse(), 'patch', $url, [
-        'id' => $request->id,
-        'code' => $request->code,
-        'task' => $request->task,
-        'process_scenario' => $request->process_scenario,
-        ], $request->_debug);
-        $item = $this->fetchKeyFromContent($response->_content, 'ticket');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->ticket = $item;
-        }
-
-        return $response;
-    }
-
     public function getTicketTasks(\Perfumer\Microservices\Crm\Request\Tasks\GetTicketTasksRequest $request): \Perfumer\Microservices\Crm\Response\Tasks\GetTicketTasksResponse
     {
         $url = '/ticket/tasks';
@@ -1295,6 +1275,24 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->tasks = $item;
+        }
+
+        return $response;
+    }
+
+    public function closeTask(\Perfumer\Microservices\Crm\Request\Task\CloseTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\CloseTaskResponse
+    {
+        $url = '/task/close';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Task\CloseTaskResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\CloseTaskResponse(), 'post', $url, [
+        'task' => $request->task,
+        'process_scenario' => $request->process_scenario,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'task');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->task = $item;
         }
 
         return $response;

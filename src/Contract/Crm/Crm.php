@@ -79,14 +79,13 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @DeleteModelByCode(microservice="crm", model="log", url="ticket/log", action="deleteTicket")
  * @GetModels(microservice="crm", model="logs", url="ticket/logs", action="getTicket", fields={"user_fio", "ticket", "ticket_id", "type", "text", "user", "code", "status", "close_status"})
  *
- * @UpdateModel(microservice="crm", model="ticket", url="ticket/process-state", action="updateProcessState", fields={"id.int", "code", "task", "process_scenario"})
- *
  * @GetModels(microservice="crm", model="tasks", url="ticket/tasks", action="getTicket", fields={"state", "close_status", "user_fio", "user_id.int", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "ticket_id.int", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
  *
  * @GetModel(microservice="crm", model="task", fields={"id", "code"})
  * @DeleteModel(microservice="crm", model="task", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="task", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status", "payload.array"})
  * @GetModels(microservice="crm", model="tasks", fields={"state", "close_status", "user_fio", "user_id.int", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
+ * @SaveModel(microservice="crm", model="task", url="task/close", action="close", fields={"task.int", "process_scenario"})
 
  * @GetModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"customer"}, url="/customer/credentials")
  * @GetModel(microservice="crm", model="customer", fields={"id", "code", "iin", "phone", "email"})
