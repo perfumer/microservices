@@ -282,7 +282,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'apply_from' => $request->apply_from,
         'apply_till' => $request->apply_till,
         'published_at' => $request->published_at,
-        ],  $request->_debug);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'event');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {

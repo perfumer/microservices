@@ -10,6 +10,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Permission\GetPermissionResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Permission\GetPermissionResponse(), 'get', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'permission');
@@ -27,29 +28,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Permission\DeletePermissionResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Permission\DeletePermissionResponse(), 'delete', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ], $request->_debug);
-
-        return $response;
-    }
-
-    public function savePermission(\Perfumer\Microservices\Crm\Request\Permission\SavePermissionRequest $request): \Perfumer\Microservices\Crm\Response\Permission\SavePermissionResponse
-    {
-        $url = '/permission';
-
-        /** @var \Perfumer\Microservices\Crm\Response\Permission\SavePermissionResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Permission\SavePermissionResponse(), 'post', $url, [
-        'name' => $request->name,
-        'code' => $request->code,
-        'description' => $request->description,
-        'parents' => $request->parents,
-        'children' => $request->children,
-        ], $request->_debug);
-        $item = $this->fetchKeyFromContent($response->_content, 'permission');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->permission = $item;
-        }
 
         return $response;
     }
@@ -83,6 +64,28 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->permissions = $item;
+        }
+
+        return $response;
+    }
+
+    public function savePermission(\Perfumer\Microservices\Crm\Request\Permission\SavePermissionRequest $request): \Perfumer\Microservices\Crm\Response\Permission\SavePermissionResponse
+    {
+        $url = '/permission';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Permission\SavePermissionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Permission\SavePermissionResponse(), 'post', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        'name' => $request->name,
+        'description' => $request->description,
+        'parents' => $request->parents,
+        'children' => $request->children,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'permission');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->permission = $item;
         }
 
         return $response;
@@ -221,7 +224,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'id' => $request->id,
         'code' => $request->code,
         'name' => $request->name,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'role');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {

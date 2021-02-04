@@ -13,10 +13,10 @@ use Perfumer\Microservices\Annotation\SaveModel;
 use Perfumer\Microservices\Annotation\UpdateModel;
 
 /**
- * @GetModelByCode(microservice="crm", model="permission")
- * @DeleteModelByCode(microservice="crm", model="permission")
- * @SaveMeshModel(microservice="crm", model="permission", fields={"name", "code", "description"})
+ * @GetModel(microservice="crm", model="permission", fields={"id", "code"})
+ * @DeleteModel(microservice="crm", model="permission", fields={"id.int", "code"})
  * @GetMeshModels(microservice="crm", model="permissions", fields={"name", "code", "description"})
+ * @SaveMeshModel(microservice="crm", model="permission", fields={"id.int", "code", "name", "description"})
  *
  * @GetModelByCode(microservice="crm", model="calendar")
  * @DeleteModelByCode(microservice="crm", model="calendar")

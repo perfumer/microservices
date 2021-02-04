@@ -408,7 +408,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'page_id' => $request->page_id,
         'address' => $request->address,
         'site' => $request->site,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'revision');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -427,7 +427,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'page_id' => $request->page_id,
         'address' => $request->address,
         'site' => $request->site,
-        ]);
+        ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'revision');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
