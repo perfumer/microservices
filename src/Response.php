@@ -10,6 +10,11 @@ class Response
     public $_status = true;
 
     /**
+     * @var string
+     */
+    public $_status_code;
+
+    /**
      * @var array
      */
     public $_errors;
@@ -28,4 +33,9 @@ class Response
      * @var string
      */
     public $_raw;
+
+    /**
+     * @var int
+     */
+    public $_http_status_code;
 }

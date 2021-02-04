@@ -25,11 +25,17 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
      */
     public $module = null;
 
+    /**
+     * @var bool
+     */
+    public $is_required = null;
+
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->label = new \Perfumer\Microservices\Undefined();
         $this->model = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
+        $this->is_required = new \Perfumer\Microservices\Undefined();
     }
 }
