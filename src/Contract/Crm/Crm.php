@@ -66,7 +66,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @GetModels(microservice="crm", model="schedules", fields={"role_id", "group_id", "activity_id", "calendar_id"})
  *
  * @GetModel(microservice="crm", model="access", fields={"role", "group"})
- * @DeleteModel(microservice="crm", model="access", fields={"role", "group"})
+ * @DeleteModel(microservice="crm", model="access", fields={"role", "group", "permissions.array"})
  * @SaveModel(microservice="crm", model="access", fields={"role", "group", "permissions.array"})
  * @GetModels(microservice="crm", model="accesses", fields={"role", "group"})
  *

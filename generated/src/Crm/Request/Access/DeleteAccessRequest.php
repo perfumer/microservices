@@ -14,9 +14,16 @@ class DeleteAccessRequest extends \Perfumer\Microservices\Request
      */
     public $group = null;
 
+    /**
+     * @var array
+     */
+    public $permissions = [
+    ];
+
     public function __construct()
     {
         $this->role = new \Perfumer\Microservices\Undefined();
         $this->group = new \Perfumer\Microservices\Undefined();
+        $this->permissions = new \Perfumer\Microservices\Undefined();
     }
 }

@@ -909,6 +909,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Access\DeleteAccessResponse(), 'delete', $url, [
         'role' => $request->role,
         'group' => $request->group,
+        'permissions' => $request->permissions,
         ], $request->_debug);
 
         return $response;
