@@ -31,7 +31,7 @@ use Perfumer\Microservices\Annotation\GetModels;
  * @SaveModel(microservice="events", model="event", fields={"organizer_id", "locale", "author_id", "title", "image",
  *     "description", "html", "json", "opened_at", "closed_at", "apply_from", "apply_till", "published_at"})
  * @DeleteModel(microservice="events", model="event", fields={"id.int"})
- * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/on-moderation", action="onmoderation")
+ * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/reject", action="reject")
  * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/publish", action="publish")
  *
  */

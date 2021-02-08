@@ -2,7 +2,7 @@
 
 namespace Generated\Perfumer\Microservices\Events\Request\Event;
 
-class OnmoderationEventRequest extends \Perfumer\Microservices\Request
+class RejectEventRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var int
