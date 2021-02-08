@@ -304,12 +304,12 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         return $response;
     }
 
-    public function onmoderationEvent(\Perfumer\Microservices\Events\Request\Event\OnmoderationEventRequest $request): \Perfumer\Microservices\Events\Response\Event\OnmoderationEventResponse
+    public function rejectEvent(\Perfumer\Microservices\Events\Request\Event\RejectEventRequest $request): \Perfumer\Microservices\Events\Response\Event\RejectEventResponse
     {
-        $url = '/event/on-moderation';
+        $url = '/event/reject';
 
-        /** @var \Perfumer\Microservices\Events\Response\Event\OnmoderationEventResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Event\OnmoderationEventResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Events\Response\Event\RejectEventResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Event\RejectEventResponse(), 'post', $url, [
         'id' => $request->id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'event');

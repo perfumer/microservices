@@ -2,7 +2,7 @@
 
 namespace Generated\Perfumer\Microservices\Events\Response\Event;
 
-class OnmoderationEventResponse extends \Perfumer\Microservices\Response
+class RejectEventResponse extends \Perfumer\Microservices\Response
 {
     /**
      * @var array
