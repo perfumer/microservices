@@ -91,6 +91,26 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function updatePermission(\Perfumer\Microservices\Crm\Request\Permission\UpdatePermissionRequest $request): \Perfumer\Microservices\Crm\Response\Permission\UpdatePermissionResponse
+    {
+        $url = '/permission';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Permission\UpdatePermissionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Permission\UpdatePermissionResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'name' => $request->name,
+        'code' => $request->code,
+        'description' => $request->description,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'permission');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->permission = $item;
+        }
+
+        return $response;
+    }
+
     public function getCalendar(\Perfumer\Microservices\Crm\Request\Calendar\GetCalendarRequest $request): \Perfumer\Microservices\Crm\Response\Calendar\GetCalendarResponse
     {
         $url = '/calendar';
