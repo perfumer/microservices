@@ -43,9 +43,10 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @SaveModel(microservice="crm", model="module", fields={"id.int"}, url="/module/archive", action="archive")
  * @SaveModel(microservice="crm", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
  *
- * @GetModelByCode(microservice="crm", model="activity")
- * @DeleteModelByCode(microservice="crm", model="activity")
+ * @GetModel(microservice="crm", model="activity", fields={"id", "code"})
+ * @DeleteModel(microservice="crm", model="activity", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="activity", fields={"name", "code", "priority"})
+ * @UpdateModel(microservice="crm", model="activity", fields={"id", "name", "code", "priority"})
  * @GetModels(microservice="crm", model="activities", fields={"name", "code", "priority"})
  *
  * @GetModel(microservice="crm", model="user", submodel="UserCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"user"}, url="/user/credentials")
@@ -65,10 +66,10 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @SaveModel(microservice="crm", model="schedule", fields={"role_id", "group_id", "activity_id", "calendar_id"})
  * @GetModels(microservice="crm", model="schedules", fields={"role_id", "group_id", "activity_id", "calendar_id"})
  *
- * @GetModel(microservice="crm", model="access", fields={"role", "group"})
- * @DeleteModel(microservice="crm", model="access", fields={"role", "group", "permissions.array"})
- * @SaveModel(microservice="crm", model="access", fields={"role", "group", "permissions.array"})
- * @GetModels(microservice="crm", model="accesses", fields={"role", "group"})
+ * @GetModel(microservice="crm", model="access", fields={"role_id", "group_id", "permission_id"})
+ * @DeleteModel(microservice="crm", model="access", fields={"role_id", "group_id", "permission_id"})
+ * @SaveModel(microservice="crm", model="access", fields={"role_id", "group_id", "permission_id"})
+ * @GetModels(microservice="crm", model="accesses", fields={"role_id", "group_id", "permission_id"})
  *
  * @GetModel(microservice="crm", model="ticket", fields={"id", "code"})
  * @DeleteModelByCode(microservice="crm", model="ticket")
