@@ -519,6 +519,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Activity\GetActivityResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Activity\GetActivityResponse(), 'get', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'activity');
@@ -536,6 +537,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Activity\DeleteActivityResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Activity\DeleteActivityResponse(), 'delete', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         ], $request->_debug);
 
@@ -548,6 +550,26 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Activity\SaveActivityResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Activity\SaveActivityResponse(), 'post', $url, [
+        'name' => $request->name,
+        'code' => $request->code,
+        'priority' => $request->priority,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'activity');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->activity = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateActivity(\Perfumer\Microservices\Crm\Request\Activity\UpdateActivityRequest $request): \Perfumer\Microservices\Crm\Response\Activity\UpdateActivityResponse
+    {
+        $url = '/activity';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Activity\UpdateActivityResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Activity\UpdateActivityResponse(), 'patch', $url, [
+        'id' => $request->id,
         'name' => $request->name,
         'code' => $request->code,
         'priority' => $request->priority,
@@ -889,8 +911,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Access\GetAccessResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Access\GetAccessResponse(), 'get', $url, [
-        'role' => $request->role,
-        'group' => $request->group,
+        'role_id' => $request->role_id,
+        'group_id' => $request->group_id,
+        'permission_id' => $request->permission_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'access');
 
@@ -907,8 +930,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Access\DeleteAccessResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Access\DeleteAccessResponse(), 'delete', $url, [
-        'role' => $request->role,
-        'group' => $request->group,
+        'role_id' => $request->role_id,
+        'group_id' => $request->group_id,
+        'permission_id' => $request->permission_id,
         ], $request->_debug);
 
         return $response;
@@ -920,9 +944,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Access\SaveAccessResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Access\SaveAccessResponse(), 'post', $url, [
-        'role' => $request->role,
-        'group' => $request->group,
-        'permissions' => $request->permissions,
+        'role_id' => $request->role_id,
+        'group_id' => $request->group_id,
+        'permission_id' => $request->permission_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'access');
 
@@ -939,8 +963,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Accesses\GetAccessesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Accesses\GetAccessesResponse(), 'get', $url, [
-        'role' => $request->role,
-        'group' => $request->group,
+        'role_id' => $request->role_id,
+        'group_id' => $request->group_id,
+        'permission_id' => $request->permission_id,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
