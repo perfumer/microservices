@@ -10,6 +10,12 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
     public $id = null;
 
     /**
+     * @var array
+     */
+    public $modules = [
+    ];
+
+    /**
      * @var string
      */
     public $organizer_id = null;
@@ -23,6 +29,11 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
      * @var string
      */
     public $author_id = null;
+
+    /**
+     * @var bool
+     */
+    public $is_registration_open = null;
 
     /**
      * @var string
@@ -77,9 +88,11 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
+        $this->modules = new \Perfumer\Microservices\Undefined();
         $this->organizer_id = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->author_id = new \Perfumer\Microservices\Undefined();
+        $this->is_registration_open = new \Perfumer\Microservices\Undefined();
         $this->title = new \Perfumer\Microservices\Undefined();
         $this->image = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();

@@ -270,9 +270,11 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         /** @var \Perfumer\Microservices\Events\Response\Event\SaveEventResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Event\SaveEventResponse(), 'post', $url, [
         'id' => $request->id,
+        'modules' => $request->modules,
         'organizer_id' => $request->organizer_id,
         'locale' => $request->locale,
         'author_id' => $request->author_id,
+        'is_registration_open' => $request->is_registration_open,
         'title' => $request->title,
         'image' => $request->image,
         'description' => $request->description,
