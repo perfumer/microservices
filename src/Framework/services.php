@@ -36,4 +36,10 @@ return [
         'class' => 'Perfumer\\Microservices\\Events\\Events',
         'arguments' => ['@microservices/events.host']
     ],
+
+    'microservices.posts' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Posts\\Posts',
+        'arguments' => ['@microservices/posts.host']
+    ],
 ];

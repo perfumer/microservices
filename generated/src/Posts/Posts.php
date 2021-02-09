@@ -127,6 +127,27 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function updateModule(\Perfumer\Microservices\Posts\Request\Module\UpdateModuleRequest $request): \Perfumer\Microservices\Posts\Response\Module\UpdateModuleResponse
+    {
+        $url = '/module';
+
+        /** @var \Perfumer\Microservices\Posts\Response\Module\UpdateModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Module\UpdateModuleResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        'name' => $request->name,
+        'description' => $request->description,
+        'is_archived' => $request->is_archived,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'module');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->module = $item;
+        }
+
+        return $response;
+    }
+
     public function getTags(\Perfumer\Microservices\Posts\Request\Tags\GetTagsRequest $request): \Perfumer\Microservices\Posts\Response\Tags\GetTagsResponse
     {
         $url = '/tags';

@@ -17,6 +17,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @DeleteModel(microservice="crm", model="permission", fields={"id.int", "code"})
  * @GetMeshModels(microservice="crm", model="permissions", fields={"name", "code", "description"})
  * @SaveMeshModel(microservice="crm", model="permission", fields={"id.int", "code", "name", "description"})
+ * @UpdateModel(microservice="crm", model="permission", fields={"id", "name", "code", "description"})
  *
  * @GetModelByCode(microservice="crm", model="calendar")
  * @DeleteModelByCode(microservice="crm", model="calendar")
@@ -43,9 +44,10 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @SaveModel(microservice="crm", model="module", fields={"id.int"}, url="/module/archive", action="archive")
  * @SaveModel(microservice="crm", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
  *
- * @GetModelByCode(microservice="crm", model="activity")
- * @DeleteModelByCode(microservice="crm", model="activity")
+ * @GetModel(microservice="crm", model="activity", fields={"id", "code"})
+ * @DeleteModel(microservice="crm", model="activity", fields={"id", "code"})
  * @SaveModel(microservice="crm", model="activity", fields={"name", "code", "priority"})
+ * @UpdateModel(microservice="crm", model="activity", fields={"id", "name", "code", "priority"})
  * @GetModels(microservice="crm", model="activities", fields={"name", "code", "priority"})
  *
  * @GetModel(microservice="crm", model="user", submodel="UserCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"user"}, url="/user/credentials")
@@ -65,10 +67,10 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @SaveModel(microservice="crm", model="schedule", fields={"role_id", "group_id", "activity_id", "calendar_id"})
  * @GetModels(microservice="crm", model="schedules", fields={"role_id", "group_id", "activity_id", "calendar_id"})
  *
- * @GetModel(microservice="crm", model="access", fields={"role", "group"})
- * @DeleteModel(microservice="crm", model="access", fields={"role", "group"})
- * @SaveModel(microservice="crm", model="access", fields={"role", "group", "permissions.array"})
- * @GetModels(microservice="crm", model="accesses", fields={"role", "group"})
+ * @GetModel(microservice="crm", model="access", fields={"role_id", "group_id", "permission_id"})
+ * @DeleteModel(microservice="crm", model="access", fields={"role_id", "group_id", "permission_id"})
+ * @SaveModel(microservice="crm", model="access", fields={"role_id", "group_id", "permission_id"})
+ * @GetModels(microservice="crm", model="accesses", fields={"role_id", "group_id", "permission_id"})
  *
  * @GetModel(microservice="crm", model="ticket", fields={"id", "code"})
  * @DeleteModelByCode(microservice="crm", model="ticket")
@@ -86,6 +88,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @SaveModel(microservice="crm", model="task", fields={"user", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status", "payload.array"})
  * @GetModels(microservice="crm", model="tasks", fields={"state", "close_status", "user_fio", "user_id.int", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
  * @SaveModel(microservice="crm", model="task", url="task/close", action="close", fields={"task.int", "process_scenario"})
+ * @SaveModel(microservice="crm", model="task", url="task/postpone", action="postpone", fields={"task.int", "user", "time_to", "text"})
 
  * @GetModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"customer"}, url="/customer/credentials")
  * @GetModel(microservice="crm", model="customer", fields={"id", "code", "iin", "phone", "email"})

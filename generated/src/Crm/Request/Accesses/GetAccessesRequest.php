@@ -7,12 +7,17 @@ class GetAccessesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $role = null;
+    public $role_id = null;
 
     /**
      * @var string
      */
-    public $group = null;
+    public $group_id = null;
+
+    /**
+     * @var string
+     */
+    public $permission_id = null;
 
     /**
      * @var int
@@ -41,8 +46,9 @@ class GetAccessesRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->role = new \Perfumer\Microservices\Undefined();
-        $this->group = new \Perfumer\Microservices\Undefined();
+        $this->role_id = new \Perfumer\Microservices\Undefined();
+        $this->group_id = new \Perfumer\Microservices\Undefined();
+        $this->permission_id = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
