@@ -1343,6 +1343,26 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function postponeTask(\Perfumer\Microservices\Crm\Request\Task\PostponeTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\PostponeTaskResponse
+    {
+        $url = '/task/postpone';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Task\PostponeTaskResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\PostponeTaskResponse(), 'post', $url, [
+        'task' => $request->task,
+        'user' => $request->user,
+        'time_to' => $request->time_to,
+        'text' => $request->text,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'task');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->task = $item;
+        }
+
+        return $response;
+    }
+
     public function getCustomerCredentials(\Perfumer\Microservices\Crm\Request\Customer\GetCustomerCredentialsRequest $request): \Perfumer\Microservices\Crm\Response\Customer\GetCustomerCredentialsResponse
     {
         $url = '/customer/credentials';
