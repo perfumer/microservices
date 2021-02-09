@@ -42,15 +42,15 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
  *     "description", "html", "json", "is_disabled.bool", "tags", "code", "modules"})
  * @DeleteModel(microservice="posts", model="post", fields={"id.int"})
  *
- * @SaveModel(microservice="events", model="comment", fields={"id.int"}, url="/comment/like", action="like")
- * @SaveModel(microservice="events", model="comment", fields={"id.int"}, url="/comment/dislike", action="dislike")
- * @SaveModel(microservice="events", model="comment", fields={"id.int"}, url="/comment/publish", action="publish")
- * @SaveModel(microservice="events", model="comment", fields={"id.int"}, url="/comment/reject", action="reject")
+ * @SaveModel(microservice="posts", model="comment", fields={"id.int"}, url="/comment/like", action="like")
+ * @SaveModel(microservice="posts", model="comment", fields={"id.int"}, url="/comment/dislike", action="dislike")
+ * @SaveModel(microservice="posts", model="comment", fields={"id.int"}, url="/comment/publish", action="publish")
+ * @SaveModel(microservice="posts", model="comment", fields={"id.int"}, url="/comment/reject", action="reject")
  *
- * @SaveModel(microservice="events", model="post", fields={"id.int"}, url="/post/like", action="like")
- * @SaveModel(microservice="events", model="post", fields={"id.int"}, url="/post/dislike", action="dislike")
- * @SaveModel(microservice="events", model="post", fields={"id.int"}, url="/post/publish", action="publish")
- * @SaveModel(microservice="events", model="post", fields={"id.int"}, url="/post/reject", action="reject")
+ * @SaveModel(microservice="posts", model="post", fields={"id.int"}, url="/post/like", action="like")
+ * @SaveModel(microservice="posts", model="post", fields={"id.int"}, url="/post/dislike", action="dislike")
+ * @SaveModel(microservice="posts", model="post", fields={"id.int"}, url="/post/publish", action="publish")
+ * @SaveModel(microservice="posts", model="post", fields={"id.int"}, url="/post/reject", action="reject")
  */
 interface Posts
 {
