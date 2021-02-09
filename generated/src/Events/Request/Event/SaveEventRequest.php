@@ -10,6 +10,12 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
     public $id = null;
 
     /**
+     * @var array
+     */
+    public $category_ids = [
+    ];
+
+    /**
      * @var string
      */
     public $organizer_id = null;
@@ -82,6 +88,7 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
+        $this->category_ids = new \Perfumer\Microservices\Undefined();
         $this->organizer_id = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->author_id = new \Perfumer\Microservices\Undefined();
