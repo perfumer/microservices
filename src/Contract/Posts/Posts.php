@@ -33,13 +33,13 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
  * @UpdateModel(microservice="posts", model="comment", fields={"id.int", "text", "author_id"})
  * @DeleteModel(microservice="posts", model="comment", fields={"id.int"})
  *
- * @GetModels(microservice="posts", model="posts", fields={"title", "author_id", "locale", "status", "description",
+ * @GetModels(microservice="posts", model="posts", fields={"title", "code", "author_id", "locale", "status", "description",
  *     "is_disabled", "liked_at_from", "liked_at_to", "rated_at_from", "rated_at_from"})
  * @GetModel(microservice="posts", model="post", fields={"id.int"})
  * @SaveModel(microservice="posts", model="post", fields={"title", "author_id", "status", "locale", "image",
- *     "description", "html", "json", "is_disabled.bool", "tags"})
+ *     "description", "html", "json", "is_disabled.bool", "tags", "code", "modules"})
  * @UpdateModel(microservice="posts", model="post", fields={"id.int", "title", "author_id", "locale", "image",
- *     "description", "html", "json", "is_disabled.bool", "tags"})
+ *     "description", "html", "json", "is_disabled.bool", "tags", "code", "modules"})
  * @DeleteModel(microservice="posts", model="post", fields={"id.int"})
  *
  * @SaveModel(microservice="events", model="comment", fields={"id.int"}, url="/comment/like", action="like")
