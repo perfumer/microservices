@@ -25,6 +25,11 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
     public $author_id = null;
 
     /**
+     * @var bool
+     */
+    public $is_registration_open = null;
+
+    /**
      * @var string
      */
     public $title = null;
@@ -80,6 +85,7 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
         $this->organizer_id = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->author_id = new \Perfumer\Microservices\Undefined();
+        $this->is_registration_open = new \Perfumer\Microservices\Undefined();
         $this->title = new \Perfumer\Microservices\Undefined();
         $this->image = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
