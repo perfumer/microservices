@@ -54,6 +54,22 @@ class Microservice
             if (isset($guzzle_response['content']) && is_array($guzzle_response['content'])) {
                 $target_response->_content = $guzzle_response['content'];
             }
+
+            if (isset($guzzle_response['status'])) {
+                $target_response->_status = (bool) $guzzle_response['status'];
+            }
+
+            if (isset($guzzle_response['status_code'])) {
+                $target_response->_status_code = (string) $guzzle_response['status_code'];
+            }
+
+            if (isset($guzzle_response['message'])) {
+                $target_response->_message = (string) $guzzle_response['message'];
+            }
+
+            if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
+                $target_response->_errors = $guzzle_response['errors'];
+            }
         } catch (ClientException $e) {
             $guzzle_response = $e->getResponse();
 
@@ -82,8 +98,24 @@ class Microservice
 
             $target_response->_http_status_code = $guzzle_response->getStatusCode();
             $target_response->_raw = $guzzle_response->getBody()->getContents();
-            $target_response->_status = false;
-            $target_response->_message = $e->getMessage();
+
+            $guzzle_response = json_decode($target_response->_raw, true);
+
+            if (isset($guzzle_response['status'])) {
+                $target_response->_status = (bool) $guzzle_response['status'];
+            }
+
+            if (isset($guzzle_response['status_code'])) {
+                $target_response->_status_code = (string) $guzzle_response['status_code'];
+            }
+
+            if (isset($guzzle_response['message'])) {
+                $target_response->_message = (string) $guzzle_response['message'];
+            }
+
+            if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
+                $target_response->_errors = $guzzle_response['errors'];
+            }
         } catch (\Exception $e) {
             $target_response->_status = false;
             $target_response->_message = $e->getMessage();
