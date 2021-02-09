@@ -12,6 +12,11 @@ class GetPostsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $code = null;
+
+    /**
+     * @var string
+     */
     public $author_id = null;
 
     /**
@@ -77,6 +82,7 @@ class GetPostsRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->title = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
         $this->author_id = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->status = new \Perfumer\Microservices\Undefined();

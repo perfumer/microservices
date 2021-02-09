@@ -54,6 +54,16 @@ class SavePostRequest extends \Perfumer\Microservices\Request
      */
     public $tags = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
+    /**
+     * @var string
+     */
+    public $modules = null;
+
     public function __construct()
     {
         $this->title = new \Perfumer\Microservices\Undefined();
@@ -66,5 +76,7 @@ class SavePostRequest extends \Perfumer\Microservices\Request
         $this->json = new \Perfumer\Microservices\Undefined();
         $this->is_disabled = new \Perfumer\Microservices\Undefined();
         $this->tags = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
+        $this->modules = new \Perfumer\Microservices\Undefined();
     }
 }

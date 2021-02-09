@@ -349,6 +349,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Posts\Response\Posts\GetPostsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Posts\GetPostsResponse(), 'get', $url, [
         'title' => $request->title,
+        'code' => $request->code,
         'author_id' => $request->author_id,
         'locale' => $request->locale,
         'status' => $request->status,
@@ -410,6 +411,8 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'json' => $request->json,
         'is_disabled' => $request->is_disabled,
         'tags' => $request->tags,
+        'code' => $request->code,
+        'modules' => $request->modules,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
 
@@ -436,6 +439,8 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'json' => $request->json,
         'is_disabled' => $request->is_disabled,
         'tags' => $request->tags,
+        'code' => $request->code,
+        'modules' => $request->modules,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
 
