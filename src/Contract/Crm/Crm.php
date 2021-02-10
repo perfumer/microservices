@@ -89,6 +89,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @GetModels(microservice="crm", model="tasks", fields={"state", "close_status", "user_fio", "user_id.int", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
  * @SaveModel(microservice="crm", model="task", url="task/close", action="close", fields={"task.int", "process_scenario"})
  * @SaveModel(microservice="crm", model="task", url="task/postpone", action="postpone", fields={"task.int", "user", "time_to", "text"})
+ * @SaveModel(microservice="crm", model="task", url="task/take", action="take", fields={"task.int", "user"})
 
  * @GetModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"iin", "phone", "email", "password", "code"}, response_fields={"customer"}, url="/customer/credentials")
  * @GetModel(microservice="crm", model="customer", fields={"id", "code", "iin", "phone", "email"})
