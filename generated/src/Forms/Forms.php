@@ -85,28 +85,6 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function saveFormsSignature(\Perfumer\Microservices\Forms\Request\Forms\SaveFormsSignatureRequest $request): \Perfumer\Microservices\Forms\Response\Forms\SaveFormsSignatureResponse
-    {
-        $url = '/forms/signature';
-
-        /** @var \Perfumer\Microservices\Forms\Response\Forms\SaveFormsSignatureResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Forms\SaveFormsSignatureResponse(), 'post', $url, [
-        'signature' => $request->signature,
-        'data' => $request->data,
-        'user_id' => $request->user_id,
-        'customer_id' => $request->customer_id,
-        'ticket_id' => $request->ticket_id,
-        'module' => $request->module,
-        ], $request->_debug);
-        $item = $this->fetchKeyFromContent($response->_content, 'forms');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->forms = $item;
-        }
-
-        return $response;
-    }
-
     public function getForms(\Perfumer\Microservices\Forms\Request\Forms\GetFormsRequest $request): \Perfumer\Microservices\Forms\Response\Forms\GetFormsResponse
     {
         $url = '/forms';
@@ -618,6 +596,28 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->articles = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveSignature(\Perfumer\Microservices\Forms\Request\Signature\SaveSignatureRequest $request): \Perfumer\Microservices\Forms\Response\Signature\SaveSignatureResponse
+    {
+        $url = '/signature';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Signature\SaveSignatureResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Signature\SaveSignatureResponse(), 'post', $url, [
+        'signature' => $request->signature,
+        'data' => $request->data,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
+        'ticket_id' => $request->ticket_id,
+        'module' => $request->module,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'signature');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->signature = $item;
         }
 
         return $response;

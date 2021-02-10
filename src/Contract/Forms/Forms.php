@@ -17,7 +17,6 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @DeleteModel(microservice="forms", model="form", fields={"id.int", "user_id.int", "customer_id.int", "ticket_id.int", "module"})
  * @SaveModel(microservice="forms", model="form", fields={"name", "ticket_id.int", "user_id.int", "customer_id.int", "schema", "module", "fields.array", "payload.array"})
  * @SaveModel(microservice="forms", model="forms", submodel="FormsTicket", url="/forms/ticket", fields={"user_id.int", "customer_id.int", "ticket_id.int", "module"})
- * @SaveModel(microservice="forms", model="forms", submodel="FormsSignature", url="/forms/signature", fields={"signature", "data", "user_id.int", "customer_id.int", "ticket_id.int", "module"})
  * @GetModels(microservice="forms", model="forms", fields={"module_name", "customer_fio", "user_fio", "name", "schema", "module", "ticket_id.int", "user_id.int", "customer_id.int"})
  *
  * @GetModel(microservice="forms", model="item", fields={"id", "code", "locale", "reference"})
@@ -47,6 +46,8 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @DeleteModel(microservice="forms", model="article", fields={"id"})
  * @SaveModel(microservice="forms", model="article", fields={"id", "image", "category_id.int", "title", "description", "code", "html", "json", "locale", "ticket_modules.array"})
  * @GetModels(microservice="forms", model="articles", fields={"category", "title", "description", "code", "locale", "ticket_module"})
+ *
+ * @SaveModel(microservice="forms", model="signature", fields={"signature", "data", "user_id.int", "customer_id.int", "ticket_id.int", "module"})
  */
 interface Forms
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Forms\Request\Forms;
+namespace Generated\Perfumer\Microservices\Forms\Request\Signature;
 
-class SaveFormsSignatureRequest extends \Perfumer\Microservices\Request
+class SaveSignatureRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var string
