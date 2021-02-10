@@ -573,6 +573,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'name' => $request->name,
         'code' => $request->code,
         'priority' => $request->priority,
+        'is_forced' => $request->is_forced,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'activity');
 
@@ -593,6 +594,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'name' => $request->name,
         'code' => $request->code,
         'priority' => $request->priority,
+        'is_forced' => $request->is_forced,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'activity');
 
@@ -612,6 +614,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'name' => $request->name,
         'code' => $request->code,
         'priority' => $request->priority,
+        'is_forced' => $request->is_forced,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
