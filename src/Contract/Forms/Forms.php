@@ -46,6 +46,8 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @DeleteModel(microservice="forms", model="article", fields={"id"})
  * @SaveModel(microservice="forms", model="article", fields={"id", "image", "category_id.int", "title", "description", "code", "html", "json", "locale", "ticket_modules.array"})
  * @GetModels(microservice="forms", model="articles", fields={"category", "title", "description", "code", "locale", "ticket_module"})
+ *
+ * @SaveModel(microservice="forms", model="signature", fields={"signature", "data", "user_id.int", "customer_id.int", "ticket_id.int", "module"})
  */
 interface Forms
 {
