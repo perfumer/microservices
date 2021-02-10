@@ -24,11 +24,17 @@ class UpdateActivityRequest extends \Perfumer\Microservices\Request
      */
     public $priority = null;
 
+    /**
+     * @var bool
+     */
+    public $is_forced = null;
+
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->priority = new \Perfumer\Microservices\Undefined();
+        $this->is_forced = new \Perfumer\Microservices\Undefined();
     }
 }
