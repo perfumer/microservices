@@ -15,6 +15,11 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
     public $locale = null;
 
     /**
+     * @var int
+     */
+    public $module_id = null;
+
+    /**
      * @var string
      */
     public $author_id = null;
@@ -108,6 +113,7 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
     {
         $this->organizer_id = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
+        $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->author_id = new \Perfumer\Microservices\Undefined();
         $this->title = new \Perfumer\Microservices\Undefined();
         $this->image = new \Perfumer\Microservices\Undefined();

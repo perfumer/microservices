@@ -19,7 +19,7 @@ use Perfumer\Microservices\Annotation\GetModels;
  * @SaveModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
  *
  * @GetModels(microservice="events", model="participants", fields={"event_id", "customer_id"})
- * @GetModels(microservice="events", model="events", fields={"organizer_id", "locale", "author_id", "title", "image",
+ * @GetModels(microservice="events", model="events", fields={"organizer_id", "locale", "module_id.int", "author_id", "title", "image",
  *     "description", "opened_at_from", "opened_at_to", "closed_at_from", "closed_at_to", "apply_from_from",
  *     "apply_from_to", "apply_till_from", "apply_till_to", "published_at"})
  *
