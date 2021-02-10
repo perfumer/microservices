@@ -773,6 +773,40 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function startWorkSessionUser(\Perfumer\Microservices\Crm\Request\User\StartWorkSessionUserRequest $request): \Perfumer\Microservices\Crm\Response\User\StartWorkSessionUserResponse
+    {
+        $url = '/user/start-work-session';
+
+        /** @var \Perfumer\Microservices\Crm\Response\User\StartWorkSessionUserResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\StartWorkSessionUserResponse(), 'post', $url, [
+        'user' => $request->user,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user = $item;
+        }
+
+        return $response;
+    }
+
+    public function endWorkSessionUser(\Perfumer\Microservices\Crm\Request\User\EndWorkSessionUserRequest $request): \Perfumer\Microservices\Crm\Response\User\EndWorkSessionUserResponse
+    {
+        $url = '/user/end-work-session';
+
+        /** @var \Perfumer\Microservices\Crm\Response\User\EndWorkSessionUserResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\EndWorkSessionUserResponse(), 'post', $url, [
+        'user' => $request->user,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user = $item;
+        }
+
+        return $response;
+    }
+
     public function addUserRole(\Perfumer\Microservices\Crm\Request\User\AddUserRoleRequest $request): \Perfumer\Microservices\Crm\Response\User\AddUserRoleResponse
     {
         $url = '/user-role';
