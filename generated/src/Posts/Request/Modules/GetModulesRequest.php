@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Posts\Request\Modules;
 class GetModulesRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $post_id = null;
 
