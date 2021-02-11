@@ -42,6 +42,8 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
  *     "description", "html", "json", "is_disabled.bool", "tags", "code", "modules"})
  * @DeleteModel(microservice="posts", model="post", fields={"id.int"})
  *
+ * @GetModels(microservice="posts", model="post", fields={"post_id", "module_id"}, submodel="PostModules", url="/post-modules", response_fields={"post_modules"})
+ *
  * @SaveModel(microservice="events", model="comment", fields={"id.int"}, url="/comment/like", action="like")
  * @SaveModel(microservice="events", model="comment", fields={"id.int"}, url="/comment/dislike", action="dislike")
  * @SaveModel(microservice="events", model="comment", fields={"id.int"}, url="/comment/publish", action="publish")

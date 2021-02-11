@@ -463,6 +463,39 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function getPostModules(\Perfumer\Microservices\Posts\Request\Post\GetPostModulesRequest $request): \Perfumer\Microservices\Posts\Response\Post\GetPostModulesResponse
+    {
+        $url = '/post-modules';
+
+        /** @var \Perfumer\Microservices\Posts\Response\Post\GetPostModulesResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\GetPostModulesResponse(), 'get', $url, [
+        'post_id' => $request->post_id,
+        'module_id' => $request->module_id,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'post_modules');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->post_modules = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'post');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->post = $item;
+        }
+
+        return $response;
+    }
+
     public function likeComment(\Perfumer\Microservices\Events\Request\Comment\LikeCommentRequest $request): \Perfumer\Microservices\Events\Response\Comment\LikeCommentResponse
     {
         $url = '/comment/like';
