@@ -281,6 +281,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'description' => $request->description,
         'html' => $request->html,
         'json' => $request->json,
+        'format' => $request->format,
         'opened_at' => $request->opened_at,
         'closed_at' => $request->closed_at,
         'apply_from' => $request->apply_from,
