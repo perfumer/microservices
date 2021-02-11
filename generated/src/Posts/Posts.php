@@ -28,6 +28,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Posts\Response\Modules\GetModulesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Modules\GetModulesResponse(), 'get', $url, [
+        'post_id' => $request->post_id,
         'name' => $request->name,
         'code' => $request->code,
         'description' => $request->description,
@@ -459,39 +460,6 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\DeletePostResponse(), 'delete', $url, [
         'id' => $request->id,
         ], $request->_debug);
-
-        return $response;
-    }
-
-    public function getPostModules(\Perfumer\Microservices\Posts\Request\Post\GetPostModulesRequest $request): \Perfumer\Microservices\Posts\Response\Post\GetPostModulesResponse
-    {
-        $url = '/post-modules';
-
-        /** @var \Perfumer\Microservices\Posts\Response\Post\GetPostModulesResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\GetPostModulesResponse(), 'get', $url, [
-        'post_id' => $request->post_id,
-        'module_id' => $request->module_id,
-        'limit' => $request->limit,
-        'offset' => $request->offset,
-        'count' => $request->count,
-        'order_field' => $request->order_field,
-        'order_direction' => $request->order_direction,
-        ], $request->_debug);
-        $item = $this->fetchKeyFromContent($response->_content, 'post_modules');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->post_modules = $item;
-        }
-        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->nb_results = $item;
-        }
-        $item = $this->fetchKeyFromContent($response->_content, 'post');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->post = $item;
-        }
 
         return $response;
     }

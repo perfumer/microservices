@@ -12,7 +12,7 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
 
 /**
  * @GetModel(microservice="posts", model="module", fields={"id", "code"})
- * @GetMeshModels(microservice="posts", model="modules", fields={"name", "code", "description", "is_archived.bool"})
+ * @GetMeshModels(microservice="posts", model="modules", fields={"post_id", "name", "code", "description", "is_archived.bool"})
  * @SaveMeshModel(microservice="posts", model="module", fields={"id", "code", "name", "description", "is_archived.bool"})
  * @DeleteModel(microservice="posts", model="module", fields={"id", "code"})
  * @SaveModel(microservice="posts", model="module", fields={"id.int"}, url="/module/archive", action="archive")
@@ -41,8 +41,6 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
  * @UpdateModel(microservice="posts", model="post", fields={"id.int", "title", "author_id", "locale", "image",
  *     "description", "html", "json", "is_disabled.bool", "tags", "code", "modules"})
  * @DeleteModel(microservice="posts", model="post", fields={"id.int"})
- *
- * @GetModels(microservice="posts", model="post", fields={"post_id", "module_id"}, submodel="PostModules", url="/post-modules", response_fields={"post_modules"})
  *
  * @SaveModel(microservice="posts", model="comment", fields={"id.int"}, url="/comment/like", action="like")
  * @SaveModel(microservice="posts", model="comment", fields={"id.int"}, url="/comment/dislike", action="dislike")
