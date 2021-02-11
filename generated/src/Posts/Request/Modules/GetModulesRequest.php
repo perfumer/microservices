@@ -5,6 +5,11 @@ namespace Generated\Perfumer\Microservices\Posts\Request\Modules;
 class GetModulesRequest extends \Perfumer\Microservices\Request
 {
     /**
+     * @var int
+     */
+    public $post_id = null;
+
+    /**
      * @var string
      */
     public $name = null;
@@ -76,6 +81,7 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->post_id = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
