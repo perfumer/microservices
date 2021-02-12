@@ -2,10 +2,17 @@
 
 namespace Perfumer\Microservices\Pages\Request;
 
-use Perfumer\Microservices\Request;
 use Perfumer\Microservices\RequestTrait\CollectionTrait;
 
-class GetComponentsRequest extends Request
+/**
+ * @deprecated
+ */
+class GetComponentsRequest extends \Perfumer\Microservices\Pages\Request\Components\GetComponentsRequest
 {
     use CollectionTrait;
+
+    /**
+     * @var int
+     */
+    public $category_id;
 }

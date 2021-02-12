@@ -41,9 +41,16 @@ class Pages extends \Generated\Perfumer\Microservices\Pages\Pages
     public function getComponents(GetComponentsRequest $request): GetComponentsResponse
     {
         $url = '/components';
+        $json = null;
+
+        if ($request->category_id) {
+            $json = [
+                'category_id' => $request->category_id
+            ];
+        }
 
         /** @var GetComponentsResponse $response */
-        $response = $this->doRequest(new GetComponentsResponse(), 'get', $url);
+        $response = $this->doRequest(new GetComponentsResponse(), 'get', $url, $json);
 
         $array = $this->fetchKeyFromContent($response->_content, 'components');
 
