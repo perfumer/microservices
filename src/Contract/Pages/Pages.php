@@ -12,13 +12,11 @@ use Perfumer\Microservices\Annotation\SaveModel;
 use Perfumer\Microservices\Annotation\UpdateModel;
 use Perfumer\Microservices\Pages\Request\CopyRevisionRequest;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
-use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
 use Perfumer\Microservices\Pages\Request\GetSchemaParametersRequest;
 use Perfumer\Microservices\Pages\Request\SavePageEnvRequest;
 use Perfumer\Microservices\Pages\Response\CopyRevisionResponse;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
-use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
 use Perfumer\Microservices\Pages\Response\GetSchemaParametersResponse;
 use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
@@ -62,8 +60,6 @@ interface Pages
     public function savePageEnv(SavePageEnvRequest $request): SavePageEnvResponse;
 
     public function copyRevision(CopyRevisionRequest $request): CopyRevisionResponse;
-
-    public function getComponents(GetComponentsRequest $request): GetComponentsResponse;
 
     public function getCommonParameters(GetCommonParametersRequest $request): GetCommonParametersResponse;
 
