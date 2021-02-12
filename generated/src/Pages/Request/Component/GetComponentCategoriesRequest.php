@@ -1,6 +1,6 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Pages\Request\Categories;
+namespace Generated\Perfumer\Microservices\Pages\Request\Component;
 
 class GetComponentCategoriesRequest extends \Perfumer\Microservices\Request
 {
