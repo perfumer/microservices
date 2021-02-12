@@ -471,12 +471,12 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function getComponentCategories(\Perfumer\Microservices\Pages\Request\Categories\GetComponentCategoriesRequest $request): \Perfumer\Microservices\Pages\Response\Categories\GetComponentCategoriesResponse
+    public function getComponentCategories(\Perfumer\Microservices\Pages\Request\Component\GetComponentCategoriesRequest $request): \Perfumer\Microservices\Pages\Response\Component\GetComponentCategoriesResponse
     {
         $url = '/component/categories';
 
-        /** @var \Perfumer\Microservices\Pages\Response\Categories\GetComponentCategoriesResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Categories\GetComponentCategoriesResponse(), 'get', $url, [
+        /** @var \Perfumer\Microservices\Pages\Response\Component\GetComponentCategoriesResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Component\GetComponentCategoriesResponse(), 'get', $url, [
         'name' => $request->name,
         'code' => $request->code,
         'description' => $request->description,
@@ -491,10 +491,37 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->nb_results = $item;
         }
-        $item = $this->fetchKeyFromContent($response->_content, 'categories');
+        $item = $this->fetchKeyFromContent($response->_content, 'component');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->categories = $item;
+            $response->component = $item;
+        }
+
+        return $response;
+    }
+
+    public function getComponents(\Perfumer\Microservices\Pages\Request\Components\GetComponentsRequest $request): \Perfumer\Microservices\Pages\Response\Components\GetComponentsResponse
+    {
+        $url = '/components';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Components\GetComponentsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Components\GetComponentsResponse(), 'get', $url, [
+        'category_id' => $request->category_id,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'components');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->components = $item;
         }
 
         return $response;
