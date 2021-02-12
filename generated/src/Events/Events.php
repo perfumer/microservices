@@ -163,6 +163,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Events\GetEventsResponse(), 'get', $url, [
         'organizer_id' => $request->organizer_id,
         'locale' => $request->locale,
+        'module_id' => $request->module_id,
         'author_id' => $request->author_id,
         'title' => $request->title,
         'image' => $request->image,
@@ -280,6 +281,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'description' => $request->description,
         'html' => $request->html,
         'json' => $request->json,
+        'format' => $request->format,
         'opened_at' => $request->opened_at,
         'closed_at' => $request->closed_at,
         'apply_from' => $request->apply_from,

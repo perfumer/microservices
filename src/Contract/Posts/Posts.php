@@ -12,7 +12,7 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
 
 /**
  * @GetModel(microservice="posts", model="module", fields={"id", "code"})
- * @GetMeshModels(microservice="posts", model="modules", fields={"name", "code", "description", "is_archived.bool"})
+ * @GetMeshModels(microservice="posts", model="modules", fields={"post_id.int", "name", "code", "description", "is_archived.bool"})
  * @SaveMeshModel(microservice="posts", model="module", fields={"id", "code", "name", "description", "is_archived.bool"})
  * @DeleteModel(microservice="posts", model="module", fields={"id", "code"})
  * @SaveModel(microservice="posts", model="module", fields={"id.int"}, url="/module/archive", action="archive")

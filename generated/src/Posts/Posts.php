@@ -28,6 +28,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Posts\Response\Modules\GetModulesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Modules\GetModulesResponse(), 'get', $url, [
+        'post_id' => $request->post_id,
         'name' => $request->name,
         'code' => $request->code,
         'description' => $request->description,
