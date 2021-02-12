@@ -7,8 +7,5 @@ namespace Perfumer\Microservices\Pages\Response;
  */
 class GetComponentsResponse extends \Perfumer\Microservices\Pages\Response\Components\GetComponentsResponse
 {
-    /**
-     * @var array
-     */
-    public $components;
+
 }
