@@ -470,4 +470,33 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
         return $response;
     }
+
+    public function getComponentCategories(\Perfumer\Microservices\Pages\Request\Categories\GetComponentCategoriesRequest $request): \Perfumer\Microservices\Pages\Response\Categories\GetComponentCategoriesResponse
+    {
+        $url = '/component/categories';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Categories\GetComponentCategoriesResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Categories\GetComponentCategoriesResponse(), 'get', $url, [
+        'name' => $request->name,
+        'code' => $request->code,
+        'description' => $request->description,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'categories');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->categories = $item;
+        }
+
+        return $response;
+    }
 }
