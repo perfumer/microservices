@@ -63,8 +63,6 @@ interface Pages
 
     public function copyRevision(CopyRevisionRequest $request): CopyRevisionResponse;
 
-    public function getComponents(GetComponentsRequest $request): GetComponentsResponse;
-
     public function getCommonParameters(GetCommonParametersRequest $request): GetCommonParametersResponse;
 
     public function getSchemaParameters(GetSchemaParametersRequest $request): GetSchemaParametersResponse;
