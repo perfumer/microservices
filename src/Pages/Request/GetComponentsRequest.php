@@ -9,10 +9,5 @@ use Perfumer\Microservices\RequestTrait\CollectionTrait;
  */
 class GetComponentsRequest extends \Perfumer\Microservices\Pages\Request\Components\GetComponentsRequest
 {
-    use CollectionTrait;
 
-    /**
-     * @var int
-     */
-    public $category_id;
 }
