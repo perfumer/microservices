@@ -534,17 +534,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Pages\Response\Component\GetComponentCategoryResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Component\GetComponentCategoryResponse(), 'get', $url, [
         'id' => $request->id,
-        'limit' => $request->limit,
-        'offset' => $request->offset,
-        'count' => $request->count,
-        'order_field' => $request->order_field,
-        'order_direction' => $request->order_direction,
         ], $request->_debug);
-        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->nb_results = $item;
-        }
         $item = $this->fetchKeyFromContent($response->_content, 'component');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
