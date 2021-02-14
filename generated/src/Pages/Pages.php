@@ -560,4 +560,31 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
         return $response;
     }
+
+    public function getComponentParameters(\Perfumer\Microservices\Pages\Request\Component\GetComponentParametersRequest $request): \Perfumer\Microservices\Pages\Response\Component\GetComponentParametersResponse
+    {
+        $url = '/component/parameters';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Component\GetComponentParametersResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Component\GetComponentParametersResponse(), 'get', $url, [
+        'component_id' => $request->component_id,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'component');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->component = $item;
+        }
+
+        return $response;
+    }
 }
