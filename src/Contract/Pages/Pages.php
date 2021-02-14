@@ -55,6 +55,7 @@ use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
  * @GetModels(microservice="pages", model="component", submodel="ComponentCategories", url="component/categories", fields={"name", "code", "description"})
  * @GetModels(microservice="pages", model="components", fields={"category_id.int"})
  * @GetModel(microservice="pages", model="component", submodel="ComponentCategory", url="component/category", fields={"id.int"})
+ * @GetModel(microservice="pages", model="component", fields={"id.int"})
  */
 interface Pages
 {
