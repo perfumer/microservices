@@ -2,13 +2,18 @@
 
 namespace Generated\Perfumer\Microservices\Pages\Response\Component;
 
-class GetComponentCategoryResponse extends \Perfumer\Microservices\Response
+class GetComponentParametersResponse extends \Perfumer\Microservices\Response
 {
     /**
      * @var array
      */
-    public $category = [
+    public $parameters = [
     ];
+
+    /**
+     * @var int
+     */
+    public $nb_results = null;
 
     /**
      * @var array
