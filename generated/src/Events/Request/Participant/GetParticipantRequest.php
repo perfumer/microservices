@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Events\Request\Participant;
 class GetParticipantRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 
