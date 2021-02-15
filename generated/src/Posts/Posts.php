@@ -323,7 +323,6 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'id' => $request->id,
         'text' => $request->text,
         'author_id' => $request->author_id,
-        'is_removed' => $request->is_removed,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'comment');
 
