@@ -246,6 +246,8 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Posts\Response\Comments\GetCommentsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Comments\GetCommentsResponse(), 'get', $url, [
+        'id' => $request->id,
+        'post_id' => $request->post_id,
         'text' => $request->text,
         'status' => $request->status,
         'author_id' => $request->author_id,
@@ -321,6 +323,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'id' => $request->id,
         'text' => $request->text,
         'author_id' => $request->author_id,
+        'is_removed' => $request->is_removed,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'comment');
 
