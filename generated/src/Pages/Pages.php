@@ -486,6 +486,11 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
         ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'categories');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->categories = $item;
+        }
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -535,6 +540,11 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Component\GetComponentCategoryResponse(), 'get', $url, [
         'id' => $request->id,
         ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'category');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->category = $item;
+        }
         $item = $this->fetchKeyFromContent($response->_content, 'component');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -574,6 +584,11 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
         ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'parameters');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->parameters = $item;
+        }
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
