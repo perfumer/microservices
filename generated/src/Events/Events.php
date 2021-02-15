@@ -155,6 +155,33 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         return $response;
     }
 
+    public function getParticipant(\Perfumer\Microservices\Events\Request\Participant\GetParticipantRequest $request): \Perfumer\Microservices\Events\Response\Participant\GetParticipantResponse
+    {
+        $url = '/participant';
+
+        /** @var \Perfumer\Microservices\Events\Response\Participant\GetParticipantResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Participant\GetParticipantResponse(), 'get', $url, [
+        'id' => $request->id,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'participant');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->participant = $item;
+        }
+
+        return $response;
+    }
+
     public function getEvents(\Perfumer\Microservices\Events\Request\Events\GetEventsRequest $request): \Perfumer\Microservices\Events\Response\Events\GetEventsResponse
     {
         $url = '/events';
