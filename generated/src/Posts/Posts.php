@@ -149,6 +149,66 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function getSubscriptions(\Perfumer\Microservices\Posts\Request\Subscriptions\GetSubscriptionsRequest $request): \Perfumer\Microservices\Posts\Response\Subscriptions\GetSubscriptionsResponse
+    {
+        $url = '/subscriptions';
+
+        /** @var \Perfumer\Microservices\Posts\Response\Subscriptions\GetSubscriptionsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Subscriptions\GetSubscriptionsResponse(), 'get', $url, [
+        'subscriber_id' => $request->subscriber_id,
+        'module_id' => $request->module_id,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'subscriptions');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->subscriptions = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveSubscription(\Perfumer\Microservices\Posts\Request\Subscription\SaveSubscriptionRequest $request): \Perfumer\Microservices\Posts\Response\Subscription\SaveSubscriptionResponse
+    {
+        $url = '/subscription';
+
+        /** @var \Perfumer\Microservices\Posts\Response\Subscription\SaveSubscriptionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Subscription\SaveSubscriptionResponse(), 'post', $url, [
+        'subscriber_id' => $request->subscriber_id,
+        'module_id' => $request->module_id,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'subscription');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->subscription = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteSubscription(\Perfumer\Microservices\Posts\Request\Subscription\DeleteSubscriptionRequest $request): \Perfumer\Microservices\Posts\Response\Subscription\DeleteSubscriptionResponse
+    {
+        $url = '/subscription';
+
+        /** @var \Perfumer\Microservices\Posts\Response\Subscription\DeleteSubscriptionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Subscription\DeleteSubscriptionResponse(), 'delete', $url, [
+        'id' => $request->id,
+        'subscriber_id' => $request->subscriber_id,
+        'module_id' => $request->module_id,
+        ], $request->_debug);
+
+        return $response;
+    }
+
     public function getTags(\Perfumer\Microservices\Posts\Request\Tags\GetTagsRequest $request): \Perfumer\Microservices\Posts\Response\Tags\GetTagsResponse
     {
         $url = '/tags';
