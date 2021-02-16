@@ -22,6 +22,16 @@ class SaveComponentRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $html = null;
+
+    /**
+     * @var string
+     */
+    public $json = null;
+
+    /**
+     * @var string
+     */
     public $module = null;
 
     /**
@@ -61,6 +71,8 @@ class SaveComponentRequest extends \Perfumer\Microservices\Request
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
+        $this->html = new \Perfumer\Microservices\Undefined();
+        $this->json = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
         $this->old_module = new \Perfumer\Microservices\Undefined();
