@@ -59,7 +59,7 @@ use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
  * @GetModels(microservice="pages", model="component", submodel="ComponentParameters", url="component/parameters", fields={"component_id.int"}, response_fields={"parameters.array"})
  * @SaveModel(microservice="pages", model="component", submodel="ComponentCategory", url="component/category", fields={"id.int", "code", "name", "description", "components.array"})
  * @DeleteModel(microservice="pages", model="component", submodel="ComponentCategory", url="component/category", fields={"id.int"})
- * @SaveModel(microservice="pages", model="component", fields={"id.int", "name", "description", "module", "type", "old_module", "old_type", "is_sub.bool", "parameters.array", "categories.array"})
+ * @SaveModel(microservice="pages", model="component", fields={"id.int", "name", "description", "html", "json", "module", "type", "old_module", "old_type", "is_sub.bool", "parameters.array", "categories.array"})
  */
 interface Pages
 {
