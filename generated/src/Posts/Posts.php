@@ -128,6 +128,39 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function subscribeModule(\Perfumer\Microservices\Posts\Request\Module\SubscribeModuleRequest $request): \Perfumer\Microservices\Posts\Response\Module\SubscribeModuleResponse
+    {
+        $url = '/module/subscribe';
+
+        /** @var \Perfumer\Microservices\Posts\Response\Module\SubscribeModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Module\SubscribeModuleResponse(), 'post', $url, [
+        'id' => $request->id,
+        'subscriber_id' => $request->subscriber_id,
+        'module_id' => $request->module_id,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'module');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->module = $item;
+        }
+
+        return $response;
+    }
+
+    public function unsubscribeModule(\Perfumer\Microservices\Posts\Request\Module\UnsubscribeModuleRequest $request): \Perfumer\Microservices\Posts\Response\Module\UnsubscribeModuleResponse
+    {
+        $url = '/module/unsubscribe';
+
+        /** @var \Perfumer\Microservices\Posts\Response\Module\UnsubscribeModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Module\UnsubscribeModuleResponse(), 'delete', $url, [
+        'id' => $request->id,
+        'subscriber_id' => $request->subscriber_id,
+        'module_id' => $request->module_id,
+        ], $request->_debug);
+
+        return $response;
+    }
+
     public function updateModule(\Perfumer\Microservices\Posts\Request\Module\UpdateModuleRequest $request): \Perfumer\Microservices\Posts\Response\Module\UpdateModuleResponse
     {
         $url = '/module';

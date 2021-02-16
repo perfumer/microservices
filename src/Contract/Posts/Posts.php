@@ -17,6 +17,8 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
  * @DeleteModel(microservice="posts", model="module", fields={"id", "code"})
  * @SaveModel(microservice="posts", model="module", fields={"id.int"}, url="/module/archive", action="archive")
  * @SaveModel(microservice="posts", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
+ * @SaveModel(microservice="posts", model="module", fields={"id.int", "subscriber_id", "module_id"}, url="/module/subscribe", action="subscribe")
+ * @DeleteModel(microservice="posts", model="module", fields={"id.int", "subscriber_id", "module_id"}, url="/module/unsubscribe", action="unsubscribe", request_method="delete")
  * @UpdateModel(microservice="posts", model="module", fields={"id", "code", "name", "description", "is_archived.bool"})
  *
  * @GetModels(microservice="posts", model="tags", fields={"text"})
