@@ -1,14 +1,9 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Posts\Request\Module;
+namespace Generated\Perfumer\Microservices\Posts\Request\Subscription;
 
-class SubscribeModuleRequest extends \Perfumer\Microservices\Request
+class SaveSubscriptionRequest extends \Perfumer\Microservices\Request
 {
-    /**
-     * @var int
-     */
-    public $id = null;
-
     /**
      * @var string
      */
@@ -21,7 +16,6 @@ class SubscribeModuleRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->id = new \Perfumer\Microservices\Undefined();
         $this->subscriber_id = new \Perfumer\Microservices\Undefined();
         $this->module_id = new \Perfumer\Microservices\Undefined();
     }

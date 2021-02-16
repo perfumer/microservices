@@ -1,8 +1,8 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Posts\Request\Module;
+namespace Generated\Perfumer\Microservices\Posts\Request\Subscription;
 
-class UnsubscribeModuleRequest extends \Perfumer\Microservices\Request
+class DeleteSubscriptionRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var int
