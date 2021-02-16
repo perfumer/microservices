@@ -635,4 +635,30 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
         return $response;
     }
+
+    public function saveComponent(\Perfumer\Microservices\Pages\Request\Component\SaveComponentRequest $request): \Perfumer\Microservices\Pages\Response\Component\SaveComponentResponse
+    {
+        $url = '/component';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Component\SaveComponentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Component\SaveComponentResponse(), 'post', $url, [
+        'id' => $request->id,
+        'name' => $request->name,
+        'description' => $request->description,
+        'module' => $request->module,
+        'type' => $request->type,
+        'old_module' => $request->old_module,
+        'old_type' => $request->old_type,
+        'is_sub' => $request->is_sub,
+        'parameters' => $request->parameters,
+        'categories' => $request->categories,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'component');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->component = $item;
+        }
+
+        return $response;
+    }
 }
