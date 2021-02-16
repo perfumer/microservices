@@ -602,4 +602,37 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
         return $response;
     }
+
+    public function saveComponentCategory(\Perfumer\Microservices\Pages\Request\Component\SaveComponentCategoryRequest $request): \Perfumer\Microservices\Pages\Response\Component\SaveComponentCategoryResponse
+    {
+        $url = '/component/category';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Component\SaveComponentCategoryResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Component\SaveComponentCategoryResponse(), 'post', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        'name' => $request->name,
+        'description' => $request->description,
+        'components' => $request->components,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'component');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->component = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteComponentCategory(\Perfumer\Microservices\Pages\Request\Component\DeleteComponentCategoryRequest $request): \Perfumer\Microservices\Pages\Response\Component\DeleteComponentCategoryResponse
+    {
+        $url = '/component/category';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Component\DeleteComponentCategoryResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Component\DeleteComponentCategoryResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ], $request->_debug);
+
+        return $response;
+    }
 }
