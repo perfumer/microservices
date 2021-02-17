@@ -64,24 +64,6 @@ class Pages extends \Generated\Perfumer\Microservices\Pages\Pages
         return $response;
     }
 
-    public function getConnectors(GetConnectorsRequest $request): GetConnectorsResponse
-    {
-        $url = '/connectors';
-
-        if ($request->type) {
-            $url .= '/' . $request->type;
-        }
-
-        /** @var GetConnectorsResponse $response */
-        $response = $this->doRequest(new GetConnectorsResponse(), 'get', $url);
-
-        $array = $this->fetchKeyFromContent($response->_content, 'connectors');
-
-        $response->connectors = $array;
-
-        return $response;
-    }
-
     public function savePageEnv(SavePageEnvRequest $request): SavePageEnvResponse
     {
         $url = sprintf('/page/revision/%s', $request->env);

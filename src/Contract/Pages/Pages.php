@@ -59,7 +59,16 @@ use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
  * @GetModels(microservice="pages", model="component", submodel="ComponentParameters", url="component/parameters", fields={"component_id.int"}, response_fields={"parameters.array"})
  * @SaveModel(microservice="pages", model="component", submodel="ComponentCategory", url="component/category", fields={"id.int", "code", "name", "description", "components.array"})
  * @DeleteModel(microservice="pages", model="component", submodel="ComponentCategory", url="component/category", fields={"id.int"})
- * @SaveModel(microservice="pages", model="component", fields={"id.int", "name", "description", "html", "json", "module", "type", "old_module", "old_type", "is_sub.bool", "parameters.array", "categories.array"})
+ * @SaveModel(microservice="pages", model="component", fields={"name", "description", "html", "json", "module", "type", "old_module", "old_type", "is_sub.bool", "parameters.array", "categories.array"})
+ *
+ * @GetModels(microservice="pages", model="connector", submodel="ConnectorCategories", url="connector/categories", fields={"name", "code", "description"}, response_fields={"connectors.array"})
+ * @GetModels(microservice="pages", model="connectors", fields={"category_id.int", "type"})
+ * @GetModel(microservice="pages", model="connector", submodel="ConnectorCategory", url="connector/category", fields={"id.int"}, response_fields={"category.array"})
+ * @GetModel(microservice="pages", model="connector", fields={"id.int"})
+ * @GetModels(microservice="pages", model="connector", submodel="ConnectorArguments", url="connector/arguments", fields={"connector_id.int"}, response_fields={"arguments.array"})
+ * @SaveModel(microservice="pages", model="connector", submodel="ConnectorCategory", url="connector/category", fields={"id.int", "code", "name", "description", "connectors.array"})
+ * @DeleteModel(microservice="pages", model="connector", submodel="ConnectorCategory", url="connector/category", fields={"id.int"})
+ * @SaveModel(microservice="pages", model="connector", fields={"name", "description", "html", "json", "service", "method", "type", "arguments.array"})
  */
 interface Pages
 {
@@ -70,6 +79,4 @@ interface Pages
     public function getCommonParameters(GetCommonParametersRequest $request): GetCommonParametersResponse;
 
     public function getSchemaParameters(GetSchemaParametersRequest $request): GetSchemaParametersResponse;
-
-    public function getConnectors(GetConnectorsRequest $request): GetConnectorsResponse;
 }
