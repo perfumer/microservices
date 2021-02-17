@@ -663,4 +663,194 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
         return $response;
     }
+
+    public function getConnectorCategories(\Perfumer\Microservices\Pages\Request\Connector\GetConnectorCategoriesRequest $request): \Perfumer\Microservices\Pages\Response\Connector\GetConnectorCategoriesResponse
+    {
+        $url = '/connector/categories';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Connector\GetConnectorCategoriesResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Connector\GetConnectorCategoriesResponse(), 'get', $url, [
+        'name' => $request->name,
+        'code' => $request->code,
+        'description' => $request->description,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'connectors');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->connectors = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'connector');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->connector = $item;
+        }
+
+        return $response;
+    }
+
+    public function getConnectors(\Perfumer\Microservices\Pages\Request\Connectors\GetConnectorsRequest $request): \Perfumer\Microservices\Pages\Response\Connectors\GetConnectorsResponse
+    {
+        $url = '/connectors';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Connectors\GetConnectorsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Connectors\GetConnectorsResponse(), 'get', $url, [
+        'category_id' => $request->category_id,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'connectors');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->connectors = $item;
+        }
+
+        return $response;
+    }
+
+    public function getConnectorCategory(\Perfumer\Microservices\Pages\Request\Connector\GetConnectorCategoryRequest $request): \Perfumer\Microservices\Pages\Response\Connector\GetConnectorCategoryResponse
+    {
+        $url = '/connector/category';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Connector\GetConnectorCategoryResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Connector\GetConnectorCategoryResponse(), 'get', $url, [
+        'id' => $request->id,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'category');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->category = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'connector');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->connector = $item;
+        }
+
+        return $response;
+    }
+
+    public function getConnector(\Perfumer\Microservices\Pages\Request\Connector\GetConnectorRequest $request): \Perfumer\Microservices\Pages\Response\Connector\GetConnectorResponse
+    {
+        $url = '/connector';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Connector\GetConnectorResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Connector\GetConnectorResponse(), 'get', $url, [
+        'id' => $request->id,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'connector');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->connector = $item;
+        }
+
+        return $response;
+    }
+
+    public function getConnectorArguments(\Perfumer\Microservices\Pages\Request\Connector\GetConnectorArgumentsRequest $request): \Perfumer\Microservices\Pages\Response\Connector\GetConnectorArgumentsResponse
+    {
+        $url = '/connector/arguments';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Connector\GetConnectorArgumentsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Connector\GetConnectorArgumentsResponse(), 'get', $url, [
+        'connector_id' => $request->connector_id,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'arguments');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->arguments = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'connector');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->connector = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveConnectorCategory(\Perfumer\Microservices\Pages\Request\Connector\SaveConnectorCategoryRequest $request): \Perfumer\Microservices\Pages\Response\Connector\SaveConnectorCategoryResponse
+    {
+        $url = '/connector/category';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Connector\SaveConnectorCategoryResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Connector\SaveConnectorCategoryResponse(), 'post', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        'name' => $request->name,
+        'description' => $request->description,
+        'connectors' => $request->connectors,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'connector');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->connector = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteConnectorCategory(\Perfumer\Microservices\Pages\Request\Connector\DeleteConnectorCategoryRequest $request): \Perfumer\Microservices\Pages\Response\Connector\DeleteConnectorCategoryResponse
+    {
+        $url = '/connector/category';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Connector\DeleteConnectorCategoryResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Connector\DeleteConnectorCategoryResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ], $request->_debug);
+
+        return $response;
+    }
+
+    public function saveConnector(\Perfumer\Microservices\Pages\Request\Connector\SaveConnectorRequest $request): \Perfumer\Microservices\Pages\Response\Connector\SaveConnectorResponse
+    {
+        $url = '/connector';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Connector\SaveConnectorResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Connector\SaveConnectorResponse(), 'post', $url, [
+        'id' => $request->id,
+        'name' => $request->name,
+        'description' => $request->description,
+        'html' => $request->html,
+        'json' => $request->json,
+        'service' => $request->service,
+        'method' => $request->method,
+        'type' => $request->type,
+        'arguments' => $request->arguments,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'connector');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->connector = $item;
+        }
+
+        return $response;
+    }
 }
