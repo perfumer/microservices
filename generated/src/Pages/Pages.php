@@ -704,6 +704,7 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Pages\Response\Connectors\GetConnectorsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Connectors\GetConnectorsResponse(), 'get', $url, [
         'category_id' => $request->category_id,
+        'type' => $request->type,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
