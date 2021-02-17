@@ -642,7 +642,6 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Pages\Response\Component\SaveComponentResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Component\SaveComponentResponse(), 'post', $url, [
-        'id' => $request->id,
         'name' => $request->name,
         'description' => $request->description,
         'html' => $request->html,
@@ -835,7 +834,6 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Pages\Response\Connector\SaveConnectorResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Connector\SaveConnectorResponse(), 'post', $url, [
-        'id' => $request->id,
         'name' => $request->name,
         'description' => $request->description,
         'html' => $request->html,

@@ -5,11 +5,6 @@ namespace Generated\Perfumer\Microservices\Pages\Request\Connector;
 class SaveConnectorRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var int
-     */
-    public $id = null;
-
-    /**
      * @var string
      */
     public $name = null;
@@ -52,7 +47,6 @@ class SaveConnectorRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->id = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->html = new \Perfumer\Microservices\Undefined();
