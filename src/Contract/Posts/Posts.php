@@ -39,7 +39,7 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
  *
  * @GetModels(microservice="posts", model="posts", fields={"title", "code", "author_id", "locale", "status", "description",
  *     "is_disabled", "liked_at_from", "liked_at_to", "rated_at_from", "rated_at_from"})
- * @GetModel(microservice="posts", model="post", fields={"id.int"})
+ * @GetModel(microservice="posts", model="post", fields={"id.int", "rater_id"})
  * @SaveModel(microservice="posts", model="post", fields={"title", "author_id", "status", "locale", "image",
  *     "description", "html", "json", "is_disabled.bool", "tags", "code", "modules"})
  * @UpdateModel(microservice="posts", model="post", fields={"id.int", "title", "author_id", "locale", "image",
@@ -55,9 +55,6 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
  * @SaveModel(microservice="posts", model="post", fields={"id.int", "rater_id", "post_id"}, url="/post/dislike", action="dislike")
  * @SaveModel(microservice="posts", model="post", fields={"id.int"}, url="/post/publish", action="publish")
  * @SaveModel(microservice="posts", model="post", fields={"id.int"}, url="/post/reject", action="reject")
- *
- * @GetModel(microservice="posts", model="like", fields={"id.int", "rater_id", "post_id", "comment_id"})
- * @GetModel(microservice="posts", model="dislike", fields={"id.int", "rater_id", "post_id", "comment_id"})
  */
 interface Posts
 {

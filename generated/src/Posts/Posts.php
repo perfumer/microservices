@@ -671,44 +671,4 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
 
         return $response;
     }
-
-    public function getLike(\Perfumer\Microservices\Posts\Request\Like\GetLikeRequest $request): \Perfumer\Microservices\Posts\Response\Like\GetLikeResponse
-    {
-        $url = '/like';
-
-        /** @var \Perfumer\Microservices\Posts\Response\Like\GetLikeResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Like\GetLikeResponse(), 'get', $url, [
-        'id' => $request->id,
-        'rater_id' => $request->rater_id,
-        'post_id' => $request->post_id,
-        'comment_id' => $request->comment_id,
-        ], $request->_debug);
-        $item = $this->fetchKeyFromContent($response->_content, 'like');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->like = $item;
-        }
-
-        return $response;
-    }
-
-    public function getDislike(\Perfumer\Microservices\Posts\Request\Dislike\GetDislikeRequest $request): \Perfumer\Microservices\Posts\Response\Dislike\GetDislikeResponse
-    {
-        $url = '/dislike';
-
-        /** @var \Perfumer\Microservices\Posts\Response\Dislike\GetDislikeResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Dislike\GetDislikeResponse(), 'get', $url, [
-        'id' => $request->id,
-        'rater_id' => $request->rater_id,
-        'post_id' => $request->post_id,
-        'comment_id' => $request->comment_id,
-        ], $request->_debug);
-        $item = $this->fetchKeyFromContent($response->_content, 'dislike');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->dislike = $item;
-        }
-
-        return $response;
-    }
 }
