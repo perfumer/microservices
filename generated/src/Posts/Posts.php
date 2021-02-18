@@ -533,6 +533,9 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Posts\Response\Comment\LikeCommentResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Comment\LikeCommentResponse(), 'post', $url, [
         'id' => $request->id,
+        'rater_id' => $request->rater_id,
+        'post_id' => $request->post_id,
+        'comment_id' => $request->comment_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'comment');
 
@@ -550,6 +553,9 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Posts\Response\Comment\DislikeCommentResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Comment\DislikeCommentResponse(), 'post', $url, [
         'id' => $request->id,
+        'rater_id' => $request->rater_id,
+        'post_id' => $request->post_id,
+        'comment_id' => $request->comment_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'comment');
 
@@ -601,6 +607,8 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Posts\Response\Post\LikePostResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\LikePostResponse(), 'post', $url, [
         'id' => $request->id,
+        'rater_id' => $request->rater_id,
+        'post_id' => $request->post_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
 
@@ -618,6 +626,8 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Posts\Response\Post\DislikePostResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\DislikePostResponse(), 'post', $url, [
         'id' => $request->id,
+        'rater_id' => $request->rater_id,
+        'post_id' => $request->post_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
 
