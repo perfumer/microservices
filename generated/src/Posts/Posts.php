@@ -448,6 +448,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Posts\Response\Post\GetPostResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\GetPostResponse(), 'get', $url, [
         'id' => $request->id,
+        'rater_id' => $request->rater_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
 
