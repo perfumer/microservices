@@ -11,6 +11,7 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
         /** @var \Perfumer\Microservices\Ncanode\Response\Signature\GetSignatureResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Ncanode\Response\Signature\GetSignatureResponse(), 'get', $url, [
         'id' => $request->id,
+        'parent' => $request->parent,
         'document' => $request->document,
         'chain' => $request->chain,
         'stage' => $request->stage,

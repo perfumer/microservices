@@ -10,6 +10,11 @@ class GetSignatureRequest extends \Perfumer\Microservices\Request
     public $id = null;
 
     /**
+     * @var int
+     */
+    public $parent = null;
+
+    /**
      * @var string
      */
     public $document = null;
@@ -27,6 +32,7 @@ class GetSignatureRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
+        $this->parent = new \Perfumer\Microservices\Undefined();
         $this->document = new \Perfumer\Microservices\Undefined();
         $this->chain = new \Perfumer\Microservices\Undefined();
         $this->stage = new \Perfumer\Microservices\Undefined();
