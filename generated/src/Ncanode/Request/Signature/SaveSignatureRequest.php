@@ -7,10 +7,20 @@ class SaveSignatureRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $document = null;
 
     /**
      * @var string
+     */
+    public $chain = null;
+
+    /**
+     * @var string
+     */
+    public $stage = null;
+
+    /**
+     * @var int
      */
     public $parent = null;
 
@@ -27,7 +37,9 @@ class SaveSignatureRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->code = new \Perfumer\Microservices\Undefined();
+        $this->document = new \Perfumer\Microservices\Undefined();
+        $this->chain = new \Perfumer\Microservices\Undefined();
+        $this->stage = new \Perfumer\Microservices\Undefined();
         $this->parent = new \Perfumer\Microservices\Undefined();
         $this->signature = new \Perfumer\Microservices\Undefined();
         $this->tags = new \Perfumer\Microservices\Undefined();

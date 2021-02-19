@@ -12,18 +12,23 @@ class GetSignatureRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $document = null;
 
     /**
-     * @var array
+     * @var string
      */
-    public $tags = [
-    ];
+    public $chain = null;
+
+    /**
+     * @var string
+     */
+    public $stage = null;
 
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
-        $this->code = new \Perfumer\Microservices\Undefined();
-        $this->tags = new \Perfumer\Microservices\Undefined();
+        $this->document = new \Perfumer\Microservices\Undefined();
+        $this->chain = new \Perfumer\Microservices\Undefined();
+        $this->stage = new \Perfumer\Microservices\Undefined();
     }
 }

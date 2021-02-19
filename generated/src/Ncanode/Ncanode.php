@@ -11,8 +11,9 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
         /** @var \Perfumer\Microservices\Ncanode\Response\Signature\GetSignatureResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Ncanode\Response\Signature\GetSignatureResponse(), 'get', $url, [
         'id' => $request->id,
-        'code' => $request->code,
-        'tags' => $request->tags,
+        'document' => $request->document,
+        'chain' => $request->chain,
+        'stage' => $request->stage,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'signature');
 
@@ -41,28 +42,9 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
 
         /** @var \Perfumer\Microservices\Ncanode\Response\Signature\SaveSignatureResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Ncanode\Response\Signature\SaveSignatureResponse(), 'post', $url, [
-        'code' => $request->code,
-        'parent' => $request->parent,
-        'signature' => $request->signature,
-        'tags' => $request->tags,
-        ], $request->_debug);
-        $item = $this->fetchKeyFromContent($response->_content, 'signature');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->signature = $item;
-        }
-
-        return $response;
-    }
-
-    public function updateSignature(\Perfumer\Microservices\Ncanode\Request\Signature\UpdateSignatureRequest $request): \Perfumer\Microservices\Ncanode\Response\Signature\UpdateSignatureResponse
-    {
-        $url = '/signature';
-
-        /** @var \Perfumer\Microservices\Ncanode\Response\Signature\UpdateSignatureResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Ncanode\Response\Signature\UpdateSignatureResponse(), 'patch', $url, [
-        'id' => $request->id,
-        'code' => $request->code,
+        'document' => $request->document,
+        'chain' => $request->chain,
+        'stage' => $request->stage,
         'parent' => $request->parent,
         'signature' => $request->signature,
         'tags' => $request->tags,
@@ -82,7 +64,9 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
 
         /** @var \Perfumer\Microservices\Ncanode\Response\Signatures\GetSignaturesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Ncanode\Response\Signatures\GetSignaturesResponse(), 'get', $url, [
-        'parent' => $request->parent,
+        'document' => $request->document,
+        'chain' => $request->chain,
+        'stage' => $request->stage,
         'tags' => $request->tags,
         'limit' => $request->limit,
         'offset' => $request->offset,
