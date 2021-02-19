@@ -42,4 +42,10 @@ return [
         'class' => 'Perfumer\\Microservices\\Posts\\Posts',
         'arguments' => ['@microservices/posts.host']
     ],
+
+    'microservices.ncanode' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Ncanode\\Ncanode',
+        'arguments' => ['@microservices/ncanode.host']
+    ],
 ];
