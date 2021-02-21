@@ -573,6 +573,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'name' => $request->name,
         'code' => $request->code,
         'priority' => $request->priority,
+        'is_forced' => $request->is_forced,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'activity');
 
@@ -593,6 +594,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'name' => $request->name,
         'code' => $request->code,
         'priority' => $request->priority,
+        'is_forced' => $request->is_forced,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'activity');
 
@@ -612,6 +614,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'name' => $request->name,
         'code' => $request->code,
         'priority' => $request->priority,
+        'is_forced' => $request->is_forced,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
@@ -768,6 +771,40 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->users = $item;
+        }
+
+        return $response;
+    }
+
+    public function startWorkSessionUser(\Perfumer\Microservices\Crm\Request\User\StartWorkSessionUserRequest $request): \Perfumer\Microservices\Crm\Response\User\StartWorkSessionUserResponse
+    {
+        $url = '/user/start-work-session';
+
+        /** @var \Perfumer\Microservices\Crm\Response\User\StartWorkSessionUserResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\StartWorkSessionUserResponse(), 'post', $url, [
+        'user' => $request->user,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user = $item;
+        }
+
+        return $response;
+    }
+
+    public function endWorkSessionUser(\Perfumer\Microservices\Crm\Request\User\EndWorkSessionUserRequest $request): \Perfumer\Microservices\Crm\Response\User\EndWorkSessionUserResponse
+    {
+        $url = '/user/end-work-session';
+
+        /** @var \Perfumer\Microservices\Crm\Response\User\EndWorkSessionUserResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\EndWorkSessionUserResponse(), 'post', $url, [
+        'user' => $request->user,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user = $item;
         }
 
         return $response;
@@ -1333,6 +1370,44 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\CloseTaskResponse(), 'post', $url, [
         'task' => $request->task,
         'process_scenario' => $request->process_scenario,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'task');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->task = $item;
+        }
+
+        return $response;
+    }
+
+    public function postponeTask(\Perfumer\Microservices\Crm\Request\Task\PostponeTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\PostponeTaskResponse
+    {
+        $url = '/task/postpone';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Task\PostponeTaskResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\PostponeTaskResponse(), 'post', $url, [
+        'task' => $request->task,
+        'user' => $request->user,
+        'time_to' => $request->time_to,
+        'text' => $request->text,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'task');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->task = $item;
+        }
+
+        return $response;
+    }
+
+    public function takeTask(\Perfumer\Microservices\Crm\Request\Task\TakeTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\TakeTaskResponse
+    {
+        $url = '/task/take';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Task\TakeTaskResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\TakeTaskResponse(), 'post', $url, [
+        'task' => $request->task,
+        'user' => $request->user,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'task');
 

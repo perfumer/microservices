@@ -4,13 +4,11 @@ namespace Perfumer\Microservices\Pages;
 
 use Perfumer\Microservices\Pages\Request\CopyRevisionRequest;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
-use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
 use Perfumer\Microservices\Pages\Request\GetSchemaParametersRequest;
 use Perfumer\Microservices\Pages\Request\SavePageEnvRequest;
 use Perfumer\Microservices\Pages\Response\CopyRevisionResponse;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
-use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
 use Perfumer\Microservices\Pages\Response\GetSchemaParametersResponse;
 use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
@@ -34,20 +32,6 @@ class Pages extends \Generated\Perfumer\Microservices\Pages\Pages
         $array = $this->fetchKeyFromContent($response->_content, 'revision');
 
         $response->revision = $array;
-
-        return $response;
-    }
-
-    public function getComponents(GetComponentsRequest $request): GetComponentsResponse
-    {
-        $url = '/components';
-
-        /** @var GetComponentsResponse $response */
-        $response = $this->doRequest(new GetComponentsResponse(), 'get', $url);
-
-        $array = $this->fetchKeyFromContent($response->_content, 'components');
-
-        $response->components = $array;
 
         return $response;
     }
@@ -76,24 +60,6 @@ class Pages extends \Generated\Perfumer\Microservices\Pages\Pages
         $array = $this->fetchKeyFromContent($response->_content, 'parameters');
 
         $response->parameters = $array;
-
-        return $response;
-    }
-
-    public function getConnectors(GetConnectorsRequest $request): GetConnectorsResponse
-    {
-        $url = '/connectors';
-
-        if ($request->type) {
-            $url .= '/' . $request->type;
-        }
-
-        /** @var GetConnectorsResponse $response */
-        $response = $this->doRequest(new GetConnectorsResponse(), 'get', $url);
-
-        $array = $this->fetchKeyFromContent($response->_content, 'connectors');
-
-        $response->connectors = $array;
 
         return $response;
     }

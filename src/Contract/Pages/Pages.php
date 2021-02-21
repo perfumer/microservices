@@ -12,13 +12,11 @@ use Perfumer\Microservices\Annotation\SaveModel;
 use Perfumer\Microservices\Annotation\UpdateModel;
 use Perfumer\Microservices\Pages\Request\CopyRevisionRequest;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
-use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
 use Perfumer\Microservices\Pages\Request\GetSchemaParametersRequest;
 use Perfumer\Microservices\Pages\Request\SavePageEnvRequest;
 use Perfumer\Microservices\Pages\Response\CopyRevisionResponse;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
-use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
 use Perfumer\Microservices\Pages\Response\GetSchemaParametersResponse;
 use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
@@ -53,6 +51,24 @@ use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
  *
  * @SaveModel(microservice="pages", model="page", fields={"id.int"}, url="/page/archive", action="archive")
  * @SaveModel(microservice="pages", model="page", fields={"id.int"}, url="/page/archive", action="unarchive", request_method="delete")
+ *
+ * @GetModels(microservice="pages", model="component", submodel="ComponentCategories", url="component/categories", fields={"name", "code", "description"}, response_fields={"categories.array"})
+ * @GetModels(microservice="pages", model="components", fields={"category_id.int"})
+ * @GetModel(microservice="pages", model="component", submodel="ComponentCategory", url="component/category", fields={"id.int"}, response_fields={"category.array"})
+ * @GetModel(microservice="pages", model="component", fields={"id.int"})
+ * @GetModels(microservice="pages", model="component", submodel="ComponentParameters", url="component/parameters", fields={"component_id.int"}, response_fields={"parameters.array"})
+ * @SaveModel(microservice="pages", model="component", submodel="ComponentCategory", url="component/category", fields={"id.int", "code", "name", "description", "components.array"})
+ * @DeleteModel(microservice="pages", model="component", submodel="ComponentCategory", url="component/category", fields={"id.int"})
+ * @SaveModel(microservice="pages", model="component", fields={"name", "description", "html", "json", "module", "type", "old_module", "old_type", "is_sub.bool", "parameters.array", "categories.array"})
+ *
+ * @GetModels(microservice="pages", model="connector", submodel="ConnectorCategories", url="connector/categories", fields={"name", "code", "description"}, response_fields={"connectors.array"})
+ * @GetModels(microservice="pages", model="connectors", fields={"category_id.int", "type"})
+ * @GetModel(microservice="pages", model="connector", submodel="ConnectorCategory", url="connector/category", fields={"id.int"}, response_fields={"category.array"})
+ * @GetModel(microservice="pages", model="connector", fields={"id.int"})
+ * @GetModels(microservice="pages", model="connector", submodel="ConnectorArguments", url="connector/arguments", fields={"connector_id.int"}, response_fields={"arguments.array"})
+ * @SaveModel(microservice="pages", model="connector", submodel="ConnectorCategory", url="connector/category", fields={"id.int", "code", "name", "description", "connectors.array"})
+ * @DeleteModel(microservice="pages", model="connector", submodel="ConnectorCategory", url="connector/category", fields={"id.int"})
+ * @SaveModel(microservice="pages", model="connector", fields={"name", "description", "html", "json", "service", "method", "type", "arguments.array"})
  */
 interface Pages
 {
@@ -60,11 +76,7 @@ interface Pages
 
     public function copyRevision(CopyRevisionRequest $request): CopyRevisionResponse;
 
-    public function getComponents(GetComponentsRequest $request): GetComponentsResponse;
-
     public function getCommonParameters(GetCommonParametersRequest $request): GetCommonParametersResponse;
 
     public function getSchemaParameters(GetSchemaParametersRequest $request): GetSchemaParametersResponse;
-
-    public function getConnectors(GetConnectorsRequest $request): GetConnectorsResponse;
 }

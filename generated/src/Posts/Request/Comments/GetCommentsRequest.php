@@ -5,6 +5,16 @@ namespace Generated\Perfumer\Microservices\Posts\Request\Comments;
 class GetCommentsRequest extends \Perfumer\Microservices\Request
 {
     /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var int
+     */
+    public $post_id = null;
+
+    /**
      * @var string
      */
     public $text = null;
@@ -66,6 +76,8 @@ class GetCommentsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->post_id = new \Perfumer\Microservices\Undefined();
         $this->text = new \Perfumer\Microservices\Undefined();
         $this->status = new \Perfumer\Microservices\Undefined();
         $this->author_id = new \Perfumer\Microservices\Undefined();

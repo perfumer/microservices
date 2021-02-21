@@ -28,6 +28,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Posts\Response\Modules\GetModulesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Modules\GetModulesResponse(), 'get', $url, [
+        'post_id' => $request->post_id,
         'name' => $request->name,
         'code' => $request->code,
         'description' => $request->description,
@@ -123,6 +124,87 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->module = $item;
         }
+
+        return $response;
+    }
+
+    public function updateModule(\Perfumer\Microservices\Posts\Request\Module\UpdateModuleRequest $request): \Perfumer\Microservices\Posts\Response\Module\UpdateModuleResponse
+    {
+        $url = '/module';
+
+        /** @var \Perfumer\Microservices\Posts\Response\Module\UpdateModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Module\UpdateModuleResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        'name' => $request->name,
+        'description' => $request->description,
+        'is_archived' => $request->is_archived,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'module');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->module = $item;
+        }
+
+        return $response;
+    }
+
+    public function getSubscriptions(\Perfumer\Microservices\Posts\Request\Subscriptions\GetSubscriptionsRequest $request): \Perfumer\Microservices\Posts\Response\Subscriptions\GetSubscriptionsResponse
+    {
+        $url = '/subscriptions';
+
+        /** @var \Perfumer\Microservices\Posts\Response\Subscriptions\GetSubscriptionsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Subscriptions\GetSubscriptionsResponse(), 'get', $url, [
+        'subscriber_id' => $request->subscriber_id,
+        'module_id' => $request->module_id,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'subscriptions');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->subscriptions = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveSubscription(\Perfumer\Microservices\Posts\Request\Subscription\SaveSubscriptionRequest $request): \Perfumer\Microservices\Posts\Response\Subscription\SaveSubscriptionResponse
+    {
+        $url = '/subscription';
+
+        /** @var \Perfumer\Microservices\Posts\Response\Subscription\SaveSubscriptionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Subscription\SaveSubscriptionResponse(), 'post', $url, [
+        'subscriber_id' => $request->subscriber_id,
+        'module_id' => $request->module_id,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'subscription');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->subscription = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteSubscription(\Perfumer\Microservices\Posts\Request\Subscription\DeleteSubscriptionRequest $request): \Perfumer\Microservices\Posts\Response\Subscription\DeleteSubscriptionResponse
+    {
+        $url = '/subscription';
+
+        /** @var \Perfumer\Microservices\Posts\Response\Subscription\DeleteSubscriptionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Subscription\DeleteSubscriptionResponse(), 'delete', $url, [
+        'id' => $request->id,
+        'subscriber_id' => $request->subscriber_id,
+        'module_id' => $request->module_id,
+        ], $request->_debug);
 
         return $response;
     }
@@ -224,6 +306,8 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Posts\Response\Comments\GetCommentsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Comments\GetCommentsResponse(), 'get', $url, [
+        'id' => $request->id,
+        'post_id' => $request->post_id,
         'text' => $request->text,
         'status' => $request->status,
         'author_id' => $request->author_id,
@@ -328,6 +412,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Posts\Response\Posts\GetPostsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Posts\GetPostsResponse(), 'get', $url, [
         'title' => $request->title,
+        'code' => $request->code,
         'author_id' => $request->author_id,
         'locale' => $request->locale,
         'status' => $request->status,
@@ -363,6 +448,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Posts\Response\Post\GetPostResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\GetPostResponse(), 'get', $url, [
         'id' => $request->id,
+        'rater_id' => $request->rater_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
 
@@ -389,6 +475,8 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'json' => $request->json,
         'is_disabled' => $request->is_disabled,
         'tags' => $request->tags,
+        'code' => $request->code,
+        'modules' => $request->modules,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
 
@@ -415,6 +503,8 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'json' => $request->json,
         'is_disabled' => $request->is_disabled,
         'tags' => $request->tags,
+        'code' => $request->code,
+        'modules' => $request->modules,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
 
@@ -437,13 +527,16 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function likeComment(\Perfumer\Microservices\Events\Request\Comment\LikeCommentRequest $request): \Perfumer\Microservices\Events\Response\Comment\LikeCommentResponse
+    public function likeComment(\Perfumer\Microservices\Posts\Request\Comment\LikeCommentRequest $request): \Perfumer\Microservices\Posts\Response\Comment\LikeCommentResponse
     {
         $url = '/comment/like';
 
-        /** @var \Perfumer\Microservices\Events\Response\Comment\LikeCommentResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Comment\LikeCommentResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Posts\Response\Comment\LikeCommentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Comment\LikeCommentResponse(), 'post', $url, [
         'id' => $request->id,
+        'rater_id' => $request->rater_id,
+        'post_id' => $request->post_id,
+        'comment_id' => $request->comment_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'comment');
 
@@ -454,13 +547,16 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function dislikeComment(\Perfumer\Microservices\Events\Request\Comment\DislikeCommentRequest $request): \Perfumer\Microservices\Events\Response\Comment\DislikeCommentResponse
+    public function dislikeComment(\Perfumer\Microservices\Posts\Request\Comment\DislikeCommentRequest $request): \Perfumer\Microservices\Posts\Response\Comment\DislikeCommentResponse
     {
         $url = '/comment/dislike';
 
-        /** @var \Perfumer\Microservices\Events\Response\Comment\DislikeCommentResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Comment\DislikeCommentResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Posts\Response\Comment\DislikeCommentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Comment\DislikeCommentResponse(), 'post', $url, [
         'id' => $request->id,
+        'rater_id' => $request->rater_id,
+        'post_id' => $request->post_id,
+        'comment_id' => $request->comment_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'comment');
 
@@ -471,12 +567,12 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function publishComment(\Perfumer\Microservices\Events\Request\Comment\PublishCommentRequest $request): \Perfumer\Microservices\Events\Response\Comment\PublishCommentResponse
+    public function publishComment(\Perfumer\Microservices\Posts\Request\Comment\PublishCommentRequest $request): \Perfumer\Microservices\Posts\Response\Comment\PublishCommentResponse
     {
         $url = '/comment/publish';
 
-        /** @var \Perfumer\Microservices\Events\Response\Comment\PublishCommentResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Comment\PublishCommentResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Posts\Response\Comment\PublishCommentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Comment\PublishCommentResponse(), 'post', $url, [
         'id' => $request->id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'comment');
@@ -488,12 +584,12 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function rejectComment(\Perfumer\Microservices\Events\Request\Comment\RejectCommentRequest $request): \Perfumer\Microservices\Events\Response\Comment\RejectCommentResponse
+    public function rejectComment(\Perfumer\Microservices\Posts\Request\Comment\RejectCommentRequest $request): \Perfumer\Microservices\Posts\Response\Comment\RejectCommentResponse
     {
         $url = '/comment/reject';
 
-        /** @var \Perfumer\Microservices\Events\Response\Comment\RejectCommentResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Comment\RejectCommentResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Posts\Response\Comment\RejectCommentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Comment\RejectCommentResponse(), 'post', $url, [
         'id' => $request->id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'comment');
@@ -505,13 +601,15 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function likePost(\Perfumer\Microservices\Events\Request\Post\LikePostRequest $request): \Perfumer\Microservices\Events\Response\Post\LikePostResponse
+    public function likePost(\Perfumer\Microservices\Posts\Request\Post\LikePostRequest $request): \Perfumer\Microservices\Posts\Response\Post\LikePostResponse
     {
         $url = '/post/like';
 
-        /** @var \Perfumer\Microservices\Events\Response\Post\LikePostResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Post\LikePostResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Posts\Response\Post\LikePostResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\LikePostResponse(), 'post', $url, [
         'id' => $request->id,
+        'rater_id' => $request->rater_id,
+        'post_id' => $request->post_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
 
@@ -522,13 +620,15 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function dislikePost(\Perfumer\Microservices\Events\Request\Post\DislikePostRequest $request): \Perfumer\Microservices\Events\Response\Post\DislikePostResponse
+    public function dislikePost(\Perfumer\Microservices\Posts\Request\Post\DislikePostRequest $request): \Perfumer\Microservices\Posts\Response\Post\DislikePostResponse
     {
         $url = '/post/dislike';
 
-        /** @var \Perfumer\Microservices\Events\Response\Post\DislikePostResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Post\DislikePostResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Posts\Response\Post\DislikePostResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\DislikePostResponse(), 'post', $url, [
         'id' => $request->id,
+        'rater_id' => $request->rater_id,
+        'post_id' => $request->post_id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
 
@@ -539,12 +639,12 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function publishPost(\Perfumer\Microservices\Events\Request\Post\PublishPostRequest $request): \Perfumer\Microservices\Events\Response\Post\PublishPostResponse
+    public function publishPost(\Perfumer\Microservices\Posts\Request\Post\PublishPostRequest $request): \Perfumer\Microservices\Posts\Response\Post\PublishPostResponse
     {
         $url = '/post/publish';
 
-        /** @var \Perfumer\Microservices\Events\Response\Post\PublishPostResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Post\PublishPostResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Posts\Response\Post\PublishPostResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\PublishPostResponse(), 'post', $url, [
         'id' => $request->id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
@@ -556,12 +656,12 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function rejectPost(\Perfumer\Microservices\Events\Request\Post\RejectPostRequest $request): \Perfumer\Microservices\Events\Response\Post\RejectPostResponse
+    public function rejectPost(\Perfumer\Microservices\Posts\Request\Post\RejectPostRequest $request): \Perfumer\Microservices\Posts\Response\Post\RejectPostResponse
     {
         $url = '/post/reject';
 
-        /** @var \Perfumer\Microservices\Events\Response\Post\RejectPostResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Post\RejectPostResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Posts\Response\Post\RejectPostResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\RejectPostResponse(), 'post', $url, [
         'id' => $request->id,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'post');

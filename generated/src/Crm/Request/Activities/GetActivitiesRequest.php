@@ -20,6 +20,11 @@ class GetActivitiesRequest extends \Perfumer\Microservices\Request
     public $priority = null;
 
     /**
+     * @var bool
+     */
+    public $is_forced = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -49,6 +54,7 @@ class GetActivitiesRequest extends \Perfumer\Microservices\Request
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->priority = new \Perfumer\Microservices\Undefined();
+        $this->is_forced = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
