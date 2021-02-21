@@ -359,4 +359,41 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
 
         return $response;
     }
+
+    public function getConnectorEvents(\Perfumer\Microservices\Events\Request\Events\GetConnectorEventsRequest $request): \Perfumer\Microservices\Events\Response\Events\GetConnectorEventsResponse
+    {
+        $url = '/connector/events';
+
+        /** @var \Perfumer\Microservices\Events\Response\Events\GetConnectorEventsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Events\GetConnectorEventsResponse(), 'get', $url, [
+        'parent' => $request->parent,
+        'limit' => $request->limit,
+        'is_archived' => $request->is_archived,
+        'is_deep' => $request->is_deep,
+        'locale' => $request->locale,
+        'id_key' => $request->id_key,
+        'organizer_id_key' => $request->organizer_id_key,
+        'opened_at_key' => $request->opened_at_key,
+        'closed_at_key' => $request->closed_at_key,
+        'apply_from_key' => $request->apply_from_key,
+        'apply_till_key' => $request->apply_till_key,
+        'published_at_key' => $request->published_at_key,
+        'is_registration_open_key' => $request->is_registration_open_key,
+        'status_key' => $request->status_key,
+        'format_key' => $request->format_key,
+        'author_id_key' => $request->author_id_key,
+        'image_key' => $request->image_key,
+        'title_key' => $request->title_key,
+        'description_key' => $request->description_key,
+        'html_key' => $request->html_key,
+        'json_key' => $request->json_key,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'events');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->events = $item;
+        }
+
+        return $response;
+    }
 }

@@ -35,6 +35,7 @@ use Perfumer\Microservices\Annotation\GetModels;
  * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/reject", action="reject")
  * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/publish", action="publish")
  *
+ * @GetModel(microservice="events", model="events", submodel="ConnectorEvents", fields={"parent", "limit.int", "is_archived.bool", "is_deep.bool", "locale", "id_key", "organizer_id_key", "opened_at_key", "closed_at_key", "apply_from_key", "apply_till_key", "published_at_key", "is_registration_open_key", "status_key", "format_key", "author_id_key", "image_key", "title_key", "description_key", "html_key", "json_key" }, url="/connector/events", action="get")
  */
 interface Events
 {
