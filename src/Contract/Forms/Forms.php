@@ -48,6 +48,12 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @GetModels(microservice="forms", model="articles", fields={"category", "title", "description", "code", "locale", "ticket_module"})
  *
  * @SaveModel(microservice="forms", model="signature", fields={"signature", "data", "user_id.int", "customer_id.int", "ticket_id.int", "module"})
+ *
+ * @GetModel(microservice="forms", model="ncaDocument", response_fields={"nca_document"}, url="/nca-document", fields={"id.int", "code"})
+ * @DeleteModel(microservice="forms", model="ncaDocument", response_fields={"nca_document"}, url="/nca-document", fields={"id.int", "code"})
+ * @SaveModel(microservice="forms", model="ncaDocument", response_fields={"nca_document"}, url="/nca-document", fields={"code", "url", "description"})
+ * @UpdateModel(microservice="forms", model="ncaDocument", response_fields={"nca_document"}, url="/nca-document", fields={"id.int", "code", "url", "description"})
+ * @GetModels(microservice="forms", model="ncaDocuments", response_fields={"nca_documents"}, url="/nca-documents", fields={"code", "description"})
  */
 interface Forms
 {
