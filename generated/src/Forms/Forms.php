@@ -622,4 +622,127 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         return $response;
     }
+
+    public function getNcaDocument(\Perfumer\Microservices\Forms\Request\NcaDocument\GetNcaDocumentRequest $request): \Perfumer\Microservices\Forms\Response\NcaDocument\GetNcaDocumentResponse
+    {
+        $url = '/nca-document';
+
+        /** @var \Perfumer\Microservices\Forms\Response\NcaDocument\GetNcaDocumentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\NcaDocument\GetNcaDocumentResponse(), 'get', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nca_document');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nca_document = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'ncaDocument');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->ncaDocument = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteNcaDocument(\Perfumer\Microservices\Forms\Request\NcaDocument\DeleteNcaDocumentRequest $request): \Perfumer\Microservices\Forms\Response\NcaDocument\DeleteNcaDocumentResponse
+    {
+        $url = '/nca-document';
+
+        /** @var \Perfumer\Microservices\Forms\Response\NcaDocument\DeleteNcaDocumentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\NcaDocument\DeleteNcaDocumentResponse(), 'delete', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nca_document');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nca_document = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveNcaDocument(\Perfumer\Microservices\Forms\Request\NcaDocument\SaveNcaDocumentRequest $request): \Perfumer\Microservices\Forms\Response\NcaDocument\SaveNcaDocumentResponse
+    {
+        $url = '/nca-document';
+
+        /** @var \Perfumer\Microservices\Forms\Response\NcaDocument\SaveNcaDocumentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\NcaDocument\SaveNcaDocumentResponse(), 'post', $url, [
+        'code' => $request->code,
+        'url' => $request->url,
+        'description' => $request->description,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nca_document');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nca_document = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'ncaDocument');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->ncaDocument = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateNcaDocument(\Perfumer\Microservices\Forms\Request\NcaDocument\UpdateNcaDocumentRequest $request): \Perfumer\Microservices\Forms\Response\NcaDocument\UpdateNcaDocumentResponse
+    {
+        $url = '/nca-document';
+
+        /** @var \Perfumer\Microservices\Forms\Response\NcaDocument\UpdateNcaDocumentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\NcaDocument\UpdateNcaDocumentResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        'url' => $request->url,
+        'description' => $request->description,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nca_document');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nca_document = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'ncaDocument');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->ncaDocument = $item;
+        }
+
+        return $response;
+    }
+
+    public function getNcaDocuments(\Perfumer\Microservices\Forms\Request\NcaDocuments\GetNcaDocumentsRequest $request): \Perfumer\Microservices\Forms\Response\NcaDocuments\GetNcaDocumentsResponse
+    {
+        $url = '/nca-documents';
+
+        /** @var \Perfumer\Microservices\Forms\Response\NcaDocuments\GetNcaDocumentsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\NcaDocuments\GetNcaDocumentsResponse(), 'get', $url, [
+        'code' => $request->code,
+        'description' => $request->description,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug);
+        $item = $this->fetchKeyFromContent($response->_content, 'nca_documents');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nca_documents = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'ncaDocuments');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->ncaDocuments = $item;
+        }
+
+        return $response;
+    }
 }
