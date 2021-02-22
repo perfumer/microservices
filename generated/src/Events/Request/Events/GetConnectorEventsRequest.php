@@ -42,6 +42,11 @@ class GetConnectorEventsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $modules_key = null;
+
+    /**
+     * @var string
+     */
     public $opened_at_key = null;
 
     /**
@@ -118,6 +123,7 @@ class GetConnectorEventsRequest extends \Perfumer\Microservices\Request
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->id_key = new \Perfumer\Microservices\Undefined();
         $this->organizer_id_key = new \Perfumer\Microservices\Undefined();
+        $this->modules_key = new \Perfumer\Microservices\Undefined();
         $this->opened_at_key = new \Perfumer\Microservices\Undefined();
         $this->closed_at_key = new \Perfumer\Microservices\Undefined();
         $this->apply_from_key = new \Perfumer\Microservices\Undefined();

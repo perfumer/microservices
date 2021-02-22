@@ -373,6 +373,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'locale' => $request->locale,
         'id_key' => $request->id_key,
         'organizer_id_key' => $request->organizer_id_key,
+        'modules_key' => $request->modules_key,
         'opened_at_key' => $request->opened_at_key,
         'closed_at_key' => $request->closed_at_key,
         'apply_from_key' => $request->apply_from_key,
