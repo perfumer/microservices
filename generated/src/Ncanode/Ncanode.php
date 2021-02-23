@@ -15,7 +15,7 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
         'document' => $request->document,
         'chain' => $request->chain,
         'stage' => $request->stage,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'signature');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -32,7 +32,7 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
         /** @var \Perfumer\Microservices\Ncanode\Response\Signature\DeleteSignatureResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Ncanode\Response\Signature\DeleteSignatureResponse(), 'delete', $url, [
         'id' => $request->id,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
 
         return $response;
     }
@@ -49,7 +49,7 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
         'parent' => $request->parent,
         'signature' => $request->signature,
         'tags' => $request->tags,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'signature');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -74,7 +74,7 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -98,7 +98,7 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
         'method' => $request->method,
         'version' => $request->version,
         'params' => $request->params,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'origin');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -120,7 +120,7 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
         'bin' => $request->bin,
         'rule' => $request->rule,
         'expiration' => $request->expiration,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'validate');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {

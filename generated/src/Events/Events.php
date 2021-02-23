@@ -12,7 +12,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Module\GetModuleResponse(), 'get', $url, [
         'id' => $request->id,
         'code' => $request->code,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -42,7 +42,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -70,7 +70,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'is_archived' => $request->is_archived,
         'parents' => $request->parents,
         'children' => $request->children,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -88,7 +88,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Module\DeleteModuleResponse(), 'delete', $url, [
         'id' => $request->id,
         'code' => $request->code,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
 
         return $response;
     }
@@ -100,7 +100,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         /** @var \Perfumer\Microservices\Events\Response\Module\ArchiveModuleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Module\ArchiveModuleResponse(), 'post', $url, [
         'id' => $request->id,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -117,7 +117,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         /** @var \Perfumer\Microservices\Events\Response\Module\UnarchiveModuleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Module\UnarchiveModuleResponse(), 'delete', $url, [
         'id' => $request->id,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -141,7 +141,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -163,7 +163,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         /** @var \Perfumer\Microservices\Events\Response\Participant\GetParticipantResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Participant\GetParticipantResponse(), 'get', $url, [
         'id' => $request->id,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'participant');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -201,7 +201,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -225,7 +225,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'event_id' => $request->event_id,
         'customer_id' => $request->customer_id,
         'nb_invites' => $request->nb_invites,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'participant');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -245,7 +245,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'event_id' => $request->event_id,
         'customer_id' => $request->customer_id,
         'nb_invites' => $request->nb_invites,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'participant');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -262,7 +262,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         /** @var \Perfumer\Microservices\Events\Response\Participant\DeleteParticipantResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Participant\DeleteParticipantResponse(), 'delete', $url, [
         'id' => $request->id,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
 
         return $response;
     }
@@ -275,7 +275,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Event\GetEventResponse(), 'get', $url, [
         'id' => $request->id,
         'locale' => $request->locale,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'event');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -309,7 +309,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'apply_till' => $request->apply_till,
         'published_at' => $request->published_at,
         'nb_invites_per_participant' => $request->nb_invites_per_participant,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'event');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -326,7 +326,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         /** @var \Perfumer\Microservices\Events\Response\Event\DeleteEventResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Event\DeleteEventResponse(), 'delete', $url, [
         'id' => $request->id,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
 
         return $response;
     }
@@ -338,7 +338,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         /** @var \Perfumer\Microservices\Events\Response\Event\RejectEventResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Event\RejectEventResponse(), 'post', $url, [
         'id' => $request->id,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'event');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -355,7 +355,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         /** @var \Perfumer\Microservices\Events\Response\Event\PublishEventResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Event\PublishEventResponse(), 'post', $url, [
         'id' => $request->id,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'event');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -393,7 +393,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'description_key' => $request->description_key,
         'html_key' => $request->html_key,
         'json_key' => $request->json_key,
-        ], $request->_debug);
+        ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'events');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
