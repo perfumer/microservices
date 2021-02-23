@@ -21,15 +21,15 @@ class Microservice
         return $return;
     }
 
-    protected function doRequest(Response $target_response, $method, $url, $json = null, $debug = false): Response
+    protected function doRequest(Response $target_response, $method, $url, $json = null, $debug = false, $timeout = 15): Response
     {
         try {
             $url = $this->host . $url;
 
             $options = [
-                'connect_timeout' => 15,
-                'read_timeout' => 15,
-                'timeout' => 15,
+                'connect_timeout' => $timeout,
+                'read_timeout' => $timeout,
+                'timeout' => $timeout,
                 'debug' => $debug,
             ];
 
