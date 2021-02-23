@@ -15,6 +15,11 @@ class GetParticipantsRequest extends \Perfumer\Microservices\Request
     public $customer_id = null;
 
     /**
+     * @var string
+     */
+    public $nb_invites = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -43,6 +48,7 @@ class GetParticipantsRequest extends \Perfumer\Microservices\Request
     {
         $this->event_id = new \Perfumer\Microservices\Undefined();
         $this->customer_id = new \Perfumer\Microservices\Undefined();
+        $this->nb_invites = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
