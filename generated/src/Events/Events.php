@@ -135,6 +135,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Participants\GetParticipantsResponse(), 'get', $url, [
         'event_id' => $request->event_id,
         'customer_id' => $request->customer_id,
+        'nb_invites' => $request->nb_invites,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
@@ -194,6 +195,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'apply_till_from' => $request->apply_till_from,
         'apply_till_to' => $request->apply_till_to,
         'published_at' => $request->published_at,
+        'nb_invites_per_participant' => $request->nb_invites_per_participant,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
@@ -222,6 +224,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Participant\SaveParticipantResponse(), 'post', $url, [
         'event_id' => $request->event_id,
         'customer_id' => $request->customer_id,
+        'nb_invites' => $request->nb_invites,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'participant');
 
@@ -241,6 +244,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'id' => $request->id,
         'event_id' => $request->event_id,
         'customer_id' => $request->customer_id,
+        'nb_invites' => $request->nb_invites,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'participant');
 
@@ -304,6 +308,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'apply_from' => $request->apply_from,
         'apply_till' => $request->apply_till,
         'published_at' => $request->published_at,
+        'nb_invites_per_participant' => $request->nb_invites_per_participant,
         ], $request->_debug);
         $item = $this->fetchKeyFromContent($response->_content, 'event');
 
