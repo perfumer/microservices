@@ -25,6 +25,11 @@ class GetProcessTasksRequest extends \Perfumer\Microservices\Request
     public $group = null;
 
     /**
+     * @var bool
+     */
+    public $is_customer = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -55,6 +60,7 @@ class GetProcessTasksRequest extends \Perfumer\Microservices\Request
         $this->state = new \Perfumer\Microservices\Undefined();
         $this->activity = new \Perfumer\Microservices\Undefined();
         $this->group = new \Perfumer\Microservices\Undefined();
+        $this->is_customer = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
