@@ -1293,6 +1293,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\Task\SaveTaskResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\SaveTaskResponse(), 'post', $url, [
         'user' => $request->user,
+        'customer' => $request->customer,
         'activity' => $request->activity,
         'ticket' => $request->ticket,
         'group' => $request->group,
@@ -1324,8 +1325,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse(), 'get', $url, [
         'state' => $request->state,
         'close_status' => $request->close_status,
-        'user_fio' => $request->user_fio,
+        'user_name' => $request->user_name,
         'user_id' => $request->user_id,
+        'customer_name' => $request->customer_name,
+        'customer_id' => $request->customer_id,
+        'type' => $request->type,
         'description' => $request->description,
         'wake_at_from' => $request->wake_at_from,
         'wake_at_to' => $request->wake_at_to,
@@ -1890,6 +1894,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'state' => $request->state,
         'activity' => $request->activity,
         'group' => $request->group,
+        'is_customer' => $request->is_customer,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'task');
 
@@ -1910,6 +1915,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'state' => $request->state,
         'activity' => $request->activity,
         'group' => $request->group,
+        'is_customer' => $request->is_customer,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'task');
 
@@ -1942,6 +1948,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'state' => $request->state,
         'activity' => $request->activity,
         'group' => $request->group,
+        'is_customer' => $request->is_customer,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,

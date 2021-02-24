@@ -12,6 +12,11 @@ class SaveTaskRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $customer = null;
+
+    /**
+     * @var string
+     */
     public $activity = null;
 
     /**
@@ -78,6 +83,7 @@ class SaveTaskRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->user = new \Perfumer\Microservices\Undefined();
+        $this->customer = new \Perfumer\Microservices\Undefined();
         $this->activity = new \Perfumer\Microservices\Undefined();
         $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->group = new \Perfumer\Microservices\Undefined();
