@@ -7,11 +7,6 @@ class GetTasksRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $ticket = null;
-
-    /**
-     * @var string
-     */
     public $state = null;
 
     /**
@@ -97,6 +92,11 @@ class GetTasksRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $ticket = null;
+
+    /**
+     * @var string
+     */
     public $group = null;
 
     /**
@@ -146,7 +146,6 @@ class GetTasksRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->state = new \Perfumer\Microservices\Undefined();
         $this->close_status = new \Perfumer\Microservices\Undefined();
         $this->user_name = new \Perfumer\Microservices\Undefined();
@@ -164,6 +163,7 @@ class GetTasksRequest extends \Perfumer\Microservices\Request
         $this->expire_at_from = new \Perfumer\Microservices\Undefined();
         $this->expire_at_to = new \Perfumer\Microservices\Undefined();
         $this->activity = new \Perfumer\Microservices\Undefined();
+        $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->group = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();
