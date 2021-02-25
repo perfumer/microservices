@@ -1323,6 +1323,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse(), 'get', $url, [
+        'ticket' => $request->ticket,
         'state' => $request->state,
         'close_status' => $request->close_status,
         'user_name' => $request->user_name,
@@ -1340,7 +1341,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'expire_at_from' => $request->expire_at_from,
         'expire_at_to' => $request->expire_at_to,
         'activity' => $request->activity,
-        'ticket' => $request->ticket,
         'group' => $request->group,
         'code' => $request->code,
         'closed_at' => $request->closed_at,
