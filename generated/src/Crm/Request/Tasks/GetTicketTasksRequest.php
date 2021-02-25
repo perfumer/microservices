@@ -17,12 +17,27 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $user_fio = null;
+    public $user_name = null;
 
     /**
      * @var int
      */
     public $user_id = null;
+
+    /**
+     * @var string
+     */
+    public $customer_name = null;
+
+    /**
+     * @var int
+     */
+    public $customer_id = null;
+
+    /**
+     * @var string
+     */
+    public $type = null;
 
     /**
      * @var string
@@ -80,11 +95,6 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
     public $ticket = null;
 
     /**
-     * @var int
-     */
-    public $ticket_id = null;
-
-    /**
      * @var string
      */
     public $group = null;
@@ -138,8 +148,11 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
     {
         $this->state = new \Perfumer\Microservices\Undefined();
         $this->close_status = new \Perfumer\Microservices\Undefined();
-        $this->user_fio = new \Perfumer\Microservices\Undefined();
+        $this->user_name = new \Perfumer\Microservices\Undefined();
         $this->user_id = new \Perfumer\Microservices\Undefined();
+        $this->customer_name = new \Perfumer\Microservices\Undefined();
+        $this->customer_id = new \Perfumer\Microservices\Undefined();
+        $this->type = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->wake_at_from = new \Perfumer\Microservices\Undefined();
         $this->wake_at_to = new \Perfumer\Microservices\Undefined();
@@ -151,7 +164,6 @@ class GetTicketTasksRequest extends \Perfumer\Microservices\Request
         $this->expire_at_to = new \Perfumer\Microservices\Undefined();
         $this->activity = new \Perfumer\Microservices\Undefined();
         $this->ticket = new \Perfumer\Microservices\Undefined();
-        $this->ticket_id = new \Perfumer\Microservices\Undefined();
         $this->group = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();
