@@ -196,6 +196,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'apply_till_to' => $request->apply_till_to,
         'published_at' => $request->published_at,
         'nb_invites_per_participant' => $request->nb_invites_per_participant,
+        'nb_invites' => $request->nb_invites,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
@@ -309,6 +310,7 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'apply_till' => $request->apply_till,
         'published_at' => $request->published_at,
         'nb_invites_per_participant' => $request->nb_invites_per_participant,
+        'nb_invites' => $request->nb_invites,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'event');
 

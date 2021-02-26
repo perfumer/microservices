@@ -90,6 +90,11 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
     public $nb_invites_per_participant = null;
 
     /**
+     * @var string
+     */
+    public $nb_invites = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -133,6 +138,7 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         $this->apply_till_to = new \Perfumer\Microservices\Undefined();
         $this->published_at = new \Perfumer\Microservices\Undefined();
         $this->nb_invites_per_participant = new \Perfumer\Microservices\Undefined();
+        $this->nb_invites = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();

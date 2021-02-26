@@ -95,6 +95,11 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
      */
     public $nb_invites_per_participant = null;
 
+    /**
+     * @var string
+     */
+    public $nb_invites = null;
+
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
@@ -115,5 +120,6 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
         $this->apply_till = new \Perfumer\Microservices\Undefined();
         $this->published_at = new \Perfumer\Microservices\Undefined();
         $this->nb_invites_per_participant = new \Perfumer\Microservices\Undefined();
+        $this->nb_invites = new \Perfumer\Microservices\Undefined();
     }
 }
