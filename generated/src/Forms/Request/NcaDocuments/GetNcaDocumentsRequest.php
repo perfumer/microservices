@@ -1,33 +1,18 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Crm\Request\Tasks;
+namespace Generated\Perfumer\Microservices\Forms\Request\NcaDocuments;
 
-class GetProcessTasksRequest extends \Perfumer\Microservices\Request
+class GetNcaDocumentsRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var int
+     * @var string
      */
-    public $process = null;
+    public $code = null;
 
     /**
      * @var string
      */
-    public $state = null;
-
-    /**
-     * @var string
-     */
-    public $activity = null;
-
-    /**
-     * @var string
-     */
-    public $group = null;
-
-    /**
-     * @var bool
-     */
-    public $is_customer = null;
+    public $description = null;
 
     /**
      * @var int
@@ -56,11 +41,8 @@ class GetProcessTasksRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->process = new \Perfumer\Microservices\Undefined();
-        $this->state = new \Perfumer\Microservices\Undefined();
-        $this->activity = new \Perfumer\Microservices\Undefined();
-        $this->group = new \Perfumer\Microservices\Undefined();
-        $this->is_customer = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
+        $this->description = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();

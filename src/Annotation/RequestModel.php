@@ -130,7 +130,7 @@ EOD;
         }
 
         $body .= <<<EOD
-], \$request->_debug);
+], \$request->_debug, \$request->_timeout);
 
 EOD;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Crm\Request\Task;
+namespace Generated\Perfumer\Microservices\Forms\Request\NcaDocument;
 
-class DeleteTaskRequest extends \Perfumer\Microservices\Request
+class GetNcaDocumentRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var int
