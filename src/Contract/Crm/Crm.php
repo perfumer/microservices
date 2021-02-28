@@ -15,7 +15,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
 /**
  * @GetModel(microservice="crm", model="permission", fields={"id", "code"})
  * @DeleteModel(microservice="crm", model="permission", fields={"id.int", "code"})
- * @GetMeshModels(microservice="crm", model="permissions", fields={"name", "code", "description", "permission.mixed"})
+ * @GetMeshModels(microservice="crm", model="permissions", fields={"name", "code.mixed", "description", "id.mixed"})
  * @SaveMeshModel(microservice="crm", model="permission", fields={"id.int", "code", "name", "description"})
  * @UpdateModel(microservice="crm", model="permission", fields={"id", "name", "code", "description"})
  *
