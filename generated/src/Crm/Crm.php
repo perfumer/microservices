@@ -1971,4 +1971,37 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         return $response;
     }
+
+    public function getUserPermissions(\Perfumer\Microservices\Crm\Request\User\GetUserPermissionsRequest $request): \Perfumer\Microservices\Crm\Response\User\GetUserPermissionsResponse
+    {
+        $url = '/user/permissions';
+
+        /** @var \Perfumer\Microservices\Crm\Response\User\GetUserPermissionsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\GetUserPermissionsResponse(), 'get', $url, [
+        'user' => $request->user,
+        'permission' => $request->permission,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'permissions');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->permissions = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user = $item;
+        }
+
+        return $response;
+    }
 }
