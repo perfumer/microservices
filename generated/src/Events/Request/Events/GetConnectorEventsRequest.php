@@ -87,6 +87,11 @@ class GetConnectorEventsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $location_key = null;
+
+    /**
+     * @var string
+     */
     public $author_id_key = null;
 
     /**
@@ -132,6 +137,7 @@ class GetConnectorEventsRequest extends \Perfumer\Microservices\Request
         $this->is_registration_open_key = new \Perfumer\Microservices\Undefined();
         $this->status_key = new \Perfumer\Microservices\Undefined();
         $this->format_key = new \Perfumer\Microservices\Undefined();
+        $this->location_key = new \Perfumer\Microservices\Undefined();
         $this->author_id_key = new \Perfumer\Microservices\Undefined();
         $this->image_key = new \Perfumer\Microservices\Undefined();
         $this->title_key = new \Perfumer\Microservices\Undefined();
