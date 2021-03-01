@@ -10,11 +10,6 @@ class GetUserPermissionsRequest extends \Perfumer\Microservices\Request
     public $user = null;
 
     /**
-     * @var mixed
-     */
-    public $permission = null;
-
-    /**
      * @var int
      */
     public $limit = null;
@@ -42,7 +37,6 @@ class GetUserPermissionsRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->user = new \Perfumer\Microservices\Undefined();
-        $this->permission = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();

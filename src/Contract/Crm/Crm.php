@@ -124,7 +124,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @DeleteModel(microservice="crm", model="task", url="process/task", action="deleteProcess", fields={"id.int"})
  * @GetModels(microservice="crm", model="tasks", url="process/tasks", action="getProcess", fields={"process.int", "state", "activity", "group", "is_customer.bool"})
  *
- * @GetModels(microservice="crm", model="user", submodel="UserPermissions", fields={"user.int", "permission.mixed"}, response_fields={"permissions.array"}, url="/user/permissions")
+ * @GetModels(microservice="crm", model="user", submodel="UserPermissions", fields={"user.int"}, response_fields={"permissions.array", "is_admin.bool"}, url="/user/permissions")
  */
 interface Crm
 {

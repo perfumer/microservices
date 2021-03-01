@@ -11,6 +11,11 @@ class GetUserPermissionsResponse extends \Perfumer\Microservices\Response
     ];
 
     /**
+     * @var bool
+     */
+    public $is_admin = null;
+
+    /**
      * @var int
      */
     public $nb_results = null;

@@ -1979,7 +1979,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\User\GetUserPermissionsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\GetUserPermissionsResponse(), 'get', $url, [
         'user' => $request->user,
-        'permission' => $request->permission,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
@@ -1990,6 +1989,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->permissions = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'is_admin');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->is_admin = $item;
         }
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
