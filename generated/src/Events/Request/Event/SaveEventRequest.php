@@ -68,6 +68,11 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $location = null;
+
+    /**
+     * @var string
+     */
     public $opened_at = null;
 
     /**
@@ -114,6 +119,7 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
         $this->html = new \Perfumer\Microservices\Undefined();
         $this->json = new \Perfumer\Microservices\Undefined();
         $this->format = new \Perfumer\Microservices\Undefined();
+        $this->location = new \Perfumer\Microservices\Undefined();
         $this->opened_at = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();
         $this->apply_from = new \Perfumer\Microservices\Undefined();
