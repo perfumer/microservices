@@ -44,6 +44,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'name' => $request->name,
         'code' => $request->code,
         'description' => $request->description,
+        'id' => $request->id,
         'parent' => $request->parent,
         'parents' => $request->parents,
         'child' => $request->child,
@@ -1020,9 +1021,9 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Accesses\GetAccessesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Accesses\GetAccessesResponse(), 'get', $url, [
-        'role_id' => $request->role_id,
-        'group_id' => $request->group_id,
-        'permission_id' => $request->permission_id,
+        'role' => $request->role,
+        'group' => $request->group,
+        'permission' => $request->permission,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,

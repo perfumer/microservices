@@ -10,7 +10,7 @@ class GetPermissionsRequest extends \Perfumer\Microservices\Request
     public $name = null;
 
     /**
-     * @var string
+     * @var mixed
      */
     public $code = null;
 
@@ -18,6 +18,11 @@ class GetPermissionsRequest extends \Perfumer\Microservices\Request
      * @var string
      */
     public $description = null;
+
+    /**
+     * @var mixed
+     */
+    public $id = null;
 
     /**
      * @var string
@@ -74,6 +79,7 @@ class GetPermissionsRequest extends \Perfumer\Microservices\Request
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
         $this->parent = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->child = new \Perfumer\Microservices\Undefined();

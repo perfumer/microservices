@@ -15,7 +15,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
 /**
  * @GetModel(microservice="crm", model="permission", fields={"id", "code"})
  * @DeleteModel(microservice="crm", model="permission", fields={"id.int", "code"})
- * @GetMeshModels(microservice="crm", model="permissions", fields={"name", "code", "description"})
+ * @GetMeshModels(microservice="crm", model="permissions", fields={"name", "code.mixed", "description", "id.mixed"})
  * @SaveMeshModel(microservice="crm", model="permission", fields={"id.int", "code", "name", "description"})
  * @UpdateModel(microservice="crm", model="permission", fields={"id", "name", "code", "description"})
  *
@@ -72,7 +72,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @GetModel(microservice="crm", model="access", fields={"role_id", "group_id", "permission_id"})
  * @DeleteModel(microservice="crm", model="access", fields={"role_id", "group_id", "permission_id"})
  * @SaveModel(microservice="crm", model="access", fields={"role_id", "group_id", "permission_id"})
- * @GetModels(microservice="crm", model="accesses", fields={"role_id", "group_id", "permission_id"})
+ * @GetModels(microservice="crm", model="accesses", fields={"role.mixed", "group.mixed", "permission.mixed"})
  *
  * @GetModel(microservice="crm", model="ticket", fields={"id", "code"})
  * @DeleteModelByCode(microservice="crm", model="ticket")
