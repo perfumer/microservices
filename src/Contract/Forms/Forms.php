@@ -21,7 +21,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  *
  * @GetModel(microservice="forms", model="item", fields={"id", "code", "locale", "reference"})
  * @DeleteModel(microservice="forms", model="item", fields={"id"})
- * @SaveMeshModel(microservice="forms", model="item", fields={"id", "value", "name", "code", "new_code", "reference_code", "reference_id"})
+ * @SaveMeshModel(microservice="forms", model="item", fields={"id", "value", "description", "name", "code", "new_code", "reference_code", "reference_id"})
  * @GetMeshModels(microservice="forms", model="items", fields={"name", "code", "locale", "reference"})
  *
  * @GetModel(microservice="forms", model="field", fields={"id.int", "locale"})
