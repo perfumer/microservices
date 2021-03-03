@@ -13,6 +13,11 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $type = null;
+
+    /**
+     * @var string
+     */
     public $model = null;
 
     /**
@@ -28,6 +33,7 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->label = new \Perfumer\Microservices\Undefined();
+        $this->type = new \Perfumer\Microservices\Undefined();
         $this->model = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->is_required = new \Perfumer\Microservices\Undefined();
