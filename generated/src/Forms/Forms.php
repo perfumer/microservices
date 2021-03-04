@@ -159,6 +159,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Item\SaveItemResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Item\SaveItemResponse(), 'post', $url, [
         'id' => $request->id,
+        'value' => $request->value,
+        'description' => $request->description,
         'name' => $request->name,
         'code' => $request->code,
         'new_code' => $request->new_code,
@@ -248,6 +250,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Field\SaveFieldResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\SaveFieldResponse(), 'post', $url, [
         'label' => $request->label,
+        'type' => $request->type,
         'model' => $request->model,
         'module' => $request->module,
         'is_required' => $request->is_required,
@@ -268,6 +271,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Field\UpdateFieldResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\UpdateFieldResponse(), 'patch', $url, [
         'id' => $request->id,
+        'type' => $request->type,
         'label' => $request->label,
         'model' => $request->model,
         'module' => $request->module,
@@ -289,6 +293,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Fields\GetFieldsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Fields\GetFieldsResponse(), 'get', $url, [
         'label' => $request->label,
+        'type' => $request->type,
         'model' => $request->model,
         'locale' => $request->locale,
         'module' => $request->module,

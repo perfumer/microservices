@@ -42,6 +42,16 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $format = null;
+
+    /**
+     * @var string
+     */
+    public $location = null;
+
+    /**
+     * @var string
+     */
     public $opened_at_from = null;
 
     /**
@@ -128,6 +138,8 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         $this->title = new \Perfumer\Microservices\Undefined();
         $this->image = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
+        $this->format = new \Perfumer\Microservices\Undefined();
+        $this->location = new \Perfumer\Microservices\Undefined();
         $this->opened_at_from = new \Perfumer\Microservices\Undefined();
         $this->opened_at_to = new \Perfumer\Microservices\Undefined();
         $this->closed_at_from = new \Perfumer\Microservices\Undefined();
