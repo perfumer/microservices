@@ -1258,6 +1258,25 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function saveTicketRevision(\Perfumer\Microservices\Crm\Request\Ticket\SaveTicketRevisionRequest $request): \Perfumer\Microservices\Crm\Response\Ticket\SaveTicketRevisionResponse
+    {
+        $url = '/ticket/revision';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Ticket\SaveTicketRevisionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Ticket\SaveTicketRevisionResponse(), 'post', $url, [
+        'task_id' => $request->task_id,
+        'scenario' => $request->scenario,
+        'message' => $request->message,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'ticket');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->ticket = $item;
+        }
+
+        return $response;
+    }
+
     public function getTask(\Perfumer\Microservices\Crm\Request\Task\GetTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\GetTaskResponse
     {
         $url = '/task';
