@@ -1377,6 +1377,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Task\CloseTaskResponse(), 'post', $url, [
         'task' => $request->task,
         'process_scenario' => $request->process_scenario,
+        'fixes' => $request->fixes,
+        'message' => $request->message,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'task');
 
