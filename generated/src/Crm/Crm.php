@@ -1497,6 +1497,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'iin' => $request->iin,
         'code' => $request->code,
         'password' => $request->password,
+        'bin' => $request->bin,
+        'org_name' => $request->org_name,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'customer');
 
