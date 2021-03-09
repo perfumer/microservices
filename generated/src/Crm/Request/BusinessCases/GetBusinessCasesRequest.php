@@ -1,14 +1,9 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Crm\Request\Processes;
+namespace Generated\Perfumer\Microservices\Crm\Request\BusinessCases;
 
-class GetProcessesRequest extends \Perfumer\Microservices\Request
+class GetBusinessCasesRequest extends \Perfumer\Microservices\Request
 {
-    /**
-     * @var int
-     */
-    public $id = null;
-
     /**
      * @var string
      */
@@ -18,16 +13,6 @@ class GetProcessesRequest extends \Perfumer\Microservices\Request
      * @var string
      */
     public $description = null;
-
-    /**
-     * @var int
-     */
-    public $business_case_id = null;
-
-    /**
-     * @var string
-     */
-    public $business_case_name = null;
 
     /**
      * @var int
@@ -56,11 +41,8 @@ class GetProcessesRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->id = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
-        $this->business_case_id = new \Perfumer\Microservices\Undefined();
-        $this->business_case_name = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();

@@ -434,7 +434,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         'description' => $request->description,
         'is_archived' => $request->is_archived,
-        'process' => $request->process,
+        'business_case_id' => $request->business_case_id,
+        'business_case_name' => $request->business_case_name,
         'parent' => $request->parent,
         'parents' => $request->parents,
         'child' => $request->child,
@@ -471,7 +472,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'name' => $request->name,
         'description' => $request->description,
         'is_archived' => $request->is_archived,
-        'process' => $request->process,
+        'business_case' => $request->business_case,
         'payload' => $request->payload,
         'fields' => $request->fields,
         'fields_page_id' => $request->fields_page_id,
@@ -1083,7 +1084,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'customer' => $request->customer,
         'module' => $request->module,
         'code' => $request->code,
-        'process' => $request->process,
         'deadline_at' => $request->deadline_at,
         'opened_at' => $request->opened_at,
         'closed_at' => $request->closed_at,
@@ -1104,15 +1104,16 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Tickets\GetTicketsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tickets\GetTicketsResponse(), 'get', $url, [
-        'customer' => $request->customer,
-        'customer_fio' => $request->customer_fio,
+        'customer_id' => $request->customer_id,
+        'customer_name' => $request->customer_name,
         'module_name' => $request->module_name,
         'opened_at_from' => $request->opened_at_from,
         'opened_at_to' => $request->opened_at_to,
         'deadline_at_from' => $request->deadline_at_from,
         'deadline_at_to' => $request->deadline_at_to,
         'code' => $request->code,
-        'process' => $request->process,
+        'business_case_id' => $request->business_case_id,
+        'business_case_name' => $request->business_case_name,
         'process_state' => $request->process_state,
         'process_state_name' => $request->process_state_name,
         'closed_at' => $request->closed_at,
@@ -1180,7 +1181,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse(), 'get', $url, [
-        'user_fio' => $request->user_fio,
+        'user_name' => $request->user_name,
         'ticket' => $request->ticket,
         'ticket_id' => $request->ticket_id,
         'type' => $request->type,
@@ -1216,7 +1217,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\Tasks\GetTicketTasksResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tasks\GetTicketTasksResponse(), 'get', $url, [
         'state' => $request->state,
-        'close_status' => $request->close_status,
+        'process_scenario' => $request->process_scenario,
+        'pipeline_branch' => $request->pipeline_branch,
         'user_name' => $request->user_name,
         'user_id' => $request->user_id,
         'customer_name' => $request->customer_name,
@@ -1303,12 +1305,12 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         'deadline_at' => $request->deadline_at,
         'wake_at' => $request->wake_at,
-        'closed_at' => $request->closed_at,
+        'process_scenario' => $request->process_scenario,
+        'pipeline_branch' => $request->pipeline_branch,
         'complexity' => $request->complexity,
         'state' => $request->state,
         'description' => $request->description,
         'link' => $request->link,
-        'close_status' => $request->close_status,
         'payload' => $request->payload,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'task');
@@ -1327,7 +1329,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse(), 'get', $url, [
         'state' => $request->state,
-        'close_status' => $request->close_status,
+        'process_scenario' => $request->process_scenario,
+        'pipeline_branch' => $request->pipeline_branch,
         'user_name' => $request->user_name,
         'user_id' => $request->user_id,
         'customer_name' => $request->customer_name,
@@ -1607,6 +1610,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Process\SaveProcessResponse(), 'post', $url, [
         'name' => $request->name,
         'description' => $request->description,
+        'business_case' => $request->business_case,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'process');
 
@@ -1626,6 +1630,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'id' => $request->id,
         'name' => $request->name,
         'description' => $request->description,
+        'business_case' => $request->business_case,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'process');
 
@@ -1645,6 +1650,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'id' => $request->id,
         'name' => $request->name,
         'description' => $request->description,
+        'business_case_id' => $request->business_case_id,
+        'business_case_name' => $request->business_case_name,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
@@ -1802,6 +1809,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         'from_state' => $request->from_state,
         'to_state' => $request->to_state,
+        'triggered_processes' => $request->triggered_processes,
         'webhook' => $request->webhook,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'scenario');
@@ -1823,6 +1831,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         'from_state' => $request->from_state,
         'to_state' => $request->to_state,
+        'triggered_processes' => $request->triggered_processes,
         'webhook' => $request->webhook,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'scenario');
@@ -2009,6 +2018,127 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->user = $item;
+        }
+
+        return $response;
+    }
+
+    public function getBusinessCase(\Perfumer\Microservices\Crm\Request\BusinessCase\GetBusinessCaseRequest $request): \Perfumer\Microservices\Crm\Response\BusinessCase\GetBusinessCaseResponse
+    {
+        $url = '/business-case';
+
+        /** @var \Perfumer\Microservices\Crm\Response\BusinessCase\GetBusinessCaseResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\BusinessCase\GetBusinessCaseResponse(), 'get', $url, [
+        'id' => $request->id,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'business_case');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->business_case = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'businessCase');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->businessCase = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteBusinessCase(\Perfumer\Microservices\Crm\Request\BusinessCase\DeleteBusinessCaseRequest $request): \Perfumer\Microservices\Crm\Response\BusinessCase\DeleteBusinessCaseResponse
+    {
+        $url = '/business-case';
+
+        /** @var \Perfumer\Microservices\Crm\Response\BusinessCase\DeleteBusinessCaseResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\BusinessCase\DeleteBusinessCaseResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'business_case');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->business_case = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveBusinessCase(\Perfumer\Microservices\Crm\Request\BusinessCase\SaveBusinessCaseRequest $request): \Perfumer\Microservices\Crm\Response\BusinessCase\SaveBusinessCaseResponse
+    {
+        $url = '/business-case';
+
+        /** @var \Perfumer\Microservices\Crm\Response\BusinessCase\SaveBusinessCaseResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\BusinessCase\SaveBusinessCaseResponse(), 'post', $url, [
+        'name' => $request->name,
+        'description' => $request->description,
+        'processes' => $request->processes,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'business_case');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->business_case = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'businessCase');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->businessCase = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateBusinessCase(\Perfumer\Microservices\Crm\Request\BusinessCase\UpdateBusinessCaseRequest $request): \Perfumer\Microservices\Crm\Response\BusinessCase\UpdateBusinessCaseResponse
+    {
+        $url = '/business-case';
+
+        /** @var \Perfumer\Microservices\Crm\Response\BusinessCase\UpdateBusinessCaseResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\BusinessCase\UpdateBusinessCaseResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'name' => $request->name,
+        'description' => $request->description,
+        'processes' => $request->processes,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'business_case');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->business_case = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'businessCase');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->businessCase = $item;
+        }
+
+        return $response;
+    }
+
+    public function getBusinessCases(\Perfumer\Microservices\Crm\Request\BusinessCases\GetBusinessCasesRequest $request): \Perfumer\Microservices\Crm\Response\BusinessCases\GetBusinessCasesResponse
+    {
+        $url = '/business-cases';
+
+        /** @var \Perfumer\Microservices\Crm\Response\BusinessCases\GetBusinessCasesResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\BusinessCases\GetBusinessCasesResponse(), 'get', $url, [
+        'name' => $request->name,
+        'description' => $request->description,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'business_cases');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->business_cases = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'businessCases');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->businessCases = $item;
         }
 
         return $response;

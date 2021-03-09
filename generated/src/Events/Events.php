@@ -63,6 +63,28 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
 
         /** @var \Perfumer\Microservices\Events\Response\Module\SaveModuleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Module\SaveModuleResponse(), 'post', $url, [
+        'code' => $request->code,
+        'name' => $request->name,
+        'description' => $request->description,
+        'is_archived' => $request->is_archived,
+        'parents' => $request->parents,
+        'children' => $request->children,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'module');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->module = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateModule(\Perfumer\Microservices\Events\Request\Module\UpdateModuleRequest $request): \Perfumer\Microservices\Events\Response\Module\UpdateModuleResponse
+    {
+        $url = '/module';
+
+        /** @var \Perfumer\Microservices\Events\Response\Module\UpdateModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Events\Response\Module\UpdateModuleResponse(), 'patch', $url, [
         'id' => $request->id,
         'code' => $request->code,
         'name' => $request->name,

@@ -12,7 +12,12 @@ class GetTasksRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $close_status = null;
+    public $process_scenario = null;
+
+    /**
+     * @var int
+     */
+    public $pipeline_branch = null;
 
     /**
      * @var string
@@ -147,7 +152,8 @@ class GetTasksRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->state = new \Perfumer\Microservices\Undefined();
-        $this->close_status = new \Perfumer\Microservices\Undefined();
+        $this->process_scenario = new \Perfumer\Microservices\Undefined();
+        $this->pipeline_branch = new \Perfumer\Microservices\Undefined();
         $this->user_name = new \Perfumer\Microservices\Undefined();
         $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->customer_name = new \Perfumer\Microservices\Undefined();

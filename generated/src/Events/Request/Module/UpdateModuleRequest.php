@@ -2,8 +2,13 @@
 
 namespace Generated\Perfumer\Microservices\Events\Request\Module;
 
-class SaveModuleRequest extends \Perfumer\Microservices\Request
+class UpdateModuleRequest extends \Perfumer\Microservices\Request
 {
+    /**
+     * @var string
+     */
+    public $id = null;
+
     /**
      * @var string
      */
@@ -38,6 +43,7 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->id = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
