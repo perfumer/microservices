@@ -1,8 +1,8 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Crm\Request\Process;
+namespace Generated\Perfumer\Microservices\Crm\Request\BusinessCase;
 
-class GetProcessRequest extends \Perfumer\Microservices\Request
+class GetBusinessCaseRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var int

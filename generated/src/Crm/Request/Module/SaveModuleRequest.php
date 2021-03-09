@@ -30,9 +30,9 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
     public $is_archived = null;
 
     /**
-     * @var string
+     * @var int
      */
-    public $process = null;
+    public $business_case = null;
 
     /**
      * @var array
@@ -70,7 +70,7 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
-        $this->process = new \Perfumer\Microservices\Undefined();
+        $this->business_case = new \Perfumer\Microservices\Undefined();
         $this->payload = new \Perfumer\Microservices\Undefined();
         $this->fields = new \Perfumer\Microservices\Undefined();
         $this->fields_page_id = new \Perfumer\Microservices\Undefined();

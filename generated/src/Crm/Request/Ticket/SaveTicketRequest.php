@@ -20,11 +20,6 @@ class SaveTicketRequest extends \Perfumer\Microservices\Request
     public $code = null;
 
     /**
-     * @var int
-     */
-    public $process = null;
-
-    /**
      * @var string
      */
     public $deadline_at = null;
@@ -50,7 +45,6 @@ class SaveTicketRequest extends \Perfumer\Microservices\Request
         $this->customer = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
-        $this->process = new \Perfumer\Microservices\Undefined();
         $this->deadline_at = new \Perfumer\Microservices\Undefined();
         $this->opened_at = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();

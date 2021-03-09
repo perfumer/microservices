@@ -92,8 +92,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Forms\GetFormsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Forms\GetFormsResponse(), 'get', $url, [
         'module_name' => $request->module_name,
-        'customer_fio' => $request->customer_fio,
-        'user_fio' => $request->user_fio,
+        'customer_name' => $request->customer_name,
+        'user_name' => $request->user_name,
         'name' => $request->name,
         'schema' => $request->schema,
         'module' => $request->module,

@@ -38,8 +38,8 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @SaveModel(microservice="crm", model="group", fields={"id.int"}, url="/group/archive", action="unarchive", request_method="delete")
  *
  * @GetModel(microservice="crm", model="module", fields={"id", "code"})
- * @GetMeshModels(microservice="crm", model="modules", fields={"name", "code", "description", "is_archived.bool", "process"})
- * @SaveMeshModel(microservice="crm", model="module", fields={"id.int", "code", "name", "description", "is_archived.bool", "process", "payload.array", "fields.array", "fields_page_id.int"})
+ * @GetMeshModels(microservice="crm", model="modules", fields={"name", "code", "description", "is_archived.bool", "business_case_id.int", "business_case_name"})
+ * @SaveMeshModel(microservice="crm", model="module", fields={"id.int", "code", "name", "description", "is_archived.bool", "business_case.int", "payload.array", "fields.array", "fields_page_id.int"})
  * @DeleteModel(microservice="crm", model="module", fields={"id.int", "code"})
  * @SaveModel(microservice="crm", model="module", fields={"id.int"}, url="/module/archive", action="archive")
  * @SaveModel(microservice="crm", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
@@ -76,19 +76,19 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  *
  * @GetModel(microservice="crm", model="ticket", fields={"id", "code"})
  * @DeleteModelByCode(microservice="crm", model="ticket")
- * @SaveModel(microservice="crm", model="ticket", fields={"customer", "module", "code", "process.int", "deadline_at", "opened_at", "closed_at", "payload.array"})
- * @GetModels(microservice="crm", model="tickets", fields={"customer.int", "customer_fio", "module_name", "opened_at_from", "opened_at_to", "deadline_at_from", "deadline_at_to", "code", "process.int", "process_state.int", "process_state_name", "closed_at"})
+ * @SaveModel(microservice="crm", model="ticket", fields={"customer", "module", "code", "deadline_at", "opened_at", "closed_at", "payload.array"})
+ * @GetModels(microservice="crm", model="tickets", fields={"customer_id.int", "customer_name", "module_name", "opened_at_from", "opened_at_to", "deadline_at_from", "deadline_at_to", "code", "business_case_id.int", "business_case_name", "process_state.int", "process_state_name", "closed_at"})
  *
  * @SaveModel(microservice="crm", model="log", url="ticket/log", action="saveTicket", fields={"ticket", "ticket_id", "type", "text", "html", "user", "code", "status", "close_status", "payload.array"})
  * @DeleteModelByCode(microservice="crm", model="log", url="ticket/log", action="deleteTicket")
- * @GetModels(microservice="crm", model="logs", url="ticket/logs", action="getTicket", fields={"user_fio", "ticket", "ticket_id", "type", "text", "user", "code", "status", "close_status"})
+ * @GetModels(microservice="crm", model="logs", url="ticket/logs", action="getTicket", fields={"user_name", "ticket", "ticket_id", "type", "text", "user", "code", "status", "close_status"})
  *
- * @GetModels(microservice="crm", model="tasks", url="ticket/tasks", action="getTicket", fields={"state", "close_status", "user_name", "user_id.int", "customer_name", "customer_id.int", "type", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
+ * @GetModels(microservice="crm", model="tasks", url="ticket/tasks", action="getTicket", fields={"state", "process_scenario", "pipeline_branch.int", "user_name", "user_id.int", "customer_name", "customer_id.int", "type", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link"})
  *
  * @GetModel(microservice="crm", model="task", fields={"id.int", "code"})
  * @DeleteModel(microservice="crm", model="task", fields={"id.int", "code"})
- * @SaveModel(microservice="crm", model="task", fields={"user", "customer", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "closed_at", "complexity", "state", "description", "link", "close_status", "payload.array"})
- * @GetModels(microservice="crm", model="tasks", fields={"state", "close_status", "user_name", "user_id.int", "customer_name", "customer_id.int", "type", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link", "close_status"})
+ * @SaveModel(microservice="crm", model="task", fields={"user", "customer", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "process_scenario", "pipeline_branch.int", "complexity", "state", "description", "link", "payload.array"})
+ * @GetModels(microservice="crm", model="tasks", fields={"state", "process_scenario", "pipeline_branch.int", "user_name", "user_id.int", "customer_name", "customer_id.int", "type", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link"})
  * @SaveModel(microservice="crm", model="task", url="task/close", action="close", fields={"task.int", "process_scenario", "fixes.array", "message"})
  * @SaveModel(microservice="crm", model="task", url="task/postpone", action="postpone", fields={"task.int", "user", "time_to", "text"})
  * @SaveModel(microservice="crm", model="task", url="task/take", action="take", fields={"task.int", "user"})
@@ -100,11 +100,11 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @UpdateModel(microservice="crm", model="customer", fields={"id", "avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password", "is_disabled"})
  * @GetModels(microservice="crm", model="customers", fields={"last_name", "first_name", "mid_name", "email", "phone", "iin", "code"})
  *
- * @GetModel(microservice="crm", model="process", fields={"id"})
- * @DeleteModel(microservice="crm", model="process", fields={"id"})
- * @SaveModel(microservice="crm", model="process", fields={"name", "description"})
- * @UpdateModel(microservice="crm", model="process", fields={"id", "name", "description"})
- * @GetModels(microservice="crm", model="processes", fields={"id", "name", "description"})
+ * @GetModel(microservice="crm", model="process", fields={"id.int"})
+ * @DeleteModel(microservice="crm", model="process", fields={"id.int"})
+ * @SaveModel(microservice="crm", model="process", fields={"name", "description", "business_case.int"})
+ * @UpdateModel(microservice="crm", model="process", fields={"id.int", "name", "description", "business_case.int"})
+ * @GetModels(microservice="crm", model="processes", fields={"id.int", "name", "description", "business_case_id.int", "business_case_name"})
  *
  * @GetModel(microservice="crm", model="state", url="process/state", action="getProcess", fields={"id.int", "code"})
  * @SaveModel(microservice="crm", model="state", url="process/state", action="saveProcess", fields={"process.int", "code", "task_link", "name", "description", "is_initial.bool", "is_final.bool", "log_text"})
@@ -113,8 +113,8 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @GetModels(microservice="crm", model="states", url="process/states", action="getProcess", fields={"process.int", "code", "name", "description"})
  *
  * @GetModel(microservice="crm", model="scenario", url="process/scenario", action="getProcess", fields={"id.int", "code"})
- * @SaveModel(microservice="crm", model="scenario", url="process/scenario", action="saveProcess", fields={"code", "from_state", "to_state", "webhook"})
- * @UpdateModel(microservice="crm", model="scenario", url="process/scenario", action="updateProcess", fields={"id.int", "code", "from_state", "to_state", "webhook"})
+ * @SaveModel(microservice="crm", model="scenario", url="process/scenario", action="saveProcess", fields={"code", "from_state", "to_state", "triggered_processes.array", "webhook"})
+ * @UpdateModel(microservice="crm", model="scenario", url="process/scenario", action="updateProcess", fields={"id.int", "code", "from_state", "to_state", "triggered_processes.array", "webhook"})
  * @DeleteModel(microservice="crm", model="scenario", url="process/scenario", action="deleteProcess", fields={"id.int"})
  * @GetModels(microservice="crm", model="scenarios", url="process/scenarios", action="getProcess", fields={"process.int", "code", "from_state", "to_state"})
  *
@@ -125,6 +125,12 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @GetModels(microservice="crm", model="tasks", url="process/tasks", action="getProcess", fields={"process.int", "state", "activity", "group", "is_customer.bool"})
  *
  * @GetModels(microservice="crm", model="user", submodel="UserPermissions", fields={"user.int"}, response_fields={"permissions.array", "is_admin.bool"}, url="/user/permissions")
+ *
+ * @GetModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"id.int"})
+ * @DeleteModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"id"})
+ * @SaveModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"name", "description", "processes.array"})
+ * @UpdateModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"id", "name", "description", "processes.array"})
+ * @GetModels(microservice="crm", model="businessCases", response_fields={"business_cases"}, url="/business-cases", fields={"name", "description"})
  */
 interface Crm
 {
