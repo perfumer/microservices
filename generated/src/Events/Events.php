@@ -90,6 +90,8 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         'name' => $request->name,
         'description' => $request->description,
         'is_archived' => $request->is_archived,
+        'parents' => $request->parents,
+        'children' => $request->children,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
