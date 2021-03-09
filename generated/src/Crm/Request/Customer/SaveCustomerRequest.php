@@ -49,6 +49,16 @@ class SaveCustomerRequest extends \Perfumer\Microservices\Request
      */
     public $password = null;
 
+    /**
+     * @var string
+     */
+    public $bin = null;
+
+    /**
+     * @var string
+     */
+    public $org_name = null;
+
     public function __construct()
     {
         $this->avatar = new \Perfumer\Microservices\Undefined();
@@ -60,5 +70,7 @@ class SaveCustomerRequest extends \Perfumer\Microservices\Request
         $this->iin = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->password = new \Perfumer\Microservices\Undefined();
+        $this->bin = new \Perfumer\Microservices\Undefined();
+        $this->org_name = new \Perfumer\Microservices\Undefined();
     }
 }
