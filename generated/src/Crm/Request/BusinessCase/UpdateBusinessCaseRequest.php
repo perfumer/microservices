@@ -22,7 +22,7 @@ class UpdateBusinessCaseRequest extends \Perfumer\Microservices\Request
     /**
      * @var array
      */
-    public $processes = [
+    public $init_processes = [
     ];
 
     public function __construct()
@@ -30,6 +30,6 @@ class UpdateBusinessCaseRequest extends \Perfumer\Microservices\Request
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
-        $this->processes = new \Perfumer\Microservices\Undefined();
+        $this->init_processes = new \Perfumer\Microservices\Undefined();
     }
 }
