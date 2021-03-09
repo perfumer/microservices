@@ -25,9 +25,14 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
     public $is_archived = null;
 
     /**
+     * @var int
+     */
+    public $business_case_id = null;
+
+    /**
      * @var string
      */
-    public $process = null;
+    public $business_case_name = null;
 
     /**
      * @var string
@@ -85,7 +90,8 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
-        $this->process = new \Perfumer\Microservices\Undefined();
+        $this->business_case_id = new \Perfumer\Microservices\Undefined();
+        $this->business_case_name = new \Perfumer\Microservices\Undefined();
         $this->parent = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->child = new \Perfumer\Microservices\Undefined();

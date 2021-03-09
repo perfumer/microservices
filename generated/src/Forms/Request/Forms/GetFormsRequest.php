@@ -12,12 +12,12 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $customer_fio = null;
+    public $customer_name = null;
 
     /**
      * @var string
      */
-    public $user_fio = null;
+    public $user_name = null;
 
     /**
      * @var string
@@ -77,8 +77,8 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->module_name = new \Perfumer\Microservices\Undefined();
-        $this->customer_fio = new \Perfumer\Microservices\Undefined();
-        $this->user_fio = new \Perfumer\Microservices\Undefined();
+        $this->customer_name = new \Perfumer\Microservices\Undefined();
+        $this->user_name = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->schema = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();

@@ -25,6 +25,12 @@ class UpdateProcessScenarioRequest extends \Perfumer\Microservices\Request
     public $to_state = null;
 
     /**
+     * @var array
+     */
+    public $triggered_processes = [
+    ];
+
+    /**
      * @var string
      */
     public $webhook = null;
@@ -35,6 +41,7 @@ class UpdateProcessScenarioRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->from_state = new \Perfumer\Microservices\Undefined();
         $this->to_state = new \Perfumer\Microservices\Undefined();
+        $this->triggered_processes = new \Perfumer\Microservices\Undefined();
         $this->webhook = new \Perfumer\Microservices\Undefined();
     }
 }

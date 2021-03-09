@@ -1,8 +1,8 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Crm\Request\Process;
+namespace Generated\Perfumer\Microservices\Crm\Request\BusinessCase;
 
-class SaveProcessRequest extends \Perfumer\Microservices\Request
+class SaveBusinessCaseRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var string
@@ -15,14 +15,15 @@ class SaveProcessRequest extends \Perfumer\Microservices\Request
     public $description = null;
 
     /**
-     * @var int
+     * @var array
      */
-    public $business_case = null;
+    public $processes = [
+    ];
 
     public function __construct()
     {
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
-        $this->business_case = new \Perfumer\Microservices\Undefined();
+        $this->processes = new \Perfumer\Microservices\Undefined();
     }
 }

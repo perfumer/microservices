@@ -7,12 +7,12 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $customer = null;
+    public $customer_id = null;
 
     /**
      * @var string
      */
-    public $customer_fio = null;
+    public $customer_name = null;
 
     /**
      * @var string
@@ -47,7 +47,12 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $process = null;
+    public $business_case_id = null;
+
+    /**
+     * @var string
+     */
+    public $business_case_name = null;
 
     /**
      * @var int
@@ -91,15 +96,16 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->customer = new \Perfumer\Microservices\Undefined();
-        $this->customer_fio = new \Perfumer\Microservices\Undefined();
+        $this->customer_id = new \Perfumer\Microservices\Undefined();
+        $this->customer_name = new \Perfumer\Microservices\Undefined();
         $this->module_name = new \Perfumer\Microservices\Undefined();
         $this->opened_at_from = new \Perfumer\Microservices\Undefined();
         $this->opened_at_to = new \Perfumer\Microservices\Undefined();
         $this->deadline_at_from = new \Perfumer\Microservices\Undefined();
         $this->deadline_at_to = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
-        $this->process = new \Perfumer\Microservices\Undefined();
+        $this->business_case_id = new \Perfumer\Microservices\Undefined();
+        $this->business_case_name = new \Perfumer\Microservices\Undefined();
         $this->process_state = new \Perfumer\Microservices\Undefined();
         $this->process_state_name = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();
