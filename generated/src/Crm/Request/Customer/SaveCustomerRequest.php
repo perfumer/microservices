@@ -59,6 +59,11 @@ class SaveCustomerRequest extends \Perfumer\Microservices\Request
      */
     public $org_name = null;
 
+    /**
+     * @var bool
+     */
+    public $is_nca_customer = null;
+
     public function __construct()
     {
         $this->avatar = new \Perfumer\Microservices\Undefined();
@@ -72,5 +77,6 @@ class SaveCustomerRequest extends \Perfumer\Microservices\Request
         $this->password = new \Perfumer\Microservices\Undefined();
         $this->bin = new \Perfumer\Microservices\Undefined();
         $this->org_name = new \Perfumer\Microservices\Undefined();
+        $this->is_nca_customer = new \Perfumer\Microservices\Undefined();
     }
 }
