@@ -55,6 +55,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -172,6 +176,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -268,6 +276,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -321,6 +333,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -446,6 +462,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -622,6 +642,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -763,6 +787,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -859,6 +887,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'user_roles');
 
@@ -949,6 +981,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1030,6 +1066,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1117,15 +1157,15 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'process_state' => $request->process_state,
         'process_state_name' => $request->process_state_name,
         'closed_at' => $request->closed_at,
-        'id_lt' => $request->id_lt,
-        'id_le' => $request->id_le,
-        'id_gt' => $request->id_gt,
-        'id_ge' => $request->id_ge,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1199,6 +1239,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1249,6 +1293,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1361,6 +1409,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1562,6 +1614,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1661,6 +1717,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1771,6 +1831,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1874,6 +1938,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -1975,6 +2043,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -2002,6 +2074,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'permissions');
 
@@ -2128,6 +2204,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'business_cases');
 

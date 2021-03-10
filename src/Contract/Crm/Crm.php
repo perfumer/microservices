@@ -77,7 +77,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @GetModel(microservice="crm", model="ticket", fields={"id", "code"})
  * @DeleteModelByCode(microservice="crm", model="ticket")
  * @SaveModel(microservice="crm", model="ticket", fields={"customer", "module", "code", "deadline_at", "opened_at", "closed_at", "payload.array"})
- * @GetModels(microservice="crm", model="tickets", fields={"customer_id.int", "customer_name", "module_name", "opened_at_from", "opened_at_to", "deadline_at_from", "deadline_at_to", "code", "business_case_id.int", "business_case_name", "process_state.int", "process_state_name", "closed_at", "id_lt", "id_le", "id_gt", "id_ge"})
+ * @GetModels(microservice="crm", model="tickets", fields={"customer_id.int", "customer_name", "module_name", "opened_at_from", "opened_at_to", "deadline_at_from", "deadline_at_to", "code", "business_case_id.int", "business_case_name", "process_state.int", "process_state_name", "closed_at"})
  *
  * @SaveModel(microservice="crm", model="log", url="ticket/log", action="saveTicket", fields={"ticket", "ticket_id", "type", "text", "html", "user", "code", "status", "close_status", "payload.array"})
  * @DeleteModelByCode(microservice="crm", model="log", url="ticket/log", action="deleteTicket")
