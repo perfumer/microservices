@@ -33,7 +33,7 @@ class GetModels extends RequestModel
         }
 
         if ($this->paginate) {
-            $this->fields = array_merge($this->fields, ['limit.int', 'offset.int', 'count.int', 'order_field', 'order_direction']);
+            $this->fields = array_merge($this->fields, ['limit.int', 'offset.int', 'count.int', 'order_field', 'order_direction', 'id_lt.int', 'id_le.int', 'id_gt.int', 'id_ge.int']);
             $this->response_fields = array_merge($this->response_fields, ['nb_results.int']);
         }
 
