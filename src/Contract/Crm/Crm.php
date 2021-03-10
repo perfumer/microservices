@@ -128,8 +128,8 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  *
  * @GetModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"id.int"})
  * @DeleteModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"id"})
- * @SaveModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"name", "description", "processes.array"})
- * @UpdateModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"id", "name", "description", "processes.array"})
+ * @SaveModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"name", "description", "init_processes.array"})
+ * @UpdateModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"id", "name", "description", "init_processes.array"})
  * @GetModels(microservice="crm", model="businessCases", response_fields={"business_cases"}, url="/business-cases", fields={"name", "description"})
  */
 interface Crm
