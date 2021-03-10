@@ -70,6 +70,26 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
     public $closed_at = null;
 
     /**
+     * @var string
+     */
+    public $id_lt = null;
+
+    /**
+     * @var string
+     */
+    public $id_le = null;
+
+    /**
+     * @var string
+     */
+    public $id_gt = null;
+
+    /**
+     * @var string
+     */
+    public $id_ge = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -109,6 +129,10 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
         $this->process_state = new \Perfumer\Microservices\Undefined();
         $this->process_state_name = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();
+        $this->id_lt = new \Perfumer\Microservices\Undefined();
+        $this->id_le = new \Perfumer\Microservices\Undefined();
+        $this->id_gt = new \Perfumer\Microservices\Undefined();
+        $this->id_ge = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
