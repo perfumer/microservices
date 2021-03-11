@@ -54,6 +54,8 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @SaveModel(microservice="forms", model="ncaDocument", response_fields={"nca_document"}, url="/nca-document", fields={"code", "url", "description"})
  * @UpdateModel(microservice="forms", model="ncaDocument", response_fields={"nca_document"}, url="/nca-document", fields={"id.int", "code", "url", "description"})
  * @GetModels(microservice="forms", model="ncaDocuments", response_fields={"nca_documents"}, url="/nca-documents", fields={"code", "description"})
+ *
+ * @GetModels(microservice="forms", model="fixes", fields={"form.int", "field", "reason", "message", "locale"})
  */
 interface Forms
 {

@@ -778,4 +778,39 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         return $response;
     }
+
+    public function getFixes(\Perfumer\Microservices\Forms\Request\Fixes\GetFixesRequest $request): \Perfumer\Microservices\Forms\Response\Fixes\GetFixesResponse
+    {
+        $url = '/fixes';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Fixes\GetFixesResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Fixes\GetFixesResponse(), 'get', $url, [
+        'form' => $request->form,
+        'field' => $request->field,
+        'reason' => $request->reason,
+        'message' => $request->message,
+        'locale' => $request->locale,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'fixes');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->fixes = $item;
+        }
+
+        return $response;
+    }
 }
