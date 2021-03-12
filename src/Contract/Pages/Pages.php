@@ -38,6 +38,7 @@ use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
  * @GetModels(microservice="pages", model="revisions", fields={"name", "description", "is_archived.bool", "page_id.int"})
  * @SaveModel(microservice="pages", model="revision", fields={"id.int", "page_id.int", "name", "description", "blocks.array", "parameters.array", "is_archived.bool"})
  *
+ * @SaveModel(microservice="pages", model="revision", fields={"id.int", "page_id.int"}, url="/revision/move", action="move")
  * @SaveModel(microservice="pages", model="revision", fields={"id.int"}, url="/revision/archive", action="archive")
  * @SaveModel(microservice="pages", model="revision", fields={"id.int"}, url="/revision/archive", action="unarchive", request_method="delete")
  *

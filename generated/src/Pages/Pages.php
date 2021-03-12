@@ -268,6 +268,24 @@ abstract class Pages extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function moveRevision(\Perfumer\Microservices\Pages\Request\Revision\MoveRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\MoveRevisionResponse
+    {
+        $url = '/revision/move';
+
+        /** @var \Perfumer\Microservices\Pages\Response\Revision\MoveRevisionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Pages\Response\Revision\MoveRevisionResponse(), 'post', $url, [
+        'id' => $request->id,
+        'page_id' => $request->page_id,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'revision');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->revision = $item;
+        }
+
+        return $response;
+    }
+
     public function archiveRevision(\Perfumer\Microservices\Pages\Request\Revision\ArchiveRevisionRequest $request): \Perfumer\Microservices\Pages\Response\Revision\ArchiveRevisionResponse
     {
         $url = '/revision/archive';
