@@ -75,12 +75,9 @@ class Microservice
 
             $target_response->_http_status_code = $guzzle_response->getStatusCode();
             $target_response->_raw = $guzzle_response->getBody()->getContents();
+            $target_response->_status = false;
 
             $guzzle_response = json_decode($target_response->_raw, true);
-
-            if (isset($guzzle_response['status'])) {
-                $target_response->_status = (bool) $guzzle_response['status'];
-            }
 
             if (isset($guzzle_response['status_code'])) {
                 $target_response->_status_code = (string) $guzzle_response['status_code'];
@@ -98,12 +95,9 @@ class Microservice
 
             $target_response->_http_status_code = $guzzle_response->getStatusCode();
             $target_response->_raw = $guzzle_response->getBody()->getContents();
+            $target_response->_status = false;
 
             $guzzle_response = json_decode($target_response->_raw, true);
-
-            if (isset($guzzle_response['status'])) {
-                $target_response->_status = (bool) $guzzle_response['status'];
-            }
 
             if (isset($guzzle_response['status_code'])) {
                 $target_response->_status_code = (string) $guzzle_response['status_code'];
