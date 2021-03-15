@@ -50,6 +50,11 @@ class GetCommentsRequest extends \Perfumer\Microservices\Request
     public $rated_at_from = null;
 
     /**
+     * @var string
+     */
+    public $rater_id = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -105,6 +110,7 @@ class GetCommentsRequest extends \Perfumer\Microservices\Request
         $this->liked_at_from = new \Perfumer\Microservices\Undefined();
         $this->liked_at_to = new \Perfumer\Microservices\Undefined();
         $this->rated_at_from = new \Perfumer\Microservices\Undefined();
+        $this->rater_id = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();

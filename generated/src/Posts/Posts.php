@@ -327,6 +327,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'liked_at_from' => $request->liked_at_from,
         'liked_at_to' => $request->liked_at_to,
         'rated_at_from' => $request->rated_at_from,
+        'rater_id' => $request->rater_id,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
