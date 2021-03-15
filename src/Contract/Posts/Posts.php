@@ -30,7 +30,7 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
  * @DeleteModel(microservice="posts", model="tag", fields={"id.int"})
  *
  * @GetModels(microservice="posts", model="comments", fields={"id.int", "post_id.int", "text", "status", "author_id", "is_removed.bool",
- *     "liked_at_from", "liked_at_to", "rated_at_from", "rated_at_from"})
+ *     "liked_at_from", "liked_at_to", "rated_at_from", "rated_at_from", "rater_id"})
  * @GetModel(microservice="posts", model="comment", fields={"id.int"})
  * @SaveModel(microservice="posts", model="comment", fields={"post_id", "text", "author_id", "status", "parent_id",
  *     "files"})
