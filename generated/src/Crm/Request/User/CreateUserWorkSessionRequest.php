@@ -2,7 +2,7 @@
 
 namespace Generated\Perfumer\Microservices\Crm\Request\User;
 
-class StartWorkSessionUserRequest extends \Perfumer\Microservices\Request
+class CreateUserWorkSessionRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var string

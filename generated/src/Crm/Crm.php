@@ -806,14 +806,19 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
-    public function startWorkSessionUser(\Perfumer\Microservices\Crm\Request\User\StartWorkSessionUserRequest $request): \Perfumer\Microservices\Crm\Response\User\StartWorkSessionUserResponse
+    public function createUserWorkSession(\Perfumer\Microservices\Crm\Request\User\CreateUserWorkSessionRequest $request): \Perfumer\Microservices\Crm\Response\User\CreateUserWorkSessionResponse
     {
-        $url = '/user/start-work-session';
+        $url = '/user/work-session';
 
-        /** @var \Perfumer\Microservices\Crm\Response\User\StartWorkSessionUserResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\StartWorkSessionUserResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Crm\Response\User\CreateUserWorkSessionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\CreateUserWorkSessionResponse(), 'post', $url, [
         'user' => $request->user,
         ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'is_working');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->is_working = $item;
+        }
         $item = $this->fetchKeyFromContent($response->_content, 'user');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -823,18 +828,18 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
-    public function endWorkSessionUser(\Perfumer\Microservices\Crm\Request\User\EndWorkSessionUserRequest $request): \Perfumer\Microservices\Crm\Response\User\EndWorkSessionUserResponse
+    public function deleteUserWorkSession(\Perfumer\Microservices\Crm\Request\User\DeleteUserWorkSessionRequest $request): \Perfumer\Microservices\Crm\Response\User\DeleteUserWorkSessionResponse
     {
-        $url = '/user/end-work-session';
+        $url = '/user/work-session';
 
-        /** @var \Perfumer\Microservices\Crm\Response\User\EndWorkSessionUserResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\EndWorkSessionUserResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Crm\Response\User\DeleteUserWorkSessionResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\DeleteUserWorkSessionResponse(), 'delete', $url, [
         'user' => $request->user,
         ], $request->_debug, $request->_timeout);
-        $item = $this->fetchKeyFromContent($response->_content, 'user');
+        $item = $this->fetchKeyFromContent($response->_content, 'is_working');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->user = $item;
+            $response->is_working = $item;
         }
 
         return $response;
