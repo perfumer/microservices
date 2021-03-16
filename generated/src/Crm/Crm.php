@@ -2169,7 +2169,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\BusinessCase\SaveBusinessCaseResponse(), 'post', $url, [
         'name' => $request->name,
         'description' => $request->description,
-        'init_processes' => $request->init_processes,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'business_case');
 
@@ -2194,7 +2193,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'id' => $request->id,
         'name' => $request->name,
         'description' => $request->description,
-        'init_processes' => $request->init_processes,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'business_case');
 
