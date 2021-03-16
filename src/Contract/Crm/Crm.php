@@ -89,6 +89,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @DeleteModel(microservice="crm", model="task", fields={"id.int", "code"})
  * @SaveModel(microservice="crm", model="task", fields={"user", "customer", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "process_scenario", "pipeline_branch.int", "complexity", "state", "description", "link", "payload.array"})
  * @GetModels(microservice="crm", model="tasks", fields={"state", "process_scenario", "pipeline_branch.int", "user_name", "user_id.int", "customer_name", "customer_id.int", "type", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link"})
+ * @GetModels(microservice="crm", model="tasks", submodel="ClosedTasks",  url="stats/closed-tasks", fields={"user_id.int", "closed_at_from", "closed_at_to"}, response_fields={"num.id", "user_id", "activity_id"})
  * @SaveModel(microservice="crm", model="task", url="task/close", action="close", fields={"task.int", "process_scenario", "fixes.array", "message"})
  * @SaveModel(microservice="crm", model="task", url="task/postpone", action="postpone", fields={"task.int", "user", "time_to", "text"})
  * @SaveModel(microservice="crm", model="task", url="task/take", action="take", fields={"task.int", "user"})

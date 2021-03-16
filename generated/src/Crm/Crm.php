@@ -1433,6 +1433,54 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function getClosedTasks(\Perfumer\Microservices\Crm\Request\Tasks\GetClosedTasksRequest $request): \Perfumer\Microservices\Crm\Response\Tasks\GetClosedTasksResponse
+    {
+        $url = '/stats/closed-tasks';
+
+        /** @var \Perfumer\Microservices\Crm\Response\Tasks\GetClosedTasksResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tasks\GetClosedTasksResponse(), 'get', $url, [
+        'user_id' => $request->user_id,
+        'closed_at_from' => $request->closed_at_from,
+        'closed_at_to' => $request->closed_at_to,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'num');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->num = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'user_id');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user_id = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'activity_id');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->activity_id = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'tasks');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->tasks = $item;
+        }
+
+        return $response;
+    }
+
     public function closeTask(\Perfumer\Microservices\Crm\Request\Task\CloseTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\CloseTaskResponse
     {
         $url = '/task/close';
