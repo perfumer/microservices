@@ -922,10 +922,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Schedule\GetScheduleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Schedule\GetScheduleResponse(), 'get', $url, [
-        'role_id' => $request->role_id,
-        'group_id' => $request->group_id,
-        'activity_id' => $request->activity_id,
-        'calendar_id' => $request->calendar_id,
+        'role' => $request->role,
+        'group' => $request->group,
+        'activity' => $request->activity,
+        'calendar' => $request->calendar,
+        'module' => $request->module,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'schedule');
 
@@ -946,6 +947,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'group_id' => $request->group_id,
         'activity_id' => $request->activity_id,
         'calendar_id' => $request->calendar_id,
+        'module_id' => $request->module_id,
         ], $request->_debug, $request->_timeout);
 
         return $response;
@@ -961,6 +963,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'group_id' => $request->group_id,
         'activity_id' => $request->activity_id,
         'calendar_id' => $request->calendar_id,
+        'module_id' => $request->module_id,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'schedule');
 
@@ -981,6 +984,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'group_id' => $request->group_id,
         'activity_id' => $request->activity_id,
         'calendar_id' => $request->calendar_id,
+        'module_id' => $request->module_id,
         'limit' => $request->limit,
         'offset' => $request->offset,
         'count' => $request->count,
@@ -1128,6 +1132,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Ticket\SaveTicketResponse(), 'post', $url, [
         'customer' => $request->customer,
         'module' => $request->module,
+        'process_scenario' => $request->process_scenario,
         'code' => $request->code,
         'deadline_at' => $request->deadline_at,
         'opened_at' => $request->opened_at,
@@ -1769,6 +1774,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         'task_link' => $request->task_link,
         'name' => $request->name,
+        'customer_name' => $request->customer_name,
         'description' => $request->description,
         'is_initial' => $request->is_initial,
         'is_final' => $request->is_final,
@@ -1794,6 +1800,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'code' => $request->code,
         'task_link' => $request->task_link,
         'name' => $request->name,
+        'customer_name' => $request->customer_name,
         'description' => $request->description,
         'is_initial' => $request->is_initial,
         'is_final' => $request->is_final,
@@ -1830,6 +1837,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'process' => $request->process,
         'code' => $request->code,
         'name' => $request->name,
+        'customer_name' => $request->customer_name,
+        'locale' => $request->locale,
         'description' => $request->description,
         'limit' => $request->limit,
         'offset' => $request->offset,
@@ -1880,6 +1889,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\Scenario\SaveProcessScenarioResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Scenario\SaveProcessScenarioResponse(), 'post', $url, [
         'code' => $request->code,
+        'name' => $request->name,
+        'task_term' => $request->task_term,
         'from_state' => $request->from_state,
         'to_state' => $request->to_state,
         'triggered_processes' => $request->triggered_processes,
@@ -1901,6 +1912,8 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\Scenario\UpdateProcessScenarioResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Scenario\UpdateProcessScenarioResponse(), 'patch', $url, [
         'id' => $request->id,
+        'name' => $request->name,
+        'task_term' => $request->task_term,
         'code' => $request->code,
         'from_state' => $request->from_state,
         'to_state' => $request->to_state,
@@ -1936,6 +1949,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Scenarios\GetProcessScenariosResponse(), 'get', $url, [
         'process' => $request->process,
         'code' => $request->code,
+        'name' => $request->name,
         'from_state' => $request->from_state,
         'to_state' => $request->to_state,
         'limit' => $request->limit,

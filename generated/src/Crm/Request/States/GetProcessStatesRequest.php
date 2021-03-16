@@ -22,6 +22,16 @@ class GetProcessStatesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $customer_name = null;
+
+    /**
+     * @var string
+     */
+    public $locale = null;
+
+    /**
+     * @var string
+     */
     public $description = null;
 
     /**
@@ -74,6 +84,8 @@ class GetProcessStatesRequest extends \Perfumer\Microservices\Request
         $this->process = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
+        $this->customer_name = new \Perfumer\Microservices\Undefined();
+        $this->locale = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();

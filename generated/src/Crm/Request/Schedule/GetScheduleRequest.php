@@ -7,28 +7,34 @@ class GetScheduleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $role_id = null;
+    public $role = null;
 
     /**
      * @var string
      */
-    public $group_id = null;
+    public $group = null;
 
     /**
      * @var string
      */
-    public $activity_id = null;
+    public $activity = null;
 
     /**
      * @var string
      */
-    public $calendar_id = null;
+    public $calendar = null;
+
+    /**
+     * @var string
+     */
+    public $module = null;
 
     public function __construct()
     {
-        $this->role_id = new \Perfumer\Microservices\Undefined();
-        $this->group_id = new \Perfumer\Microservices\Undefined();
-        $this->activity_id = new \Perfumer\Microservices\Undefined();
-        $this->calendar_id = new \Perfumer\Microservices\Undefined();
+        $this->role = new \Perfumer\Microservices\Undefined();
+        $this->group = new \Perfumer\Microservices\Undefined();
+        $this->activity = new \Perfumer\Microservices\Undefined();
+        $this->calendar = new \Perfumer\Microservices\Undefined();
+        $this->module = new \Perfumer\Microservices\Undefined();
     }
 }

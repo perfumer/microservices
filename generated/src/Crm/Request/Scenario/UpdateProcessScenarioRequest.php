@@ -12,6 +12,16 @@ class UpdateProcessScenarioRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $name = null;
+
+    /**
+     * @var int
+     */
+    public $task_term = null;
+
+    /**
+     * @var string
+     */
     public $code = null;
 
     /**
@@ -38,6 +48,8 @@ class UpdateProcessScenarioRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
+        $this->name = new \Perfumer\Microservices\Undefined();
+        $this->task_term = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->from_state = new \Perfumer\Microservices\Undefined();
         $this->to_state = new \Perfumer\Microservices\Undefined();
