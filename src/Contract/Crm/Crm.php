@@ -64,10 +64,10 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  *
  * @GetModels(microservice="crm", model="user", fields={"user_id", "group_id", "role_id"}, submodel="UserRoles", url="/user-roles", response_fields={"user_roles"})
  *
- * @GetModel(microservice="crm", model="schedule", fields={"role_id", "group_id", "activity_id", "calendar_id"})
- * @DeleteModel(microservice="crm", model="schedule", fields={"role_id", "group_id", "activity_id", "calendar_id"})
- * @SaveModel(microservice="crm", model="schedule", fields={"role_id", "group_id", "activity_id", "calendar_id"})
- * @GetModels(microservice="crm", model="schedules", fields={"role_id", "group_id", "activity_id", "calendar_id"})
+ * @GetModel(microservice="crm", model="schedule", fields={"role", "group", "activity", "calendar", "module"})
+ * @DeleteModel(microservice="crm", model="schedule", fields={"role_id.int", "group_id.int", "activity_id.int", "calendar_id.int", "module_id.int"})
+ * @SaveModel(microservice="crm", model="schedule", fields={"role_id.int", "group_id.int", "activity_id.int", "calendar_id.int", "module_id.int"})
+ * @GetModels(microservice="crm", model="schedules", fields={"role_id.int", "group_id.int", "activity_id.int", "calendar_id.int", "module_id.int"})
  *
  * @GetModel(microservice="crm", model="access", fields={"role_id", "group_id", "permission_id"})
  * @DeleteModel(microservice="crm", model="access", fields={"role_id", "group_id", "permission_id"})
@@ -76,7 +76,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  *
  * @GetModel(microservice="crm", model="ticket", fields={"id", "code"})
  * @DeleteModelByCode(microservice="crm", model="ticket")
- * @SaveModel(microservice="crm", model="ticket", fields={"customer", "module", "code", "deadline_at", "opened_at", "closed_at", "payload.array"})
+ * @SaveModel(microservice="crm", model="ticket", fields={"customer", "module", "process_scenario", "code", "deadline_at", "opened_at", "closed_at", "payload.array"})
  * @GetModels(microservice="crm", model="tickets", fields={"customer_id.int", "customer_name", "module_name", "opened_at_from", "opened_at_to", "deadline_at_from", "deadline_at_to", "code", "business_case_id.int", "business_case_name", "process_state.int", "process_state_name", "closed_at"})
  *
  * @SaveModel(microservice="crm", model="log", url="ticket/log", action="saveTicket", fields={"ticket", "ticket_id", "type", "text", "html", "user", "code", "status", "close_status", "payload.array"})
@@ -107,16 +107,16 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @GetModels(microservice="crm", model="processes", fields={"id.int", "name", "description", "business_case_id.int", "business_case_name"})
  *
  * @GetModel(microservice="crm", model="state", url="process/state", action="getProcess", fields={"id.int", "code"})
- * @SaveModel(microservice="crm", model="state", url="process/state", action="saveProcess", fields={"process.int", "code", "task_link", "name", "description", "is_initial.bool", "is_final.bool", "log_text"})
- * @UpdateModel(microservice="crm", model="state", url="process/state", action="updateProcess", fields={"id.int", "process.int", "code", "task_link", "name", "description", "is_initial.bool", "is_final.bool", "log_text"})
+ * @SaveModel(microservice="crm", model="state", url="process/state", action="saveProcess", fields={"process.int", "code", "task_link", "name", "customer_name", "description", "is_initial.bool", "is_final.bool", "log_text"})
+ * @UpdateModel(microservice="crm", model="state", url="process/state", action="updateProcess", fields={"id.int", "process.int", "code", "task_link", "name", "customer_name", "description", "is_initial.bool", "is_final.bool", "log_text"})
  * @DeleteModel(microservice="crm", model="state", url="process/state", action="deleteProcess", fields={"id.int", "process.int"})
- * @GetModels(microservice="crm", model="states", url="process/states", action="getProcess", fields={"process.int", "code", "name", "description"})
+ * @GetModels(microservice="crm", model="states", url="process/states", action="getProcess", fields={"process.int", "code", "name", "customer_name", "locale", "description"})
  *
  * @GetModel(microservice="crm", model="scenario", url="process/scenario", action="getProcess", fields={"id.int", "code"})
- * @SaveModel(microservice="crm", model="scenario", url="process/scenario", action="saveProcess", fields={"code", "from_state", "to_state", "triggered_processes.array", "webhook"})
- * @UpdateModel(microservice="crm", model="scenario", url="process/scenario", action="updateProcess", fields={"id.int", "code", "from_state", "to_state", "triggered_processes.array", "webhook"})
+ * @SaveModel(microservice="crm", model="scenario", url="process/scenario", action="saveProcess", fields={"code", "name", "task_term.int", "from_state", "to_state", "triggered_processes.array", "webhook"})
+ * @UpdateModel(microservice="crm", model="scenario", url="process/scenario", action="updateProcess", fields={"id.int", "name", "task_term.int", "code", "from_state", "to_state", "triggered_processes.array", "webhook"})
  * @DeleteModel(microservice="crm", model="scenario", url="process/scenario", action="deleteProcess", fields={"id.int"})
- * @GetModels(microservice="crm", model="scenarios", url="process/scenarios", action="getProcess", fields={"process.int", "code", "from_state", "to_state"})
+ * @GetModels(microservice="crm", model="scenarios", url="process/scenarios", action="getProcess", fields={"process.int", "code", "name", "from_state", "to_state"})
  *
  * @GetModel(microservice="crm", model="task", url="process/task", action="getProcess", fields={"id.int"})
  * @SaveModel(microservice="crm", model="task", url="process/task", action="saveProcess", fields={"state", "activity", "group", "is_customer.bool"})
@@ -128,8 +128,8 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  *
  * @GetModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"id.int"})
  * @DeleteModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"id"})
- * @SaveModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"name", "description", "init_processes.array"})
- * @UpdateModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"id", "name", "description", "init_processes.array"})
+ * @SaveModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"name", "description"})
+ * @UpdateModel(microservice="crm", model="businessCase", response_fields={"business_case"}, url="/business-case", fields={"id", "name", "description"})
  * @GetModels(microservice="crm", model="businessCases", response_fields={"business_cases"}, url="/business-cases", fields={"name", "description"})
  */
 interface Crm

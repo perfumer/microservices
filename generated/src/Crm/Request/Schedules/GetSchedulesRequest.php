@@ -5,24 +5,29 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Schedules;
 class GetSchedulesRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $role_id = null;
 
     /**
-     * @var string
+     * @var int
      */
     public $group_id = null;
 
     /**
-     * @var string
+     * @var int
      */
     public $activity_id = null;
 
     /**
-     * @var string
+     * @var int
      */
     public $calendar_id = null;
+
+    /**
+     * @var int
+     */
+    public $module_id = null;
 
     /**
      * @var int
@@ -75,6 +80,7 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
         $this->group_id = new \Perfumer\Microservices\Undefined();
         $this->activity_id = new \Perfumer\Microservices\Undefined();
         $this->calendar_id = new \Perfumer\Microservices\Undefined();
+        $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();

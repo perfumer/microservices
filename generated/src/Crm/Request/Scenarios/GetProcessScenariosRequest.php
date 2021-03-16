@@ -17,6 +17,11 @@ class GetProcessScenariosRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $name = null;
+
+    /**
+     * @var string
+     */
     public $from_state = null;
 
     /**
@@ -73,6 +78,7 @@ class GetProcessScenariosRequest extends \Perfumer\Microservices\Request
     {
         $this->process = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
+        $this->name = new \Perfumer\Microservices\Undefined();
         $this->from_state = new \Perfumer\Microservices\Undefined();
         $this->to_state = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
