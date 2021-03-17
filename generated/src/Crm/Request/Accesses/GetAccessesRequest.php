@@ -5,14 +5,19 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Accesses;
 class GetAccessesRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var mixed
      */
     public $role = null;
 
     /**
-     * @var string
+     * @var mixed
      */
     public $group = null;
+
+    /**
+     * @var mixed
+     */
+    public $permission = null;
 
     /**
      * @var int
@@ -24,11 +29,54 @@ class GetAccessesRequest extends \Perfumer\Microservices\Request
      */
     public $offset = null;
 
+    /**
+     * @var int
+     */
+    public $count = null;
+
+    /**
+     * @var string
+     */
+    public $order_field = null;
+
+    /**
+     * @var string
+     */
+    public $order_direction = null;
+
+    /**
+     * @var int
+     */
+    public $id_lt = null;
+
+    /**
+     * @var int
+     */
+    public $id_le = null;
+
+    /**
+     * @var int
+     */
+    public $id_gt = null;
+
+    /**
+     * @var int
+     */
+    public $id_ge = null;
+
     public function __construct()
     {
         $this->role = new \Perfumer\Microservices\Undefined();
         $this->group = new \Perfumer\Microservices\Undefined();
+        $this->permission = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
+        $this->count = new \Perfumer\Microservices\Undefined();
+        $this->order_field = new \Perfumer\Microservices\Undefined();
+        $this->order_direction = new \Perfumer\Microservices\Undefined();
+        $this->id_lt = new \Perfumer\Microservices\Undefined();
+        $this->id_le = new \Perfumer\Microservices\Undefined();
+        $this->id_gt = new \Perfumer\Microservices\Undefined();
+        $this->id_ge = new \Perfumer\Microservices\Undefined();
     }
 }

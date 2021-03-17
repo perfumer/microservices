@@ -24,11 +24,17 @@ class GetScheduleRequest extends \Perfumer\Microservices\Request
      */
     public $calendar = null;
 
+    /**
+     * @var string
+     */
+    public $module = null;
+
     public function __construct()
     {
         $this->role = new \Perfumer\Microservices\Undefined();
         $this->group = new \Perfumer\Microservices\Undefined();
         $this->activity = new \Perfumer\Microservices\Undefined();
         $this->calendar = new \Perfumer\Microservices\Undefined();
+        $this->module = new \Perfumer\Microservices\Undefined();
     }
 }

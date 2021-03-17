@@ -8,14 +8,19 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/form';
 
-        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\GetFormResponse(), 'get', $url, [
-        'code' => $request->code,
-        ]);
-
         /** @var \Perfumer\Microservices\Forms\Response\Form\GetFormResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'form');
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\GetFormResponse(), 'get', $url, [
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
+        'ticket_id' => $request->ticket_id,
+        'module' => $request->module,
+        'id' => $request->id,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'form');
 
-        $response->form = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->form = $item;
+        }
 
         return $response;
     }
@@ -26,8 +31,12 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Form\DeleteFormResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\DeleteFormResponse(), 'delete', $url, [
-        'code' => $request->code,
-        ]);
+        'id' => $request->id,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
+        'ticket_id' => $request->ticket_id,
+        'module' => $request->module,
+        ], $request->_debug, $request->_timeout);
 
         return $response;
     }
@@ -39,18 +48,38 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Form\SaveFormResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Form\SaveFormResponse(), 'post', $url, [
         'name' => $request->name,
-        'code' => $request->code,
+        'ticket_id' => $request->ticket_id,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
         'schema' => $request->schema,
         'module' => $request->module,
         'fields' => $request->fields,
         'payload' => $request->payload,
-        ]);
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'form');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Form\SaveFormResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'form');
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->form = $item;
+        }
 
-        if (null !== $array) {
-            $response->form = $array;
+        return $response;
+    }
+
+    public function saveFormsTicket(\Perfumer\Microservices\Forms\Request\Forms\SaveFormsTicketRequest $request): \Perfumer\Microservices\Forms\Response\Forms\SaveFormsTicketResponse
+    {
+        $url = '/forms/ticket';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Forms\SaveFormsTicketResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Forms\SaveFormsTicketResponse(), 'post', $url, [
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
+        'ticket_id' => $request->ticket_id,
+        'module' => $request->module,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'forms');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->forms = $item;
         }
 
         return $response;
@@ -60,17 +89,37 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/forms';
 
+        /** @var \Perfumer\Microservices\Forms\Response\Forms\GetFormsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Forms\GetFormsResponse(), 'get', $url, [
+        'module_name' => $request->module_name,
+        'customer_name' => $request->customer_name,
+        'user_name' => $request->user_name,
         'name' => $request->name,
-        'code' => $request->code,
         'schema' => $request->schema,
         'module' => $request->module,
+        'ticket_id' => $request->ticket_id,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
         'limit' => $request->limit,
         'offset' => $request->offset,
-        ]);
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
-        /* @var \Perfumer\Microservices\Forms\Response\Forms\GetFormsResponse $response */
-        $response->forms = $this->fetchKeyFromContent($response->_content, 'forms');
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'forms');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->forms = $item;
+        }
 
         return $response;
     }
@@ -79,15 +128,18 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/item';
 
+        /** @var \Perfumer\Microservices\Forms\Response\Item\GetItemResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Item\GetItemResponse(), 'get', $url, [
+        'id' => $request->id,
         'code' => $request->code,
         'locale' => $request->locale,
-        ]);
+        'reference' => $request->reference,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'item');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Item\GetItemResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'item');
-
-        $response->item = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->item = $item;
+        }
 
         return $response;
     }
@@ -98,8 +150,8 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Item\DeleteItemResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Item\DeleteItemResponse(), 'delete', $url, [
-        'code' => $request->code,
-        ]);
+        'id' => $request->id,
+        ], $request->_debug, $request->_timeout);
 
         return $response;
     }
@@ -110,19 +162,21 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Item\SaveItemResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Item\SaveItemResponse(), 'post', $url, [
+        'id' => $request->id,
+        'value' => $request->value,
+        'description' => $request->description,
         'name' => $request->name,
         'code' => $request->code,
         'new_code' => $request->new_code,
-        'reference' => $request->reference,
+        'reference_code' => $request->reference_code,
+        'reference_id' => $request->reference_id,
         'parents' => $request->parents,
         'children' => $request->children,
-        ]);
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'item');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Item\SaveItemResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'item');
-
-        if (null !== $array) {
-            $response->item = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->item = $item;
         }
 
         return $response;
@@ -132,19 +186,145 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/items';
 
+        /** @var \Perfumer\Microservices\Forms\Response\Items\GetItemsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Items\GetItemsResponse(), 'get', $url, [
         'name' => $request->name,
         'code' => $request->code,
         'locale' => $request->locale,
         'reference' => $request->reference,
         'parent' => $request->parent,
+        'parents' => $request->parents,
         'child' => $request->child,
+        'children' => $request->children,
+        'root' => $request->root,
         'limit' => $request->limit,
         'offset' => $request->offset,
-        ]);
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
-        /* @var \Perfumer\Microservices\Forms\Response\Items\GetItemsResponse $response */
-        $response->items = $this->fetchKeyFromContent($response->_content, 'items');
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'items');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->items = $item;
+        }
+
+        return $response;
+    }
+
+    public function getField(\Perfumer\Microservices\Forms\Request\Field\GetFieldRequest $request): \Perfumer\Microservices\Forms\Response\Field\GetFieldResponse
+    {
+        $url = '/field';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Field\GetFieldResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\GetFieldResponse(), 'get', $url, [
+        'id' => $request->id,
+        'locale' => $request->locale,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'field');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->field = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteField(\Perfumer\Microservices\Forms\Request\Field\DeleteFieldRequest $request): \Perfumer\Microservices\Forms\Response\Field\DeleteFieldResponse
+    {
+        $url = '/field';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Field\DeleteFieldResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\DeleteFieldResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ], $request->_debug, $request->_timeout);
+
+        return $response;
+    }
+
+    public function saveField(\Perfumer\Microservices\Forms\Request\Field\SaveFieldRequest $request): \Perfumer\Microservices\Forms\Response\Field\SaveFieldResponse
+    {
+        $url = '/field';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Field\SaveFieldResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\SaveFieldResponse(), 'post', $url, [
+        'label' => $request->label,
+        'type' => $request->type,
+        'model' => $request->model,
+        'module' => $request->module,
+        'is_required' => $request->is_required,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'field');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->field = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateField(\Perfumer\Microservices\Forms\Request\Field\UpdateFieldRequest $request): \Perfumer\Microservices\Forms\Response\Field\UpdateFieldResponse
+    {
+        $url = '/field';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Field\UpdateFieldResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Field\UpdateFieldResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'type' => $request->type,
+        'label' => $request->label,
+        'model' => $request->model,
+        'module' => $request->module,
+        'is_required' => $request->is_required,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'field');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->field = $item;
+        }
+
+        return $response;
+    }
+
+    public function getFields(\Perfumer\Microservices\Forms\Request\Fields\GetFieldsRequest $request): \Perfumer\Microservices\Forms\Response\Fields\GetFieldsResponse
+    {
+        $url = '/fields';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Fields\GetFieldsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Fields\GetFieldsResponse(), 'get', $url, [
+        'label' => $request->label,
+        'type' => $request->type,
+        'model' => $request->model,
+        'locale' => $request->locale,
+        'module' => $request->module,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'fields');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->fields = $item;
+        }
 
         return $response;
     }
@@ -153,26 +333,55 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/module';
 
-        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse(), 'get', $url, [
-        'code' => $request->code,
-        ]);
-
         /** @var \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'module');
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse(), 'get', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'module');
 
-        $response->module = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->module = $item;
+        }
 
         return $response;
     }
 
-    public function deleteModule(\Perfumer\Microservices\Forms\Request\Module\DeleteModuleRequest $request): \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse
+    public function getModules(\Perfumer\Microservices\Forms\Request\Modules\GetModulesRequest $request): \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse
     {
-        $url = '/module';
+        $url = '/modules';
 
-        /** @var \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse(), 'delete', $url, [
+        /** @var \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse(), 'get', $url, [
+        'name' => $request->name,
         'code' => $request->code,
-        ]);
+        'description' => $request->description,
+        'is_archived' => $request->is_archived,
+        'parent' => $request->parent,
+        'parents' => $request->parents,
+        'child' => $request->child,
+        'children' => $request->children,
+        'root' => $request->root,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'modules');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->modules = $item;
+        }
 
         return $response;
     }
@@ -183,37 +392,66 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         /** @var \Perfumer\Microservices\Forms\Response\Module\SaveModuleResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\SaveModuleResponse(), 'post', $url, [
-        'name' => $request->name,
+        'id' => $request->id,
         'code' => $request->code,
+        'name' => $request->name,
+        'description' => $request->description,
+        'is_archived' => $request->is_archived,
         'parents' => $request->parents,
         'children' => $request->children,
-        ]);
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'module');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Module\SaveModuleResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'module');
-
-        if (null !== $array) {
-            $response->module = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->module = $item;
         }
 
         return $response;
     }
 
-    public function getModules(\Perfumer\Microservices\Forms\Request\Modules\GetModulesRequest $request): \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse
+    public function deleteModule(\Perfumer\Microservices\Forms\Request\Module\DeleteModuleRequest $request): \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse
     {
-        $url = '/modules';
+        $url = '/module';
 
-        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse(), 'get', $url, [
-        'name' => $request->name,
+        /** @var \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\DeleteModuleResponse(), 'delete', $url, [
+        'id' => $request->id,
         'code' => $request->code,
-        'parent' => $request->parent,
-        'child' => $request->child,
-        'limit' => $request->limit,
-        'offset' => $request->offset,
-        ]);
+        ], $request->_debug, $request->_timeout);
 
-        /* @var \Perfumer\Microservices\Forms\Response\Modules\GetModulesResponse $response */
-        $response->modules = $this->fetchKeyFromContent($response->_content, 'modules');
+        return $response;
+    }
+
+    public function archiveModule(\Perfumer\Microservices\Forms\Request\Module\ArchiveModuleRequest $request): \Perfumer\Microservices\Forms\Response\Module\ArchiveModuleResponse
+    {
+        $url = '/module/archive';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Module\ArchiveModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\ArchiveModuleResponse(), 'post', $url, [
+        'id' => $request->id,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'module');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->module = $item;
+        }
+
+        return $response;
+    }
+
+    public function unarchiveModule(\Perfumer\Microservices\Forms\Request\Module\UnarchiveModuleRequest $request): \Perfumer\Microservices\Forms\Response\Module\UnarchiveModuleResponse
+    {
+        $url = '/module/archive';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Module\UnarchiveModuleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Module\UnarchiveModuleResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'module');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->module = $item;
+        }
 
         return $response;
     }
@@ -222,14 +460,15 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/reference';
 
+        /** @var \Perfumer\Microservices\Forms\Response\Reference\GetReferenceResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Reference\GetReferenceResponse(), 'get', $url, [
         'code' => $request->code,
-        ]);
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'reference');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Reference\GetReferenceResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'reference');
-
-        $response->reference = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->reference = $item;
+        }
 
         return $response;
     }
@@ -241,7 +480,7 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         /** @var \Perfumer\Microservices\Forms\Response\Reference\DeleteReferenceResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Reference\DeleteReferenceResponse(), 'delete', $url, [
         'code' => $request->code,
-        ]);
+        ], $request->_debug, $request->_timeout);
 
         return $response;
     }
@@ -254,13 +493,12 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Reference\SaveReferenceResponse(), 'post', $url, [
         'name' => $request->name,
         'code' => $request->code,
-        ]);
+        'is_archived' => $request->is_archived,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'reference');
 
-        /** @var \Perfumer\Microservices\Forms\Response\Reference\SaveReferenceResponse $response */
-        $array = $this->fetchKeyFromContent($response->_content, 'reference');
-
-        if (null !== $array) {
-            $response->reference = $array;
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->reference = $item;
         }
 
         return $response;
@@ -270,15 +508,308 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
     {
         $url = '/references';
 
+        /** @var \Perfumer\Microservices\Forms\Response\References\GetReferencesResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\References\GetReferencesResponse(), 'get', $url, [
         'name' => $request->name,
         'code' => $request->code,
+        'is_archived' => $request->is_archived,
         'limit' => $request->limit,
         'offset' => $request->offset,
-        ]);
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
-        /* @var \Perfumer\Microservices\Forms\Response\References\GetReferencesResponse $response */
-        $response->references = $this->fetchKeyFromContent($response->_content, 'references');
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'references');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->references = $item;
+        }
+
+        return $response;
+    }
+
+    public function getArticle(\Perfumer\Microservices\Forms\Request\Article\GetArticleRequest $request): \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse
+    {
+        $url = '/article';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\GetArticleResponse(), 'get', $url, [
+        'id' => $request->id,
+        'locale' => $request->locale,
+        'code' => $request->code,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'article');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->article = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteArticle(\Perfumer\Microservices\Forms\Request\Article\DeleteArticleRequest $request): \Perfumer\Microservices\Forms\Response\Article\DeleteArticleResponse
+    {
+        $url = '/article';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Article\DeleteArticleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\DeleteArticleResponse(), 'delete', $url, [
+        'id' => $request->id,
+        ], $request->_debug, $request->_timeout);
+
+        return $response;
+    }
+
+    public function saveArticle(\Perfumer\Microservices\Forms\Request\Article\SaveArticleRequest $request): \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse
+    {
+        $url = '/article';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Article\SaveArticleResponse(), 'post', $url, [
+        'id' => $request->id,
+        'image' => $request->image,
+        'category_id' => $request->category_id,
+        'title' => $request->title,
+        'description' => $request->description,
+        'code' => $request->code,
+        'html' => $request->html,
+        'json' => $request->json,
+        'locale' => $request->locale,
+        'ticket_modules' => $request->ticket_modules,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'article');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->article = $item;
+        }
+
+        return $response;
+    }
+
+    public function getArticles(\Perfumer\Microservices\Forms\Request\Articles\GetArticlesRequest $request): \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse
+    {
+        $url = '/articles';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Articles\GetArticlesResponse(), 'get', $url, [
+        'category' => $request->category,
+        'title' => $request->title,
+        'description' => $request->description,
+        'code' => $request->code,
+        'locale' => $request->locale,
+        'ticket_module' => $request->ticket_module,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'articles');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->articles = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveSignature(\Perfumer\Microservices\Forms\Request\Signature\SaveSignatureRequest $request): \Perfumer\Microservices\Forms\Response\Signature\SaveSignatureResponse
+    {
+        $url = '/signature';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Signature\SaveSignatureResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Signature\SaveSignatureResponse(), 'post', $url, [
+        'signature' => $request->signature,
+        'data' => $request->data,
+        'user_id' => $request->user_id,
+        'customer_id' => $request->customer_id,
+        'ticket_id' => $request->ticket_id,
+        'module' => $request->module,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'signature');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->signature = $item;
+        }
+
+        return $response;
+    }
+
+    public function getNcaDocument(\Perfumer\Microservices\Forms\Request\NcaDocument\GetNcaDocumentRequest $request): \Perfumer\Microservices\Forms\Response\NcaDocument\GetNcaDocumentResponse
+    {
+        $url = '/nca-document';
+
+        /** @var \Perfumer\Microservices\Forms\Response\NcaDocument\GetNcaDocumentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\NcaDocument\GetNcaDocumentResponse(), 'get', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nca_document');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nca_document = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'ncaDocument');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->ncaDocument = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteNcaDocument(\Perfumer\Microservices\Forms\Request\NcaDocument\DeleteNcaDocumentRequest $request): \Perfumer\Microservices\Forms\Response\NcaDocument\DeleteNcaDocumentResponse
+    {
+        $url = '/nca-document';
+
+        /** @var \Perfumer\Microservices\Forms\Response\NcaDocument\DeleteNcaDocumentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\NcaDocument\DeleteNcaDocumentResponse(), 'delete', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nca_document');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nca_document = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveNcaDocument(\Perfumer\Microservices\Forms\Request\NcaDocument\SaveNcaDocumentRequest $request): \Perfumer\Microservices\Forms\Response\NcaDocument\SaveNcaDocumentResponse
+    {
+        $url = '/nca-document';
+
+        /** @var \Perfumer\Microservices\Forms\Response\NcaDocument\SaveNcaDocumentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\NcaDocument\SaveNcaDocumentResponse(), 'post', $url, [
+        'code' => $request->code,
+        'url' => $request->url,
+        'description' => $request->description,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nca_document');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nca_document = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'ncaDocument');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->ncaDocument = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateNcaDocument(\Perfumer\Microservices\Forms\Request\NcaDocument\UpdateNcaDocumentRequest $request): \Perfumer\Microservices\Forms\Response\NcaDocument\UpdateNcaDocumentResponse
+    {
+        $url = '/nca-document';
+
+        /** @var \Perfumer\Microservices\Forms\Response\NcaDocument\UpdateNcaDocumentResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\NcaDocument\UpdateNcaDocumentResponse(), 'patch', $url, [
+        'id' => $request->id,
+        'code' => $request->code,
+        'url' => $request->url,
+        'description' => $request->description,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nca_document');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nca_document = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'ncaDocument');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->ncaDocument = $item;
+        }
+
+        return $response;
+    }
+
+    public function getNcaDocuments(\Perfumer\Microservices\Forms\Request\NcaDocuments\GetNcaDocumentsRequest $request): \Perfumer\Microservices\Forms\Response\NcaDocuments\GetNcaDocumentsResponse
+    {
+        $url = '/nca-documents';
+
+        /** @var \Perfumer\Microservices\Forms\Response\NcaDocuments\GetNcaDocumentsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\NcaDocuments\GetNcaDocumentsResponse(), 'get', $url, [
+        'code' => $request->code,
+        'description' => $request->description,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nca_documents');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nca_documents = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'ncaDocuments');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->ncaDocuments = $item;
+        }
+
+        return $response;
+    }
+
+    public function getFixes(\Perfumer\Microservices\Forms\Request\Fixes\GetFixesRequest $request): \Perfumer\Microservices\Forms\Response\Fixes\GetFixesResponse
+    {
+        $url = '/fixes';
+
+        /** @var \Perfumer\Microservices\Forms\Response\Fixes\GetFixesResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Forms\Response\Fixes\GetFixesResponse(), 'get', $url, [
+        'form' => $request->form,
+        'field' => $request->field,
+        'reason' => $request->reason,
+        'message' => $request->message,
+        'locale' => $request->locale,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
+        'count' => $request->count,
+        'order_field' => $request->order_field,
+        'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'fixes');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->fixes = $item;
+        }
 
         return $response;
     }

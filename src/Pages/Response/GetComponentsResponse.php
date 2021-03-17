@@ -2,12 +2,10 @@
 
 namespace Perfumer\Microservices\Pages\Response;
 
-use Perfumer\Microservices\Response;
-
-class GetComponentsResponse extends Response
+/**
+ * @deprecated
+ */
+class GetComponentsResponse extends \Perfumer\Microservices\Pages\Response\Components\GetComponentsResponse
 {
-    /**
-     * @var array
-     */
-    public $components;
+
 }

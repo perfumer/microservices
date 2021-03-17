@@ -12,15 +12,15 @@ use Perfumer\Microservices\Annotation\UpdateModel;
 /**
  * @GetModel(microservice="i18n", model="translation", fields={"key"})
  * @DeleteModel(microservice="i18n", model="translation", fields={"key", "locale"})
- * @CreateModel(microservice="i18n", model="translation", fields={"key", "text", "is_immutable", "is_richtext"})
- * @UpdateModel(microservice="i18n", model="translation", fields={"key", "new_key", "text", "is_immutable", "is_richtext"})
+ * @CreateModel(microservice="i18n", model="translation", fields={"key", "text", "is_immutable", "is_richtext", "tags.array"})
+ * @UpdateModel(microservice="i18n", model="translation", fields={"key", "new_key", "text", "is_immutable", "is_richtext", "tags.array"})
  * @SaveModel(microservice="i18n", model="translations", fields={"translations"})
  * @GetModels(microservice="i18n", model="translations", fields={"locale"}, url="dump", action="dump", paginate=false)
  *
  * @GetModels(
  *     microservice="i18n",
  *     model="translations",
- *     fields={"count.bool", "text", "locale", "key", "is_immutable", "is_richtext"},
+ *     fields={"count.bool", "text", "locale", "key", "is_immutable", "is_richtext", "tag"},
  *     response_fields={"nb_translations.int"}
  * )
  */

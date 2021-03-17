@@ -7,10 +7,10 @@ class DeleteItemRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $id = null;
 
     public function __construct()
     {
-        $this->code = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
     }
 }

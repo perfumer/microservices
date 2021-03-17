@@ -5,9 +5,9 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Module;
 class SaveModuleRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
-    public $name = null;
+    public $id = null;
 
     /**
      * @var string
@@ -17,7 +17,39 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $process = null;
+    public $name = null;
+
+    /**
+     * @var string
+     */
+    public $description = null;
+
+    /**
+     * @var bool
+     */
+    public $is_archived = null;
+
+    /**
+     * @var int
+     */
+    public $business_case = null;
+
+    /**
+     * @var array
+     */
+    public $payload = [
+    ];
+
+    /**
+     * @var array
+     */
+    public $fields = [
+    ];
+
+    /**
+     * @var int
+     */
+    public $fields_page_id = null;
 
     /**
      * @var array
@@ -33,9 +65,15 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->name = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
-        $this->process = new \Perfumer\Microservices\Undefined();
+        $this->name = new \Perfumer\Microservices\Undefined();
+        $this->description = new \Perfumer\Microservices\Undefined();
+        $this->is_archived = new \Perfumer\Microservices\Undefined();
+        $this->business_case = new \Perfumer\Microservices\Undefined();
+        $this->payload = new \Perfumer\Microservices\Undefined();
+        $this->fields = new \Perfumer\Microservices\Undefined();
+        $this->fields_page_id = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->children = new \Perfumer\Microservices\Undefined();
     }

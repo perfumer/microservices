@@ -30,4 +30,22 @@ return [
         'class' => 'Perfumer\\Microservices\\Pages\\Pages',
         'arguments' => ['@microservices/pages.host']
     ],
+
+    'microservices.events' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Events\\Events',
+        'arguments' => ['@microservices/events.host']
+    ],
+
+    'microservices.posts' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Posts\\Posts',
+        'arguments' => ['@microservices/posts.host']
+    ],
+
+    'microservices.ncanode' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Ncanode\\Ncanode',
+        'arguments' => ['@microservices/ncanode.host']
+    ],
 ];

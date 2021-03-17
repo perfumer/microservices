@@ -2,74 +2,82 @@
 
 namespace Perfumer\Microservices\Contract\Pages;
 
+use Perfumer\Microservices\Annotation\CreateModel;
+use Perfumer\Microservices\Annotation\DeleteModel;
+use Perfumer\Microservices\Annotation\GetMeshModels;
+use Perfumer\Microservices\Annotation\GetModel;
+use Perfumer\Microservices\Annotation\GetModels;
+use Perfumer\Microservices\Annotation\SaveMeshModel;
+use Perfumer\Microservices\Annotation\SaveModel;
+use Perfumer\Microservices\Annotation\UpdateModel;
 use Perfumer\Microservices\Pages\Request\CopyRevisionRequest;
-use Perfumer\Microservices\Pages\Request\CreatePageRequest;
-use Perfumer\Microservices\Pages\Request\DeleteModuleRequest;
 use Perfumer\Microservices\Pages\Request\GetCommonParametersRequest;
-use Perfumer\Microservices\Pages\Request\GetComponentsRequest;
 use Perfumer\Microservices\Pages\Request\GetConnectorsRequest;
-use Perfumer\Microservices\Pages\Request\GetModuleRequest;
-use Perfumer\Microservices\Pages\Request\GetModulesRequest;
-use Perfumer\Microservices\Pages\Request\GetPageRequest;
-use Perfumer\Microservices\Pages\Request\GetPagesRequest;
-use Perfumer\Microservices\Pages\Request\GetRevisionRequest;
-use Perfumer\Microservices\Pages\Request\GetRevisionsRequest;
 use Perfumer\Microservices\Pages\Request\GetSchemaParametersRequest;
-use Perfumer\Microservices\Pages\Request\SaveModuleRequest;
 use Perfumer\Microservices\Pages\Request\SavePageEnvRequest;
-use Perfumer\Microservices\Pages\Request\SaveRevisionRequest;
-use Perfumer\Microservices\Pages\Request\UpdatePageRequest;
 use Perfumer\Microservices\Pages\Response\CopyRevisionResponse;
-use Perfumer\Microservices\Pages\Response\CreatePageResponse;
-use Perfumer\Microservices\Pages\Response\DeleteModuleResponse;
 use Perfumer\Microservices\Pages\Response\GetCommonParametersResponse;
-use Perfumer\Microservices\Pages\Response\GetComponentsResponse;
 use Perfumer\Microservices\Pages\Response\GetConnectorsResponse;
-use Perfumer\Microservices\Pages\Response\GetModuleResponse;
-use Perfumer\Microservices\Pages\Response\GetModulesResponse;
-use Perfumer\Microservices\Pages\Response\GetPageResponse;
-use Perfumer\Microservices\Pages\Response\GetPagesResponse;
-use Perfumer\Microservices\Pages\Response\GetRevisionResponse;
-use Perfumer\Microservices\Pages\Response\GetRevisionsResponse;
 use Perfumer\Microservices\Pages\Response\GetSchemaParametersResponse;
-use Perfumer\Microservices\Pages\Response\SaveModuleResponse;
 use Perfumer\Microservices\Pages\Response\SavePageEnvResponse;
-use Perfumer\Microservices\Pages\Response\SaveRevisionResponse;
-use Perfumer\Microservices\Pages\Response\UpdatePageResponse;
 
+/**
+ * @GetModel(microservice="pages", model="site", fields={"id", "code"})
+ * @GetModels(microservice="pages", model="sites", fields={"name", "code", "description"})
+ *
+ * @GetModel(microservice="pages", model="module", fields={"id", "code"})
+ * @GetMeshModels(microservice="pages", model="modules", fields={"name", "code", "description", "is_archived.bool"})
+ * @SaveMeshModel(microservice="pages", model="module", fields={"id", "code", "name", "description", "is_archived.bool"})
+ * @DeleteModel(microservice="pages", model="module", fields={"id", "code"})
+ * 
+ * @SaveModel(microservice="pages", model="module", fields={"id.int"}, url="/module/archive", action="archive")
+ * @SaveModel(microservice="pages", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
+ *
+ * @GetModel(microservice="pages", model="revision", fields={"id"})
+ * @DeleteModel(microservice="pages", model="revision", fields={"id"})
+ * @GetModels(microservice="pages", model="revisions", fields={"name", "description", "is_archived.bool", "page_id.int"})
+ * @SaveModel(microservice="pages", model="revision", fields={"id.int", "page_id.int", "name", "description", "blocks.array", "parameters.array", "is_archived.bool"})
+ *
+ * @SaveModel(microservice="pages", model="revision", fields={"id.int", "page_id.int"}, url="/revision/move", action="move")
+ * @SaveModel(microservice="pages", model="revision", fields={"id.int"}, url="/revision/archive", action="archive")
+ * @SaveModel(microservice="pages", model="revision", fields={"id.int"}, url="/revision/archive", action="unarchive", request_method="delete")
+ *
+ * @GetModel(microservice="pages", model="page", fields={"id"})
+ * @CreateModel(microservice="pages", model="page", fields={"name", "address", "description", "module_id.int", "site_id.int", "module_code", "is_archived.bool"})
+ * @UpdateModel(microservice="pages", model="page", fields={"id", "name", "address", "description", "module_id.int", "site_id.int", "module_code", "is_archived.bool"})
+ * @DeleteModel(microservice="pages", model="page", fields={"id"})
+ * @GetModels(microservice="pages", model="pages", fields={"name", "description", "is_archived.bool", "address", "module_id.int", "site_id.int", "module_code"})
+ * @GetModel(microservice="pages", model="revision", url="page/revision/stage", action="getPageStage", fields={"page_id.int", "address", "site"})
+ * @GetModel(microservice="pages", model="revision", url="page/revision/prod", action="getPageProd", fields={"page_id.int", "address", "site"})
+ *
+ * @SaveModel(microservice="pages", model="page", fields={"id.int"}, url="/page/archive", action="archive")
+ * @SaveModel(microservice="pages", model="page", fields={"id.int"}, url="/page/archive", action="unarchive", request_method="delete")
+ *
+ * @GetModels(microservice="pages", model="component", submodel="ComponentCategories", url="component/categories", fields={"name", "code", "description"}, response_fields={"categories.array"})
+ * @GetModels(microservice="pages", model="components", fields={"category_id.int"})
+ * @GetModel(microservice="pages", model="component", submodel="ComponentCategory", url="component/category", fields={"id.int"}, response_fields={"category.array"})
+ * @GetModel(microservice="pages", model="component", fields={"id.int"})
+ * @GetModels(microservice="pages", model="component", submodel="ComponentParameters", url="component/parameters", fields={"component_id.int"}, response_fields={"parameters.array"})
+ * @SaveModel(microservice="pages", model="component", submodel="ComponentCategory", url="component/category", fields={"id.int", "code", "name", "description", "components.array"})
+ * @DeleteModel(microservice="pages", model="component", submodel="ComponentCategory", url="component/category", fields={"id.int"})
+ * @SaveModel(microservice="pages", model="component", fields={"name", "description", "html", "json", "module", "type", "old_module", "old_type", "is_sub.bool", "parameters.array", "categories.array"})
+ *
+ * @GetModels(microservice="pages", model="connector", submodel="ConnectorCategories", url="connector/categories", fields={"name", "code", "description"}, response_fields={"connectors.array"})
+ * @GetModels(microservice="pages", model="connectors", fields={"category_id.int", "type"})
+ * @GetModel(microservice="pages", model="connector", submodel="ConnectorCategory", url="connector/category", fields={"id.int"}, response_fields={"category.array"})
+ * @GetModel(microservice="pages", model="connector", fields={"id.int"})
+ * @GetModels(microservice="pages", model="connector", submodel="ConnectorArguments", url="connector/arguments", fields={"connector_id.int"}, response_fields={"arguments.array"})
+ * @SaveModel(microservice="pages", model="connector", submodel="ConnectorCategory", url="connector/category", fields={"id.int", "code", "name", "description", "connectors.array"})
+ * @DeleteModel(microservice="pages", model="connector", submodel="ConnectorCategory", url="connector/category", fields={"id.int"})
+ * @SaveModel(microservice="pages", model="connector", fields={"name", "description", "html", "json", "service", "method", "type", "arguments.array"})
+ */
 interface Pages
 {
-    public function getModule(GetModuleRequest $request): GetModuleResponse;
-
-    public function getModules(GetModulesRequest $request): GetModulesResponse;
-
-    public function saveModule(SaveModuleRequest $request): SaveModuleResponse;
-
-    public function deleteModule(DeleteModuleRequest $request): DeleteModuleResponse;
-
-    public function getPage(GetPageRequest $request): GetPageResponse;
-
-    public function getPages(GetPagesRequest $request): GetPagesResponse;
-
-    public function createPage(CreatePageRequest $request): CreatePageResponse;
-
-    public function updatePage(UpdatePageRequest $request): UpdatePageResponse;
-
     public function savePageEnv(SavePageEnvRequest $request): SavePageEnvResponse;
 
-    public function getRevision(GetRevisionRequest $request): GetRevisionResponse;
-
-    public function getRevisions(GetRevisionsRequest $request): GetRevisionsResponse;
-
-    public function saveRevision(SaveRevisionRequest $request): SaveRevisionResponse;
-
     public function copyRevision(CopyRevisionRequest $request): CopyRevisionResponse;
-
-    public function getComponents(GetComponentsRequest $request): GetComponentsResponse;
 
     public function getCommonParameters(GetCommonParametersRequest $request): GetCommonParametersResponse;
 
     public function getSchemaParameters(GetSchemaParametersRequest $request): GetSchemaParametersResponse;
-
-    public function getConnectors(GetConnectorsRequest $request): GetConnectorsResponse;
 }

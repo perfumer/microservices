@@ -5,30 +5,36 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Schedule;
 class DeleteScheduleRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
-    public $role = null;
+    public $role_id = null;
 
     /**
-     * @var string
+     * @var int
      */
-    public $group = null;
+    public $group_id = null;
 
     /**
-     * @var string
+     * @var int
      */
-    public $activity = null;
+    public $activity_id = null;
 
     /**
-     * @var string
+     * @var int
      */
-    public $calendar = null;
+    public $calendar_id = null;
+
+    /**
+     * @var int
+     */
+    public $module_id = null;
 
     public function __construct()
     {
-        $this->role = new \Perfumer\Microservices\Undefined();
-        $this->group = new \Perfumer\Microservices\Undefined();
-        $this->activity = new \Perfumer\Microservices\Undefined();
-        $this->calendar = new \Perfumer\Microservices\Undefined();
+        $this->role_id = new \Perfumer\Microservices\Undefined();
+        $this->group_id = new \Perfumer\Microservices\Undefined();
+        $this->activity_id = new \Perfumer\Microservices\Undefined();
+        $this->calendar_id = new \Perfumer\Microservices\Undefined();
+        $this->module_id = new \Perfumer\Microservices\Undefined();
     }
 }

@@ -24,11 +24,18 @@ class CreateTranslationRequest extends \Perfumer\Microservices\Request
      */
     public $is_richtext = null;
 
+    /**
+     * @var array
+     */
+    public $tags = [
+    ];
+
     public function __construct()
     {
         $this->key = new \Perfumer\Microservices\Undefined();
         $this->text = new \Perfumer\Microservices\Undefined();
         $this->is_immutable = new \Perfumer\Microservices\Undefined();
         $this->is_richtext = new \Perfumer\Microservices\Undefined();
+        $this->tags = new \Perfumer\Microservices\Undefined();
     }
 }
