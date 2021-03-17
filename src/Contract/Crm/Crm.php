@@ -79,9 +79,9 @@ use Perfumer\Microservices\Annotation\UpdateModel;
  * @SaveModel(microservice="crm", model="ticket", fields={"customer", "module", "process_scenario", "code", "deadline_at", "opened_at", "closed_at", "payload.array"})
  * @GetModels(microservice="crm", model="tickets", fields={"customer_id.int", "customer_name", "module_name", "opened_at_from", "opened_at_to", "deadline_at_from", "deadline_at_to", "code", "business_case_id.int", "business_case_name", "process_state.int", "process_state_name", "closed_at"})
  *
- * @SaveModel(microservice="crm", model="log", url="ticket/log", action="saveTicket", fields={"ticket", "ticket_id", "type", "text", "html", "user", "code", "status", "close_status", "payload.array"})
+ * @SaveModel(microservice="crm", model="log", url="ticket/log", action="saveTicket", fields={"ticket", "ticket_id", "type", "text", "html", "user", "customer", "code", "status", "close_status", "payload.array"})
  * @DeleteModelByCode(microservice="crm", model="log", url="ticket/log", action="deleteTicket")
- * @GetModels(microservice="crm", model="logs", url="ticket/logs", action="getTicket", fields={"user_name", "ticket", "ticket_id", "type", "text", "user", "code", "status", "close_status"})
+ * @GetModels(microservice="crm", model="logs", url="ticket/logs", action="getTicket", fields={"user_name", "customer_name", "ticket", "ticket_id", "type", "text", "user", "customer", "code", "status", "close_status"})
  *
  * @GetModels(microservice="crm", model="tasks", url="ticket/tasks", action="getTicket", fields={"state", "process_scenario", "pipeline_branch.int", "user_name", "user_id.int", "customer_name", "customer_id.int", "type", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link"})
  *

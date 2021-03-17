@@ -1203,6 +1203,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         'text' => $request->text,
         'html' => $request->html,
         'user' => $request->user,
+        'customer' => $request->customer,
         'code' => $request->code,
         'status' => $request->status,
         'close_status' => $request->close_status,
@@ -1236,11 +1237,13 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Logs\GetTicketLogsResponse(), 'get', $url, [
         'user_name' => $request->user_name,
+        'customer_name' => $request->customer_name,
         'ticket' => $request->ticket,
         'ticket_id' => $request->ticket_id,
         'type' => $request->type,
         'text' => $request->text,
         'user' => $request->user,
+        'customer' => $request->customer,
         'code' => $request->code,
         'status' => $request->status,
         'close_status' => $request->close_status,
