@@ -694,4 +694,21 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
 
         return $response;
     }
+
+    public function incrementPost(\Perfumer\Microservices\Posts\Request\Post\IncrementPostRequest $request): \Perfumer\Microservices\Posts\Response\Post\IncrementPostResponse
+    {
+        $url = '/post/increment-nb-views';
+
+        /** @var \Perfumer\Microservices\Posts\Response\Post\IncrementPostResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\IncrementPostResponse(), 'post', $url, [
+        'id' => $request->id,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'post');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->post = $item;
+        }
+
+        return $response;
+    }
 }
