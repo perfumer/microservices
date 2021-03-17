@@ -1,9 +1,0 @@
-<?php
-
-namespace Perfumer\Microservices\Pages\Request\Revision;
-
-class DeleteRevisionRequest extends \Generated\Perfumer\Microservices\Pages\Request\Revision\DeleteRevisionRequest
-{
-
-
-}
