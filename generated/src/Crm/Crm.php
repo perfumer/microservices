@@ -1444,7 +1444,6 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\Tasks\GetClosedTasksStatsResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\Tasks\GetClosedTasksStatsResponse(), 'get', $url, [
-        'user_id' => $request->user_id,
         'closed_at_from' => $request->closed_at_from,
         'closed_at_to' => $request->closed_at_to,
         'limit' => $request->limit,

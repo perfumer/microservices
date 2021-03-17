@@ -5,11 +5,6 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Tasks;
 class GetClosedTasksStatsRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var int
-     */
-    public $user_id = null;
-
-    /**
      * @var string
      */
     public $closed_at_from = null;
@@ -66,7 +61,6 @@ class GetClosedTasksStatsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->closed_at_from = new \Perfumer\Microservices\Undefined();
         $this->closed_at_to = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
