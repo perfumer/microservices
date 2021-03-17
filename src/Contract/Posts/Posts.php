@@ -55,6 +55,7 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
  * @SaveModel(microservice="posts", model="post", fields={"id.int", "rater_id", "post_id"}, url="/post/dislike", action="dislike")
  * @SaveModel(microservice="posts", model="post", fields={"id.int"}, url="/post/publish", action="publish")
  * @SaveModel(microservice="posts", model="post", fields={"id.int"}, url="/post/reject", action="reject")
+ * @SaveModel(microservice="posts", model="post", fields={"id.int"}, url="/post/increment-nb-views", action="incrementNbViews")
  */
 interface Posts
 {
