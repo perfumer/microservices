@@ -722,6 +722,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         /** @var \Perfumer\Microservices\Crm\Response\User\SaveUserResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\SaveUserResponse(), 'post', $url, [
+        'avatar' => $request->avatar,
         'id' => $request->id,
         'last_name' => $request->last_name,
         'first_name' => $request->first_name,
@@ -749,6 +750,7 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         /** @var \Perfumer\Microservices\Crm\Response\User\UpdateUserResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Crm\Response\User\UpdateUserResponse(), 'patch', $url, [
         'id' => $request->id,
+        'avatar' => $request->avatar,
         'last_name' => $request->last_name,
         'first_name' => $request->first_name,
         'mid_name' => $request->mid_name,

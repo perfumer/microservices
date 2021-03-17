@@ -7,6 +7,11 @@ class SaveUserRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $avatar = null;
+
+    /**
+     * @var string
+     */
     public $id = null;
 
     /**
@@ -56,6 +61,7 @@ class SaveUserRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->avatar = new \Perfumer\Microservices\Undefined();
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->last_name = new \Perfumer\Microservices\Undefined();
         $this->first_name = new \Perfumer\Microservices\Undefined();
