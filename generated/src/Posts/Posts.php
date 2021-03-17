@@ -695,12 +695,12 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
-    public function incrementPost(\Perfumer\Microservices\Posts\Request\Post\IncrementPostRequest $request): \Perfumer\Microservices\Posts\Response\Post\IncrementPostResponse
+    public function incrementNbViewsPost(\Perfumer\Microservices\Posts\Request\Post\IncrementNbViewsPostRequest $request): \Perfumer\Microservices\Posts\Response\Post\IncrementNbViewsPostResponse
     {
         $url = '/post/increment-nb-views';
 
-        /** @var \Perfumer\Microservices\Posts\Response\Post\IncrementPostResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\IncrementPostResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Posts\Response\Post\IncrementNbViewsPostResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Post\IncrementNbViewsPostResponse(), 'post', $url, [
         'id' => $request->id,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
