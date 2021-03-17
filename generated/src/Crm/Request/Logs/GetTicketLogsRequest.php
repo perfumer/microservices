@@ -12,6 +12,11 @@ class GetTicketLogsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $customer_name = null;
+
+    /**
+     * @var string
+     */
     public $ticket = null;
 
     /**
@@ -33,6 +38,11 @@ class GetTicketLogsRequest extends \Perfumer\Microservices\Request
      * @var string
      */
     public $user = null;
+
+    /**
+     * @var string
+     */
+    public $customer = null;
 
     /**
      * @var string
@@ -97,11 +107,13 @@ class GetTicketLogsRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->user_name = new \Perfumer\Microservices\Undefined();
+        $this->customer_name = new \Perfumer\Microservices\Undefined();
         $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->ticket_id = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
         $this->text = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();
+        $this->customer = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->status = new \Perfumer\Microservices\Undefined();
         $this->close_status = new \Perfumer\Microservices\Undefined();

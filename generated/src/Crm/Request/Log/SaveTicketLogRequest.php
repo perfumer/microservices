@@ -37,6 +37,11 @@ class SaveTicketLogRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $customer = null;
+
+    /**
+     * @var string
+     */
     public $code = null;
 
     /**
@@ -63,6 +68,7 @@ class SaveTicketLogRequest extends \Perfumer\Microservices\Request
         $this->text = new \Perfumer\Microservices\Undefined();
         $this->html = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();
+        $this->customer = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->status = new \Perfumer\Microservices\Undefined();
         $this->close_status = new \Perfumer\Microservices\Undefined();
