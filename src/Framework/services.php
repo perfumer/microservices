@@ -12,4 +12,10 @@ return [
         'class' => 'Perfumer\\Microservices\\Ncanode\\Ncanode',
         'arguments' => ['@microservices/ncanode.host']
     ],
+
+    'microservices.otp' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Otp\\Otp',
+        'arguments' => ['@microservices/otp.host']
+    ],
 ];
