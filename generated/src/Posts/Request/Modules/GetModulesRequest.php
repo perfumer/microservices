@@ -32,6 +32,11 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $locale = null;
+
+    /**
+     * @var string
+     */
     public $parent = null;
 
     /**
@@ -79,6 +84,26 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
      */
     public $order_direction = null;
 
+    /**
+     * @var int
+     */
+    public $id_lt = null;
+
+    /**
+     * @var int
+     */
+    public $id_le = null;
+
+    /**
+     * @var int
+     */
+    public $id_gt = null;
+
+    /**
+     * @var int
+     */
+    public $id_ge = null;
+
     public function __construct()
     {
         $this->post_id = new \Perfumer\Microservices\Undefined();
@@ -86,6 +111,7 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
+        $this->locale = new \Perfumer\Microservices\Undefined();
         $this->parent = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->child = new \Perfumer\Microservices\Undefined();
@@ -96,5 +122,9 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         $this->count = new \Perfumer\Microservices\Undefined();
         $this->order_field = new \Perfumer\Microservices\Undefined();
         $this->order_direction = new \Perfumer\Microservices\Undefined();
+        $this->id_lt = new \Perfumer\Microservices\Undefined();
+        $this->id_le = new \Perfumer\Microservices\Undefined();
+        $this->id_gt = new \Perfumer\Microservices\Undefined();
+        $this->id_ge = new \Perfumer\Microservices\Undefined();
     }
 }

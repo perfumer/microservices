@@ -29,6 +29,11 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
      */
     public $is_archived = null;
 
+    /**
+     * @var string
+     */
+    public $locale = null;
+
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
@@ -36,5 +41,6 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
+        $this->locale = new \Perfumer\Microservices\Undefined();
     }
 }

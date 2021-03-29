@@ -64,6 +64,16 @@ class SavePostRequest extends \Perfumer\Microservices\Request
      */
     public $modules = null;
 
+    /**
+     * @var bool
+     */
+    public $is_comments_disable = null;
+
+    /**
+     * @var bool
+     */
+    public $is_rating_disable = null;
+
     public function __construct()
     {
         $this->title = new \Perfumer\Microservices\Undefined();
@@ -78,5 +88,7 @@ class SavePostRequest extends \Perfumer\Microservices\Request
         $this->tags = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->modules = new \Perfumer\Microservices\Undefined();
+        $this->is_comments_disable = new \Perfumer\Microservices\Undefined();
+        $this->is_rating_disable = new \Perfumer\Microservices\Undefined();
     }
 }

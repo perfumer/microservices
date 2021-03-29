@@ -11,13 +11,13 @@ use Perfumer\Microservices\Annotation\GetMeshModels;
 use Perfumer\Microservices\Annotation\SaveMeshModel;
 
 /**
- * @GetModel(microservice="posts", model="module", fields={"id", "code"})
- * @GetMeshModels(microservice="posts", model="modules", fields={"post_id.int", "name", "code", "description", "is_archived.bool"})
- * @SaveMeshModel(microservice="posts", model="module", fields={"id", "code", "name", "description", "is_archived.bool"})
+ * @GetModel(microservice="posts", model="module", fields={"id", "code", "locale"})
+ * @GetMeshModels(microservice="posts", model="modules", fields={"post_id.int", "name", "code", "description", "is_archived.bool", "locale"})
+ * @SaveMeshModel(microservice="posts", model="module", fields={"id", "code", "name", "description", "is_archived.bool", "locale"})
  * @DeleteModel(microservice="posts", model="module", fields={"id", "code"})
  * @SaveModel(microservice="posts", model="module", fields={"id.int"}, url="/module/archive", action="archive")
  * @SaveModel(microservice="posts", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
- * @UpdateModel(microservice="posts", model="module", fields={"id", "code", "name", "description", "is_archived.bool"})
+ * @UpdateModel(microservice="posts", model="module", fields={"id", "code", "name", "description", "is_archived.bool", "locale"})
  *
  * @GetModels(microservice="posts", model="subscriptions", fields={"subscriber_id", "module_id"})
  * @SaveModel(microservice="posts", model="subscription", fields={"subscriber_id", "module_id"})
@@ -41,9 +41,9 @@ use Perfumer\Microservices\Annotation\SaveMeshModel;
  *     "is_disabled", "liked_at_from", "liked_at_to", "rated_at_from", "rated_at_from"})
  * @GetModel(microservice="posts", model="post", fields={"id.int", "rater_id"})
  * @SaveModel(microservice="posts", model="post", fields={"title", "author_id", "status", "locale", "image",
- *     "description", "html", "json", "is_disabled.bool", "tags", "code", "modules"})
+ *     "description", "html", "json", "is_disabled.bool", "tags", "code", "modules", "is_comments_disable.bool", "is_rating_disable.bool"})
  * @UpdateModel(microservice="posts", model="post", fields={"id.int", "title", "author_id", "locale", "image",
- *     "description", "html", "json", "is_disabled.bool", "tags", "code", "modules"})
+ *     "description", "html", "json", "is_disabled.bool", "tags", "code", "modules", "is_comments_disable.bool", "is_rating_disable.bool"})
  * @DeleteModel(microservice="posts", model="post", fields={"id.int"})
  *
  * @SaveModel(microservice="posts", model="comment", fields={"id.int", "rater_id", "post_id", "comment_id"}, url="/comment/like", action="like")

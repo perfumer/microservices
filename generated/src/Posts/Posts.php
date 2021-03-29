@@ -12,6 +12,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         $response = $this->doRequest(new \Perfumer\Microservices\Posts\Response\Module\GetModuleResponse(), 'get', $url, [
         'id' => $request->id,
         'code' => $request->code,
+        'locale' => $request->locale,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
@@ -33,6 +34,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'code' => $request->code,
         'description' => $request->description,
         'is_archived' => $request->is_archived,
+        'locale' => $request->locale,
         'parent' => $request->parent,
         'parents' => $request->parents,
         'child' => $request->child,
@@ -43,6 +45,10 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -69,6 +75,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'name' => $request->name,
         'description' => $request->description,
         'is_archived' => $request->is_archived,
+        'locale' => $request->locale,
         'parents' => $request->parents,
         'children' => $request->children,
         ], $request->_debug, $request->_timeout);
@@ -139,6 +146,7 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'name' => $request->name,
         'description' => $request->description,
         'is_archived' => $request->is_archived,
+        'locale' => $request->locale,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
@@ -162,6 +170,10 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -221,6 +233,10 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -320,6 +336,10 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -426,6 +446,10 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
@@ -477,6 +501,8 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'tags' => $request->tags,
         'code' => $request->code,
         'modules' => $request->modules,
+        'is_comments_disable' => $request->is_comments_disable,
+        'is_rating_disable' => $request->is_rating_disable,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
 
@@ -505,6 +531,8 @@ abstract class Posts extends \Perfumer\Microservices\Microservice implements \Pe
         'tags' => $request->tags,
         'code' => $request->code,
         'modules' => $request->modules,
+        'is_comments_disable' => $request->is_comments_disable,
+        'is_rating_disable' => $request->is_rating_disable,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'post');
 
