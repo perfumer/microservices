@@ -50,6 +50,26 @@ class GetSignaturesRequest extends \Perfumer\Microservices\Request
      */
     public $order_direction = null;
 
+    /**
+     * @var int
+     */
+    public $id_lt = null;
+
+    /**
+     * @var int
+     */
+    public $id_le = null;
+
+    /**
+     * @var int
+     */
+    public $id_gt = null;
+
+    /**
+     * @var int
+     */
+    public $id_ge = null;
+
     public function __construct()
     {
         $this->document = new \Perfumer\Microservices\Undefined();
@@ -61,5 +81,9 @@ class GetSignaturesRequest extends \Perfumer\Microservices\Request
         $this->count = new \Perfumer\Microservices\Undefined();
         $this->order_field = new \Perfumer\Microservices\Undefined();
         $this->order_direction = new \Perfumer\Microservices\Undefined();
+        $this->id_lt = new \Perfumer\Microservices\Undefined();
+        $this->id_le = new \Perfumer\Microservices\Undefined();
+        $this->id_gt = new \Perfumer\Microservices\Undefined();
+        $this->id_ge = new \Perfumer\Microservices\Undefined();
     }
 }

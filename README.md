@@ -2,14 +2,8 @@
 
 This is library to request Perfumerlabs microservices. Currently following microservices are supported:
 
-- [Feed](https://github.com/perfumerlabs/feed) (open-source)
-- [Es](https://github.com/perfumerlabs/es) (open-source)
-- Crm (proprietary)
-- Forms (proprietary)
-- Pages (proprietary)
-- I18n (proprietary)
-- Events (proprietary)
-- Posts (proprietary)
+- [Ncanode](https://github.com/perfumerlabs/ncanode)
+- [Es](https://github.com/perfumerlabs/es)
 
 ### Fast example
 

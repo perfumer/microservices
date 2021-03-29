@@ -74,6 +74,10 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
+        'id_lt' => $request->id_lt,
+        'id_le' => $request->id_le,
+        'id_gt' => $request->id_gt,
+        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
