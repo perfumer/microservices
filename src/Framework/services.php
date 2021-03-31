@@ -18,4 +18,10 @@ return [
         'class' => 'Perfumer\\Microservices\\Otp\\Otp',
         'arguments' => ['@microservices/otp.host']
     ],
+
+    'microservices.delivery' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Delivery\\Delivery',
+        'arguments' => ['@microservices/delivery.host']
+    ],
 ];
