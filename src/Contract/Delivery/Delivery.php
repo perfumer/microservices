@@ -15,6 +15,7 @@ use Perfumer\Microservices\Annotation\GetModels;
  * @UpdateModel(microservice="delivery", model="delivery", fields={"id.int", "min.int", "max.int", "gap.int", "has_email.bool", "has_sms.bool", "has_feed.bool", "email_subject.array", "email_html.array", "sms_message.array", "feed_title.array", "feed_text.array", "feed_image.array", "feed_payload.array"})
  * @GetModels(microservice="delivery", model="deliveries", fields={"name", "has_email.bool", "has_sms.bool", "has_feed.bool", "status"})
  * @SaveModel(microservice="delivery", model="delivery", url="delivery/cancel", action="cancel", fields={"id.int"})
+ * @SaveModel(microservice="delivery", model="delivery", url="delivery/copy", action="copy", fields={"id.int"})
  */
 interface Delivery
 {

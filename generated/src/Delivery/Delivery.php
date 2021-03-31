@@ -145,4 +145,21 @@ abstract class Delivery extends \Perfumer\Microservices\Microservice implements 
 
         return $response;
     }
+
+    public function copyDelivery(\Perfumer\Microservices\Delivery\Request\Delivery\CopyDeliveryRequest $request): \Perfumer\Microservices\Delivery\Response\Delivery\CopyDeliveryResponse
+    {
+        $url = '/delivery/copy';
+
+        /** @var \Perfumer\Microservices\Delivery\Response\Delivery\CopyDeliveryResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Delivery\Response\Delivery\CopyDeliveryResponse(), 'post', $url, [
+        'id' => $request->id,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'delivery');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->delivery = $item;
+        }
+
+        return $response;
+    }
 }
