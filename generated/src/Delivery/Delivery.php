@@ -88,6 +88,8 @@ abstract class Delivery extends \Perfumer\Microservices\Microservice implements 
         'feed_image' => $request->feed_image,
         'feed_payload' => $request->feed_payload,
         'payload' => $request->payload,
+        'data_url' => $request->data_url,
+        'filters' => $request->filters,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'delivery');
 
