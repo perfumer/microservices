@@ -77,6 +77,12 @@ class SaveDeliveryRequest extends \Perfumer\Microservices\Request
     ];
 
     /**
+     * @var array
+     */
+    public $payload = [
+    ];
+
+    /**
      * @var string
      */
     public $data_url = null;
@@ -102,6 +108,7 @@ class SaveDeliveryRequest extends \Perfumer\Microservices\Request
         $this->feed_text = new \Perfumer\Microservices\Undefined();
         $this->feed_image = new \Perfumer\Microservices\Undefined();
         $this->feed_payload = new \Perfumer\Microservices\Undefined();
+        $this->payload = new \Perfumer\Microservices\Undefined();
         $this->data_url = new \Perfumer\Microservices\Undefined();
         $this->filters = new \Perfumer\Microservices\Undefined();
     }

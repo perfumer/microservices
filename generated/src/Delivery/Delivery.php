@@ -52,6 +52,7 @@ abstract class Delivery extends \Perfumer\Microservices\Microservice implements 
         'feed_text' => $request->feed_text,
         'feed_image' => $request->feed_image,
         'feed_payload' => $request->feed_payload,
+        'payload' => $request->payload,
         'data_url' => $request->data_url,
         'filters' => $request->filters,
         ], $request->_debug, $request->_timeout);
@@ -84,6 +85,7 @@ abstract class Delivery extends \Perfumer\Microservices\Microservice implements 
         'feed_text' => $request->feed_text,
         'feed_image' => $request->feed_image,
         'feed_payload' => $request->feed_payload,
+        'payload' => $request->payload,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'delivery');
 
@@ -152,6 +154,23 @@ abstract class Delivery extends \Perfumer\Microservices\Microservice implements 
 
         /** @var \Perfumer\Microservices\Delivery\Response\Delivery\CopyDeliveryResponse $response */
         $response = $this->doRequest(new \Perfumer\Microservices\Delivery\Response\Delivery\CopyDeliveryResponse(), 'post', $url, [
+        'id' => $request->id,
+        ], $request->_debug, $request->_timeout);
+        $item = $this->fetchKeyFromContent($response->_content, 'delivery');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->delivery = $item;
+        }
+
+        return $response;
+    }
+
+    public function startDelivery(\Perfumer\Microservices\Delivery\Request\Delivery\StartDeliveryRequest $request): \Perfumer\Microservices\Delivery\Response\Delivery\StartDeliveryResponse
+    {
+        $url = '/delivery/start';
+
+        /** @var \Perfumer\Microservices\Delivery\Response\Delivery\StartDeliveryResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Delivery\Response\Delivery\StartDeliveryResponse(), 'post', $url, [
         'id' => $request->id,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'delivery');
