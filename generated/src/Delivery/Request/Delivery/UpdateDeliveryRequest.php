@@ -92,6 +92,17 @@ class UpdateDeliveryRequest extends \Perfumer\Microservices\Request
     public $payload = [
     ];
 
+    /**
+     * @var string
+     */
+    public $data_url = null;
+
+    /**
+     * @var array
+     */
+    public $filters = [
+    ];
+
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
@@ -110,5 +121,7 @@ class UpdateDeliveryRequest extends \Perfumer\Microservices\Request
         $this->feed_image = new \Perfumer\Microservices\Undefined();
         $this->feed_payload = new \Perfumer\Microservices\Undefined();
         $this->payload = new \Perfumer\Microservices\Undefined();
+        $this->data_url = new \Perfumer\Microservices\Undefined();
+        $this->filters = new \Perfumer\Microservices\Undefined();
     }
 }
