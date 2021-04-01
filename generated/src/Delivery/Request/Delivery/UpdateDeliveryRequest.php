@@ -81,6 +81,12 @@ class UpdateDeliveryRequest extends \Perfumer\Microservices\Request
     public $feed_payload = [
     ];
 
+    /**
+     * @var array
+     */
+    public $payload = [
+    ];
+
     public function __construct()
     {
         $this->id = new \Perfumer\Microservices\Undefined();
@@ -97,5 +103,6 @@ class UpdateDeliveryRequest extends \Perfumer\Microservices\Request
         $this->feed_text = new \Perfumer\Microservices\Undefined();
         $this->feed_image = new \Perfumer\Microservices\Undefined();
         $this->feed_payload = new \Perfumer\Microservices\Undefined();
+        $this->payload = new \Perfumer\Microservices\Undefined();
     }
 }
