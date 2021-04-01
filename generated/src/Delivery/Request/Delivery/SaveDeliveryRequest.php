@@ -20,6 +20,11 @@ class SaveDeliveryRequest extends \Perfumer\Microservices\Request
     public $gap = null;
 
     /**
+     * @var string
+     */
+    public $name = null;
+
+    /**
      * @var bool
      */
     public $has_email = null;
@@ -98,6 +103,7 @@ class SaveDeliveryRequest extends \Perfumer\Microservices\Request
         $this->min = new \Perfumer\Microservices\Undefined();
         $this->max = new \Perfumer\Microservices\Undefined();
         $this->gap = new \Perfumer\Microservices\Undefined();
+        $this->name = new \Perfumer\Microservices\Undefined();
         $this->has_email = new \Perfumer\Microservices\Undefined();
         $this->has_sms = new \Perfumer\Microservices\Undefined();
         $this->has_feed = new \Perfumer\Microservices\Undefined();
