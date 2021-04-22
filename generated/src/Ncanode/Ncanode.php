@@ -124,6 +124,7 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
         'bin' => $request->bin,
         'rule' => $request->rule,
         'expiration' => $request->expiration,
+        'criteria' => $request->criteria,
         ], $request->_debug, $request->_timeout);
         $item = $this->fetchKeyFromContent($response->_content, 'validate');
 
