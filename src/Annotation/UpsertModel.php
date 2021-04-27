@@ -17,5 +17,5 @@ class UpsertModel extends RequestModel
     /**
      * @var string
      */
-    public $request_method = 'patch';
+    public $request_method = 'put';
 }
