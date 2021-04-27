@@ -7,7 +7,7 @@ namespace Perfumer\Microservices\Annotation;
  * @Annotation
  * @Target("CLASS")
  */
-class UpsertModel extends RequestModel
+class UpsertModel extends SaveModel
 {
     /**
      * @var string
