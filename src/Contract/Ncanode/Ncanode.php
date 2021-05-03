@@ -15,7 +15,7 @@ use Perfumer\Microservices\Annotation\SaveModel;
  *
  * @SaveModel(microservice="ncanode", model="origin", action="do", fields={"method", "version", "params.array"})
  *
- * @SaveModel(microservice="ncanode", model="validate", action="do", fields={"cms", "xml", "iin", "bin", "rule", "expiration.bool"})
+ * @SaveModel(microservice="ncanode", model="validate", action="do", fields={"cms", "xml", "iin", "bin", "rule", "expiration.bool", "criteria"})
  */
 interface Ncanode
 {
