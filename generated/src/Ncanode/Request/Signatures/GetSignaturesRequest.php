@@ -12,18 +12,12 @@ class GetSignaturesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $chain = null;
+    public $thread = null;
 
     /**
      * @var string
      */
-    public $stage = null;
-
-    /**
-     * @var array
-     */
-    public $tags = [
-    ];
+    public $tag = null;
 
     /**
      * @var int
@@ -73,9 +67,8 @@ class GetSignaturesRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->document = new \Perfumer\Microservices\Undefined();
-        $this->chain = new \Perfumer\Microservices\Undefined();
-        $this->stage = new \Perfumer\Microservices\Undefined();
-        $this->tags = new \Perfumer\Microservices\Undefined();
+        $this->thread = new \Perfumer\Microservices\Undefined();
+        $this->tag = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
