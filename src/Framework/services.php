@@ -12,4 +12,10 @@ return [
         'class' => 'Perfumer\\Microservices\\Ncanode\\Ncanode',
         'arguments' => ['@microservices/ncanode.host']
     ],
+
+    'microservices.feed' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Feed\\Feed',
+        'arguments' => ['@microservices/feed.host', '@microservices/feed.dummy']
+    ],
 ];
