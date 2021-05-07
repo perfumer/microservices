@@ -34,6 +34,11 @@ class DoValidateRequest extends \Perfumer\Microservices\Request
      */
     public $expiration = null;
 
+    /**
+     * @var string
+     */
+    public $criteria = null;
+
     public function __construct()
     {
         $this->cms = new \Perfumer\Microservices\Undefined();
@@ -42,5 +47,6 @@ class DoValidateRequest extends \Perfumer\Microservices\Request
         $this->bin = new \Perfumer\Microservices\Undefined();
         $this->rule = new \Perfumer\Microservices\Undefined();
         $this->expiration = new \Perfumer\Microservices\Undefined();
+        $this->criteria = new \Perfumer\Microservices\Undefined();
     }
 }

@@ -73,42 +73,48 @@ class Microservice
         } catch (ClientException $e) {
             $guzzle_response = $e->getResponse();
 
-            $target_response->_http_status_code = $guzzle_response->getStatusCode();
-            $target_response->_raw = $guzzle_response->getBody()->getContents();
             $target_response->_status = false;
 
-            $guzzle_response = json_decode($target_response->_raw, true);
+            if ($guzzle_response) {
+                $target_response->_http_status_code = $guzzle_response->getStatusCode();
+                $target_response->_raw = $guzzle_response->getBody()->getContents();
 
-            if (isset($guzzle_response['status_code'])) {
-                $target_response->_status_code = (string) $guzzle_response['status_code'];
-            }
+                $guzzle_response = json_decode($target_response->_raw, true);
 
-            if (isset($guzzle_response['message'])) {
-                $target_response->_message = (string) $guzzle_response['message'];
-            }
+                if (isset($guzzle_response['status_code'])) {
+                    $target_response->_status_code = (string) $guzzle_response['status_code'];
+                }
 
-            if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
-                $target_response->_errors = $guzzle_response['errors'];
+                if (isset($guzzle_response['message'])) {
+                    $target_response->_message = (string) $guzzle_response['message'];
+                }
+
+                if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
+                    $target_response->_errors = $guzzle_response['errors'];
+                }
             }
         } catch (RequestException $e) {
             $guzzle_response = $e->getResponse();
 
-            $target_response->_http_status_code = $guzzle_response->getStatusCode();
-            $target_response->_raw = $guzzle_response->getBody()->getContents();
             $target_response->_status = false;
 
-            $guzzle_response = json_decode($target_response->_raw, true);
+            if ($guzzle_response) {
+                $target_response->_http_status_code = $guzzle_response->getStatusCode();
+                $target_response->_raw = $guzzle_response->getBody()->getContents();
 
-            if (isset($guzzle_response['status_code'])) {
-                $target_response->_status_code = (string) $guzzle_response['status_code'];
-            }
+                $guzzle_response = json_decode($target_response->_raw, true);
 
-            if (isset($guzzle_response['message'])) {
-                $target_response->_message = (string) $guzzle_response['message'];
-            }
+                if (isset($guzzle_response['status_code'])) {
+                    $target_response->_status_code = (string) $guzzle_response['status_code'];
+                }
 
-            if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
-                $target_response->_errors = $guzzle_response['errors'];
+                if (isset($guzzle_response['message'])) {
+                    $target_response->_message = (string) $guzzle_response['message'];
+                }
+
+                if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
+                    $target_response->_errors = $guzzle_response['errors'];
+                }
             }
         } catch (\Exception $e) {
             $target_response->_status = false;
