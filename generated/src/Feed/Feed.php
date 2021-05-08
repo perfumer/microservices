@@ -81,10 +81,10 @@ abstract class Feed extends \Perfumer\Microservices\Microservice implements \Per
         'recipient' => $request->recipient,
         'search' => $request->search,
         'id' => $request->id,
-        'limit' => $request->limit,
-        'offset' => $request->offset,
         'order' => $request->order,
         'is_read' => $request->is_read,
+        'limit' => $request->limit,
+        'offset' => $request->offset,
         'count' => $request->count,
         'order_field' => $request->order_field,
         'order_direction' => $request->order_direction,
@@ -161,12 +161,12 @@ abstract class Feed extends \Perfumer\Microservices\Microservice implements \Per
         return $response;
     }
 
-    public function setIsRead(\Perfumer\Microservices\Feed\Request\Record\SetIsReadRequest $request): \Perfumer\Microservices\Feed\Response\Record\SetIsReadResponse
+    public function readRecord(\Perfumer\Microservices\Feed\Request\Record\ReadRecordRequest $request): \Perfumer\Microservices\Feed\Response\Record\ReadRecordResponse
     {
         $url = '/record/read';
 
-        /** @var \Perfumer\Microservices\Feed\Response\Record\SetIsReadResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Feed\Response\Record\SetIsReadResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Feed\Response\Record\ReadRecordResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Feed\Response\Record\ReadRecordResponse(), 'post', $url, [
         'collection' => $request->collection,
         'id' => $request->id,
         'recipient' => $request->recipient,
@@ -182,12 +182,12 @@ abstract class Feed extends \Perfumer\Microservices\Microservice implements \Per
         return $response;
     }
 
-    public function setIsUnread(\Perfumer\Microservices\Feed\Request\Record\SetIsUnreadRequest $request): \Perfumer\Microservices\Feed\Response\Record\SetIsUnreadResponse
+    public function unreadRecord(\Perfumer\Microservices\Feed\Request\Record\UnreadRecordRequest $request): \Perfumer\Microservices\Feed\Response\Record\UnreadRecordResponse
     {
         $url = '/record/unread';
 
-        /** @var \Perfumer\Microservices\Feed\Response\Record\SetIsUnreadResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Feed\Response\Record\SetIsUnreadResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Feed\Response\Record\UnreadRecordResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Feed\Response\Record\UnreadRecordResponse(), 'post', $url, [
         'collection' => $request->collection,
         'id' => $request->id,
         'badge_user' => $request->badge_user,
@@ -201,12 +201,12 @@ abstract class Feed extends \Perfumer\Microservices\Microservice implements \Per
         return $response;
     }
 
-    public function setIsReadAll(\Perfumer\Microservices\Feed\Request\Records\SetIsReadAllRequest $request): \Perfumer\Microservices\Feed\Response\Records\SetIsReadAllResponse
+    public function readRecords(\Perfumer\Microservices\Feed\Request\Records\ReadRecordsRequest $request): \Perfumer\Microservices\Feed\Response\Records\ReadRecordsResponse
     {
         $url = '/records/read';
 
-        /** @var \Perfumer\Microservices\Feed\Response\Records\SetIsReadAllResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Feed\Response\Records\SetIsReadAllResponse(), 'post', $url, [
+        /** @var \Perfumer\Microservices\Feed\Response\Records\ReadRecordsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Feed\Response\Records\ReadRecordsResponse(), 'post', $url, [
         'collection' => $request->collection,
         'recipient' => $request->recipient,
         'badge_user' => $request->badge_user,
@@ -220,31 +220,17 @@ abstract class Feed extends \Perfumer\Microservices\Microservice implements \Per
         return $response;
     }
 
-    public function getCount(\Perfumer\Microservices\Feed\Request\Records\GetCountRequest $request): \Perfumer\Microservices\Feed\Response\Records\GetCountResponse
+    public function countRecords(\Perfumer\Microservices\Feed\Request\Records\CountRecordsRequest $request): \Perfumer\Microservices\Feed\Response\Records\CountRecordsResponse
     {
         $url = '/records/count';
 
-        /** @var \Perfumer\Microservices\Feed\Response\Records\GetCountResponse $response */
-        $response = $this->doRequest(new \Perfumer\Microservices\Feed\Response\Records\GetCountResponse(), 'get', $url, [
+        /** @var \Perfumer\Microservices\Feed\Response\Records\CountRecordsResponse $response */
+        $response = $this->doRequest(new \Perfumer\Microservices\Feed\Response\Records\CountRecordsResponse(), 'get', $url, [
         'collection' => $request->collection,
         'recipient' => $request->recipient,
         'where' => $request->where,
         'group' => $request->group,
-        'limit' => $request->limit,
-        'offset' => $request->offset,
-        'count' => $request->count,
-        'order_field' => $request->order_field,
-        'order_direction' => $request->order_direction,
-        'id_lt' => $request->id_lt,
-        'id_le' => $request->id_le,
-        'id_gt' => $request->id_gt,
-        'id_ge' => $request->id_ge,
         ], $request->_debug, $request->_timeout);
-        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->nb_results = $item;
-        }
         $item = $this->fetchKeyFromContent($response->_content, 'records');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {

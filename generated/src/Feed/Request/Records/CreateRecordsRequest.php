@@ -10,14 +10,16 @@ class CreateRecordsRequest extends \Perfumer\Microservices\Request
     public $collection = null;
 
     /**
-     * @var string
+     * @var array
      */
-    public $recipients = null;
+    public $recipients = [
+    ];
 
     /**
-     * @var string
+     * @var array
      */
-    public $records = null;
+    public $records = [
+    ];
 
     public function __construct()
     {

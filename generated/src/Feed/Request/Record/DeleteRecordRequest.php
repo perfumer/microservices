@@ -25,7 +25,7 @@ class DeleteRecordRequest extends \Perfumer\Microservices\Request
     public $sender = null;
 
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

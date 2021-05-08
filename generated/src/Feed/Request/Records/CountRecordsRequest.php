@@ -2,12 +2,17 @@
 
 namespace Generated\Perfumer\Microservices\Feed\Request\Records;
 
-class UpdateRecordsRequest extends \Perfumer\Microservices\Request
+class CountRecordsRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var string
      */
     public $collection = null;
+
+    /**
+     * @var string
+     */
+    public $recipient = null;
 
     /**
      * @var array
@@ -18,13 +23,14 @@ class UpdateRecordsRequest extends \Perfumer\Microservices\Request
     /**
      * @var array
      */
-    public $set = [
+    public $group = [
     ];
 
     public function __construct()
     {
         $this->collection = new \Perfumer\Microservices\Undefined();
+        $this->recipient = new \Perfumer\Microservices\Undefined();
         $this->where = new \Perfumer\Microservices\Undefined();
-        $this->set = new \Perfumer\Microservices\Undefined();
+        $this->group = new \Perfumer\Microservices\Undefined();
     }
 }
