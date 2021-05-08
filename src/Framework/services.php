@@ -24,4 +24,10 @@ return [
         'class' => 'Perfumer\\Microservices\\Delivery\\Delivery',
         'arguments' => ['@microservices/delivery.host']
     ],
+
+    'microservices.feed' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Feed\\Feed',
+        'arguments' => ['@microservices/feed.host', '@microservices/feed.dummy']
+    ],
 ];
