@@ -45,6 +45,7 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
         'thread' => $request->thread,
         'cms' => $request->cms,
         'tags' => $request->tags,
+        'version' => $request->version,
         'version_comment' => $request->version_comment,
         'version_created_by' => $request->version_created_by,
         ], $request->_debug, $request->_timeout);

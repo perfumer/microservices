@@ -26,6 +26,11 @@ class CreateSignatureRequest extends \Perfumer\Microservices\Request
     ];
 
     /**
+     * @var int
+     */
+    public $version = null;
+
+    /**
      * @var string
      */
     public $version_comment = null;
@@ -41,6 +46,7 @@ class CreateSignatureRequest extends \Perfumer\Microservices\Request
         $this->thread = new \Perfumer\Microservices\Undefined();
         $this->cms = new \Perfumer\Microservices\Undefined();
         $this->tags = new \Perfumer\Microservices\Undefined();
+        $this->version = new \Perfumer\Microservices\Undefined();
         $this->version_comment = new \Perfumer\Microservices\Undefined();
         $this->version_created_by = new \Perfumer\Microservices\Undefined();
     }

@@ -11,7 +11,7 @@ use Perfumer\Microservices\Annotation\SaveModel;
 /**
  * @GetModel(microservice="ncanode", model="signature", fields={"document", "thread"})
  * @DeleteModel(microservice="ncanode", model="signature", fields={"document", "thread"})
- * @CreateModel(microservice="ncanode", model="signature", fields={"document", "thread", "cms", "tags.array", "version_comment", "version_created_by"})
+ * @CreateModel(microservice="ncanode", model="signature", fields={"document", "thread", "cms", "tags.array", "version.int", "version_comment", "version_created_by"})
  * @GetModels(microservice="ncanode", model="signatures", fields={"document", "thread", "tag"})
  *
  * @SaveModel(microservice="ncanode", model="origin", action="do", fields={"method", "version", "params.array"})
