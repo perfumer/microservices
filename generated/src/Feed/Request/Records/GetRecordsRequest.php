@@ -96,6 +96,8 @@ class GetRecordsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/records';
+        $this->_request_method = 'get';
         $this->collection = new \Perfumer\Microservices\Undefined();
         $this->sender = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();
@@ -114,5 +116,29 @@ class GetRecordsRequest extends \Perfumer\Microservices\Request
         $this->id_le = new \Perfumer\Microservices\Undefined();
         $this->id_gt = new \Perfumer\Microservices\Undefined();
         $this->id_ge = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        return [
+        'collection' => $this->collection,
+        'sender' => $this->sender,
+        'user' => $this->user,
+        'thread' => $this->thread,
+        'recipient' => $this->recipient,
+        'search' => $this->search,
+        'id' => $this->id,
+        'order' => $this->order,
+        'is_read' => $this->is_read,
+        'limit' => $this->limit,
+        'offset' => $this->offset,
+        'count' => $this->count,
+        'order_field' => $this->order_field,
+        'order_direction' => $this->order_direction,
+        'id_lt' => $this->id_lt,
+        'id_le' => $this->id_le,
+        'id_gt' => $this->id_gt,
+        'id_ge' => $this->id_ge,
+        ];
     }
 }

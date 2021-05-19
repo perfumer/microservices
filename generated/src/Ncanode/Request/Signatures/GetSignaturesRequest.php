@@ -66,6 +66,8 @@ class GetSignaturesRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/signatures';
+        $this->_request_method = 'get';
         $this->document = new \Perfumer\Microservices\Undefined();
         $this->thread = new \Perfumer\Microservices\Undefined();
         $this->tag = new \Perfumer\Microservices\Undefined();
@@ -78,5 +80,23 @@ class GetSignaturesRequest extends \Perfumer\Microservices\Request
         $this->id_le = new \Perfumer\Microservices\Undefined();
         $this->id_gt = new \Perfumer\Microservices\Undefined();
         $this->id_ge = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        return [
+        'document' => $this->document,
+        'thread' => $this->thread,
+        'tag' => $this->tag,
+        'limit' => $this->limit,
+        'offset' => $this->offset,
+        'count' => $this->count,
+        'order_field' => $this->order_field,
+        'order_direction' => $this->order_direction,
+        'id_lt' => $this->id_lt,
+        'id_le' => $this->id_le,
+        'id_gt' => $this->id_gt,
+        'id_ge' => $this->id_ge,
+        ];
     }
 }

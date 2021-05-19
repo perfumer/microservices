@@ -21,22 +21,24 @@ class Microservice
         return $return;
     }
 
-    protected function doRequest(Response $target_response, $method, $url, $json = null, $debug = false, $timeout = 15): Response
+    protected function doRequest(Request $request, Response $response): Response
     {
         try {
-            $url = $this->host . $url;
+            $url = $this->host . $request->_request_url;
 
             $options = [
-                'connect_timeout' => $timeout,
-                'read_timeout' => $timeout,
-                'timeout' => $timeout,
-                'debug' => $debug,
+                'connect_timeout' => $request->_timeout,
+                'read_timeout' => $request->_timeout,
+                'timeout' => $request->_timeout,
+                'debug' => $request->_debug,
             ];
 
-            if ($json) {
+            $body = $request->getBody();
+
+            if ($body) {
                 $filtered_json = [];
 
-                foreach ($json as $key => $value) {
+                foreach ($body as $key => $value) {
                     if (!$value instanceof Undefined) {
                         $filtered_json[$key] = $value;
                     }
@@ -47,80 +49,80 @@ class Microservice
 
             $client = new Client();
 
-            $guzzle_response = $client->request($method, $url, $options);
-            $target_response->_raw = $guzzle_response->getBody()->getContents();
-            $guzzle_response = json_decode($target_response->_raw, true);
+            $guzzle_response = $client->request($request->_request_method, $url, $options);
+            $response->_raw = $guzzle_response->getBody()->getContents();
+            $guzzle_response = json_decode($response->_raw, true);
 
             if (isset($guzzle_response['content']) && is_array($guzzle_response['content'])) {
-                $target_response->_content = $guzzle_response['content'];
+                $response->_content = $guzzle_response['content'];
             }
 
             if (isset($guzzle_response['status'])) {
-                $target_response->_status = (bool) $guzzle_response['status'];
+                $response->_status = (bool) $guzzle_response['status'];
             }
 
             if (isset($guzzle_response['status_code'])) {
-                $target_response->_status_code = (string) $guzzle_response['status_code'];
+                $response->_status_code = (string) $guzzle_response['status_code'];
             }
 
             if (isset($guzzle_response['message'])) {
-                $target_response->_message = (string) $guzzle_response['message'];
+                $response->_message = (string) $guzzle_response['message'];
             }
 
             if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
-                $target_response->_errors = $guzzle_response['errors'];
+                $response->_errors = $guzzle_response['errors'];
             }
         } catch (ClientException $e) {
             $guzzle_response = $e->getResponse();
 
-            $target_response->_status = false;
+            $response->_status = false;
 
             if ($guzzle_response) {
-                $target_response->_http_status_code = $guzzle_response->getStatusCode();
-                $target_response->_raw = $guzzle_response->getBody()->getContents();
+                $response->_http_status_code = $guzzle_response->getStatusCode();
+                $response->_raw = $guzzle_response->getBody()->getContents();
 
-                $guzzle_response = json_decode($target_response->_raw, true);
+                $guzzle_response = json_decode($response->_raw, true);
 
                 if (isset($guzzle_response['status_code'])) {
-                    $target_response->_status_code = (string) $guzzle_response['status_code'];
+                    $response->_status_code = (string) $guzzle_response['status_code'];
                 }
 
                 if (isset($guzzle_response['message'])) {
-                    $target_response->_message = (string) $guzzle_response['message'];
+                    $response->_message = (string) $guzzle_response['message'];
                 }
 
                 if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
-                    $target_response->_errors = $guzzle_response['errors'];
+                    $response->_errors = $guzzle_response['errors'];
                 }
             }
         } catch (RequestException $e) {
             $guzzle_response = $e->getResponse();
 
-            $target_response->_status = false;
+            $response->_status = false;
 
             if ($guzzle_response) {
-                $target_response->_http_status_code = $guzzle_response->getStatusCode();
-                $target_response->_raw = $guzzle_response->getBody()->getContents();
+                $response->_http_status_code = $guzzle_response->getStatusCode();
+                $response->_raw = $guzzle_response->getBody()->getContents();
 
-                $guzzle_response = json_decode($target_response->_raw, true);
+                $guzzle_response = json_decode($response->_raw, true);
 
                 if (isset($guzzle_response['status_code'])) {
-                    $target_response->_status_code = (string) $guzzle_response['status_code'];
+                    $response->_status_code = (string) $guzzle_response['status_code'];
                 }
 
                 if (isset($guzzle_response['message'])) {
-                    $target_response->_message = (string) $guzzle_response['message'];
+                    $response->_message = (string) $guzzle_response['message'];
                 }
 
                 if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
-                    $target_response->_errors = $guzzle_response['errors'];
+                    $response->_errors = $guzzle_response['errors'];
                 }
             }
         } catch (\Exception $e) {
-            $target_response->_status = false;
-            $target_response->_message = $e->getMessage();
+            $response->_status = false;
+            $response->_message = $e->getMessage();
         }
 
-        return $target_response;
+        return $response;
     }
 }

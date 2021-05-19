@@ -2,6 +2,7 @@
 
 namespace Perfumer\Microservices\Feed;
 
+use Perfumer\Microservices\Request;
 use Perfumer\Microservices\Response;
 
 class Feed extends \Generated\Perfumer\Microservices\Feed\Feed
@@ -15,12 +16,12 @@ class Feed extends \Generated\Perfumer\Microservices\Feed\Feed
         $this->dummy = $dummy;
     }
 
-    protected function doRequest(Response $target_response, $method, $url, $json = null, $debug = false, $timeout = 15): Response
+    protected function doRequest(Request $request, Response $response): Response
     {
         if($this->dummy){
-            return $target_response;
+            return $response;
         }
 
-        return parent::doRequest($target_response, $method, $url, $json, $debug, $timeout);
+        return parent::doRequest($request, $response);
     }
 }

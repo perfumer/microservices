@@ -16,7 +16,17 @@ class SaveLimitEmailsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/limit/emails';
+        $this->_request_method = 'post';
         $this->ips = new \Perfumer\Microservices\Undefined();
         $this->emails = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        return [
+        'ips' => $this->ips,
+        'emails' => $this->emails,
+        ];
     }
 }

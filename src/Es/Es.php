@@ -38,8 +38,11 @@ class Es extends \Generated\Perfumer\Microservices\Es\Es
             return $response;
         }
 
+        $request->_request_method = 'post';
+        $request->_request_url = '/index';
+
         /** @var CreateIndexResponse $response */
-        $response = $this->doRequest(new CreateIndexResponse(), 'post', '/index', ['name' => $request->name]);
+        $response = $this->doRequest($request, new CreateIndexResponse());
 
         return $response;
     }
@@ -56,8 +59,11 @@ class Es extends \Generated\Perfumer\Microservices\Es\Es
             return $response;
         }
 
+        $request->_request_method = 'delete';
+        $request->_request_url = '/index';
+
         /** @var DeleteIndexResponse $response */
-        $response = $this->doRequest(new DeleteIndexResponse(), 'delete', '/index', ['name' => $request->name]);
+        $response = $this->doRequest($request, new DeleteIndexResponse());
 
         return $response;
     }
@@ -74,16 +80,11 @@ class Es extends \Generated\Perfumer\Microservices\Es\Es
             return $response;
         }
 
-        $data = [
-            'index'  => $request->index,
-            'search' => $request->search,
-            'locale' => $request->locale,
-            'from'   => $request->from,
-            'size'   => $request->size,
-        ];
+        $request->_request_method = 'get';
+        $request->_request_url = '/documents';
 
         /** @var SearchDocumentsResponse $response */
-        $response = $this->doRequest(new SearchDocumentsResponse(), 'get', '/documents', $data);
+        $response = $this->doRequest($request, new SearchDocumentsResponse());
 
         $array = $this->fetchKeyFromContent($response->_content, 'documents');
 
@@ -106,16 +107,11 @@ class Es extends \Generated\Perfumer\Microservices\Es\Es
             return $response;
         }
 
-        $data = [
-            'index'  => $request->index,
-            'code'   => $request->code,
-            'title'  => $request->title,
-            'text'   => $request->text,
-            'locale' => $request->locale,
-        ];
+        $request->_request_method = 'post';
+        $request->_request_url = '/document';
 
         /** @var AddDocumentResponse $response */
-        $response = $this->doRequest(new AddDocumentResponse(), 'post', '/document', $data);
+        $response = $this->doRequest($request, new AddDocumentResponse());
 
         return $response;
     }
@@ -132,13 +128,11 @@ class Es extends \Generated\Perfumer\Microservices\Es\Es
             return $response;
         }
 
-        $data = [
-            'index'     => $request->index,
-            'documents' => $request->documents,
-        ];
+        $request->_request_method = 'post';
+        $request->_request_url = '/documents';
 
         /** @var AddDocumentsResponse $response */
-        $response = $this->doRequest(new AddDocumentsResponse(), 'post', '/documents', $data);
+        $response = $this->doRequest($request, new AddDocumentsResponse());
 
         return $response;
     }
@@ -155,17 +149,11 @@ class Es extends \Generated\Perfumer\Microservices\Es\Es
             return $response;
         }
 
-        $data = [
-            'index' => $request->index,
-            'code'  => $request->code,
-        ];
-
-        if ($request->locale) {
-            $data['locale'] = $request->locale;
-        }
+        $request->_request_method = 'delete';
+        $request->_request_url = '/document';
 
         /** @var DeleteDocumentResponse $response */
-        $response = $this->doRequest(new DeleteDocumentResponse(), 'delete', '/document', $data);
+        $response = $this->doRequest($request, new DeleteDocumentResponse());
 
         return $response;
     }

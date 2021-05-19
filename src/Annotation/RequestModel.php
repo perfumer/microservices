@@ -118,20 +118,8 @@ class RequestModel extends LayoutAnnotation
         $url = trim($url, '/');
 
         $body = <<<EOD
-\$url = '/$url';
-
 /** @var $return_type \$response */
-\$response = \$this->doRequest(new $return_type(), '$this->request_method', \$url, [
-
-EOD;
-
-        foreach ($properties as $name => $type) {
-            $body .= "'$name' => \$request->$name," . PHP_EOL;
-        }
-
-        $body .= <<<EOD
-], \$request->_debug, \$request->_timeout);
-
+\$response = \$this->doRequest(\$request, new $return_type());
 EOD;
 
         foreach ($response_fields as $name => $type) {
@@ -152,7 +140,7 @@ EOD;
 
         $method->setBody($body);
 
-        $this->generateRequest($this->action, $this->submodel, $properties);
+        $this->generateRequest($url, $this->request_method, $this->action, $this->submodel, $properties);
         $this->generateResponse($this->action, $this->submodel, $response_fields);
     }
 }

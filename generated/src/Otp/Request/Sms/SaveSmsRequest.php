@@ -31,10 +31,23 @@ class SaveSmsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/sms';
+        $this->_request_method = 'post';
         $this->ip = new \Perfumer\Microservices\Undefined();
         $this->phone = new \Perfumer\Microservices\Undefined();
         $this->password = new \Perfumer\Microservices\Undefined();
         $this->message = new \Perfumer\Microservices\Undefined();
         $this->lifetime = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        return [
+        'ip' => $this->ip,
+        'phone' => $this->phone,
+        'password' => $this->password,
+        'message' => $this->message,
+        'lifetime' => $this->lifetime,
+        ];
     }
 }

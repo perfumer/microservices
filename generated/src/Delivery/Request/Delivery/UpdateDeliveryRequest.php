@@ -105,6 +105,8 @@ class UpdateDeliveryRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/delivery';
+        $this->_request_method = 'patch';
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->min = new \Perfumer\Microservices\Undefined();
         $this->max = new \Perfumer\Microservices\Undefined();
@@ -123,5 +125,29 @@ class UpdateDeliveryRequest extends \Perfumer\Microservices\Request
         $this->payload = new \Perfumer\Microservices\Undefined();
         $this->data_url = new \Perfumer\Microservices\Undefined();
         $this->filters = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        return [
+        'id' => $this->id,
+        'min' => $this->min,
+        'max' => $this->max,
+        'gap' => $this->gap,
+        'name' => $this->name,
+        'has_email' => $this->has_email,
+        'has_sms' => $this->has_sms,
+        'has_feed' => $this->has_feed,
+        'email_subject' => $this->email_subject,
+        'email_html' => $this->email_html,
+        'sms_message' => $this->sms_message,
+        'feed_title' => $this->feed_title,
+        'feed_text' => $this->feed_text,
+        'feed_image' => $this->feed_image,
+        'feed_payload' => $this->feed_payload,
+        'payload' => $this->payload,
+        'data_url' => $this->data_url,
+        'filters' => $this->filters,
+        ];
     }
 }

@@ -15,4 +15,12 @@ class AddDocumentsRequest extends Request
      * @var array
      */
     public $documents;
+
+    public function getBody(): array
+    {
+        return [
+            'index'     => $this->index,
+            'documents' => $this->documents,
+        ];
+    }
 }

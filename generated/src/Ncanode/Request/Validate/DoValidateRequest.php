@@ -41,6 +41,8 @@ class DoValidateRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/validate';
+        $this->_request_method = 'post';
         $this->cms = new \Perfumer\Microservices\Undefined();
         $this->xml = new \Perfumer\Microservices\Undefined();
         $this->iin = new \Perfumer\Microservices\Undefined();
@@ -48,5 +50,18 @@ class DoValidateRequest extends \Perfumer\Microservices\Request
         $this->rule = new \Perfumer\Microservices\Undefined();
         $this->expiration = new \Perfumer\Microservices\Undefined();
         $this->criteria = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        return [
+        'cms' => $this->cms,
+        'xml' => $this->xml,
+        'iin' => $this->iin,
+        'bin' => $this->bin,
+        'rule' => $this->rule,
+        'expiration' => $this->expiration,
+        'criteria' => $this->criteria,
+        ];
     }
 }

@@ -30,4 +30,15 @@ class SearchDocumentsRequest extends Request
      * @var int
      */
     public $size = 50;
+
+    public function getBody(): array
+    {
+        return [
+            'index'  => $this->index,
+            'search' => $this->search,
+            'locale' => $this->locale,
+            'from'   => $this->from,
+            'size'   => $this->size,
+        ];
+    }
 }

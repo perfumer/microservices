@@ -61,6 +61,8 @@ class CreateRecordRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/record';
+        $this->_request_method = 'post';
         $this->collection = new \Perfumer\Microservices\Undefined();
         $this->recipient = new \Perfumer\Microservices\Undefined();
         $this->websocket_channel = new \Perfumer\Microservices\Undefined();
@@ -72,5 +74,22 @@ class CreateRecordRequest extends \Perfumer\Microservices\Request
         $this->image = new \Perfumer\Microservices\Undefined();
         $this->created_at = new \Perfumer\Microservices\Undefined();
         $this->payload = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        return [
+        'collection' => $this->collection,
+        'recipient' => $this->recipient,
+        'websocket_channel' => $this->websocket_channel,
+        'badge_user' => $this->badge_user,
+        'sender' => $this->sender,
+        'thread' => $this->thread,
+        'title' => $this->title,
+        'text' => $this->text,
+        'image' => $this->image,
+        'created_at' => $this->created_at,
+        'payload' => $this->payload,
+        ];
     }
 }

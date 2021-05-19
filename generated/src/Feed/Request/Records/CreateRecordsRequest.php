@@ -23,8 +23,19 @@ class CreateRecordsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/records';
+        $this->_request_method = 'post';
         $this->collection = new \Perfumer\Microservices\Undefined();
         $this->recipients = new \Perfumer\Microservices\Undefined();
         $this->records = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        return [
+        'collection' => $this->collection,
+        'recipients' => $this->recipients,
+        'records' => $this->records,
+        ];
     }
 }

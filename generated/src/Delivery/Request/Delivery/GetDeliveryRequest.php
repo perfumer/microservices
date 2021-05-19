@@ -11,6 +11,15 @@ class GetDeliveryRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/delivery';
+        $this->_request_method = 'get';
         $this->id = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        return [
+        'id' => $this->id,
+        ];
     }
 }

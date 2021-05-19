@@ -21,8 +21,19 @@ class ReadRecordsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/records/read';
+        $this->_request_method = 'post';
         $this->collection = new \Perfumer\Microservices\Undefined();
         $this->recipient = new \Perfumer\Microservices\Undefined();
         $this->badge_user = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        return [
+        'collection' => $this->collection,
+        'recipient' => $this->recipient,
+        'badge_user' => $this->badge_user,
+        ];
     }
 }

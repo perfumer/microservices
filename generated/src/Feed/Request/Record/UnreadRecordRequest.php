@@ -21,8 +21,19 @@ class UnreadRecordRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/record/unread';
+        $this->_request_method = 'post';
         $this->collection = new \Perfumer\Microservices\Undefined();
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->badge_user = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        return [
+        'collection' => $this->collection,
+        'id' => $this->id,
+        'badge_user' => $this->badge_user,
+        ];
     }
 }

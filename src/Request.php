@@ -2,7 +2,7 @@
 
 namespace Perfumer\Microservices;
 
-class Request
+abstract class Request
 {
     /**
      * @var bool
@@ -13,4 +13,19 @@ class Request
      * @var int
      */
     public $_timeout = 15;
+
+    /**
+     * @var string
+     */
+    public $_request_method;
+
+    /**
+     * @var string
+     */
+    public $_request_url;
+
+    /**
+     * @return array
+     */
+    abstract public function getBody(): array;
 }
