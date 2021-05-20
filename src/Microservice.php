@@ -8,7 +8,15 @@ use GuzzleHttp\Exception\RequestException;
 
 class Microservice
 {
+    /**
+     * @var string
+     */
     protected $host;
+
+    public function getHost(): ?string
+    {
+        return $this->host;
+    }
 
     protected function fetchKeyFromContent($content, $key)
     {
