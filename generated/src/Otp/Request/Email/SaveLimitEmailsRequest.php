@@ -24,9 +24,17 @@ class SaveLimitEmailsRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'ips' => $this->ips,
-        'emails' => $this->emails,
-        ];
+        $array = [];
+        if (!$this->ips instanceof \Perfumer\Microservices\Undefined) {
+            $array['ips'] = $this->ips;
+        }
+        if (!$this->emails instanceof \Perfumer\Microservices\Undefined) {
+            $array['emails'] = $this->emails;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

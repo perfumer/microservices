@@ -38,11 +38,23 @@ class CountRecordsRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'collection' => $this->collection,
-        'recipient' => $this->recipient,
-        'where' => $this->where,
-        'group' => $this->group,
-        ];
+        $array = [];
+        if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
+            $array['collection'] = $this->collection;
+        }
+        if (!$this->recipient instanceof \Perfumer\Microservices\Undefined) {
+            $array['recipient'] = $this->recipient;
+        }
+        if (!$this->where instanceof \Perfumer\Microservices\Undefined) {
+            $array['where'] = $this->where;
+        }
+        if (!$this->group instanceof \Perfumer\Microservices\Undefined) {
+            $array['group'] = $this->group;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

@@ -54,14 +54,32 @@ class SaveEmailRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'ip' => $this->ip,
-        'email' => $this->email,
-        'password' => $this->password,
-        'subject' => $this->subject,
-        'text' => $this->text,
-        'html' => $this->html,
-        'lifetime' => $this->lifetime,
-        ];
+        $array = [];
+        if (!$this->ip instanceof \Perfumer\Microservices\Undefined) {
+            $array['ip'] = $this->ip;
+        }
+        if (!$this->email instanceof \Perfumer\Microservices\Undefined) {
+            $array['email'] = $this->email;
+        }
+        if (!$this->password instanceof \Perfumer\Microservices\Undefined) {
+            $array['password'] = $this->password;
+        }
+        if (!$this->subject instanceof \Perfumer\Microservices\Undefined) {
+            $array['subject'] = $this->subject;
+        }
+        if (!$this->text instanceof \Perfumer\Microservices\Undefined) {
+            $array['text'] = $this->text;
+        }
+        if (!$this->html instanceof \Perfumer\Microservices\Undefined) {
+            $array['html'] = $this->html;
+        }
+        if (!$this->lifetime instanceof \Perfumer\Microservices\Undefined) {
+            $array['lifetime'] = $this->lifetime;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

@@ -30,10 +30,20 @@ class UnreadRecordRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'collection' => $this->collection,
-        'id' => $this->id,
-        'badge_user' => $this->badge_user,
-        ];
+        $array = [];
+        if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
+            $array['collection'] = $this->collection;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->badge_user instanceof \Perfumer\Microservices\Undefined) {
+            $array['badge_user'] = $this->badge_user;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

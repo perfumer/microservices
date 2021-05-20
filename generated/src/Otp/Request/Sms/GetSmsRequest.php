@@ -24,9 +24,17 @@ class GetSmsRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'phone' => $this->phone,
-        'password' => $this->password,
-        ];
+        $array = [];
+        if (!$this->phone instanceof \Perfumer\Microservices\Undefined) {
+            $array['phone'] = $this->phone;
+        }
+        if (!$this->password instanceof \Perfumer\Microservices\Undefined) {
+            $array['password'] = $this->password;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

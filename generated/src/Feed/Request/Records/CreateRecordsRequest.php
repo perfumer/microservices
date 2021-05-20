@@ -32,10 +32,20 @@ class CreateRecordsRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'collection' => $this->collection,
-        'recipients' => $this->recipients,
-        'records' => $this->records,
-        ];
+        $array = [];
+        if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
+            $array['collection'] = $this->collection;
+        }
+        if (!$this->recipients instanceof \Perfumer\Microservices\Undefined) {
+            $array['recipients'] = $this->recipients;
+        }
+        if (!$this->records instanceof \Perfumer\Microservices\Undefined) {
+            $array['records'] = $this->records;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

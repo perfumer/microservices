@@ -96,13 +96,24 @@ class LayoutAnnotation extends ContractClassAnnotation
         $get_body = new MethodGenerator();
         $get_body->setName('getBody');
         $get_body->setReturnType('array');
-        $get_body_body = 'return [' . PHP_EOL;
+        $get_body_body = '$array = [];' . PHP_EOL;
 
         foreach ($properties as $property_name => $property_type) {
-            $get_body_body .= sprintf('\'%s\' => $this->%s,', $property_name, $property_name) . PHP_EOL;
+            $get_body_body .= <<<EOD
+if (!\$this->$property_name instanceof \\Perfumer\\Microservices\\Undefined) {
+    \$array['$property_name'] = \$this->$property_name;
+}
+
+EOD;
         }
 
-        $get_body_body .= '];';
+        $get_body_body .= <<<EOD
+if (!\$array) {
+    \$array = new \stdClass();
+}
+
+return \$array;
+EOD;
 
         $get_body->setBody($get_body_body);
         $base_generator->addMethodFromGenerator($get_body);

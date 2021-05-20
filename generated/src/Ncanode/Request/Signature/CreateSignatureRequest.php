@@ -55,14 +55,32 @@ class CreateSignatureRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'document' => $this->document,
-        'thread' => $this->thread,
-        'cms' => $this->cms,
-        'tags' => $this->tags,
-        'version' => $this->version,
-        'version_comment' => $this->version_comment,
-        'version_created_by' => $this->version_created_by,
-        ];
+        $array = [];
+        if (!$this->document instanceof \Perfumer\Microservices\Undefined) {
+            $array['document'] = $this->document;
+        }
+        if (!$this->thread instanceof \Perfumer\Microservices\Undefined) {
+            $array['thread'] = $this->thread;
+        }
+        if (!$this->cms instanceof \Perfumer\Microservices\Undefined) {
+            $array['cms'] = $this->cms;
+        }
+        if (!$this->tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['tags'] = $this->tags;
+        }
+        if (!$this->version instanceof \Perfumer\Microservices\Undefined) {
+            $array['version'] = $this->version;
+        }
+        if (!$this->version_comment instanceof \Perfumer\Microservices\Undefined) {
+            $array['version_comment'] = $this->version_comment;
+        }
+        if (!$this->version_created_by instanceof \Perfumer\Microservices\Undefined) {
+            $array['version_created_by'] = $this->version_created_by;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

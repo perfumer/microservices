@@ -7,6 +7,7 @@ use Perfumer\Microservices\Microservice;
 use Perfumer\Microservices\Request;
 use Perfumer\Microservices\Response;
 use Psr\Http\Message\ResponseInterface;
+use Ramsey\Uuid\Uuid;
 
 class Transaction
 {
@@ -35,13 +36,13 @@ class Transaction
         $http_request = new HttpRequest();
         $http_request->timeout = $request->_timeout;
         $http_request->json = $request->getBody();
-        $http_request->url = $request->_timeout;
-        $http_request->method = $request->_timeout;
-        $http_request->uuid = 'fwrfwerg';
+        $http_request->url = $microservice->getHost() . $request->_request_url;
+        $http_request->method = $request->_request_method;
+        $http_request->uuid = Uuid::uuid4()->toString();
 
         $transaction_request->http_request = $http_request;
 
-        $this->transaction_requests[] = [$transaction_request];
+        $this->transaction_requests[] = $transaction_request;
     }
 
     public function commit(): void

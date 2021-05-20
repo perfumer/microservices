@@ -32,10 +32,20 @@ class UpdateRecordsRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'collection' => $this->collection,
-        'where' => $this->where,
-        'set' => $this->set,
-        ];
+        $array = [];
+        if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
+            $array['collection'] = $this->collection;
+        }
+        if (!$this->where instanceof \Perfumer\Microservices\Undefined) {
+            $array['where'] = $this->where;
+        }
+        if (!$this->set instanceof \Perfumer\Microservices\Undefined) {
+            $array['set'] = $this->set;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

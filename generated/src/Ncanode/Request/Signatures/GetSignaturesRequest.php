@@ -84,19 +84,47 @@ class GetSignaturesRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'document' => $this->document,
-        'thread' => $this->thread,
-        'tag' => $this->tag,
-        'limit' => $this->limit,
-        'offset' => $this->offset,
-        'count' => $this->count,
-        'order_field' => $this->order_field,
-        'order_direction' => $this->order_direction,
-        'id_lt' => $this->id_lt,
-        'id_le' => $this->id_le,
-        'id_gt' => $this->id_gt,
-        'id_ge' => $this->id_ge,
-        ];
+        $array = [];
+        if (!$this->document instanceof \Perfumer\Microservices\Undefined) {
+            $array['document'] = $this->document;
+        }
+        if (!$this->thread instanceof \Perfumer\Microservices\Undefined) {
+            $array['thread'] = $this->thread;
+        }
+        if (!$this->tag instanceof \Perfumer\Microservices\Undefined) {
+            $array['tag'] = $this->tag;
+        }
+        if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
+            $array['limit'] = $this->limit;
+        }
+        if (!$this->offset instanceof \Perfumer\Microservices\Undefined) {
+            $array['offset'] = $this->offset;
+        }
+        if (!$this->count instanceof \Perfumer\Microservices\Undefined) {
+            $array['count'] = $this->count;
+        }
+        if (!$this->order_field instanceof \Perfumer\Microservices\Undefined) {
+            $array['order_field'] = $this->order_field;
+        }
+        if (!$this->order_direction instanceof \Perfumer\Microservices\Undefined) {
+            $array['order_direction'] = $this->order_direction;
+        }
+        if (!$this->id_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['id_lt'] = $this->id_lt;
+        }
+        if (!$this->id_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['id_le'] = $this->id_le;
+        }
+        if (!$this->id_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['id_gt'] = $this->id_gt;
+        }
+        if (!$this->id_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['id_ge'] = $this->id_ge;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

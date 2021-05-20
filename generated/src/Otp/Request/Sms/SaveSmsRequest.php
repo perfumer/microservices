@@ -42,12 +42,26 @@ class SaveSmsRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'ip' => $this->ip,
-        'phone' => $this->phone,
-        'password' => $this->password,
-        'message' => $this->message,
-        'lifetime' => $this->lifetime,
-        ];
+        $array = [];
+        if (!$this->ip instanceof \Perfumer\Microservices\Undefined) {
+            $array['ip'] = $this->ip;
+        }
+        if (!$this->phone instanceof \Perfumer\Microservices\Undefined) {
+            $array['phone'] = $this->phone;
+        }
+        if (!$this->password instanceof \Perfumer\Microservices\Undefined) {
+            $array['password'] = $this->password;
+        }
+        if (!$this->message instanceof \Perfumer\Microservices\Undefined) {
+            $array['message'] = $this->message;
+        }
+        if (!$this->lifetime instanceof \Perfumer\Microservices\Undefined) {
+            $array['lifetime'] = $this->lifetime;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

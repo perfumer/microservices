@@ -31,10 +31,20 @@ class DoOriginRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'method' => $this->method,
-        'version' => $this->version,
-        'params' => $this->params,
-        ];
+        $array = [];
+        if (!$this->method instanceof \Perfumer\Microservices\Undefined) {
+            $array['method'] = $this->method;
+        }
+        if (!$this->version instanceof \Perfumer\Microservices\Undefined) {
+            $array['version'] = $this->version;
+        }
+        if (!$this->params instanceof \Perfumer\Microservices\Undefined) {
+            $array['params'] = $this->params;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

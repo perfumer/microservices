@@ -24,9 +24,17 @@ class DeleteSignatureRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'document' => $this->document,
-        'thread' => $this->thread,
-        ];
+        $array = [];
+        if (!$this->document instanceof \Perfumer\Microservices\Undefined) {
+            $array['document'] = $this->document;
+        }
+        if (!$this->thread instanceof \Perfumer\Microservices\Undefined) {
+            $array['thread'] = $this->thread;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

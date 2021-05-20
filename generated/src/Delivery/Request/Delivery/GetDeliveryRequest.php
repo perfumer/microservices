@@ -18,8 +18,14 @@ class GetDeliveryRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'id' => $this->id,
-        ];
+        $array = [];
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

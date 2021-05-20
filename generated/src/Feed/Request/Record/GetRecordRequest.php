@@ -42,12 +42,26 @@ class GetRecordRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'collection' => $this->collection,
-        'badge_user' => $this->badge_user,
-        'recipient' => $this->recipient,
-        'sender' => $this->sender,
-        'id' => $this->id,
-        ];
+        $array = [];
+        if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
+            $array['collection'] = $this->collection;
+        }
+        if (!$this->badge_user instanceof \Perfumer\Microservices\Undefined) {
+            $array['badge_user'] = $this->badge_user;
+        }
+        if (!$this->recipient instanceof \Perfumer\Microservices\Undefined) {
+            $array['recipient'] = $this->recipient;
+        }
+        if (!$this->sender instanceof \Perfumer\Microservices\Undefined) {
+            $array['sender'] = $this->sender;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

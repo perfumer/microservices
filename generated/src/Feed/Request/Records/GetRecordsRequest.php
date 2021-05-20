@@ -120,25 +120,65 @@ class GetRecordsRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'collection' => $this->collection,
-        'sender' => $this->sender,
-        'user' => $this->user,
-        'thread' => $this->thread,
-        'recipient' => $this->recipient,
-        'search' => $this->search,
-        'id' => $this->id,
-        'order' => $this->order,
-        'is_read' => $this->is_read,
-        'limit' => $this->limit,
-        'offset' => $this->offset,
-        'count' => $this->count,
-        'order_field' => $this->order_field,
-        'order_direction' => $this->order_direction,
-        'id_lt' => $this->id_lt,
-        'id_le' => $this->id_le,
-        'id_gt' => $this->id_gt,
-        'id_ge' => $this->id_ge,
-        ];
+        $array = [];
+        if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
+            $array['collection'] = $this->collection;
+        }
+        if (!$this->sender instanceof \Perfumer\Microservices\Undefined) {
+            $array['sender'] = $this->sender;
+        }
+        if (!$this->user instanceof \Perfumer\Microservices\Undefined) {
+            $array['user'] = $this->user;
+        }
+        if (!$this->thread instanceof \Perfumer\Microservices\Undefined) {
+            $array['thread'] = $this->thread;
+        }
+        if (!$this->recipient instanceof \Perfumer\Microservices\Undefined) {
+            $array['recipient'] = $this->recipient;
+        }
+        if (!$this->search instanceof \Perfumer\Microservices\Undefined) {
+            $array['search'] = $this->search;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->order instanceof \Perfumer\Microservices\Undefined) {
+            $array['order'] = $this->order;
+        }
+        if (!$this->is_read instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_read'] = $this->is_read;
+        }
+        if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
+            $array['limit'] = $this->limit;
+        }
+        if (!$this->offset instanceof \Perfumer\Microservices\Undefined) {
+            $array['offset'] = $this->offset;
+        }
+        if (!$this->count instanceof \Perfumer\Microservices\Undefined) {
+            $array['count'] = $this->count;
+        }
+        if (!$this->order_field instanceof \Perfumer\Microservices\Undefined) {
+            $array['order_field'] = $this->order_field;
+        }
+        if (!$this->order_direction instanceof \Perfumer\Microservices\Undefined) {
+            $array['order_direction'] = $this->order_direction;
+        }
+        if (!$this->id_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['id_lt'] = $this->id_lt;
+        }
+        if (!$this->id_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['id_le'] = $this->id_le;
+        }
+        if (!$this->id_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['id_gt'] = $this->id_gt;
+        }
+        if (!$this->id_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['id_ge'] = $this->id_ge;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

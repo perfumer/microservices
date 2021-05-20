@@ -24,9 +24,17 @@ class GetEmailRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'email' => $this->email,
-        'password' => $this->password,
-        ];
+        $array = [];
+        if (!$this->email instanceof \Perfumer\Microservices\Undefined) {
+            $array['email'] = $this->email;
+        }
+        if (!$this->password instanceof \Perfumer\Microservices\Undefined) {
+            $array['password'] = $this->password;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

@@ -30,10 +30,20 @@ class ReadRecordsRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'collection' => $this->collection,
-        'recipient' => $this->recipient,
-        'badge_user' => $this->badge_user,
-        ];
+        $array = [];
+        if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
+            $array['collection'] = $this->collection;
+        }
+        if (!$this->recipient instanceof \Perfumer\Microservices\Undefined) {
+            $array['recipient'] = $this->recipient;
+        }
+        if (!$this->badge_user instanceof \Perfumer\Microservices\Undefined) {
+            $array['badge_user'] = $this->badge_user;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

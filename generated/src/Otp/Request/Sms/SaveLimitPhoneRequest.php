@@ -24,9 +24,17 @@ class SaveLimitPhoneRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'ips' => $this->ips,
-        'phones' => $this->phones,
-        ];
+        $array = [];
+        if (!$this->ips instanceof \Perfumer\Microservices\Undefined) {
+            $array['ips'] = $this->ips;
+        }
+        if (!$this->phones instanceof \Perfumer\Microservices\Undefined) {
+            $array['phones'] = $this->phones;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

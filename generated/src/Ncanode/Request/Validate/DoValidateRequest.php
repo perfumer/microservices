@@ -54,14 +54,32 @@ class DoValidateRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'cms' => $this->cms,
-        'xml' => $this->xml,
-        'iin' => $this->iin,
-        'bin' => $this->bin,
-        'rule' => $this->rule,
-        'expiration' => $this->expiration,
-        'criteria' => $this->criteria,
-        ];
+        $array = [];
+        if (!$this->cms instanceof \Perfumer\Microservices\Undefined) {
+            $array['cms'] = $this->cms;
+        }
+        if (!$this->xml instanceof \Perfumer\Microservices\Undefined) {
+            $array['xml'] = $this->xml;
+        }
+        if (!$this->iin instanceof \Perfumer\Microservices\Undefined) {
+            $array['iin'] = $this->iin;
+        }
+        if (!$this->bin instanceof \Perfumer\Microservices\Undefined) {
+            $array['bin'] = $this->bin;
+        }
+        if (!$this->rule instanceof \Perfumer\Microservices\Undefined) {
+            $array['rule'] = $this->rule;
+        }
+        if (!$this->expiration instanceof \Perfumer\Microservices\Undefined) {
+            $array['expiration'] = $this->expiration;
+        }
+        if (!$this->criteria instanceof \Perfumer\Microservices\Undefined) {
+            $array['criteria'] = $this->criteria;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }

@@ -78,18 +78,44 @@ class CreateRecordRequest extends \Perfumer\Microservices\Request
 
     public function getBody(): array
     {
-        return [
-        'collection' => $this->collection,
-        'recipient' => $this->recipient,
-        'websocket_channel' => $this->websocket_channel,
-        'badge_user' => $this->badge_user,
-        'sender' => $this->sender,
-        'thread' => $this->thread,
-        'title' => $this->title,
-        'text' => $this->text,
-        'image' => $this->image,
-        'created_at' => $this->created_at,
-        'payload' => $this->payload,
-        ];
+        $array = [];
+        if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
+            $array['collection'] = $this->collection;
+        }
+        if (!$this->recipient instanceof \Perfumer\Microservices\Undefined) {
+            $array['recipient'] = $this->recipient;
+        }
+        if (!$this->websocket_channel instanceof \Perfumer\Microservices\Undefined) {
+            $array['websocket_channel'] = $this->websocket_channel;
+        }
+        if (!$this->badge_user instanceof \Perfumer\Microservices\Undefined) {
+            $array['badge_user'] = $this->badge_user;
+        }
+        if (!$this->sender instanceof \Perfumer\Microservices\Undefined) {
+            $array['sender'] = $this->sender;
+        }
+        if (!$this->thread instanceof \Perfumer\Microservices\Undefined) {
+            $array['thread'] = $this->thread;
+        }
+        if (!$this->title instanceof \Perfumer\Microservices\Undefined) {
+            $array['title'] = $this->title;
+        }
+        if (!$this->text instanceof \Perfumer\Microservices\Undefined) {
+            $array['text'] = $this->text;
+        }
+        if (!$this->image instanceof \Perfumer\Microservices\Undefined) {
+            $array['image'] = $this->image;
+        }
+        if (!$this->created_at instanceof \Perfumer\Microservices\Undefined) {
+            $array['created_at'] = $this->created_at;
+        }
+        if (!$this->payload instanceof \Perfumer\Microservices\Undefined) {
+            $array['payload'] = $this->payload;
+        }
+        if (!$array) {
+            $array = new \stdClass();
+        }
+
+        return $array;
     }
 }
