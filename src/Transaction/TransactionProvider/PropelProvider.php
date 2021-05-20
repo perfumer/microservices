@@ -27,6 +27,7 @@ class PropelProvider implements TransactionProvider
             foreach ($http_requests as $http_request) {
                 $transaction_request = new TransactionRequest();
                 $transaction_request->setTransaction($transaction);
+                $transaction_request->setTimeout($http_request->timeout);
                 $transaction_request->setMethod($http_request->method);
                 $transaction_request->setUrl($http_request->url);
                 $transaction_request->setUuid($http_request->uuid);
