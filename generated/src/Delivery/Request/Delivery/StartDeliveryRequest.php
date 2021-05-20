@@ -22,9 +22,6 @@ class StartDeliveryRequest extends \Perfumer\Microservices\Request
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

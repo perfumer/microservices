@@ -77,9 +77,6 @@ class CreateSignatureRequest extends \Perfumer\Microservices\Request
         if (!$this->version_created_by instanceof \Perfumer\Microservices\Undefined) {
             $array['version_created_by'] = $this->version_created_by;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

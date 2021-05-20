@@ -58,9 +58,6 @@ class SaveSmsRequest extends \Perfumer\Microservices\Request
         if (!$this->lifetime instanceof \Perfumer\Microservices\Undefined) {
             $array['lifetime'] = $this->lifetime;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

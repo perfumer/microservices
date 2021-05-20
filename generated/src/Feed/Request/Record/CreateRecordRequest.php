@@ -112,9 +112,6 @@ class CreateRecordRequest extends \Perfumer\Microservices\Request
         if (!$this->payload instanceof \Perfumer\Microservices\Undefined) {
             $array['payload'] = $this->payload;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

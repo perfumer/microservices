@@ -175,9 +175,6 @@ class SaveDeliveryRequest extends \Perfumer\Microservices\Request
         if (!$this->filters instanceof \Perfumer\Microservices\Undefined) {
             $array['filters'] = $this->filters;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

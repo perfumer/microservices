@@ -31,9 +31,6 @@ class GetEmailRequest extends \Perfumer\Microservices\Request
         if (!$this->password instanceof \Perfumer\Microservices\Undefined) {
             $array['password'] = $this->password;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

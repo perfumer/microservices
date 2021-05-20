@@ -139,9 +139,6 @@ class GetDeliveriesRequest extends \Perfumer\Microservices\Request
         if (!$this->id_ge instanceof \Perfumer\Microservices\Undefined) {
             $array['id_ge'] = $this->id_ge;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

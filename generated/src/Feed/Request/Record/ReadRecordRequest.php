@@ -58,9 +58,6 @@ class ReadRecordRequest extends \Perfumer\Microservices\Request
         if (!$this->badge_user instanceof \Perfumer\Microservices\Undefined) {
             $array['badge_user'] = $this->badge_user;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

@@ -41,9 +41,6 @@ class DoOriginRequest extends \Perfumer\Microservices\Request
         if (!$this->params instanceof \Perfumer\Microservices\Undefined) {
             $array['params'] = $this->params;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

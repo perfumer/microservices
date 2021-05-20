@@ -31,9 +31,6 @@ class SaveLimitEmailsRequest extends \Perfumer\Microservices\Request
         if (!$this->emails instanceof \Perfumer\Microservices\Undefined) {
             $array['emails'] = $this->emails;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

@@ -31,9 +31,6 @@ class DeleteSignatureRequest extends \Perfumer\Microservices\Request
         if (!$this->thread instanceof \Perfumer\Microservices\Undefined) {
             $array['thread'] = $this->thread;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

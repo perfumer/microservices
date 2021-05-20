@@ -42,9 +42,6 @@ class UpdateRecordsRequest extends \Perfumer\Microservices\Request
         if (!$this->set instanceof \Perfumer\Microservices\Undefined) {
             $array['set'] = $this->set;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

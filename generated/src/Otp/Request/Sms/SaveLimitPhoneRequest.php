@@ -31,9 +31,6 @@ class SaveLimitPhoneRequest extends \Perfumer\Microservices\Request
         if (!$this->phones instanceof \Perfumer\Microservices\Undefined) {
             $array['phones'] = $this->phones;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

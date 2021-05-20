@@ -76,9 +76,6 @@ class DoValidateRequest extends \Perfumer\Microservices\Request
         if (!$this->criteria instanceof \Perfumer\Microservices\Undefined) {
             $array['criteria'] = $this->criteria;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }

@@ -108,10 +108,6 @@ EOD;
         }
 
         $get_body_body .= <<<EOD
-if (!\$array) {
-    \$array = new \stdClass();
-}
-
 return \$array;
 EOD;
 

@@ -51,9 +51,6 @@ class CountRecordsRequest extends \Perfumer\Microservices\Request
         if (!$this->group instanceof \Perfumer\Microservices\Undefined) {
             $array['group'] = $this->group;
         }
-        if (!$array) {
-            $array = new \stdClass();
-        }
 
         return $array;
     }
