@@ -58,6 +58,7 @@ class Microservice
             $client = new Client();
 
             $guzzle_response = $client->request($request->_request_method, $url, $options);
+            $response->_http_status_code = $guzzle_response->getStatusCode();
             $response->_raw = $guzzle_response->getBody()->getContents();
             $guzzle_response = json_decode($response->_raw, true);
 
