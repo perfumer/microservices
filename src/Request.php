@@ -2,7 +2,7 @@
 
 namespace Perfumer\Microservices;
 
-abstract class Request
+class Request
 {
     /**
      * @var bool
@@ -27,5 +27,8 @@ abstract class Request
     /**
      * @return array
      */
-    abstract public function getBody(): array;
+    public function getBody(): array
+    {
+        return [];
+    }
 }
