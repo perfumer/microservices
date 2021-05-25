@@ -13,9 +13,50 @@ class Microservice
      */
     protected $host;
 
+    /**
+     * @var array
+     */
+    protected $headers = [];
+
+    /**
+     * @return string
+     */
     public function getHost(): ?string
     {
         return $this->host;
+    }
+
+    /**
+     * @param string $host
+     */
+    public function setHost(string $host): void
+    {
+        $this->host = $host;
+    }
+
+    /**
+     * @return array
+     */
+    public function getHeaders(): array
+    {
+        return $this->headers;
+    }
+
+    /**
+     * @param array $headers
+     */
+    public function setHeaders(array $headers): void
+    {
+        $this->headers = $headers;
+    }
+
+    /**
+     * @param string $name
+     * @param string|array $value
+     */
+    public function addHeader(string $name, $value): void
+    {
+        $this->headers[$name] = $value;
     }
 
     protected function fetchKeyFromContent($content, $key)
@@ -34,11 +75,14 @@ class Microservice
         try {
             $url = $this->host . $request->_request_url;
 
+            $headers = array_merge($this->headers, $request->getHeaders());
+
             $options = [
                 'connect_timeout' => $request->_timeout,
                 'read_timeout' => $request->_timeout,
                 'timeout' => $request->_timeout,
                 'debug' => $request->_debug,
+                'headers' => $headers,
             ];
 
             $body = $request->getBody();
