@@ -30,6 +30,19 @@ abstract class Otp extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function saveCall(\Perfumer\Microservices\Otp\Request\Call\SaveCallRequest $request): \Perfumer\Microservices\Otp\Response\Call\SaveCallResponse
+    {
+        /** @var \Perfumer\Microservices\Otp\Response\Call\SaveCallResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Otp\Response\Call\SaveCallResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'call');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->call = $item;
+        }
+
+        return $response;
+    }
+
     public function saveLimitPhone(\Perfumer\Microservices\Otp\Request\Sms\SaveLimitPhoneRequest $request): \Perfumer\Microservices\Otp\Response\Sms\SaveLimitPhoneResponse
     {
         /** @var \Perfumer\Microservices\Otp\Response\Sms\SaveLimitPhoneResponse $response */
@@ -38,6 +51,19 @@ abstract class Otp extends \Perfumer\Microservices\Microservice implements \Perf
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->sms = $item;
+        }
+
+        return $response;
+    }
+
+    public function saveLimitPhoneCall(\Perfumer\Microservices\Otp\Request\Call\SaveLimitPhoneCallRequest $request): \Perfumer\Microservices\Otp\Response\Call\SaveLimitPhoneCallResponse
+    {
+        /** @var \Perfumer\Microservices\Otp\Response\Call\SaveLimitPhoneCallResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Otp\Response\Call\SaveLimitPhoneCallResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'call');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->call = $item;
         }
 
         return $response;
