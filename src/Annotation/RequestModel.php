@@ -29,7 +29,7 @@ class RequestModel extends LayoutAnnotation
     /**
      * @var array
      */
-    public $fields;
+    public $fields = [];
 
     /**
      * @var array
