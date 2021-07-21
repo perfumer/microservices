@@ -100,6 +100,8 @@ class SaveDeliveryRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/delivery';
+        $this->_request_method = 'post';
         $this->min = new \Perfumer\Microservices\Undefined();
         $this->max = new \Perfumer\Microservices\Undefined();
         $this->gap = new \Perfumer\Microservices\Undefined();
@@ -117,5 +119,63 @@ class SaveDeliveryRequest extends \Perfumer\Microservices\Request
         $this->payload = new \Perfumer\Microservices\Undefined();
         $this->data_url = new \Perfumer\Microservices\Undefined();
         $this->filters = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        $array = [];
+        if (!$this->min instanceof \Perfumer\Microservices\Undefined) {
+            $array['min'] = $this->min;
+        }
+        if (!$this->max instanceof \Perfumer\Microservices\Undefined) {
+            $array['max'] = $this->max;
+        }
+        if (!$this->gap instanceof \Perfumer\Microservices\Undefined) {
+            $array['gap'] = $this->gap;
+        }
+        if (!$this->name instanceof \Perfumer\Microservices\Undefined) {
+            $array['name'] = $this->name;
+        }
+        if (!$this->has_email instanceof \Perfumer\Microservices\Undefined) {
+            $array['has_email'] = $this->has_email;
+        }
+        if (!$this->has_sms instanceof \Perfumer\Microservices\Undefined) {
+            $array['has_sms'] = $this->has_sms;
+        }
+        if (!$this->has_feed instanceof \Perfumer\Microservices\Undefined) {
+            $array['has_feed'] = $this->has_feed;
+        }
+        if (!$this->email_subject instanceof \Perfumer\Microservices\Undefined) {
+            $array['email_subject'] = $this->email_subject;
+        }
+        if (!$this->email_html instanceof \Perfumer\Microservices\Undefined) {
+            $array['email_html'] = $this->email_html;
+        }
+        if (!$this->sms_message instanceof \Perfumer\Microservices\Undefined) {
+            $array['sms_message'] = $this->sms_message;
+        }
+        if (!$this->feed_title instanceof \Perfumer\Microservices\Undefined) {
+            $array['feed_title'] = $this->feed_title;
+        }
+        if (!$this->feed_text instanceof \Perfumer\Microservices\Undefined) {
+            $array['feed_text'] = $this->feed_text;
+        }
+        if (!$this->feed_image instanceof \Perfumer\Microservices\Undefined) {
+            $array['feed_image'] = $this->feed_image;
+        }
+        if (!$this->feed_payload instanceof \Perfumer\Microservices\Undefined) {
+            $array['feed_payload'] = $this->feed_payload;
+        }
+        if (!$this->payload instanceof \Perfumer\Microservices\Undefined) {
+            $array['payload'] = $this->payload;
+        }
+        if (!$this->data_url instanceof \Perfumer\Microservices\Undefined) {
+            $array['data_url'] = $this->data_url;
+        }
+        if (!$this->filters instanceof \Perfumer\Microservices\Undefined) {
+            $array['filters'] = $this->filters;
+        }
+
+        return $array;
     }
 }

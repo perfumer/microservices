@@ -5,6 +5,7 @@ This is library to request Perfumerlabs microservices. Currently following micro
 - [Ncanode](https://github.com/perfumerlabs/ncanode)
 - [Es](https://github.com/perfumerlabs/es)
 - [Delivery](https://github.com/perfumerlabs/delivery)
+- [Feed](https://github.com/perfumerlabs/feed)
 
 ### Fast example
 

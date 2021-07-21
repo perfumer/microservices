@@ -30,4 +30,15 @@ class AddDocumentRequest extends Request
      * @var string
      */
     public $locale;
+
+    public function getBody(): array
+    {
+        return [
+            'index'  => $this->index,
+            'code'   => $this->code,
+            'title'  => $this->title,
+            'text'   => $this->text,
+            'locale' => $this->locale,
+        ];
+    }
 }

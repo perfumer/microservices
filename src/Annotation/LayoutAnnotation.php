@@ -46,7 +46,7 @@ class LayoutAnnotation extends ContractClassAnnotation
         file_put_contents($output_name, $code);
     }
 
-    protected function generateRequest($action, $submodel, $properties = [])
+    protected function generateRequest($url, $request_method, $action, $submodel, $properties = [])
     {
         $action = ucfirst($action);
         $ucfirst_model = ucfirst($this->model);
@@ -58,9 +58,11 @@ class LayoutAnnotation extends ContractClassAnnotation
         $base_generator->setName(sprintf('%s%sRequest', $action, $submodel));
         $base_generator->setExtendedClass('\\Perfumer\\Microservices\\Request');
 
+        // Constructor generator
         $constructor = new MethodGenerator();
         $constructor->setName('__construct');
-        $constructor_body = '';
+        $constructor_body = sprintf('$this->_request_url = \'/%s\';', $url) . PHP_EOL;
+        $constructor_body .= sprintf('$this->_request_method = \'%s\';', $request_method) . PHP_EOL;
 
         foreach ($properties as $property_name => $property_type) {
             $doc_block = DocBlockGenerator::fromArray([
@@ -89,6 +91,28 @@ class LayoutAnnotation extends ContractClassAnnotation
             $constructor->setBody($constructor_body);
             $base_generator->addMethodFromGenerator($constructor);
         }
+
+        // getBody generator
+        $get_body = new MethodGenerator();
+        $get_body->setName('getBody');
+        $get_body->setReturnType('array');
+        $get_body_body = '$array = [];' . PHP_EOL;
+
+        foreach ($properties as $property_name => $property_type) {
+            $get_body_body .= <<<EOD
+if (!\$this->$property_name instanceof \\Perfumer\\Microservices\\Undefined) {
+    \$array['$property_name'] = \$this->$property_name;
+}
+
+EOD;
+        }
+
+        $get_body_body .= <<<EOD
+return \$array;
+EOD;
+
+        $get_body->setBody($get_body_body);
+        $base_generator->addMethodFromGenerator($get_body);
 
         $this->generateClass($base_generator, 'Request', true);
 

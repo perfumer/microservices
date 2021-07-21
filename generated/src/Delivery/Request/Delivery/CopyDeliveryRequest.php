@@ -11,6 +11,18 @@ class CopyDeliveryRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
+        $this->_request_url = '/delivery/copy';
+        $this->_request_method = 'post';
         $this->id = new \Perfumer\Microservices\Undefined();
+    }
+
+    public function getBody(): array
+    {
+        $array = [];
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+
+        return $array;
     }
 }

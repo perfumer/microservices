@@ -10,4 +10,9 @@ class DeleteIndexRequest extends Request
      * @var string
      */
     public $name;
+
+    public function getBody(): array
+    {
+        return ['name' => $this->name];
+    }
 }
