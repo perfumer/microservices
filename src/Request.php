@@ -12,7 +12,7 @@ class Request
     /**
      * @var int
      */
-    public $_timeout = 15;
+    public $_timeout = 30;
 
     /**
      * @var string
