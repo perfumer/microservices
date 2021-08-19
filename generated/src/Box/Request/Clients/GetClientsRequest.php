@@ -1,18 +1,28 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Box\Request\Documents;
+namespace Generated\Perfumer\Microservices\Box\Request\Clients;
 
-class CountDocumentsRequest extends \Perfumer\Microservices\Request
+class GetClientsRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var int
+     * @var string
      */
-    public $id = null;
+    public $name = null;
 
     /**
      * @var string
      */
-    public $collection = null;
+    public $secret = null;
+
+    /**
+     * @var bool
+     */
+    public $is_admin = null;
+
+    /**
+     * @var bool
+     */
+    public $is_disabled = null;
 
     /**
      * @var int
@@ -61,10 +71,12 @@ class CountDocumentsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/documents/count';
+        $this->_request_url = '/clients';
         $this->_request_method = 'get';
-        $this->id = new \Perfumer\Microservices\Undefined();
-        $this->collection = new \Perfumer\Microservices\Undefined();
+        $this->name = new \Perfumer\Microservices\Undefined();
+        $this->secret = new \Perfumer\Microservices\Undefined();
+        $this->is_admin = new \Perfumer\Microservices\Undefined();
+        $this->is_disabled = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -79,11 +91,17 @@ class CountDocumentsRequest extends \Perfumer\Microservices\Request
     public function getBody(): array
     {
         $array = [];
-        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
-            $array['id'] = $this->id;
+        if (!$this->name instanceof \Perfumer\Microservices\Undefined) {
+            $array['name'] = $this->name;
         }
-        if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
-            $array['collection'] = $this->collection;
+        if (!$this->secret instanceof \Perfumer\Microservices\Undefined) {
+            $array['secret'] = $this->secret;
+        }
+        if (!$this->is_admin instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_admin'] = $this->is_admin;
+        }
+        if (!$this->is_disabled instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_disabled'] = $this->is_disabled;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;

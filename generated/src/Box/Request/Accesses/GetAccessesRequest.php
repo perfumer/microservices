@@ -1,18 +1,28 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Box\Request\Documents;
+namespace Generated\Perfumer\Microservices\Box\Request\Accesses;
 
-class CountDocumentsRequest extends \Perfumer\Microservices\Request
+class GetAccessesRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var int
      */
-    public $id = null;
+    public $client = null;
+
+    /**
+     * @var int
+     */
+    public $collection = null;
 
     /**
      * @var string
      */
-    public $collection = null;
+    public $level = null;
+
+    /**
+     * @var string
+     */
+    public $search = null;
 
     /**
      * @var int
@@ -61,10 +71,12 @@ class CountDocumentsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/documents/count';
+        $this->_request_url = '/accesses';
         $this->_request_method = 'get';
-        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->client = new \Perfumer\Microservices\Undefined();
         $this->collection = new \Perfumer\Microservices\Undefined();
+        $this->level = new \Perfumer\Microservices\Undefined();
+        $this->search = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -79,11 +91,17 @@ class CountDocumentsRequest extends \Perfumer\Microservices\Request
     public function getBody(): array
     {
         $array = [];
-        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
-            $array['id'] = $this->id;
+        if (!$this->client instanceof \Perfumer\Microservices\Undefined) {
+            $array['client'] = $this->client;
         }
         if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
             $array['collection'] = $this->collection;
+        }
+        if (!$this->level instanceof \Perfumer\Microservices\Undefined) {
+            $array['level'] = $this->level;
+        }
+        if (!$this->search instanceof \Perfumer\Microservices\Undefined) {
+            $array['search'] = $this->search;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;

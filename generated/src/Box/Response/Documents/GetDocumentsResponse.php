@@ -2,7 +2,7 @@
 
 namespace Generated\Perfumer\Microservices\Box\Response\Documents;
 
-class CountDocumentsResponse extends \Perfumer\Microservices\Response
+class GetDocumentsResponse extends \Perfumer\Microservices\Response
 {
     /**
      * @var int
