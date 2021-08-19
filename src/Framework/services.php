@@ -4,7 +4,7 @@ return [
     'microservices.box' => [
         'shared' => true,
         'class' => 'Perfumer\\Microservices\\Box\\Box',
-        'arguments' => ['@microservices/box.host']
+        'arguments' => ['@microservices/box.host', '@microservices/box.secret']
     ],
 
     'microservices.delivery' => [
