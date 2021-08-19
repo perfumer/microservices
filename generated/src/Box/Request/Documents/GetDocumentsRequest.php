@@ -2,7 +2,7 @@
 
 namespace Generated\Perfumer\Microservices\Box\Request\Documents;
 
-class CountDocumentsRequest extends \Perfumer\Microservices\Request
+class GetDocumentsRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var int
@@ -61,7 +61,7 @@ class CountDocumentsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/documents/count';
+        $this->_request_url = '/documents';
         $this->_request_method = 'get';
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->collection = new \Perfumer\Microservices\Undefined();

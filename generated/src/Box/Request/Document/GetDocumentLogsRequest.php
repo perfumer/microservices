@@ -1,18 +1,38 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Box\Request\Documents;
+namespace Generated\Perfumer\Microservices\Box\Request\Document;
 
-class CountDocumentsRequest extends \Perfumer\Microservices\Request
+class GetDocumentLogsRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var int
      */
-    public $id = null;
+    public $client = null;
+
+    /**
+     * @var int
+     */
+    public $collection = null;
 
     /**
      * @var string
      */
-    public $collection = null;
+    public $uuid = null;
+
+    /**
+     * @var string
+     */
+    public $event = null;
+
+    /**
+     * @var int
+     */
+    public $document_id = null;
+
+    /**
+     * @var string
+     */
+    public $status = null;
 
     /**
      * @var int
@@ -61,10 +81,14 @@ class CountDocumentsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/documents/count';
+        $this->_request_url = '/document/logs';
         $this->_request_method = 'get';
-        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->client = new \Perfumer\Microservices\Undefined();
         $this->collection = new \Perfumer\Microservices\Undefined();
+        $this->uuid = new \Perfumer\Microservices\Undefined();
+        $this->event = new \Perfumer\Microservices\Undefined();
+        $this->document_id = new \Perfumer\Microservices\Undefined();
+        $this->status = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -79,11 +103,23 @@ class CountDocumentsRequest extends \Perfumer\Microservices\Request
     public function getBody(): array
     {
         $array = [];
-        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
-            $array['id'] = $this->id;
+        if (!$this->client instanceof \Perfumer\Microservices\Undefined) {
+            $array['client'] = $this->client;
         }
         if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
             $array['collection'] = $this->collection;
+        }
+        if (!$this->uuid instanceof \Perfumer\Microservices\Undefined) {
+            $array['uuid'] = $this->uuid;
+        }
+        if (!$this->event instanceof \Perfumer\Microservices\Undefined) {
+            $array['event'] = $this->event;
+        }
+        if (!$this->document_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['document_id'] = $this->document_id;
+        }
+        if (!$this->status instanceof \Perfumer\Microservices\Undefined) {
+            $array['status'] = $this->status;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;

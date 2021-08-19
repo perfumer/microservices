@@ -1,18 +1,23 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Box\Request\Documents;
+namespace Generated\Perfumer\Microservices\Box\Request\Collections;
 
-class CountDocumentsRequest extends \Perfumer\Microservices\Request
+class GetCollectionsRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var int
+     * @var string
      */
-    public $id = null;
+    public $name = null;
 
     /**
      * @var string
      */
-    public $collection = null;
+    public $type = null;
+
+    /**
+     * @var bool
+     */
+    public $is_disabled = null;
 
     /**
      * @var int
@@ -61,10 +66,11 @@ class CountDocumentsRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/documents/count';
+        $this->_request_url = '/collections';
         $this->_request_method = 'get';
-        $this->id = new \Perfumer\Microservices\Undefined();
-        $this->collection = new \Perfumer\Microservices\Undefined();
+        $this->name = new \Perfumer\Microservices\Undefined();
+        $this->type = new \Perfumer\Microservices\Undefined();
+        $this->is_disabled = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -79,11 +85,14 @@ class CountDocumentsRequest extends \Perfumer\Microservices\Request
     public function getBody(): array
     {
         $array = [];
-        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
-            $array['id'] = $this->id;
+        if (!$this->name instanceof \Perfumer\Microservices\Undefined) {
+            $array['name'] = $this->name;
         }
-        if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
-            $array['collection'] = $this->collection;
+        if (!$this->type instanceof \Perfumer\Microservices\Undefined) {
+            $array['type'] = $this->type;
+        }
+        if (!$this->is_disabled instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_disabled'] = $this->is_disabled;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
