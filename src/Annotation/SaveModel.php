@@ -5,6 +5,7 @@ namespace Perfumer\Microservices\Annotation;
 /**
  * @Annotation
  * @Target("CLASS")
+ * @deprecated
  */
 class SaveModel extends RequestModel
 {

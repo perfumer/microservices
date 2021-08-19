@@ -8,9 +8,8 @@ use Zend\Code\Generator\ParameterGenerator;
 /**
  * @Annotation
  * @Target("CLASS")
- * @deprecated
  */
-class SaveMeshModel extends SaveModel
+class UpdateMeshModel extends UpdateModel
 {
     public function onCreate(): void
     {
