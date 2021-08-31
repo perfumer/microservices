@@ -28,7 +28,7 @@ return [
     'microservices.ncanode' => [
         'shared' => true,
         'class' => 'Perfumer\\Microservices\\Ncanode\\Ncanode',
-        'arguments' => ['@microservices/ncanode.host']
+        'arguments' => ['@microservices/ncanode.host', '@microservices/segment']
     ],
 
     'microservices.otp' => [
