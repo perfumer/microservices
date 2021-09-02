@@ -36,7 +36,13 @@ class Transaction
         $http_request = new HttpRequest();
         $http_request->timeout = $request->_timeout;
         $http_request->json = $request->getBody();
-        $http_request->url = $microservice->getHost() . $request->_request_url;
+
+        if (strpos($request->_request_url, 'http') === 0) {
+            $http_request->url = $request->_request_url;
+        } else {
+            $http_request->url = $microservice->getHost() . $request->_request_url;
+        }
+
         $http_request->method = $request->_request_method;
         $http_request->uuid = Uuid::uuid4()->toString();
 

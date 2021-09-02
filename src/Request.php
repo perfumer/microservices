@@ -27,14 +27,27 @@ class Request
     /**
      * @var array
      */
-    protected $headers = [];
+    protected $_body = [];
+
+    /**
+     * @var array
+     */
+    protected $_headers = [];
 
     /**
      * @return array
      */
     public function getBody(): array
     {
-        return [];
+        return $this->_body;
+    }
+
+    /**
+     * @param array $body
+     */
+    public function setBody(array $body): void
+    {
+        $this->_body = $body;
     }
 
     /**
@@ -42,7 +55,7 @@ class Request
      */
     public function getHeaders(): array
     {
-        return $this->headers;
+        return $this->_headers;
     }
 
     /**
@@ -50,7 +63,7 @@ class Request
      */
     public function setHeaders(array $headers): void
     {
-        $this->headers = $headers;
+        $this->_headers = $headers;
     }
 
     /**
@@ -59,6 +72,6 @@ class Request
      */
     public function addHeader(string $name, $value): void
     {
-        $this->headers[$name] = $value;
+        $this->_headers[$name] = $value;
     }
 }
