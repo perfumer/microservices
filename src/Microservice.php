@@ -59,6 +59,11 @@ class Microservice
         $this->headers[$name] = $value;
     }
 
+    public function request(Request $request): Response
+    {
+        return $this->doRequest($request, new Response());
+    }
+
     protected function fetchKeyFromContent($content, $key)
     {
         $return = new Undefined();
