@@ -43,6 +43,9 @@ class Transaction
             $http_request->url = $microservice->getHost() . $request->_request_url;
         }
 
+        $headers = array_merge($microservice->getHeaders(), $request->getHeaders());
+
+        $http_request->headers = $headers;
         $http_request->method = $request->_request_method;
         $http_request->uuid = Uuid::uuid4()->toString();
 
