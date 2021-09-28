@@ -137,7 +137,7 @@ class Microservice
                     $response->_errors = $guzzle_response['errors'];
                 }
             } catch (ConnectException $e) {
-                error_log('MICROSERVICES ' . __CLASS__ . ' connect timeout reached' . PHP_EOL);
+                error_log('MICROSERVICES ' . $this->host . ' connect timeout reached' . PHP_EOL);
 
                 $connect_retries++;
 
@@ -198,6 +198,8 @@ class Microservice
             } catch (\Exception $e) {
                 $response->_status = false;
                 $response->_message = $e->getMessage();
+
+                error_log('MICROSERVICES ' . $this->host . ' fallback exception:' . $response->_message . PHP_EOL);
             }
 
             if ($break_while) {
