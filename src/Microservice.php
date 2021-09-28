@@ -136,6 +136,10 @@ class Microservice
                 if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
                     $response->_errors = $guzzle_response['errors'];
                 }
+
+                if ($connect_retries > 0) {
+                    error_log('MICROSERVICES ' . $this->host . ' SUCCESS after connect timeout retry ' . $connect_retries . PHP_EOL);
+                }
             } catch (ConnectException $e) {
                 error_log('MICROSERVICES ' . $this->host . ' connect timeout reached' . PHP_EOL);
 
