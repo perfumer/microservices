@@ -18,12 +18,12 @@ class Microservice
     /**
      * @var string
      */
-    private $host;
+    protected $host;
 
     /**
      * @var array
      */
-    private $headers = [];
+    protected $headers = [];
 
     /**
      * @return string
