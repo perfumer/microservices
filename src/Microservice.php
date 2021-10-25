@@ -25,15 +25,6 @@ class Microservice
      */
     private $headers = [];
 
-    public function getClient(): Client
-    {
-        if (!$this->client instanceof Client) {
-            $this->client = new Client();
-        }
-
-        return $this->client;
-    }
-
     /**
      * @return string
      */
@@ -125,7 +116,7 @@ class Microservice
                     $options['json'] = $filtered_json;
                 }
 
-                $client = $this->getClient();
+                $client = $this->getGuzzleClient();
 
                 $guzzle_response = $client->request($request->_request_method, $url, $options);
 
@@ -164,6 +155,15 @@ class Microservice
         }
 
         return $response;
+    }
+
+    private function getGuzzleClient(): Client
+    {
+        if (!$this->client instanceof Client) {
+            $this->client = new Client();
+        }
+
+        return $this->client;
     }
 
     private function buildResponseFromRequestException(Response $response, RequestException $e)
