@@ -6,9 +6,15 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
+use Psr\Http\Message\ResponseInterface;
 
 class Microservice
 {
+    /**
+     * @var Client
+     */
+    private $client;
+
     /**
      * @var string
      */
@@ -110,32 +116,11 @@ class Microservice
                     $options['json'] = $filtered_json;
                 }
 
-                $client = new Client();
+                $client = $this->getGuzzleClient();
 
                 $guzzle_response = $client->request($request->_request_method, $url, $options);
-                $response->_http_status_code = $guzzle_response->getStatusCode();
-                $response->_raw = $guzzle_response->getBody()->getContents();
-                $guzzle_response = json_decode($response->_raw, true);
 
-                if (isset($guzzle_response['content']) && is_array($guzzle_response['content'])) {
-                    $response->_content = $guzzle_response['content'];
-                }
-
-                if (isset($guzzle_response['status'])) {
-                    $response->_status = (bool) $guzzle_response['status'];
-                }
-
-                if (isset($guzzle_response['status_code'])) {
-                    $response->_status_code = (string) $guzzle_response['status_code'];
-                }
-
-                if (isset($guzzle_response['message'])) {
-                    $response->_message = (string) $guzzle_response['message'];
-                }
-
-                if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
-                    $response->_errors = $guzzle_response['errors'];
-                }
+                $response = $this->buildResponseFromGuzzleResponse($response, $guzzle_response);
 
                 if ($connect_retries > 0) {
                     error_log('MICROSERVICES ' . $this->host . ' SUCCESS after connect timeout retry ' . $connect_retries . PHP_EOL);
@@ -152,53 +137,11 @@ class Microservice
                     $response->_message = $e->getMessage();
                 }
             } catch (ClientException $e) {
-                $guzzle_response = $e->getResponse();
-
-                $response->_status = false;
-
-                if ($guzzle_response) {
-                    $response->_http_status_code = $guzzle_response->getStatusCode();
-                    $response->_raw = $guzzle_response->getBody()->getContents();
-
-                    $guzzle_response = json_decode($response->_raw, true);
-
-                    if (isset($guzzle_response['status_code'])) {
-                        $response->_status_code = (string) $guzzle_response['status_code'];
-                    }
-
-                    if (isset($guzzle_response['message'])) {
-                        $response->_message = (string) $guzzle_response['message'];
-                    }
-
-                    if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
-                        $response->_errors = $guzzle_response['errors'];
-                    }
-                }
+                $response = $this->buildResponseFromRequestException($response, $e);
 
                 $break_while = true;
             } catch (RequestException $e) {
-                $guzzle_response = $e->getResponse();
-
-                $response->_status = false;
-
-                if ($guzzle_response) {
-                    $response->_http_status_code = $guzzle_response->getStatusCode();
-                    $response->_raw = $guzzle_response->getBody()->getContents();
-
-                    $guzzle_response = json_decode($response->_raw, true);
-
-                    if (isset($guzzle_response['status_code'])) {
-                        $response->_status_code = (string) $guzzle_response['status_code'];
-                    }
-
-                    if (isset($guzzle_response['message'])) {
-                        $response->_message = (string) $guzzle_response['message'];
-                    }
-
-                    if (isset($guzzle_response['errors']) && is_array($guzzle_response['errors'])) {
-                        $response->_errors = $guzzle_response['errors'];
-                    }
-                }
+                $response = $this->buildResponseFromRequestException($response, $e);
             } catch (\Exception $e) {
                 $response->_status = false;
                 $response->_message = $e->getMessage();
@@ -208,6 +151,58 @@ class Microservice
 
             if ($break_while) {
                 break;
+            }
+        }
+
+        return $response;
+    }
+
+    private function getGuzzleClient(): Client
+    {
+        if (!$this->client instanceof Client) {
+            $this->client = new Client();
+        }
+
+        return $this->client;
+    }
+
+    private function buildResponseFromRequestException(Response $response, RequestException $e)
+    {
+        $guzzle_response = $e->getResponse();
+
+        $response = $this->buildResponseFromGuzzleResponse($response, $guzzle_response);
+
+        $response->_status = false;
+
+        return $response;
+    }
+
+    private function buildResponseFromGuzzleResponse(Response $response, ?ResponseInterface $guzzle_response): Response
+    {
+        if ($guzzle_response) {
+            $response->_http_status_code = $guzzle_response->getStatusCode();
+            $response->_raw = $guzzle_response->getBody()->getContents();
+
+            $decoded_response = json_decode($response->_raw, true);
+
+            if (isset($decoded_response['status'])) {
+                $response->_status = (bool) $decoded_response['status'];
+            }
+
+            if (isset($decoded_response['status_code'])) {
+                $response->_status_code = (string) $decoded_response['status_code'];
+            }
+
+            if (isset($decoded_response['message'])) {
+                $response->_message = (string) $decoded_response['message'];
+            }
+
+            if (isset($decoded_response['errors']) && is_array($decoded_response['errors'])) {
+                $response->_errors = (array) $decoded_response['errors'];
+            }
+
+            if (isset($decoded_response['content']) && is_array($decoded_response['content'])) {
+                $response->_content = (array) $decoded_response['content'];
             }
         }
 
