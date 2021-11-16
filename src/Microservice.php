@@ -18,19 +18,30 @@ class Microservice
     /**
      * @var string
      */
-    protected $host;
+    private $_request_fetcher_host;
+
+    /**
+     * @var string
+     */
+    protected $_host;
 
     /**
      * @var array
      */
-    protected $headers = [];
+    protected $_headers = [];
+
+    public function __construct(array $options = [])
+    {
+        $this->_host = $options['host'] ?? null;
+        $this->_request_fetcher_host = $options['request_fetcher_host'] ?? null;
+    }
 
     /**
      * @return string
      */
     public function getHost(): ?string
     {
-        return $this->host;
+        return $this->_host;
     }
 
     /**
@@ -38,7 +49,7 @@ class Microservice
      */
     public function setHost(string $host): void
     {
-        $this->host = $host;
+        $this->_host = $host;
     }
 
     /**
@@ -46,7 +57,7 @@ class Microservice
      */
     public function getHeaders(): array
     {
-        return $this->headers;
+        return $this->_headers;
     }
 
     /**
@@ -54,7 +65,7 @@ class Microservice
      */
     public function setHeaders(array $headers): void
     {
-        $this->headers = $headers;
+        $this->_headers = $headers;
     }
 
     /**
@@ -63,7 +74,7 @@ class Microservice
      */
     public function addHeader(string $name, $value): void
     {
-        $this->headers[$name] = $value;
+        $this->_headers[$name] = $value;
     }
 
     public function request(Request $request): Response
@@ -90,9 +101,9 @@ class Microservice
             $break_while = true;
 
             try {
-                $url = $this->host . $request->_request_url;
+                $url = $this->_host . $request->_request_url;
 
-                $headers = array_merge($this->headers, $request->getHeaders());
+                $headers = array_merge($this->_headers, $request->getHeaders());
 
                 $options = [
                     'connect_timeout' => 3,
@@ -120,13 +131,24 @@ class Microservice
 
                 $guzzle_response = $client->request($request->_request_method, $url, $options);
 
+                // if request fetcher is defined, send exactly same request
+                // Host of microservice is provided to "Api-Host" header
+                if ($this->_request_fetcher_host) {
+                    $request_fetcher_url = $this->_request_fetcher_host . $request->_request_url;
+                    $request_fetcher_options = $options;
+                    $request_fetcher_options['headers']['Api-Host'] = $this->getHost();
+
+                    $request_fetcher_client = new Client();
+                    $request_fetcher_client->request($request->_request_method, $request_fetcher_url, $request_fetcher_options);
+                }
+
                 $response = $this->buildResponseFromGuzzleResponse($response, $guzzle_response);
 
                 if ($connect_retries > 0) {
-                    error_log('MICROSERVICES ' . $this->host . ' SUCCESS after connect timeout retry ' . $connect_retries . PHP_EOL);
+                    error_log('MICROSERVICES ' . $this->_host . ' SUCCESS after connect timeout retry ' . $connect_retries . PHP_EOL);
                 }
             } catch (ConnectException $e) {
-                error_log('MICROSERVICES ' . $this->host . ' connect timeout reached' . PHP_EOL);
+                error_log('MICROSERVICES ' . $this->_host . ' connect timeout reached' . PHP_EOL);
 
                 $connect_retries++;
 
@@ -146,7 +168,7 @@ class Microservice
                 $response->_status = false;
                 $response->_message = $e->getMessage();
 
-                error_log('MICROSERVICES ' . $this->host . ' fallback exception:' . $response->_message . PHP_EOL);
+                error_log('MICROSERVICES ' . $this->_host . ' fallback exception:' . $response->_message . PHP_EOL);
             }
 
             if ($break_while) {

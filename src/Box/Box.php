@@ -9,12 +9,15 @@ class Box extends \Generated\Perfumer\Microservices\Box\Box
      */
     protected $secret;
 
-    public function __construct($host, $secret)
+    public function __construct(array $options = [])
     {
-        $this->host = $host;
-        $this->secret = $secret;
+        parent::__construct($options);
 
-        $this->addHeader('Api-Secret', $secret);
+        $this->secret = $options['secret'] ?? null;
+
+        if ($this->secret) {
+            $this->addHeader('Api-Secret', $secret);
+        }
     }
 
     /**
