@@ -20,6 +20,15 @@ return [
         ]]
     ],
 
+    'microservices.email' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Email\\Email',
+        'arguments' => [[
+            'host' => '@microservices/email.host',
+            'request_fetcher_host' => '@microservices/request_fetcher.host',
+        ]]
+    ],
+
     'microservices.es' => [
         'shared' => true,
         'class' => 'Perfumer\\Microservices\\Es\\Es',
