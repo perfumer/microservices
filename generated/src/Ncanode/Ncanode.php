@@ -81,4 +81,17 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
 
         return $response;
     }
+
+    public function validateCms(\Perfumer\Microservices\Ncanode\Request\Cms\ValidateCmsRequest $request): \Perfumer\Microservices\Ncanode\Response\Cms\ValidateCmsResponse
+    {
+        /** @var \Perfumer\Microservices\Ncanode\Response\Cms\ValidateCmsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Ncanode\Response\Cms\ValidateCmsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'cms');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->cms = $item;
+        }
+
+        return $response;
+    }
 }

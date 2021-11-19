@@ -14,9 +14,10 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @CreateModel(microservice="ncanode", model="signature", fields={"document", "thread", "cms", "tags.array", "version.int", "version_comment", "version_created_by", "silent.bool"})
  * @GetModels(microservice="ncanode", model="signatures", fields={"document", "thread", "tag"})
  *
- * @SaveModel(microservice="ncanode", model="origin", action="do", fields={"method", "version", "params.array"})
+ * @CreateModel(microservice="ncanode", model="origin", action="do", fields={"method", "version", "params.array"})
  *
  * @SaveModel(microservice="ncanode", model="validate", action="do", fields={"cms", "xml", "iin", "bin", "rule", "expiration.bool", "criteria"})
+ * @CreateModel(microservice="ncanode", model="cms", action="validate", url="/cms/validate", fields={"cms", "iin", "bin", "rule", "expiration.bool"})
  */
 interface Ncanode
 {
