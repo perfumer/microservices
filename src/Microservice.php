@@ -251,8 +251,11 @@ class Microservice
             ];
 
             if ($guzzle_response) {
-                $request_catcher_options['json']['response']['headers'] = $guzzle_response->getHeaders();
-                $request_catcher_options['json']['response']['body'] = $guzzle_response->getBody()->getContents();
+                $cloned = clone $guzzle_response;
+
+                $request_catcher_options['json']['response']['status_code'] = $cloned->getStatusCode();
+                $request_catcher_options['json']['response']['headers'] = $cloned->getHeaders();
+                $request_catcher_options['json']['response']['json'] = json_decode($cloned->getBody()->getContents(), true);
             }
 
             if ($error) {
