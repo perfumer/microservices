@@ -131,9 +131,9 @@ class Microservice
 
                 $guzzle_response = $client->request($request->_request_method, $url, $options);
 
-                $this->catchRequest($url, $options, $request, $guzzle_response);
-
                 $response = $this->buildResponseFromGuzzleResponse($response, $guzzle_response);
+
+                $this->catchRequest($url, $options, $request, $response, $guzzle_response->getHeaders());
 
                 if ($connect_retries > 0) {
                     error_log('MICROSERVICES ' . $this->_host . ' SUCCESS after connect timeout retry ' . $connect_retries . PHP_EOL);
@@ -149,25 +149,25 @@ class Microservice
                     $response->_status = false;
                     $response->_message = $e->getMessage();
 
-                    $this->catchRequest($url, $options, $request, null, $response->_message);
+                    $this->catchRequest($url, $options, $request, $response);
                 }
             } catch (ClientException $e) {
                 $response = $this->buildResponseFromRequestException($response, $e);
 
-                $this->catchRequest($url, $options, $request, $e->getResponse());
+                $this->catchRequest($url, $options, $request, $response, $guzzle_response->getHeaders());
 
                 $break_while = true;
             } catch (RequestException $e) {
                 $response = $this->buildResponseFromRequestException($response, $e);
 
-                $this->catchRequest($url, $options, $request, $e->getResponse());
+                $this->catchRequest($url, $options, $request, $response, $guzzle_response->getHeaders());
             } catch (\Exception $e) {
                 $response->_status = false;
                 $response->_message = $e->getMessage();
 
                 error_log('MICROSERVICES ' . $this->_host . ' fallback exception:' . $response->_message . PHP_EOL);
 
-                $this->catchRequest($url, $options, $request, null, $response->_message);
+                $this->catchRequest($url, $options, $request, $response);
             }
 
             if ($break_while) {
@@ -230,7 +230,7 @@ class Microservice
         return $response;
     }
 
-    private function catchRequest($url, $options, Request $request, ?ResponseInterface $guzzle_response = null, ?string $error = null)
+    private function catchRequest($url, $options, Request $request, Response $response, $response_headers = [])
     {
         // if request catcher is defined, send exactly same request
         if ($this->_request_catcher_host && $request->_catch) {
@@ -250,16 +250,20 @@ class Microservice
                 ]
             ];
 
-            if ($guzzle_response) {
-                $cloned = clone $guzzle_response;
+            if ($response) {
+                $request_catcher_options['json']['response']['status_code'] = $response->_status_code;
 
-                $request_catcher_options['json']['response']['status_code'] = $cloned->getStatusCode();
-                $request_catcher_options['json']['response']['headers'] = $cloned->getHeaders();
-                $request_catcher_options['json']['response']['json'] = json_decode($cloned->getBody()->getContents(), true);
-            }
+                if ($response_headers) {
+                    $request_catcher_options['json']['response']['headers'] = $response_headers;
+                }
 
-            if ($error) {
-                $request_catcher_options['json']['response']['error'] = $error;
+                if ($response->_raw) {
+                    $request_catcher_options['json']['response']['json'] = json_decode($response->_raw, true);
+                }
+
+                if ($response->_message) {
+                    $request_catcher_options['json']['response']['message'] = $response->_message;
+                }
             }
 
             $request_catcher_client = new Client();
