@@ -154,13 +154,13 @@ class Microservice
             } catch (ClientException $e) {
                 $response = $this->buildResponseFromRequestException($response, $e);
 
-                $this->catchRequest($url, $options, $request, $response, $guzzle_response->getHeaders());
+                $this->catchRequest($url, $options, $request, $response, $e->getResponse()->getHeaders());
 
                 $break_while = true;
             } catch (RequestException $e) {
                 $response = $this->buildResponseFromRequestException($response, $e);
 
-                $this->catchRequest($url, $options, $request, $response, $guzzle_response->getHeaders());
+                $this->catchRequest($url, $options, $request, $response, $e->getResponse()->getHeaders());
             } catch (\Exception $e) {
                 $response->_status = false;
                 $response->_message = $e->getMessage();
