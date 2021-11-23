@@ -149,7 +149,7 @@ class Microservice
                     $response->_status = false;
                     $response->_message = $e->getMessage();
 
-                    $this->catchRequest($url, $options, $request, $response);
+                    $this->catchRequest($url, $options, $request, $response, [], $e->getMessage());
                 }
             } catch (ClientException $e) {
                 $response = $this->buildResponseFromRequestException($response, $e);
@@ -167,7 +167,7 @@ class Microservice
 
                 error_log('MICROSERVICES ' . $this->_host . ' fallback exception:' . $response->_message . PHP_EOL);
 
-                $this->catchRequest($url, $options, $request, $response);
+                $this->catchRequest($url, $options, $request, $response, [], $e->getMessage());
             }
 
             if ($break_while) {
@@ -230,7 +230,7 @@ class Microservice
         return $response;
     }
 
-    private function catchRequest($url, $options, Request $request, Response $response, $response_headers = [])
+    private function catchRequest($url, $options, Request $request, Response $response, $response_headers = [], $error = null)
     {
         // if request catcher is defined, send exactly same request
         if ($this->_request_catcher_host && $request->_catch) {
@@ -261,8 +261,8 @@ class Microservice
                     $request_catcher_options['json']['response']['json'] = json_decode($response->_raw, true);
                 }
 
-                if ($response->_message) {
-                    $request_catcher_options['json']['response']['message'] = $response->_message;
+                if ($error) {
+                    $request_catcher_options['json']['response']['error'] = $error;
                 }
             }
 
