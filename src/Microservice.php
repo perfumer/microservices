@@ -18,7 +18,7 @@ class Microservice
     /**
      * @var string
      */
-    private $_request_fetcher_host;
+    private $_request_catcher_host;
 
     /**
      * @var string
@@ -33,7 +33,7 @@ class Microservice
     public function __construct(array $options = [])
     {
         $this->_host = $options['host'] ?? null;
-        $this->_request_fetcher_host = $options['request_fetcher_host'] ?? null;
+        $this->_request_catcher_host = $options['request_catcher_host'] ?? null;
     }
 
     /**
@@ -97,50 +97,41 @@ class Microservice
     {
         $connect_retries = 0;
 
+        $url = $this->_host . $request->_request_url;
+
+        $headers = array_merge($this->_headers, $request->getHeaders());
+
+        $options = [
+            'connect_timeout' => 3,
+            'read_timeout' => $request->_timeout,
+            'timeout' => $request->_timeout,
+            'debug' => $request->_debug,
+            'headers' => $headers,
+        ];
+
+        $body = $request->getBody();
+
+        if ($body) {
+            $filtered_json = [];
+
+            foreach ($body as $key => $value) {
+                if (!$value instanceof Undefined) {
+                    $filtered_json[$key] = $value;
+                }
+            }
+
+            $options['json'] = $filtered_json;
+        }
+
         while ($connect_retries < 5) {
             $break_while = true;
 
             try {
-                $url = $this->_host . $request->_request_url;
-
-                $headers = array_merge($this->_headers, $request->getHeaders());
-
-                $options = [
-                    'connect_timeout' => 3,
-                    'read_timeout' => $request->_timeout,
-                    'timeout' => $request->_timeout,
-                    'debug' => $request->_debug,
-                    'headers' => $headers,
-                ];
-
-                $body = $request->getBody();
-
-                if ($body) {
-                    $filtered_json = [];
-
-                    foreach ($body as $key => $value) {
-                        if (!$value instanceof Undefined) {
-                            $filtered_json[$key] = $value;
-                        }
-                    }
-
-                    $options['json'] = $filtered_json;
-                }
-
                 $client = $this->getGuzzleClient();
 
                 $guzzle_response = $client->request($request->_request_method, $url, $options);
 
-                // if request fetcher is defined, send exactly same request
-                // Host of microservice is provided to "Api-Host" header
-                if ($this->_request_fetcher_host) {
-                    $request_fetcher_url = $this->_request_fetcher_host . $request->_request_url;
-                    $request_fetcher_options = $options;
-                    $request_fetcher_options['headers']['Api-Host'] = $this->getHost();
-
-                    $request_fetcher_client = new Client();
-                    $request_fetcher_client->request($request->_request_method, $request_fetcher_url, $request_fetcher_options);
-                }
+                $this->catchRequest($url, $options, $request, $guzzle_response);
 
                 $response = $this->buildResponseFromGuzzleResponse($response, $guzzle_response);
 
@@ -157,18 +148,26 @@ class Microservice
                 } else {
                     $response->_status = false;
                     $response->_message = $e->getMessage();
+
+                    $this->catchRequest($url, $options, $request, null, $response->_message);
                 }
             } catch (ClientException $e) {
                 $response = $this->buildResponseFromRequestException($response, $e);
 
+                $this->catchRequest($url, $options, $request, $e->getResponse());
+
                 $break_while = true;
             } catch (RequestException $e) {
                 $response = $this->buildResponseFromRequestException($response, $e);
+
+                $this->catchRequest($url, $options, $request, $e->getResponse());
             } catch (\Exception $e) {
                 $response->_status = false;
                 $response->_message = $e->getMessage();
 
                 error_log('MICROSERVICES ' . $this->_host . ' fallback exception:' . $response->_message . PHP_EOL);
+
+                $this->catchRequest($url, $options, $request, null, $response->_message);
             }
 
             if ($break_while) {
@@ -229,5 +228,39 @@ class Microservice
         }
 
         return $response;
+    }
+
+    private function catchRequest($url, $options, Request $request, ?ResponseInterface $guzzle_response = null, ?string $error = null)
+    {
+        // if request catcher is defined, send exactly same request
+        if ($this->_request_catcher_host && $request->_catch) {
+            $request_catcher_url = $this->_request_catcher_host . $request->_request_url;
+            $request_catcher_request = $options;
+            $request_catcher_request['url'] = $url;
+            $request_catcher_request['method'] = $request->_request_method;
+
+            $request_catcher_options = [
+                'connect_timeout' => $request->_timeout,
+                'read_timeout' => $request->_timeout,
+                'timeout' => $request->_timeout,
+                'json' => [
+                    'request' => $request_catcher_request,
+                    'response' => [
+                    ]
+                ]
+            ];
+
+            if ($guzzle_response) {
+                $request_catcher_options['json']['response']['headers'] = $guzzle_response->getHeaders();
+                $request_catcher_options['json']['response']['body'] = $guzzle_response->getBody()->getContents();
+            }
+
+            if ($error) {
+                $request_catcher_options['json']['response']['error'] = $error;
+            }
+
+            $request_catcher_client = new Client();
+            $request_catcher_client->request($request->_request_method, $request_catcher_url, $request_catcher_options);
+        }
     }
 }

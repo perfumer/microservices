@@ -122,7 +122,7 @@ Library supports also any request catching servers.
 It is helpful to debug sent requests.
 
 Any microservice class allows `request_catcher_host` parameter in constructor options.
-If it is defined, then after each request microservice class also sends the same request to that host (original target host is sent in `Api-Host` header).
+If it is defined, and `_catch=true` provided to Request class, then microservice class also sends special request to that host.
 
 ```php
 use Perfumer\Microservices\Microservice;
@@ -131,6 +131,7 @@ use Perfumer\Microservices\Request;
 $request = new Request();
 $request->_request_method = 'post';
 $request->_request_url = '/my-url';
+$request->_catch = true;
 $request->setBody(['foo' => 'bar']);
 
 $microservice = new Microservice([
