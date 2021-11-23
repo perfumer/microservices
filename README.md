@@ -116,13 +116,37 @@ while (true) {
 }
 ```
 
+### Request debugging
+
+If `_debug=true` is provided to Request class, then Microservice during requesting sets `debug=true` option to Guzzle client.
+If it is enabled Guzzle prints some information about request to stdout.
+
+```php
+use Perfumer\Microservices\Microservice;
+use Perfumer\Microservices\Request;
+
+$request = new Request();
+$request->_request_method = 'post';
+$request->_request_url = '/my-url';
+$request->_debug = true;
+$request->setBody(['foo' => 'bar']);
+
+$microservice = new Microservice([
+    'host' => 'https://example.com'
+]);
+
+$microservice->request($request);
+```
+
 ### Request catching
 
-Library supports also any request catching servers.
-It is helpful to debug sent requests.
+Library supports also any request catching servers for more convenient debugging.
+Request catching servers print requests as-is when they come.
+There are many free online request catching services in the google search.
 
 Any microservice class allows `request_catcher_host` parameter in constructor options.
 If it is defined, and `_catch=true` provided to Request class, then microservice class also sends special request to that host.
+The request contains full request and response details in the body.
 
 ```php
 use Perfumer\Microservices\Microservice;
