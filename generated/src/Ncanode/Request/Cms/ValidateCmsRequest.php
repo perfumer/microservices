@@ -25,9 +25,15 @@ class ValidateCmsRequest extends \Perfumer\Microservices\Request
     public $rule = null;
 
     /**
+     * @var array
+     */
+    public $constraints = [
+    ];
+
+    /**
      * @var bool
      */
-    public $expiration = null;
+    public $revoke = null;
 
     public function __construct()
     {
@@ -37,7 +43,8 @@ class ValidateCmsRequest extends \Perfumer\Microservices\Request
         $this->iin = new \Perfumer\Microservices\Undefined();
         $this->bin = new \Perfumer\Microservices\Undefined();
         $this->rule = new \Perfumer\Microservices\Undefined();
-        $this->expiration = new \Perfumer\Microservices\Undefined();
+        $this->constraints = new \Perfumer\Microservices\Undefined();
+        $this->revoke = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -55,8 +62,11 @@ class ValidateCmsRequest extends \Perfumer\Microservices\Request
         if (!$this->rule instanceof \Perfumer\Microservices\Undefined) {
             $array['rule'] = $this->rule;
         }
-        if (!$this->expiration instanceof \Perfumer\Microservices\Undefined) {
-            $array['expiration'] = $this->expiration;
+        if (!$this->constraints instanceof \Perfumer\Microservices\Undefined) {
+            $array['constraints'] = $this->constraints;
+        }
+        if (!$this->revoke instanceof \Perfumer\Microservices\Undefined) {
+            $array['revoke'] = $this->revoke;
         }
 
         return $array;
