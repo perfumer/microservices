@@ -13,7 +13,7 @@ class Microservice
     /**
      * @var Client
      */
-    private $client;
+    private $_guzzle_client;
 
     /**
      * @var string
@@ -180,11 +180,11 @@ class Microservice
 
     private function getGuzzleClient(): Client
     {
-        if (!$this->client instanceof Client) {
-            $this->client = new Client();
+        if (!$this->_guzzle_client instanceof Client) {
+            $this->_guzzle_client = new Client();
         }
 
-        return $this->client;
+        return $this->_guzzle_client;
     }
 
     private function buildResponseFromRequestException(Response $response, RequestException $e)
