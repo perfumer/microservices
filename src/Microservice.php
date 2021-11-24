@@ -251,18 +251,19 @@ class Microservice
             ];
 
             if ($response) {
-                $request_catcher_options['json']['response']['status_code'] = $response->_status_code;
+                $request_catcher_options['json']['response']['http_status_code'] = $response->_http_status_code;
 
-                if ($response_headers) {
-                    $request_catcher_options['json']['response']['headers'] = $response_headers;
+                if ($error) {
+                    $request_catcher_options['json']['response']['error'] = $error;
                 }
 
                 if ($response->_raw) {
                     $request_catcher_options['json']['response']['json'] = json_decode($response->_raw, true);
+                    $request_catcher_options['json']['response']['body'] = $response->_raw;
                 }
 
-                if ($error) {
-                    $request_catcher_options['json']['response']['error'] = $error;
+                if ($response_headers) {
+                    $request_catcher_options['json']['response']['headers'] = $response_headers;
                 }
             }
 
