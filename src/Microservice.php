@@ -136,10 +136,10 @@ class Microservice
                 $this->catchRequest($url, $options, $request, $response, $guzzle_response->getHeaders());
 
                 if ($connect_retries > 0) {
-                    error_log('MICROSERVICES ' . $this->_host . ' SUCCESS after connect timeout retry ' . $connect_retries . PHP_EOL);
+//                    error_log('MICROSERVICES ' . $this->_host . ' SUCCESS after connect timeout retry ' . $connect_retries . PHP_EOL);
                 }
             } catch (ConnectException $e) {
-                error_log('MICROSERVICES ' . $this->_host . ' connect timeout reached' . PHP_EOL);
+//                error_log('MICROSERVICES ' . $this->_host . ' connect timeout reached' . PHP_EOL);
 
                 $connect_retries++;
 
