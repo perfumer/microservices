@@ -20,7 +20,7 @@ use Perfumer\Microservices\Annotation\SaveModel;
  *
  * @CreateModel(microservice="ncanode", model="origin", action="do", fields={"method", "version", "params.array"})
  *
- * @CreateModel(microservice="ncanode", model="cms", action="validate", url="/cms/validate", fields={"cms", "iin", "bin", "rule", "constraints.array", "revoke.bool"})
+ * @CreateModel(microservice="ncanode", model="cms", action="validate", url="/cms/validate", fields={"cms", "data", "document", "thread", "iin", "bin", "rule", "constraints.array", "verify_ocsp.bool", "verify_crl.bool"})
  * @CreateModel(microservice="ncanode", model="cms", action="extract", url="/cms/extract", fields={"cms"}, response_fields={"data"})
  */
 interface Ncanode
