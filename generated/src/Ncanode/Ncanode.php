@@ -4,6 +4,19 @@ namespace Generated\Perfumer\Microservices\Ncanode;
 
 abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \Perfumer\Microservices\Contract\Ncanode\Ncanode
 {
+    public function doValidate(\Perfumer\Microservices\Ncanode\Request\Validate\DoValidateRequest $request): \Perfumer\Microservices\Ncanode\Response\Validate\DoValidateResponse
+    {
+        /** @var \Perfumer\Microservices\Ncanode\Response\Validate\DoValidateResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Ncanode\Response\Validate\DoValidateResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'validate');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->validate = $item;
+        }
+
+        return $response;
+    }
+
     public function getSignature(\Perfumer\Microservices\Ncanode\Request\Signature\GetSignatureRequest $request): \Perfumer\Microservices\Ncanode\Response\Signature\GetSignatureResponse
     {
         /** @var \Perfumer\Microservices\Ncanode\Response\Signature\GetSignatureResponse $response */
@@ -69,14 +82,32 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
         return $response;
     }
 
-    public function doValidate(\Perfumer\Microservices\Ncanode\Request\Validate\DoValidateRequest $request): \Perfumer\Microservices\Ncanode\Response\Validate\DoValidateResponse
+    public function validateCms(\Perfumer\Microservices\Ncanode\Request\Cms\ValidateCmsRequest $request): \Perfumer\Microservices\Ncanode\Response\Cms\ValidateCmsResponse
     {
-        /** @var \Perfumer\Microservices\Ncanode\Response\Validate\DoValidateResponse $response */
-        $response = $this->doRequest($request, new \Perfumer\Microservices\Ncanode\Response\Validate\DoValidateResponse());
-        $item = $this->fetchKeyFromContent($response->_content, 'validate');
+        /** @var \Perfumer\Microservices\Ncanode\Response\Cms\ValidateCmsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Ncanode\Response\Cms\ValidateCmsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'cms');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->validate = $item;
+            $response->cms = $item;
+        }
+
+        return $response;
+    }
+
+    public function extractCms(\Perfumer\Microservices\Ncanode\Request\Cms\ExtractCmsRequest $request): \Perfumer\Microservices\Ncanode\Response\Cms\ExtractCmsResponse
+    {
+        /** @var \Perfumer\Microservices\Ncanode\Response\Cms\ExtractCmsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Ncanode\Response\Cms\ExtractCmsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'data');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->data = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'cms');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->cms = $item;
         }
 
         return $response;

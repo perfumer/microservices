@@ -9,11 +9,11 @@ class Feed extends \Generated\Perfumer\Microservices\Feed\Feed
 {
     protected bool $dummy;
 
-    public function __construct($host, ?bool $dummy = false)
+    public function __construct(array $options = [])
     {
-        $this->host = $host;
+        parent::__construct($options);
 
-        $this->dummy = (bool) $dummy;
+        $this->dummy = $options['dummy'] ?? false;
     }
 
     protected function doRequest(Request $request, Response $response): Response

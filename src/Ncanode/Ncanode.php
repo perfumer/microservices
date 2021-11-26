@@ -9,14 +9,14 @@ class Ncanode extends \Generated\Perfumer\Microservices\Ncanode\Ncanode
      */
     private $segment;
 
-    public function __construct($host, $segment)
+    public function __construct(array $options = [])
     {
-        $this->host = $host;
+        parent::__construct($options);
 
-        $this->segment = $segment;
+        $this->segment = $options['segment'] ?? null;
 
-        if ($segment !== null && $segment !== '') {
-            $this->addHeader('Api-Segment', $segment);
+        if ($this->segment !== null && $this->segment !== '') {
+            $this->addHeader('Api-Segment', $this->segment);
         }
     }
 

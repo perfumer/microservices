@@ -19,11 +19,11 @@ class Es extends \Generated\Perfumer\Microservices\Es\Es
 {
     protected $dummy;
 
-    public function __construct($host, bool $dummy = false)
+    public function __construct(array $options = [])
     {
-        $this->host = $host;
+        parent::__construct($options);
 
-        $this->dummy = $dummy;
+        $this->dummy = $options['dummy'] ?? false;
     }
 
     public function createIndex(CreateIndexRequest $request): CreateIndexResponse

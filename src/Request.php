@@ -10,6 +10,13 @@ class Request
     public $_debug = false;
 
     /**
+     * If enabled this request will be catched and sent to Request Catcher
+     *
+     * @var bool
+     */
+    public $_catch = false;
+
+    /**
      * @var int
      */
     public $_timeout = 30;

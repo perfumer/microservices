@@ -4,36 +4,67 @@ return [
     'microservices.box' => [
         'shared' => true,
         'class' => 'Perfumer\\Microservices\\Box\\Box',
-        'arguments' => ['@microservices/box.host', '@microservices/box.secret']
+        'arguments' => [[
+            'host' => '@microservices/box.host',
+            'secret' => '@microservices/box.secret',
+            'request_catcher_host' => '@microservices/request_catcher.host',
+        ]]
     ],
 
     'microservices.delivery' => [
         'shared' => true,
         'class' => 'Perfumer\\Microservices\\Delivery\\Delivery',
-        'arguments' => ['@microservices/delivery.host']
+        'arguments' => [[
+            'host' => '@microservices/delivery.host',
+            'request_catcher_host' => '@microservices/request_catcher.host',
+        ]]
+    ],
+
+    'microservices.email' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Email\\Email',
+        'arguments' => [[
+            'host' => '@microservices/email.host',
+            'request_catcher_host' => '@microservices/request_catcher.host',
+        ]]
     ],
 
     'microservices.es' => [
         'shared' => true,
         'class' => 'Perfumer\\Microservices\\Es\\Es',
-        'arguments' => ['@microservices/es.host', '@microservices/es.dummy']
+        'arguments' => [[
+            'host' => '@microservices/es.host',
+            'dummy' => '@microservices/es.dummy',
+            'request_catcher_host' => '@microservices/request_catcher.host',
+        ]]
     ],
 
     'microservices.feed' => [
         'shared' => true,
         'class' => 'Perfumer\\Microservices\\Feed\\Feed',
-        'arguments' => ['@microservices/feed.host', '@microservices/feed.dummy']
+        'arguments' => [[
+            'host' => '@microservices/feed.host',
+            'dummy' => '@microservices/feed.dummy',
+            'request_catcher_host' => '@microservices/request_catcher.host',
+        ]]
     ],
 
     'microservices.ncanode' => [
         'shared' => true,
         'class' => 'Perfumer\\Microservices\\Ncanode\\Ncanode',
-        'arguments' => ['@microservices/ncanode.host', '@microservices/segment']
+        'arguments' => [[
+            'host' => '@microservices/ncanode.host',
+            'segment' => '@microservices/segment',
+            'request_catcher_host' => '@microservices/request_catcher.host',
+        ]]
     ],
 
     'microservices.otp' => [
         'shared' => true,
         'class' => 'Perfumer\\Microservices\\Otp\\Otp',
-        'arguments' => ['@microservices/otp.host']
+        'arguments' => [[
+            'host' => '@microservices/otp.host',
+            'request_catcher_host' => '@microservices/request_catcher.host',
+        ]]
     ],
 ];
