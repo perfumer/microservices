@@ -7,6 +7,12 @@ class ValidateCmsResponse extends \Perfumer\Microservices\Response
     /**
      * @var array
      */
+    public $signer = [
+    ];
+
+    /**
+     * @var array
+     */
     public $cms = [
     ];
 }
