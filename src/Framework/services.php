@@ -67,4 +67,13 @@ return [
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
     ],
+
+    'microservices.queue' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Queue\\Queue',
+        'arguments' => [[
+            'host' => '@microservices/queue.host',
+            'request_catcher_host' => '@microservices/request_catcher.host',
+        ]]
+    ],
 ];
