@@ -2,8 +2,8 @@
 
 namespace Perfumer\Microservices\Annotation;
 
-use Zend\Code\Generator\MethodGenerator;
-use Zend\Code\Generator\ParameterGenerator;
+use Laminas\Code\Generator\MethodGenerator;
+use Laminas\Code\Generator\ParameterGenerator;
 
 /**
  * @Annotation

@@ -16,7 +16,7 @@ class Box extends \Generated\Perfumer\Microservices\Box\Box
         $this->secret = $options['secret'] ?? null;
 
         if ($this->secret) {
-            $this->addHeader('Api-Secret', $secret);
+            $this->addHeader('Api-Secret', $this->secret);
         }
     }
 

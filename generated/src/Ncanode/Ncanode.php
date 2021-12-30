@@ -86,6 +86,11 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
     {
         /** @var \Perfumer\Microservices\Ncanode\Response\Cms\ValidateCmsResponse $response */
         $response = $this->doRequest($request, new \Perfumer\Microservices\Ncanode\Response\Cms\ValidateCmsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'signer');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->signer = $item;
+        }
         $item = $this->fetchKeyFromContent($response->_content, 'cms');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
