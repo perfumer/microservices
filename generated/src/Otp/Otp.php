@@ -107,4 +107,17 @@ abstract class Otp extends \Perfumer\Microservices\Microservice implements \Perf
 
         return $response;
     }
+
+    public function getTarget(\Perfumer\Microservices\Otp\Request\Target\GetTargetRequest $request): \Perfumer\Microservices\Otp\Response\Target\GetTargetResponse
+    {
+        /** @var \Perfumer\Microservices\Otp\Response\Target\GetTargetResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Otp\Response\Target\GetTargetResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'target');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->target = $item;
+        }
+
+        return $response;
+    }
 }

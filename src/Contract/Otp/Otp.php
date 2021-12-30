@@ -14,6 +14,7 @@ use Perfumer\Microservices\Annotation\SaveModel;
  * @GetModel(microservice="otp", model="email", fields={"email", "password"}, url="/email/check")
  * @SaveModel(microservice="otp", model="email", fields={"ip", "email", "password", "subject", "text", "html", "lifetime"})
  * @SaveModel(microservice="otp", model="email", submodel="LimitEmails", fields={"ips", "emails"}, url="/limit/emails")
+ * @GetModel(microservice="otp", model="target", fields={"channel", "password"})
  */
 interface Otp
 {
