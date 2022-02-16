@@ -26,6 +26,11 @@ class Microservice
     protected $_host;
 
     /**
+     * @var string
+     */
+    protected $_locale;
+
+    /**
      * @var array
      */
     protected $_headers = [];
@@ -33,6 +38,7 @@ class Microservice
     public function __construct(array $options = [])
     {
         $this->_host = $options['host'] ?? null;
+        $this->_locale = $options['locale'] ?? null;
         $this->_request_catcher_host = $options['request_catcher_host'] ?? null;
     }
 
@@ -50,6 +56,22 @@ class Microservice
     public function setHost(string $host): void
     {
         $this->_host = $host;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocale(): string
+    {
+        return $this->_locale;
+    }
+
+    /**
+     * @param string $locale
+     */
+    public function setLocale(string $locale): void
+    {
+        $this->_locale = $locale;
     }
 
     /**
@@ -99,7 +121,13 @@ class Microservice
 
         $url = $this->_host . $request->_request_url;
 
-        $headers = array_merge($this->_headers, $request->getHeaders());
+        $headers = [];
+
+        if ($this->_locale) {
+            $headers['Api-Locale'] = $this->_locale;
+        }
+
+        $headers = array_merge($headers, $this->_headers, $request->getHeaders());
 
         $options = [
             'connect_timeout' => 3,
