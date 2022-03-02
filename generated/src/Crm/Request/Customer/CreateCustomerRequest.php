@@ -116,167 +116,12 @@ class CreateCustomerRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $passport_number = null;
+    public $gender = null;
 
     /**
      * @var string
      */
-    public $id_number = null;
-
-    /**
-     * @var string
-     */
-    public $id_date_issue = null;
-
-    /**
-     * @var string
-     */
-    public $id_date_expiry = null;
-
-    /**
-     * @var int
-     */
-    public $id_issuing_authority_id = null;
-
-    /**
-     * @var int
-     */
-    public $id_nationality_id = null;
-
-    /**
-     * @var int
-     */
-    public $id_place_birth_id = null;
-
-    /**
-     * @var string
-     */
-    public $id_date_birth = null;
-
-    /**
-     * @var string
-     */
-    public $id_gender = null;
-
-    /**
-     * @var string
-     */
-    public $company_logo = null;
-
-    /**
-     * @var string
-     */
-    public $company_name_official = null;
-
-    /**
-     * @var string
-     */
-    public $company_iin_bin = null;
-
-    /**
-     * @var string
-     */
-    public $company_email = null;
-
-    /**
-     * @var string
-     */
-    public $company_telephone = null;
-
-    /**
-     * @var string
-     */
-    public $company_fax = null;
-
-    /**
-     * @var string
-     */
-    public $transaction_account = null;
-
-    /**
-     * @var string
-     */
-    public $company_transaction_account = null;
-
-    /**
-     * @var int
-     */
-    public $company_bank_id = null;
-
-    /**
-     * @var string
-     */
-    public $company_correspondent_account = null;
-
-    /**
-     * @var int
-     */
-    public $bank_id = null;
-
-    /**
-     * @var int
-     */
-    public $region_id = null;
-
-    /**
-     * @var int
-     */
-    public $kato_id = null;
-
-    /**
-     * @var string
-     */
-    public $address = null;
-
-    /**
-     * @var int
-     */
-    public $company_region_official_id = null;
-
-    /**
-     * @var int
-     */
-    public $company_kato_official_id = null;
-
-    /**
-     * @var string
-     */
-    public $company_address_official = null;
-
-    /**
-     * @var int
-     */
-    public $company_region_id = null;
-
-    /**
-     * @var int
-     */
-    public $company_kato_id = null;
-
-    /**
-     * @var string
-     */
-    public $company_address = null;
-
-    /**
-     * @var string
-     */
-    public $signatory_name_official = null;
-
-    /**
-     * @var string
-     */
-    public $signatory_position = null;
-
-    /**
-     * @var string
-     */
-    public $signatory_authority = null;
-
-    /**
-     * @var string
-     */
-    public $signatory_authority_document = null;
+    public $locale = null;
 
     public function __construct()
     {
@@ -303,39 +148,8 @@ class CreateCustomerRequest extends \Perfumer\Microservices\Request
         $this->groups = new \Perfumer\Microservices\Undefined();
         $this->payload = new \Perfumer\Microservices\Undefined();
         $this->auto_fields = new \Perfumer\Microservices\Undefined();
-        $this->passport_number = new \Perfumer\Microservices\Undefined();
-        $this->id_number = new \Perfumer\Microservices\Undefined();
-        $this->id_date_issue = new \Perfumer\Microservices\Undefined();
-        $this->id_date_expiry = new \Perfumer\Microservices\Undefined();
-        $this->id_issuing_authority_id = new \Perfumer\Microservices\Undefined();
-        $this->id_nationality_id = new \Perfumer\Microservices\Undefined();
-        $this->id_place_birth_id = new \Perfumer\Microservices\Undefined();
-        $this->id_date_birth = new \Perfumer\Microservices\Undefined();
-        $this->id_gender = new \Perfumer\Microservices\Undefined();
-        $this->company_logo = new \Perfumer\Microservices\Undefined();
-        $this->company_name_official = new \Perfumer\Microservices\Undefined();
-        $this->company_iin_bin = new \Perfumer\Microservices\Undefined();
-        $this->company_email = new \Perfumer\Microservices\Undefined();
-        $this->company_telephone = new \Perfumer\Microservices\Undefined();
-        $this->company_fax = new \Perfumer\Microservices\Undefined();
-        $this->transaction_account = new \Perfumer\Microservices\Undefined();
-        $this->company_transaction_account = new \Perfumer\Microservices\Undefined();
-        $this->company_bank_id = new \Perfumer\Microservices\Undefined();
-        $this->company_correspondent_account = new \Perfumer\Microservices\Undefined();
-        $this->bank_id = new \Perfumer\Microservices\Undefined();
-        $this->region_id = new \Perfumer\Microservices\Undefined();
-        $this->kato_id = new \Perfumer\Microservices\Undefined();
-        $this->address = new \Perfumer\Microservices\Undefined();
-        $this->company_region_official_id = new \Perfumer\Microservices\Undefined();
-        $this->company_kato_official_id = new \Perfumer\Microservices\Undefined();
-        $this->company_address_official = new \Perfumer\Microservices\Undefined();
-        $this->company_region_id = new \Perfumer\Microservices\Undefined();
-        $this->company_kato_id = new \Perfumer\Microservices\Undefined();
-        $this->company_address = new \Perfumer\Microservices\Undefined();
-        $this->signatory_name_official = new \Perfumer\Microservices\Undefined();
-        $this->signatory_position = new \Perfumer\Microservices\Undefined();
-        $this->signatory_authority = new \Perfumer\Microservices\Undefined();
-        $this->signatory_authority_document = new \Perfumer\Microservices\Undefined();
+        $this->gender = new \Perfumer\Microservices\Undefined();
+        $this->locale = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -404,104 +218,11 @@ class CreateCustomerRequest extends \Perfumer\Microservices\Request
         if (!$this->auto_fields instanceof \Perfumer\Microservices\Undefined) {
             $array['auto_fields'] = $this->auto_fields;
         }
-        if (!$this->passport_number instanceof \Perfumer\Microservices\Undefined) {
-            $array['passport_number'] = $this->passport_number;
+        if (!$this->gender instanceof \Perfumer\Microservices\Undefined) {
+            $array['gender'] = $this->gender;
         }
-        if (!$this->id_number instanceof \Perfumer\Microservices\Undefined) {
-            $array['id_number'] = $this->id_number;
-        }
-        if (!$this->id_date_issue instanceof \Perfumer\Microservices\Undefined) {
-            $array['id_date_issue'] = $this->id_date_issue;
-        }
-        if (!$this->id_date_expiry instanceof \Perfumer\Microservices\Undefined) {
-            $array['id_date_expiry'] = $this->id_date_expiry;
-        }
-        if (!$this->id_issuing_authority_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['id_issuing_authority_id'] = $this->id_issuing_authority_id;
-        }
-        if (!$this->id_nationality_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['id_nationality_id'] = $this->id_nationality_id;
-        }
-        if (!$this->id_place_birth_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['id_place_birth_id'] = $this->id_place_birth_id;
-        }
-        if (!$this->id_date_birth instanceof \Perfumer\Microservices\Undefined) {
-            $array['id_date_birth'] = $this->id_date_birth;
-        }
-        if (!$this->id_gender instanceof \Perfumer\Microservices\Undefined) {
-            $array['id_gender'] = $this->id_gender;
-        }
-        if (!$this->company_logo instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_logo'] = $this->company_logo;
-        }
-        if (!$this->company_name_official instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_name_official'] = $this->company_name_official;
-        }
-        if (!$this->company_iin_bin instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_iin_bin'] = $this->company_iin_bin;
-        }
-        if (!$this->company_email instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_email'] = $this->company_email;
-        }
-        if (!$this->company_telephone instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_telephone'] = $this->company_telephone;
-        }
-        if (!$this->company_fax instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_fax'] = $this->company_fax;
-        }
-        if (!$this->transaction_account instanceof \Perfumer\Microservices\Undefined) {
-            $array['transaction_account'] = $this->transaction_account;
-        }
-        if (!$this->company_transaction_account instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_transaction_account'] = $this->company_transaction_account;
-        }
-        if (!$this->company_bank_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_bank_id'] = $this->company_bank_id;
-        }
-        if (!$this->company_correspondent_account instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_correspondent_account'] = $this->company_correspondent_account;
-        }
-        if (!$this->bank_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['bank_id'] = $this->bank_id;
-        }
-        if (!$this->region_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['region_id'] = $this->region_id;
-        }
-        if (!$this->kato_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['kato_id'] = $this->kato_id;
-        }
-        if (!$this->address instanceof \Perfumer\Microservices\Undefined) {
-            $array['address'] = $this->address;
-        }
-        if (!$this->company_region_official_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_region_official_id'] = $this->company_region_official_id;
-        }
-        if (!$this->company_kato_official_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_kato_official_id'] = $this->company_kato_official_id;
-        }
-        if (!$this->company_address_official instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_address_official'] = $this->company_address_official;
-        }
-        if (!$this->company_region_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_region_id'] = $this->company_region_id;
-        }
-        if (!$this->company_kato_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_kato_id'] = $this->company_kato_id;
-        }
-        if (!$this->company_address instanceof \Perfumer\Microservices\Undefined) {
-            $array['company_address'] = $this->company_address;
-        }
-        if (!$this->signatory_name_official instanceof \Perfumer\Microservices\Undefined) {
-            $array['signatory_name_official'] = $this->signatory_name_official;
-        }
-        if (!$this->signatory_position instanceof \Perfumer\Microservices\Undefined) {
-            $array['signatory_position'] = $this->signatory_position;
-        }
-        if (!$this->signatory_authority instanceof \Perfumer\Microservices\Undefined) {
-            $array['signatory_authority'] = $this->signatory_authority;
-        }
-        if (!$this->signatory_authority_document instanceof \Perfumer\Microservices\Undefined) {
-            $array['signatory_authority_document'] = $this->signatory_authority_document;
+        if (!$this->locale instanceof \Perfumer\Microservices\Undefined) {
+            $array['locale'] = $this->locale;
         }
 
         return $array;

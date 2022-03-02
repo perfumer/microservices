@@ -117,6 +117,16 @@ return [
         ]]
     ],
 
+    'microservices.notify' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Notify\\Notify',
+        'arguments' => [[
+            'host' => '@microservices/notify.host',
+            'locale' => '@microservices/locale',
+            'request_catcher_host' => '@microservices/request_catcher.host',
+        ]]
+    ],
+
     'microservices.otp' => [
         'shared' => true,
         'class' => 'Perfumer\\Microservices\\Otp\\Otp',
