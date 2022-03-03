@@ -17,6 +17,11 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $customer_name = null;
+
+    /**
+     * @var string
+     */
     public $description = null;
 
     /**
@@ -42,6 +47,7 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
         $this->_request_method = 'post';
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
+        $this->customer_name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
@@ -56,6 +62,9 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->name instanceof \Perfumer\Microservices\Undefined) {
             $array['name'] = $this->name;
+        }
+        if (!$this->customer_name instanceof \Perfumer\Microservices\Undefined) {
+            $array['customer_name'] = $this->customer_name;
         }
         if (!$this->description instanceof \Perfumer\Microservices\Undefined) {
             $array['description'] = $this->description;
