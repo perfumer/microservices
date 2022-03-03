@@ -34,4 +34,17 @@ abstract class Notify extends \Perfumer\Microservices\Microservice implements \P
 
         return $response;
     }
+
+    public function getNotification(\Perfumer\Microservices\Notify\Request\Notification\GetNotificationRequest $request): \Perfumer\Microservices\Notify\Response\Notification\GetNotificationResponse
+    {
+        /** @var \Perfumer\Microservices\Notify\Response\Notification\GetNotificationResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Notify\Response\Notification\GetNotificationResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'notification');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->notification = $item;
+        }
+
+        return $response;
+    }
 }
