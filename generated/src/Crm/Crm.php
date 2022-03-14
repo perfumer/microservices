@@ -1259,6 +1259,19 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function updateTask(\Perfumer\Microservices\Crm\Request\Task\UpdateTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\UpdateTaskResponse
+    {
+        /** @var \Perfumer\Microservices\Crm\Response\Task\UpdateTaskResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\Task\UpdateTaskResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'task');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->task = $item;
+        }
+
+        return $response;
+    }
+
     public function getTasks(\Perfumer\Microservices\Crm\Request\Tasks\GetTasksRequest $request): \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse
     {
         /** @var \Perfumer\Microservices\Crm\Response\Tasks\GetTasksResponse $response */
