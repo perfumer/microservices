@@ -122,7 +122,6 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModel(microservice="crm", model="task", fields={"id.int", "code"})
  * @DeleteModel(microservice="crm", model="task", fields={"id.int", "code"})
- * @SaveModel(microservice="crm", model="task", fields={"user", "customer", "activity", "ticket", "group", "code", "deadline_at", "wake_at", "process_scenario", "pipeline_branch.int", "complexity", "state", "description", "link", "payload.array"})
  * @UpdateModel(microservice="crm", model="task", fields={"id.int", "code", "user", "customer", "activity", "group", "deadline_at", "wake_at", "complexity", "description", "link", "payload.array"})
  * @GetModels(microservice="crm", model="tasks", fields={"id", "ticket", "state", "process_scenario", "pipeline_branch.int", "is_closed.bool", "user_id.int", "customer_id.int", "is_applicant.bool", "applicant_user_id.int", "applicant_customer_id.int", "type", "description", "wake_at_from", "wake_at_to", "deadline_at_from", "deadline_at_to", "closed_at_from", "closed_at_to", "expire_at_from", "expire_at_to", "activity", "ticket", "group", "code", "closed_at", "complexity", "state", "description", "link"})
  * @GetModels(microservice="crm", model="tasks", submodel="ClosedTasksStats",  url="stats/closed-tasks", fields={"business_case", "closed_at_from", "closed_at_to"}, response_fields={"stats.array"})
