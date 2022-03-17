@@ -2,7 +2,7 @@
 
 namespace Generated\Perfumer\Microservices\Crm\Response\Task;
 
-class SaveTaskResponse extends \Perfumer\Microservices\Response
+class UpdateTaskResponse extends \Perfumer\Microservices\Response
 {
     /**
      * @var array

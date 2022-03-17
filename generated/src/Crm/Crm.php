@@ -1246,10 +1246,10 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
-    public function saveTask(\Perfumer\Microservices\Crm\Request\Task\SaveTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\SaveTaskResponse
+    public function updateTask(\Perfumer\Microservices\Crm\Request\Task\UpdateTaskRequest $request): \Perfumer\Microservices\Crm\Response\Task\UpdateTaskResponse
     {
-        /** @var \Perfumer\Microservices\Crm\Response\Task\SaveTaskResponse $response */
-        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\Task\SaveTaskResponse());
+        /** @var \Perfumer\Microservices\Crm\Response\Task\UpdateTaskResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\Task\UpdateTaskResponse());
         $item = $this->fetchKeyFromContent($response->_content, 'task');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
