@@ -38,8 +38,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModel(microservice="forms", model="field", fields={"id.int", "locale"})
  * @DeleteModel(microservice="forms", model="field", fields={"id.int"})
- * @SaveModel(microservice="forms", model="field", fields={"label.array", "type", "model", "module", "reference", "is_required.bool", "is_dedicated.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode"})
- * @UpdateModel(microservice="forms", model="field", fields={"id.int", "type", "label.array", "model", "module", "reference", "is_required.bool", "is_dedicated.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode"})
+ * @SaveModel(microservice="forms", model="field", fields={"label.array", "type", "model", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode"})
+ * @UpdateModel(microservice="forms", model="field", fields={"id.int", "type", "label.array", "model", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode"})
  * @GetModels(microservice="forms", model="fields", fields={"label", "type", "model", "locale", "module", "reference", "priority.int", "module_target"})
  *
  * @GetModel(microservice="forms", model="module", fields={"id.int", "code"})
