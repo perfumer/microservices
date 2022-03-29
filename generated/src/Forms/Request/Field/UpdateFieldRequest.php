@@ -46,6 +46,11 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
     public $is_dedicated = null;
 
     /**
+     * @var bool
+     */
+    public $is_invisible_for_applicant = null;
+
+    /**
      * @var string
      */
     public $dedicated_column_index = null;
@@ -77,6 +82,7 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
         $this->reference = new \Perfumer\Microservices\Undefined();
         $this->is_required = new \Perfumer\Microservices\Undefined();
         $this->is_dedicated = new \Perfumer\Microservices\Undefined();
+        $this->is_invisible_for_applicant = new \Perfumer\Microservices\Undefined();
         $this->dedicated_column_index = new \Perfumer\Microservices\Undefined();
         $this->priority = new \Perfumer\Microservices\Undefined();
         $this->bind_field = new \Perfumer\Microservices\Undefined();
@@ -109,6 +115,9 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_dedicated instanceof \Perfumer\Microservices\Undefined) {
             $array['is_dedicated'] = $this->is_dedicated;
+        }
+        if (!$this->is_invisible_for_applicant instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_invisible_for_applicant'] = $this->is_invisible_for_applicant;
         }
         if (!$this->dedicated_column_index instanceof \Perfumer\Microservices\Undefined) {
             $array['dedicated_column_index'] = $this->dedicated_column_index;
