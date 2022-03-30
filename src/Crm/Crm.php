@@ -2,6 +2,9 @@
 
 namespace Perfumer\Microservices\Crm;
 
+use Perfumer\Microservices\Crm\Request\Ticket\SaveTicketRequest;
+use Perfumer\Microservices\Crm\Response\Ticket\SaveTicketResponse;
+
 class Crm extends \Generated\Perfumer\Microservices\Crm\Crm
 {
     /**
@@ -38,5 +41,20 @@ class Crm extends \Generated\Perfumer\Microservices\Crm\Crm
         $this->segment = $segment;
 
         $this->addHeader('Api-Segment', $segment);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function saveTicket(SaveTicketRequest $request): SaveTicketResponse
+    {
+        $response = $this->doRequest($request, new SaveTicketResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'ticket');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->ticket = $item;
+        }
+
+        return $response;
     }
 }
