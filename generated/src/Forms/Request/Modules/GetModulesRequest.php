@@ -22,6 +22,11 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $target = null;
+
+    /**
+     * @var string
+     */
     public $description = null;
 
     /**
@@ -121,6 +126,7 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
+        $this->target = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->applicant = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
@@ -153,6 +159,9 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;
+        }
+        if (!$this->target instanceof \Perfumer\Microservices\Undefined) {
+            $array['target'] = $this->target;
         }
         if (!$this->description instanceof \Perfumer\Microservices\Undefined) {
             $array['description'] = $this->description;

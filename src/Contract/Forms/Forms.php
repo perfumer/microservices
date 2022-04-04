@@ -47,7 +47,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @CreateMeshModel(microservice="forms", model="module", fields={"code","name", "customer_name","description", "applicant", "target", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool", "is_dedicated_table.bool","form_page","form_page_bulk","silent.bool","is_protected.bool","payload.array","data_module_id.int"})
  * @UpdateMeshModel(microservice="forms", model="module", fields={"id.int","code","name", "customer_name","description", "applicant", "target", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool", "is_dedicated_table.bool","form_page","form_page_bulk","is_protected.bool","payload.array","data_module_id.int"})
  * @UpsertMeshModel(microservice="forms", model="module", fields={"code","name", "customer_name","description", "applicant", "target", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool", "is_dedicated_table.bool","form_page","form_page_bulk","is_protected.bool","payload.array","data_module_id.int"})
- * @GetMeshModels(microservice="forms", model="modules", fields={"id.int", "name", "code", "description", "applicant", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool"})
+ * @GetMeshModels(microservice="forms", model="modules", fields={"id.int", "name", "code", "target", "description", "applicant", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool"})
  * @CopyModel(microservice="forms", model="module")
  * @MigrateModel(microservice="forms", model="module")
  * @SaveModel(microservice="forms", model="module", fields={"id.int"}, url="/module/archive", action="archive")
