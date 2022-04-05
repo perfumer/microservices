@@ -46,6 +46,11 @@ class GetCustomerProfilesRequest extends \Perfumer\Microservices\Request
     public $id = null;
 
     /**
+     * @var bool
+     */
+    public $build = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -102,6 +107,7 @@ class GetCustomerProfilesRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->username = new \Perfumer\Microservices\Undefined();
         $this->id = new \Perfumer\Microservices\Undefined();
+        $this->build = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -139,6 +145,9 @@ class GetCustomerProfilesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
+        }
+        if (!$this->build instanceof \Perfumer\Microservices\Undefined) {
+            $array['build'] = $this->build;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
