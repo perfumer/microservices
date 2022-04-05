@@ -5,9 +5,16 @@ namespace Generated\Perfumer\Microservices\Crm\Response\User;
 class GetUserProfileResponse extends \Perfumer\Microservices\Response
 {
     /**
-     * @var string
+     * @var array
      */
-    public $profile = null;
+    public $profile = [
+    ];
+
+    /**
+     * @var array
+     */
+    public $built_profile = [
+    ];
 
     /**
      * @var array

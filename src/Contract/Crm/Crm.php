@@ -88,8 +88,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @UpdateModel(microservice="crm", model="user", submodel="UserPassword", fields={"user_id.int", "password", "password_confirm", "old_password", "check_old_password.bool", "check_password_confirm.bool"}, url="/user/password")
  * @GetModels(microservice="crm", model="users", fields={"id.array", "role.array", "group.array", "last_name", "first_name", "mid_name", "full_name", "email", "phone", "iin", "code", "is_disabled.bool", "created_at_from", "created_at_to"})
  * @GetModels(microservice="crm", model="user", submodel="UserForms", fields={"user_id.int"}, url="/user/forms", response_fields={"forms"})
- * @GetModels(microservice="crm", model="user", submodel="UserProfiles", fields={"modules.array", "email", "phone", "iin", "code", "username", "id.int", "build.bool"}, url="/user/profiles", response_fields={"profiles"})
- * @GetModel(microservice="crm", model="user", submodel="UserProfile", fields={"module", "email", "phone", "iin", "code", "username", "id.int", "build.bool"}, url="/user/profile", response_fields={"profile"})
+ * @GetModels(microservice="crm", model="user", submodel="UserProfiles", fields={"modules.array", "email", "phone", "iin", "code", "username", "id.int", "build.bool"}, url="/user/profiles", response_fields={"profiles.array", "built_profiles.array"})
+ * @GetModel(microservice="crm", model="user", submodel="UserProfile", fields={"module", "email", "phone", "iin", "code", "username", "id.int", "build.bool"}, url="/user/profile", response_fields={"profile.array", "built_profile.array"})
  * @SaveModel(microservice="crm", model="user", url="user/work-session", submodel="UserWorkSession", fields={"user"}, response_fields={"is_working.bool"}, action="create")
  * @DeleteModel(microservice="crm", model="user", url="user/work-session", submodel="UserWorkSession", fields={"user"}, response_fields={"is_working.bool"})
  *
@@ -140,8 +140,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @UpdateModel(microservice="crm", model="customer", submodel="CustomerPassword", fields={"customer_id.int", "password", "password_confirm", "old_password", "check_old_password.bool", "check_password_confirm.bool"}, url="/customer/password")
  * @GetModels(microservice="crm", model="customers", fields={"id.array", "group.array", "last_name", "first_name", "mid_name", "full_name", "email", "phone", "iin", "bin", "iin_bin", "type", "is_disabled.bool", "code", "created_at_from", "created_at_to"})
  * @GetModels(microservice="crm", model="customer", submodel="CustomerForms", fields={"customer_id.int"}, url="/customer/forms", response_fields={"forms"})
- * @GetModels(microservice="crm", model="customer", submodel="CustomerProfiles", fields={"modules.array", "email", "phone", "iin", "bin", "code", "username", "id.int", "build.bool"}, url="/customer/profiles", response_fields={"profiles"})
- * @GetModel(microservice="crm", model="customer", submodel="CustomerProfile", fields={"module", "email", "phone", "iin", "bin", "code", "username", "id.int", "build.bool"}, url="/customer/profile", response_fields={"profile"})
+ * @GetModels(microservice="crm", model="customer", submodel="CustomerProfiles", fields={"modules.array", "email", "phone", "iin", "bin", "code", "username", "id.int", "build.bool"}, url="/customer/profiles", response_fields={"profiles.array", "built_profiles.array"})
+ * @GetModel(microservice="crm", model="customer", submodel="CustomerProfile", fields={"module", "email", "phone", "iin", "bin", "code", "username", "id.int", "build.bool"}, url="/customer/profile", response_fields={"profile.array", "built_profile.array"})
  *
  * @SaveModel(microservice="crm", model="customer", fields={"customer", "group"}, action="add", submodel="CustomerGroup", url="/customer-group")
  * @DeleteModel(microservice="crm", model="customer", fields={"customer", "group"}, action="delete", submodel="CustomerGroup", url="/customer-group")
