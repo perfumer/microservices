@@ -30,6 +30,16 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
     public $description = null;
 
     /**
+     * @var string
+     */
+    public $allowed_crm_module = null;
+
+    /**
+     * @var string
+     */
+    public $allowed_crm_module_mode = null;
+
+    /**
      * @var bool
      */
     public $is_archived = null;
@@ -55,6 +65,8 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->customer_name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
+        $this->allowed_crm_module = new \Perfumer\Microservices\Undefined();
+        $this->allowed_crm_module_mode = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->children = new \Perfumer\Microservices\Undefined();
@@ -77,6 +89,12 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->description instanceof \Perfumer\Microservices\Undefined) {
             $array['description'] = $this->description;
+        }
+        if (!$this->allowed_crm_module instanceof \Perfumer\Microservices\Undefined) {
+            $array['allowed_crm_module'] = $this->allowed_crm_module;
+        }
+        if (!$this->allowed_crm_module_mode instanceof \Perfumer\Microservices\Undefined) {
+            $array['allowed_crm_module_mode'] = $this->allowed_crm_module_mode;
         }
         if (!$this->is_archived instanceof \Perfumer\Microservices\Undefined) {
             $array['is_archived'] = $this->is_archived;
