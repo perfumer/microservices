@@ -34,6 +34,11 @@ class CreateClientRequest extends \Perfumer\Microservices\Request
      */
     public $is_manual_mode = null;
 
+    /**
+     * @var bool
+     */
+    public $has_latest_platform = null;
+
     public function __construct()
     {
         $this->_request_url = '/client';
@@ -44,6 +49,7 @@ class CreateClientRequest extends \Perfumer\Microservices\Request
         $this->full_name = new \Perfumer\Microservices\Undefined();
         $this->server_ip = new \Perfumer\Microservices\Undefined();
         $this->is_manual_mode = new \Perfumer\Microservices\Undefined();
+        $this->has_latest_platform = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -66,6 +72,9 @@ class CreateClientRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_manual_mode instanceof \Perfumer\Microservices\Undefined) {
             $array['is_manual_mode'] = $this->is_manual_mode;
+        }
+        if (!$this->has_latest_platform instanceof \Perfumer\Microservices\Undefined) {
+            $array['has_latest_platform'] = $this->has_latest_platform;
         }
 
         return $array;
