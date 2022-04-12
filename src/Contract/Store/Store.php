@@ -13,8 +13,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
 /**
  * @GetModels(microservice="store", model="clients", fields={"email", "phone", "domain", "full_name", "server_ip", "is_manual_mode.bool"})
  * @GetModel(microservice="store", model="client", fields={"id.int", "token"})
- * @CreateModel(microservice="store", model="client", fields={"email", "phone", "domain", "full_name", "server_ip", "is_manual_mode.bool"})
- * @UpdateModel(microservice="store", model="client", fields={"id.int", "email", "phone", "domain", "full_name", "server_ip", "is_manual_mode.bool"})
+ * @CreateModel(microservice="store", model="client", fields={"email", "phone", "domain", "full_name", "server_ip", "is_manual_mode.bool", "has_latest_platform.bool"})
+ * @UpdateModel(microservice="store", model="client", fields={"id.int", "email", "phone", "domain", "full_name", "server_ip", "is_manual_mode.bool", "has_latest_platform.bool"})
  * @DeleteModel(microservice="store", model="client", fields={"id.int"})
  *
  * @GetModel(microservice="store", model="extension", fields={"id.int", "code"})
