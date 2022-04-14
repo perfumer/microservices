@@ -277,6 +277,19 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function processFieldValues(\Perfumer\Microservices\Forms\Request\Field\ProcessFieldValuesRequest $request): \Perfumer\Microservices\Forms\Response\Field\ProcessFieldValuesResponse
+    {
+        /** @var \Perfumer\Microservices\Forms\Response\Field\ProcessFieldValuesResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Forms\Response\Field\ProcessFieldValuesResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'field');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->field = $item;
+        }
+
+        return $response;
+    }
+
     public function getModule(\Perfumer\Microservices\Forms\Request\Module\GetModuleRequest $request): \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse
     {
         /** @var \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse $response */
@@ -556,6 +569,66 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->references = $item;
+        }
+
+        return $response;
+    }
+
+    public function getValue(\Perfumer\Microservices\Forms\Request\Value\GetValueRequest $request): \Perfumer\Microservices\Forms\Response\Value\GetValueResponse
+    {
+        /** @var \Perfumer\Microservices\Forms\Response\Value\GetValueResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Forms\Response\Value\GetValueResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'value');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->value = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteValue(\Perfumer\Microservices\Forms\Request\Value\DeleteValueRequest $request): \Perfumer\Microservices\Forms\Response\Value\DeleteValueResponse
+    {
+        /** @var \Perfumer\Microservices\Forms\Response\Value\DeleteValueResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Forms\Response\Value\DeleteValueResponse());
+
+        return $response;
+    }
+
+    public function createValue(\Perfumer\Microservices\Forms\Request\Value\CreateValueRequest $request): \Perfumer\Microservices\Forms\Response\Value\CreateValueResponse
+    {
+        /** @var \Perfumer\Microservices\Forms\Response\Value\CreateValueResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Forms\Response\Value\CreateValueResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'value');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->value = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateValue(\Perfumer\Microservices\Forms\Request\Value\UpdateValueRequest $request): \Perfumer\Microservices\Forms\Response\Value\UpdateValueResponse
+    {
+        /** @var \Perfumer\Microservices\Forms\Response\Value\UpdateValueResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Forms\Response\Value\UpdateValueResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'value');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->value = $item;
+        }
+
+        return $response;
+    }
+
+    public function upsertValue(\Perfumer\Microservices\Forms\Request\Value\UpsertValueRequest $request): \Perfumer\Microservices\Forms\Response\Value\UpsertValueResponse
+    {
+        /** @var \Perfumer\Microservices\Forms\Response\Value\UpsertValueResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Forms\Response\Value\UpsertValueResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'value');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->value = $item;
         }
 
         return $response;
