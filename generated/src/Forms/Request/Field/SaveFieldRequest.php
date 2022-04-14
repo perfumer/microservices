@@ -65,6 +65,16 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
      */
     public $bind_field_mode = null;
 
+    /**
+     * @var string
+     */
+    public $aggregation_tag = null;
+
+    /**
+     * @var string
+     */
+    public $aggregation_mode = null;
+
     public function __construct()
     {
         $this->_request_url = '/field';
@@ -81,6 +91,8 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
         $this->priority = new \Perfumer\Microservices\Undefined();
         $this->bind_field = new \Perfumer\Microservices\Undefined();
         $this->bind_field_mode = new \Perfumer\Microservices\Undefined();
+        $this->aggregation_tag = new \Perfumer\Microservices\Undefined();
+        $this->aggregation_mode = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -121,6 +133,12 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->bind_field_mode instanceof \Perfumer\Microservices\Undefined) {
             $array['bind_field_mode'] = $this->bind_field_mode;
+        }
+        if (!$this->aggregation_tag instanceof \Perfumer\Microservices\Undefined) {
+            $array['aggregation_tag'] = $this->aggregation_tag;
+        }
+        if (!$this->aggregation_mode instanceof \Perfumer\Microservices\Undefined) {
+            $array['aggregation_mode'] = $this->aggregation_mode;
         }
 
         return $array;
