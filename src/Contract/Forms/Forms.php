@@ -38,9 +38,10 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModel(microservice="forms", model="field", fields={"id.int", "locale"})
  * @DeleteModel(microservice="forms", model="field", fields={"id.int"})
- * @SaveModel(microservice="forms", model="field", fields={"label.array", "type", "model", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode"})
- * @UpdateModel(microservice="forms", model="field", fields={"id.int", "type", "label.array", "model", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode"})
+ * @SaveModel(microservice="forms", model="field", fields={"label.array", "type", "model", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode", "aggregation_tag", "aggregation_mode"})
+ * @UpdateModel(microservice="forms", model="field", fields={"id.int", "type", "label.array", "model", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode", "aggregation_tag", "aggregation_mode"})
  * @GetModels(microservice="forms", model="fields", fields={"label", "type", "model", "locale", "module", "reference", "priority.int", "module_target"})
+ * @CreateModel(microservice="forms", model="field", fields={"id.int"}, url="/field/process-values", action="process", submodel="FieldValues")
  *
  * @GetModel(microservice="forms", model="module", fields={"id.int", "code"})
  * @DeleteModel(microservice="forms", model="module", fields={"id.int", "code", "force.bool"})
@@ -66,6 +67,12 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @CopyModel(microservice="forms", model="reference")
  * @MigrateModel(microservice="forms", model="reference")
  * @GetModels(microservice="forms", model="references", fields={"name", "code", "is_archived.bool"})
+ *
+ * @GetModel(microservice="forms", model="value", fields={"id.int", "code"})
+ * @DeleteModel(microservice="forms", model="value", fields={"id.int", "code"})
+ * @CreateModel(microservice="forms", model="value", fields={"tag", "code", "user_id.int", "customer_id.int", "ticket_id.int", "text_value", "numeric_value", "is_processed.bool", "silent.bool"})
+ * @UpdateModel(microservice="forms", model="value", fields={"id.int", "tag", "code", "user_id.int", "customer_id.int", "ticket_id.int", "text_value", "numeric_value", "is_processed.bool"})
+ * @UpsertModel(microservice="forms", model="value", fields={"tag", "code", "user_id.int", "customer_id.int", "ticket_id.int", "text_value", "numeric_value", "is_processed.bool"})
  *
  * @GetModel(microservice="forms", model="article", fields={"id", "locale", "code"})
  * @DeleteModel(microservice="forms", model="article", fields={"id"})
