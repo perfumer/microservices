@@ -32,6 +32,16 @@ class GetRepetitiveTasksRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
+    public $customer_id = null;
+
+    /**
+     * @var int
+     */
+    public $user_id = null;
+
+    /**
+     * @var int
+     */
     public $limit = null;
 
     /**
@@ -83,6 +93,8 @@ class GetRepetitiveTasksRequest extends \Perfumer\Microservices\Request
         $this->time = new \Perfumer\Microservices\Undefined();
         $this->day = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
+        $this->customer_id = new \Perfumer\Microservices\Undefined();
+        $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -111,6 +123,12 @@ class GetRepetitiveTasksRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->module instanceof \Perfumer\Microservices\Undefined) {
             $array['module'] = $this->module;
+        }
+        if (!$this->customer_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['customer_id'] = $this->customer_id;
+        }
+        if (!$this->user_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['user_id'] = $this->user_id;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;

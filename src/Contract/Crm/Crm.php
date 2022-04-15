@@ -214,9 +214,9 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModel(microservice="crm", model="repetitiveTask", response_fields={"repetitive_task.array"}, url="/repetitive-task", fields={"id.int", "code"})
  * @DeleteModel(microservice="crm", model="repetitiveTask", url="/repetitive-task", fields={"id.int", "code"})
- * @CreateModel(microservice="crm", model="repetitiveTask", response_fields={"repetitive_task.array"}, url="/repetitive-task", fields={"code", "type", "description", "time", "day", "module"})
- * @UpdateModel(microservice="crm", model="repetitiveTask", url="/repetitive-task", fields={"id.int", "code", "type", "description", "time", "day", "module"})
- * @GetModels(microservice="crm", model="repetitiveTasks", response_fields={"repetitive_tasks.array"}, url="/repetitive-tasks", fields={"type", "description", "time", "day", "module"})
+ * @CreateModel(microservice="crm", model="repetitiveTask", response_fields={"repetitive_task.array"}, url="/repetitive-task", fields={"code", "customer_id.int", "user_id.int", "type", "description", "time", "day", "module"})
+ * @UpdateModel(microservice="crm", model="repetitiveTask", url="/repetitive-task", fields={"id.int", "customer_id.int", "user_id.int", "code", "type", "description", "time", "day", "module"})
+ * @GetModels(microservice="crm", model="repetitiveTasks", response_fields={"repetitive_tasks.array"}, url="/repetitive-tasks", fields={"type", "description", "time", "day", "module", "customer_id.int", "user_id.int"})
  *
  * @GetModel(microservice="crm", model="commonTrigger", response_fields={"trigger.array"}, url="/common-trigger", fields={"id.int", "code"})
  * @DeleteModel(microservice="crm", model="commonTrigger", url="/common-trigger", fields={"id.int", "code"})
