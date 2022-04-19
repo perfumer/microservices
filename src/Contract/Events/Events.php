@@ -37,7 +37,7 @@ use Perfumer\Microservices\Annotation\CreateModel;
  * @GetModel(microservice="events", model="event", fields={"id.int", "locale"})
  * @SaveModel(microservice="events", model="event", fields={"id.int", "modules.array", "organizer_id", "locale", "author_id", "user_id", "is_registration_open.bool", "title", "image",
  *     "description", "html", "json", "format", "location", "opened_at", "closed_at", "apply_from", "apply_till", "published_at", "nb_invites_per_participant", "nb_invites",
- *     "is_confirm_required.bool", "confirmed_at", "is_review_needed.bool", "is_statement_needed.bool", "registration_form"})
+ *     "is_confirm_required.bool", "confirmed_at", "is_review_needed.bool", "is_statement_needed.bool", "registration_form", "user_speakers.array"})
  * @DeleteModel(microservice="events", model="event", fields={"id.int"})
  * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/reject", action="reject")
  * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/publish", action="publish")

@@ -135,6 +135,12 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
      */
     public $registration_form = null;
 
+    /**
+     * @var array
+     */
+    public $user_speakers = [
+    ];
+
     public function __construct()
     {
         $this->_request_url = '/event';
@@ -165,6 +171,7 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
         $this->is_review_needed = new \Perfumer\Microservices\Undefined();
         $this->is_statement_needed = new \Perfumer\Microservices\Undefined();
         $this->registration_form = new \Perfumer\Microservices\Undefined();
+        $this->user_speakers = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -247,6 +254,9 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->registration_form instanceof \Perfumer\Microservices\Undefined) {
             $array['registration_form'] = $this->registration_form;
+        }
+        if (!$this->user_speakers instanceof \Perfumer\Microservices\Undefined) {
+            $array['user_speakers'] = $this->user_speakers;
         }
 
         return $array;
