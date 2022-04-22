@@ -35,6 +35,11 @@ class CreateFormRequest extends \Perfumer\Microservices\Request
     public $module = null;
 
     /**
+     * @var string
+     */
+    public $tag = null;
+
+    /**
      * @var array
      */
     public $fields = [
@@ -56,6 +61,7 @@ class CreateFormRequest extends \Perfumer\Microservices\Request
         $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
+        $this->tag = new \Perfumer\Microservices\Undefined();
         $this->fields = new \Perfumer\Microservices\Undefined();
         $this->payload = new \Perfumer\Microservices\Undefined();
     }
@@ -80,6 +86,9 @@ class CreateFormRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->module instanceof \Perfumer\Microservices\Undefined) {
             $array['module'] = $this->module;
+        }
+        if (!$this->tag instanceof \Perfumer\Microservices\Undefined) {
+            $array['tag'] = $this->tag;
         }
         if (!$this->fields instanceof \Perfumer\Microservices\Undefined) {
             $array['fields'] = $this->fields;
