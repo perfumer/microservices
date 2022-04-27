@@ -83,6 +83,12 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var array
      */
+    public $tags = [
+    ];
+
+    /**
+     * @var array
+     */
     public $parents = [
     ];
 
@@ -111,6 +117,7 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
         $this->is_protected = new \Perfumer\Microservices\Undefined();
         $this->payload = new \Perfumer\Microservices\Undefined();
         $this->data_module_id = new \Perfumer\Microservices\Undefined();
+        $this->tags = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->children = new \Perfumer\Microservices\Undefined();
     }
@@ -162,6 +169,9 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->data_module_id instanceof \Perfumer\Microservices\Undefined) {
             $array['data_module_id'] = $this->data_module_id;
+        }
+        if (!$this->tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['tags'] = $this->tags;
         }
         if (!$this->parents instanceof \Perfumer\Microservices\Undefined) {
             $array['parents'] = $this->parents;

@@ -87,6 +87,11 @@ class GetCustomersRequest extends \Perfumer\Microservices\Request
     public $created_at_to = null;
 
     /**
+     * @var string
+     */
+    public $tag = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -151,6 +156,7 @@ class GetCustomersRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->created_at_from = new \Perfumer\Microservices\Undefined();
         $this->created_at_to = new \Perfumer\Microservices\Undefined();
+        $this->tag = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -212,6 +218,9 @@ class GetCustomersRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->created_at_to instanceof \Perfumer\Microservices\Undefined) {
             $array['created_at_to'] = $this->created_at_to;
+        }
+        if (!$this->tag instanceof \Perfumer\Microservices\Undefined) {
+            $array['tag'] = $this->tag;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;

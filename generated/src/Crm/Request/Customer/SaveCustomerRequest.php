@@ -113,6 +113,12 @@ class SaveCustomerRequest extends \Perfumer\Microservices\Request
      */
     public $locale = null;
 
+    /**
+     * @var array
+     */
+    public $tags = [
+    ];
+
     public function __construct()
     {
         $this->_request_url = '/customer';
@@ -138,6 +144,7 @@ class SaveCustomerRequest extends \Perfumer\Microservices\Request
         $this->auto_fields = new \Perfumer\Microservices\Undefined();
         $this->gender = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
+        $this->tags = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -205,6 +212,9 @@ class SaveCustomerRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->locale instanceof \Perfumer\Microservices\Undefined) {
             $array['locale'] = $this->locale;
+        }
+        if (!$this->tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['tags'] = $this->tags;
         }
 
         return $array;

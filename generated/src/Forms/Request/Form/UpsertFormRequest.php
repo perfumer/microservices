@@ -32,7 +32,7 @@ class UpsertFormRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $tag = null;
+    public $mix = null;
 
     /**
      * @var array
@@ -46,6 +46,12 @@ class UpsertFormRequest extends \Perfumer\Microservices\Request
     public $payload = [
     ];
 
+    /**
+     * @var array
+     */
+    public $tags = [
+    ];
+
     public function __construct()
     {
         $this->_request_url = '/form';
@@ -55,9 +61,10 @@ class UpsertFormRequest extends \Perfumer\Microservices\Request
         $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
-        $this->tag = new \Perfumer\Microservices\Undefined();
+        $this->mix = new \Perfumer\Microservices\Undefined();
         $this->fields = new \Perfumer\Microservices\Undefined();
         $this->payload = new \Perfumer\Microservices\Undefined();
+        $this->tags = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -78,14 +85,17 @@ class UpsertFormRequest extends \Perfumer\Microservices\Request
         if (!$this->module instanceof \Perfumer\Microservices\Undefined) {
             $array['module'] = $this->module;
         }
-        if (!$this->tag instanceof \Perfumer\Microservices\Undefined) {
-            $array['tag'] = $this->tag;
+        if (!$this->mix instanceof \Perfumer\Microservices\Undefined) {
+            $array['mix'] = $this->mix;
         }
         if (!$this->fields instanceof \Perfumer\Microservices\Undefined) {
             $array['fields'] = $this->fields;
         }
         if (!$this->payload instanceof \Perfumer\Microservices\Undefined) {
             $array['payload'] = $this->payload;
+        }
+        if (!$this->tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['tags'] = $this->tags;
         }
 
         return $array;

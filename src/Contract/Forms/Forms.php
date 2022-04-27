@@ -19,13 +19,13 @@ use Perfumer\Microservices\Annotation\UpsertModel;
 /**
  * @GetModel(microservice="forms", model="form", fields={"user_id.int", "customer_id.int", "ticket_id.int", "module", "id.int"})
  * @DeleteModel(microservice="forms", model="form", fields={"id.int", "code"})
- * @CreateModel(microservice="forms", model="form", fields={"code", "silent.bool", "ticket_id.int", "user_id.int", "customer_id.int", "module", "tag", "fields.array", "payload.array"})
- * @UpdateModel(microservice="forms", model="form", fields={"id.int","code", "fields.array", "payload.array"})
- * @UpsertModel(microservice="forms", model="form", fields={"code","ticket_id.int", "user_id.int", "customer_id.int", "module", "tag", "fields.array", "payload.array"})
- * @SaveModel(microservice="forms", model="form", fields={"ticket_id.int", "user_id.int", "customer_id.int", "module", "tag", "fields.array", "payload.array"})
+ * @CreateModel(microservice="forms", model="form", fields={"code", "silent.bool", "ticket_id.int", "user_id.int", "customer_id.int", "module", "mix", "fields.array", "payload.array", "tags.array"})
+ * @UpdateModel(microservice="forms", model="form", fields={"id.int","code", "fields.array", "payload.array", "tags.array"})
+ * @UpsertModel(microservice="forms", model="form", fields={"code","ticket_id.int", "user_id.int", "customer_id.int", "module", "mix", "fields.array", "payload.array", "tags.array"})
+ * @SaveModel(microservice="forms", model="form", fields={"ticket_id.int", "user_id.int", "customer_id.int", "module", "mix", "fields.array", "payload.array", "tags.array"})
  * @CreateModel(microservice="forms", model="forms", fields={"forms.array"})
  * @SaveModel(microservice="forms", model="forms", submodel="FormsTicket", url="/forms/ticket", fields={"user_id.int", "customer_id.int", "ticket_id.int", "module"})
- * @GetModels(microservice="forms", model="forms", fields={"customer_id.int", "module", "ticket_id.int", "user_id.int", "fields.array"})
+ * @GetModels(microservice="forms", model="forms", fields={"customer_id.int", "module", "ticket_id.int", "user_id.int", "fields.array", "tag"})
  *
  * @UpsertModel(microservice="forms", model="forms", submodel="UserForms", url="/forms/user", fields={"module", "user_id.int", "ticket_id.int", "forms.array"})
  *
@@ -45,10 +45,10 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModel(microservice="forms", model="module", fields={"id.int", "code"})
  * @DeleteModel(microservice="forms", model="module", fields={"id.int", "code", "force.bool"})
- * @CreateMeshModel(microservice="forms", model="module", fields={"code","name", "customer_name","description", "applicant", "target", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool", "is_dedicated_table.bool","form_page","form_page_bulk","silent.bool","is_protected.bool","payload.array","data_module_id.int"})
- * @UpdateMeshModel(microservice="forms", model="module", fields={"id.int","code","name", "customer_name","description", "applicant", "target", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool", "is_dedicated_table.bool","form_page","form_page_bulk","is_protected.bool","payload.array","data_module_id.int"})
- * @UpsertMeshModel(microservice="forms", model="module", fields={"code","name", "customer_name","description", "applicant", "target", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool", "is_dedicated_table.bool","form_page","form_page_bulk","is_protected.bool","payload.array","data_module_id.int"})
- * @GetMeshModels(microservice="forms", model="modules", fields={"id.int", "name", "code", "target", "description", "applicant", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool"})
+ * @CreateMeshModel(microservice="forms", model="module", fields={"code","name", "customer_name","description", "applicant", "target", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool", "is_dedicated_table.bool","form_page","form_page_bulk","silent.bool","is_protected.bool","payload.array","data_module_id.int", "tags.array"})
+ * @UpdateMeshModel(microservice="forms", model="module", fields={"id.int","code","name", "customer_name","description", "applicant", "target", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool", "is_dedicated_table.bool","form_page","form_page_bulk","is_protected.bool","payload.array","data_module_id.int", "tags.array"})
+ * @UpsertMeshModel(microservice="forms", model="module", fields={"code","name", "customer_name","description", "applicant", "target", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool", "is_dedicated_table.bool","form_page","form_page_bulk","is_protected.bool","payload.array","data_module_id.int", "tags.array"})
+ * @GetMeshModels(microservice="forms", model="modules", fields={"id.int", "name", "code", "target", "description", "applicant", "is_archived.bool", "is_invisible_for_applicant.bool", "is_visible_for_roles.bool", "tag"})
  * @CopyModel(microservice="forms", model="module")
  * @MigrateModel(microservice="forms", model="module")
  * @SaveModel(microservice="forms", model="module", fields={"id.int"}, url="/module/archive", action="archive")
