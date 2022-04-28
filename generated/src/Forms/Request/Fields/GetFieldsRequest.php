@@ -35,11 +35,6 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
     public $reference = null;
 
     /**
-     * @var int
-     */
-    public $priority = null;
-
-    /**
      * @var string
      */
     public $module_target = null;
@@ -99,7 +94,6 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->reference = new \Perfumer\Microservices\Undefined();
-        $this->priority = new \Perfumer\Microservices\Undefined();
         $this->module_target = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
@@ -132,9 +126,6 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->reference instanceof \Perfumer\Microservices\Undefined) {
             $array['reference'] = $this->reference;
-        }
-        if (!$this->priority instanceof \Perfumer\Microservices\Undefined) {
-            $array['priority'] = $this->priority;
         }
         if (!$this->module_target instanceof \Perfumer\Microservices\Undefined) {
             $array['module_target'] = $this->module_target;
