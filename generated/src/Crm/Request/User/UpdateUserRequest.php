@@ -10,6 +10,11 @@ class UpdateUserRequest extends \Perfumer\Microservices\Request
     public $telegram_chat_id = null;
 
     /**
+     * @var string
+     */
+    public $telegram_username = null;
+
+    /**
      * @var bool
      */
     public $is_protected = null;
@@ -123,6 +128,7 @@ class UpdateUserRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/user';
         $this->_request_method = 'patch';
         $this->telegram_chat_id = new \Perfumer\Microservices\Undefined();
+        $this->telegram_username = new \Perfumer\Microservices\Undefined();
         $this->is_protected = new \Perfumer\Microservices\Undefined();
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->profiles = new \Perfumer\Microservices\Undefined();
@@ -151,6 +157,9 @@ class UpdateUserRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->telegram_chat_id instanceof \Perfumer\Microservices\Undefined) {
             $array['telegram_chat_id'] = $this->telegram_chat_id;
+        }
+        if (!$this->telegram_username instanceof \Perfumer\Microservices\Undefined) {
+            $array['telegram_username'] = $this->telegram_username;
         }
         if (!$this->is_protected instanceof \Perfumer\Microservices\Undefined) {
             $array['is_protected'] = $this->is_protected;

@@ -12,6 +12,11 @@ class UpdateCustomerRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $telegram_username = null;
+
+    /**
+     * @var string
+     */
     public $id = null;
 
     /**
@@ -135,6 +140,7 @@ class UpdateCustomerRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/customer';
         $this->_request_method = 'patch';
         $this->telegram_chat_id = new \Perfumer\Microservices\Undefined();
+        $this->telegram_username = new \Perfumer\Microservices\Undefined();
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->is_protected = new \Perfumer\Microservices\Undefined();
         $this->username = new \Perfumer\Microservices\Undefined();
@@ -165,6 +171,9 @@ class UpdateCustomerRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->telegram_chat_id instanceof \Perfumer\Microservices\Undefined) {
             $array['telegram_chat_id'] = $this->telegram_chat_id;
+        }
+        if (!$this->telegram_username instanceof \Perfumer\Microservices\Undefined) {
+            $array['telegram_username'] = $this->telegram_username;
         }
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
