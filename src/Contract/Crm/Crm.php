@@ -48,9 +48,9 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @GetModels(microservice="crm", model="roles", fields={"name", "code"})
  *
  * @GetModel(microservice="crm", model="group", fields={"id", "code"})
- * @UpsertMeshModel(microservice="crm", model="group", fields={"code", "name", "owner_id.int", "is_archived.bool", "profiles.array", "category", "is_protected.bool", "children.array", "parents.array", "payload.array", "logo", "name_official", "iin_bin", "email", "phone", "fax", "region_id.int", "kato_id.int", "address", "region_official_id.int", "city_official_id.int", "address_official", "transaction_account", "bank_id.int", "correspondent_account"} )
- * @GetMeshModels(microservice="crm", model="groups", fields={"name", "code", "owner_id.int", "is_archived.bool", "category"})
- * @CreateMeshModel(microservice="crm", model="group", fields={"id.int", "code", "name", "owner_id.int", "is_archived.bool", "profiles.array", "category", "is_protected.bool", "payload.array", "logo", "name_official", "iin_bin", "email", "phone", "fax", "region_id.int", "kato_id.int", "address", "region_official_id.int", "city_official_id.int", "address_official", "transaction_account", "bank_id.int", "correspondent_account"})
+ * @UpsertMeshModel(microservice="crm", model="group", fields={"code", "name", "owner_id.int", "is_archived.bool", "profiles.array", "is_protected.bool", "children.array", "parents.array", "payload.array"} )
+ * @GetMeshModels(microservice="crm", model="groups", fields={"name", "code", "owner_id.int", "is_archived.bool"})
+ * @CreateMeshModel(microservice="crm", model="group", fields={"id.int", "code", "name", "owner_id.int", "is_archived.bool", "profiles.array", "category", "is_protected.bool", "payload.array"})
  * @DeleteModel(microservice="crm", model="group", fields={"id.int", "code", "force.bool"})
  * @GetModels(microservice="crm", model="group", submodel="GroupProfiles", fields={"modules.array", "code", "id.int"}, url="/group/profiles", response_fields={"profiles"})
  * @GetModel(microservice="crm", model="group", submodel="GroupProfile", fields={"module", "code", "id.int"}, url="/group/profile", response_fields={"profile"})

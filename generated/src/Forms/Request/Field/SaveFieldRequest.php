@@ -11,6 +11,12 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
     ];
 
     /**
+     * @var array
+     */
+    public $hint = [
+    ];
+
+    /**
      * @var string
      */
     public $type = null;
@@ -80,6 +86,7 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/field';
         $this->_request_method = 'post';
         $this->label = new \Perfumer\Microservices\Undefined();
+        $this->hint = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
         $this->model = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
@@ -100,6 +107,9 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->label instanceof \Perfumer\Microservices\Undefined) {
             $array['label'] = $this->label;
+        }
+        if (!$this->hint instanceof \Perfumer\Microservices\Undefined) {
+            $array['hint'] = $this->hint;
         }
         if (!$this->type instanceof \Perfumer\Microservices\Undefined) {
             $array['type'] = $this->type;

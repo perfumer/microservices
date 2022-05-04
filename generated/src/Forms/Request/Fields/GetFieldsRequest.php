@@ -12,6 +12,11 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $hint = null;
+
+    /**
+     * @var string
+     */
     public $type = null;
 
     /**
@@ -89,6 +94,7 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/fields';
         $this->_request_method = 'get';
         $this->label = new \Perfumer\Microservices\Undefined();
+        $this->hint = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
         $this->model = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
@@ -111,6 +117,9 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->label instanceof \Perfumer\Microservices\Undefined) {
             $array['label'] = $this->label;
+        }
+        if (!$this->hint instanceof \Perfumer\Microservices\Undefined) {
+            $array['hint'] = $this->hint;
         }
         if (!$this->type instanceof \Perfumer\Microservices\Undefined) {
             $array['type'] = $this->type;
