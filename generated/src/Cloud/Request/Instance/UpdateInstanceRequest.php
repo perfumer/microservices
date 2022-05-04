@@ -27,6 +27,11 @@ class UpdateInstanceRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $username = null;
+
+    /**
+     * @var string
+     */
     public $email = null;
 
     /**
@@ -67,6 +72,7 @@ class UpdateInstanceRequest extends \Perfumer\Microservices\Request
         $this->first_name = new \Perfumer\Microservices\Undefined();
         $this->last_name = new \Perfumer\Microservices\Undefined();
         $this->mid_name = new \Perfumer\Microservices\Undefined();
+        $this->username = new \Perfumer\Microservices\Undefined();
         $this->email = new \Perfumer\Microservices\Undefined();
         $this->phone = new \Perfumer\Microservices\Undefined();
         $this->password = new \Perfumer\Microservices\Undefined();
@@ -90,6 +96,9 @@ class UpdateInstanceRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->mid_name instanceof \Perfumer\Microservices\Undefined) {
             $array['mid_name'] = $this->mid_name;
+        }
+        if (!$this->username instanceof \Perfumer\Microservices\Undefined) {
+            $array['username'] = $this->username;
         }
         if (!$this->email instanceof \Perfumer\Microservices\Undefined) {
             $array['email'] = $this->email;
