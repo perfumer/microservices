@@ -64,6 +64,11 @@ class UpdateInstanceRequest extends \Perfumer\Microservices\Request
      */
     public $code = null;
 
+    /**
+     * @var bool
+     */
+    public $reset_password = null;
+
     public function __construct()
     {
         $this->_request_url = '/instance';
@@ -80,6 +85,7 @@ class UpdateInstanceRequest extends \Perfumer\Microservices\Request
         $this->bin = new \Perfumer\Microservices\Undefined();
         $this->org_name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
+        $this->reset_password = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -120,6 +126,9 @@ class UpdateInstanceRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;
+        }
+        if (!$this->reset_password instanceof \Perfumer\Microservices\Undefined) {
+            $array['reset_password'] = $this->reset_password;
         }
 
         return $array;
