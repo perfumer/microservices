@@ -9,7 +9,7 @@ use Perfumer\Microservices\Annotation\UpdateModel;
 use Perfumer\Microservices\Annotation\GetModels;
 
 /**
- * @GetModel(microservice="cloud", model="instance", fields={"id.int", "code"})
+ * @GetModel(microservice="cloud", model="instance", fields={"id.int", "code", "subdomain"})
  * @DeleteModel(microservice="cloud", model="instance", fields={"id.int", "code", "force.bool"})
  * @CreateModel(microservice="cloud", model="instance", fields={"first_name", "last_name", "mid_name", "username", "email", "phone", "subdomain", "password", "iin", "bin", "org_name", "code", "silent.bool", "reset_password.bool"})
  * @UpdateModel(microservice="cloud", model="instance", fields={"id.int", "first_name", "last_name", "mid_name", "username", "email", "phone", "password", "iin", "bin", "org_name", "code", "reset_password.bool"})
