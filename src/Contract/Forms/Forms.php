@@ -42,6 +42,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @UpdateModel(microservice="forms", model="field", fields={"id.int", "type", "label.array", "hint.array", "model", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode", "aggregation_tag", "aggregation_mode"})
  * @GetModels(microservice="forms", model="fields", fields={"label", "hint", "type", "model", "locale", "module", "reference", "module_target"})
  * @CreateModel(microservice="forms", model="field", fields={"id.int"}, url="/field/process-values", action="process", submodel="FieldValues")
+ * @CreateModel(microservice="forms", model="fields", fields={"module", "models.array"}, url="/fields/order", action="change", submodel="FieldsOrder")
  *
  * @GetModel(microservice="forms", model="module", fields={"id.int", "code"})
  * @DeleteModel(microservice="forms", model="module", fields={"id.int", "code", "force.bool"})

@@ -290,6 +290,19 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function changeFieldsOrder(\Perfumer\Microservices\Forms\Request\Fields\ChangeFieldsOrderRequest $request): \Perfumer\Microservices\Forms\Response\Fields\ChangeFieldsOrderResponse
+    {
+        /** @var \Perfumer\Microservices\Forms\Response\Fields\ChangeFieldsOrderResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Forms\Response\Fields\ChangeFieldsOrderResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'fields');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->fields = $item;
+        }
+
+        return $response;
+    }
+
     public function getModule(\Perfumer\Microservices\Forms\Request\Module\GetModuleRequest $request): \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse
     {
         /** @var \Perfumer\Microservices\Forms\Response\Module\GetModuleResponse $response */
