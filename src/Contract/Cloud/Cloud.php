@@ -11,10 +11,10 @@ use Perfumer\Microservices\Annotation\GetModels;
 /**
  * @GetModel(microservice="cloud", model="instance", fields={"id.int", "code", "subdomain"})
  * @DeleteModel(microservice="cloud", model="instance", fields={"id.int", "code", "force.bool"})
- * @CreateModel(microservice="cloud", model="instance", fields={"first_name", "last_name", "mid_name", "username", "email", "phone", "subdomain", "password", "iin", "bin", "org_name", "code", "silent.bool", "reset_password.bool"})
- * @UpdateModel(microservice="cloud", model="instance", fields={"id.int", "first_name", "last_name", "mid_name", "username", "email", "phone", "password", "iin", "bin", "org_name", "code", "reset_password.bool"})
- * @GetModels(microservice="cloud", model="instances", fields={"id", "first_name", "last_name", "mid_name", "username", "email", "phone", "subdomain", "iin", "bin", "org_name", "code"})
- * @CreateModel(microservice="cloud", model="instance", fields={"first_name", "last_name", "mid_name", "username", "email", "phone", "subdomain", "password", "iin", "bin", "org_name"}, url="/instance/validate", action="validate")
+ * @CreateModel(microservice="cloud", model="instance", fields={"first_name", "last_name", "mid_name", "username", "email", "phone", "subdomain", "password", "iin", "bin", "org_name", "code", "silent.bool", "reset_password.bool", "telegram_chat_id", "telegram_username"})
+ * @UpdateModel(microservice="cloud", model="instance", fields={"id.int", "first_name", "last_name", "mid_name", "username", "email", "phone", "password", "iin", "bin", "org_name", "code", "reset_password.bool", "telegram_chat_id", "telegram_username"})
+ * @GetModels(microservice="cloud", model="instances", fields={"id", "first_name", "last_name", "mid_name", "username", "email", "phone", "subdomain", "iin", "bin", "org_name", "code", "telegram_chat_id", "telegram_username"})
+ * @CreateModel(microservice="cloud", model="instance", fields={"first_name", "last_name", "mid_name", "username", "email", "phone", "subdomain", "password", "iin", "bin", "org_name", "telegram_chat_id", "telegram_username"}, url="/instance/validate", action="validate")
  * @GetModels(microservice="cloud", model="customers", fields={"id.array", "last_name", "first_name", "mid_name", "full_name", "email", "phone", "iin", "bin", "iin_bin", "code", "created_at_from", "created_at_to", "updated_at_from", "updated_at_to"})
  *
  * @GetModel(microservice="cloud", model="instance", fields={"segment"}, submodel="InstanceConnection", url="/instance/connection")

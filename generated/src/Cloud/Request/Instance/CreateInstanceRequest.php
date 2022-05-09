@@ -74,6 +74,16 @@ class CreateInstanceRequest extends \Perfumer\Microservices\Request
      */
     public $reset_password = null;
 
+    /**
+     * @var string
+     */
+    public $telegram_chat_id = null;
+
+    /**
+     * @var string
+     */
+    public $telegram_username = null;
+
     public function __construct()
     {
         $this->_request_url = '/instance';
@@ -92,6 +102,8 @@ class CreateInstanceRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->silent = new \Perfumer\Microservices\Undefined();
         $this->reset_password = new \Perfumer\Microservices\Undefined();
+        $this->telegram_chat_id = new \Perfumer\Microservices\Undefined();
+        $this->telegram_username = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -138,6 +150,12 @@ class CreateInstanceRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->reset_password instanceof \Perfumer\Microservices\Undefined) {
             $array['reset_password'] = $this->reset_password;
+        }
+        if (!$this->telegram_chat_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['telegram_chat_id'] = $this->telegram_chat_id;
+        }
+        if (!$this->telegram_username instanceof \Perfumer\Microservices\Undefined) {
+            $array['telegram_username'] = $this->telegram_username;
         }
 
         return $array;
