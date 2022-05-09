@@ -27,11 +27,6 @@ class GetGroupsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $category = null;
-
-    /**
-     * @var string
-     */
     public $parent = null;
 
     /**
@@ -107,7 +102,6 @@ class GetGroupsRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->owner_id = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
-        $this->category = new \Perfumer\Microservices\Undefined();
         $this->parent = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->child = new \Perfumer\Microservices\Undefined();
@@ -138,9 +132,6 @@ class GetGroupsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_archived instanceof \Perfumer\Microservices\Undefined) {
             $array['is_archived'] = $this->is_archived;
-        }
-        if (!$this->category instanceof \Perfumer\Microservices\Undefined) {
-            $array['category'] = $this->category;
         }
         if (!$this->parent instanceof \Perfumer\Microservices\Undefined) {
             $array['parent'] = $this->parent;

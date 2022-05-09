@@ -52,6 +52,11 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $tag = null;
+
+    /**
+     * @var string
+     */
     public $parent = null;
 
     /**
@@ -132,6 +137,7 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->is_invisible_for_applicant = new \Perfumer\Microservices\Undefined();
         $this->is_visible_for_roles = new \Perfumer\Microservices\Undefined();
+        $this->tag = new \Perfumer\Microservices\Undefined();
         $this->parent = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->child = new \Perfumer\Microservices\Undefined();
@@ -177,6 +183,9 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_visible_for_roles instanceof \Perfumer\Microservices\Undefined) {
             $array['is_visible_for_roles'] = $this->is_visible_for_roles;
+        }
+        if (!$this->tag instanceof \Perfumer\Microservices\Undefined) {
+            $array['tag'] = $this->tag;
         }
         if (!$this->parent instanceof \Perfumer\Microservices\Undefined) {
             $array['parent'] = $this->parent;

@@ -31,6 +31,11 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
     ];
 
     /**
+     * @var string
+     */
+    public $tag = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -84,6 +89,7 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
         $this->ticket_id = new \Perfumer\Microservices\Undefined();
         $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->fields = new \Perfumer\Microservices\Undefined();
+        $this->tag = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -112,6 +118,9 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->fields instanceof \Perfumer\Microservices\Undefined) {
             $array['fields'] = $this->fields;
+        }
+        if (!$this->tag instanceof \Perfumer\Microservices\Undefined) {
+            $array['tag'] = $this->tag;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;

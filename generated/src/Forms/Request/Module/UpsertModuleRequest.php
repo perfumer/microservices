@@ -83,6 +83,22 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var array
      */
+    public $tags = [
+    ];
+
+    /**
+     * @var string
+     */
+    public $pre_create_webhook = null;
+
+    /**
+     * @var string
+     */
+    public $post_create_message = null;
+
+    /**
+     * @var array
+     */
     public $parents = [
     ];
 
@@ -111,6 +127,9 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
         $this->is_protected = new \Perfumer\Microservices\Undefined();
         $this->payload = new \Perfumer\Microservices\Undefined();
         $this->data_module_id = new \Perfumer\Microservices\Undefined();
+        $this->tags = new \Perfumer\Microservices\Undefined();
+        $this->pre_create_webhook = new \Perfumer\Microservices\Undefined();
+        $this->post_create_message = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->children = new \Perfumer\Microservices\Undefined();
     }
@@ -162,6 +181,15 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->data_module_id instanceof \Perfumer\Microservices\Undefined) {
             $array['data_module_id'] = $this->data_module_id;
+        }
+        if (!$this->tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['tags'] = $this->tags;
+        }
+        if (!$this->pre_create_webhook instanceof \Perfumer\Microservices\Undefined) {
+            $array['pre_create_webhook'] = $this->pre_create_webhook;
+        }
+        if (!$this->post_create_message instanceof \Perfumer\Microservices\Undefined) {
+            $array['post_create_message'] = $this->post_create_message;
         }
         if (!$this->parents instanceof \Perfumer\Microservices\Undefined) {
             $array['parents'] = $this->parents;

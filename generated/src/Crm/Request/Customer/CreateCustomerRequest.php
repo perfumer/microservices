@@ -10,6 +10,11 @@ class CreateCustomerRequest extends \Perfumer\Microservices\Request
     public $telegram_chat_id = null;
 
     /**
+     * @var string
+     */
+    public $telegram_username = null;
+
+    /**
      * @var bool
      */
     public $silent = null;
@@ -123,11 +128,18 @@ class CreateCustomerRequest extends \Perfumer\Microservices\Request
      */
     public $locale = null;
 
+    /**
+     * @var array
+     */
+    public $tags = [
+    ];
+
     public function __construct()
     {
         $this->_request_url = '/customer';
         $this->_request_method = 'post';
         $this->telegram_chat_id = new \Perfumer\Microservices\Undefined();
+        $this->telegram_username = new \Perfumer\Microservices\Undefined();
         $this->silent = new \Perfumer\Microservices\Undefined();
         $this->is_protected = new \Perfumer\Microservices\Undefined();
         $this->username = new \Perfumer\Microservices\Undefined();
@@ -150,6 +162,7 @@ class CreateCustomerRequest extends \Perfumer\Microservices\Request
         $this->auto_fields = new \Perfumer\Microservices\Undefined();
         $this->gender = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
+        $this->tags = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -157,6 +170,9 @@ class CreateCustomerRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->telegram_chat_id instanceof \Perfumer\Microservices\Undefined) {
             $array['telegram_chat_id'] = $this->telegram_chat_id;
+        }
+        if (!$this->telegram_username instanceof \Perfumer\Microservices\Undefined) {
+            $array['telegram_username'] = $this->telegram_username;
         }
         if (!$this->silent instanceof \Perfumer\Microservices\Undefined) {
             $array['silent'] = $this->silent;
@@ -223,6 +239,9 @@ class CreateCustomerRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->locale instanceof \Perfumer\Microservices\Undefined) {
             $array['locale'] = $this->locale;
+        }
+        if (!$this->tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['tags'] = $this->tags;
         }
 
         return $array;

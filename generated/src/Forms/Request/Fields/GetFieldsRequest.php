@@ -12,6 +12,11 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $hint = null;
+
+    /**
+     * @var string
+     */
     public $type = null;
 
     /**
@@ -33,11 +38,6 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
      * @var string
      */
     public $reference = null;
-
-    /**
-     * @var int
-     */
-    public $priority = null;
 
     /**
      * @var string
@@ -94,12 +94,12 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/fields';
         $this->_request_method = 'get';
         $this->label = new \Perfumer\Microservices\Undefined();
+        $this->hint = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
         $this->model = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->reference = new \Perfumer\Microservices\Undefined();
-        $this->priority = new \Perfumer\Microservices\Undefined();
         $this->module_target = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
@@ -118,6 +118,9 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
         if (!$this->label instanceof \Perfumer\Microservices\Undefined) {
             $array['label'] = $this->label;
         }
+        if (!$this->hint instanceof \Perfumer\Microservices\Undefined) {
+            $array['hint'] = $this->hint;
+        }
         if (!$this->type instanceof \Perfumer\Microservices\Undefined) {
             $array['type'] = $this->type;
         }
@@ -132,9 +135,6 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->reference instanceof \Perfumer\Microservices\Undefined) {
             $array['reference'] = $this->reference;
-        }
-        if (!$this->priority instanceof \Perfumer\Microservices\Undefined) {
-            $array['priority'] = $this->priority;
         }
         if (!$this->module_target instanceof \Perfumer\Microservices\Undefined) {
             $array['module_target'] = $this->module_target;

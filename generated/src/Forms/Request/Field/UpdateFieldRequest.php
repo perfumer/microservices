@@ -21,6 +21,12 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
     ];
 
     /**
+     * @var array
+     */
+    public $hint = [
+    ];
+
+    /**
      * @var string
      */
     public $model = null;
@@ -87,6 +93,7 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
         $this->label = new \Perfumer\Microservices\Undefined();
+        $this->hint = new \Perfumer\Microservices\Undefined();
         $this->model = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->reference = new \Perfumer\Microservices\Undefined();
@@ -112,6 +119,9 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->label instanceof \Perfumer\Microservices\Undefined) {
             $array['label'] = $this->label;
+        }
+        if (!$this->hint instanceof \Perfumer\Microservices\Undefined) {
+            $array['hint'] = $this->hint;
         }
         if (!$this->model instanceof \Perfumer\Microservices\Undefined) {
             $array['model'] = $this->model;
