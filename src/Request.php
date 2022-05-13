@@ -32,6 +32,16 @@ class Request
     public $_request_url;
 
     /**
+     * @var string
+     */
+    public $_http_auth_username;
+
+    /**
+     * @var string
+     */
+    public $_http_auth_password;
+
+    /**
      * @var array
      */
     protected $_body = [];

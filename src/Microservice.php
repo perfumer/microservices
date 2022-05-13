@@ -35,11 +35,23 @@ class Microservice
      */
     protected $_headers = [];
 
+    /**
+     * @var string
+     */
+    protected $_http_auth_username;
+
+    /**
+     * @var string
+     */
+    protected $_http_auth_password;
+
     public function __construct(array $options = [])
     {
         $this->_host = $options['host'] ?? null;
         $this->_locale = $options['locale'] ?? null;
         $this->_request_catcher_host = $options['request_catcher_host'] ?? null;
+        $this->_http_auth_username = $options['http_auth_username'] ?? null;
+        $this->_http_auth_password = $options['http_auth_password'] ?? null;
     }
 
     /**
@@ -136,6 +148,22 @@ class Microservice
             'debug' => $request->_debug,
             'headers' => $headers,
         ];
+
+        // Set HTTP Auth credentials from Request or Microservice parameters
+        $http_auth_username = $this->_http_auth_username;
+        $http_auth_password = $this->_http_auth_password;
+
+        if ($request->_http_auth_username) {
+            $http_auth_username = $request->_http_auth_username;
+        }
+
+        if ($request->_http_auth_password) {
+            $http_auth_password = $request->_http_auth_password;
+        }
+
+        if ($http_auth_username && $http_auth_password) {
+            $options['auth'] = [$http_auth_username, $http_auth_password];
+        }
 
         $body = $request->getBody();
 

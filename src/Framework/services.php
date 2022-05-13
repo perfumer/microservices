@@ -7,6 +7,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/box.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'secret' => '@microservices/box.secret',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
@@ -18,6 +20,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/cloud.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
     ],
@@ -28,6 +32,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/crm.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'segment' => '@microservices/segment',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
@@ -39,6 +45,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/delivery.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
     ],
@@ -49,6 +57,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/email.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
     ],
@@ -59,6 +69,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/es.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'dummy' => '@microservices/es.dummy',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
@@ -70,6 +82,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/events.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
     ],
@@ -80,6 +94,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/feed.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'dummy' => '@microservices/feed.dummy',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
@@ -91,6 +107,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/forms.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'segment' => '@microservices/segment',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
@@ -102,6 +120,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/i18n.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
     ],
@@ -112,6 +132,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/ncanode.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'segment' => '@microservices/segment',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
@@ -123,6 +145,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/notify.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
     ],
@@ -133,6 +157,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/otp.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
     ],
@@ -143,6 +169,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/pages.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'segment' => '@microservices/segment',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
@@ -154,6 +182,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/posts.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
     ],
@@ -164,6 +194,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/queue.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
     ],
@@ -174,6 +206,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/sed.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'segment' => '@microservices/segment',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
@@ -185,6 +219,8 @@ return [
         'arguments' => [[
             'host' => '@microservices/store.host',
             'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
     ],
