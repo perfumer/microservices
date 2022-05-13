@@ -19,6 +19,16 @@ class GetPageActiveRevisionRequest extends \Perfumer\Microservices\Request
      */
     public $site = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/page/revision/active';
@@ -26,6 +36,8 @@ class GetPageActiveRevisionRequest extends \Perfumer\Microservices\Request
         $this->page_id = new \Perfumer\Microservices\Undefined();
         $this->address = new \Perfumer\Microservices\Undefined();
         $this->site = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -39,6 +51,12 @@ class GetPageActiveRevisionRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->site instanceof \Perfumer\Microservices\Undefined) {
             $array['site'] = $this->site;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

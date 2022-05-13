@@ -77,6 +77,11 @@ class UpsertMenuLinkRequest extends \Perfumer\Microservices\Request
     public $links = [
     ];
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
     public function __construct()
     {
         $this->_request_url = '/menu/link';
@@ -95,6 +100,7 @@ class UpsertMenuLinkRequest extends \Perfumer\Microservices\Request
         $this->is_disabled = new \Perfumer\Microservices\Undefined();
         $this->blocks = new \Perfumer\Microservices\Undefined();
         $this->links = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -141,6 +147,9 @@ class UpsertMenuLinkRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->links instanceof \Perfumer\Microservices\Undefined) {
             $array['links'] = $this->links;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
         }
 
         return $array;

@@ -14,12 +14,18 @@ class GetDocumentTicketRequest extends \Perfumer\Microservices\Request
      */
     public $document_id = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/document-ticket';
         $this->_request_method = 'get';
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->document_id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -30,6 +36,9 @@ class GetDocumentTicketRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->document_id instanceof \Perfumer\Microservices\Undefined) {
             $array['document_id'] = $this->document_id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

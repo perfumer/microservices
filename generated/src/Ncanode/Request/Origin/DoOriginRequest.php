@@ -20,6 +20,11 @@ class DoOriginRequest extends \Perfumer\Microservices\Request
     public $params = [
     ];
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/origin';
@@ -27,6 +32,7 @@ class DoOriginRequest extends \Perfumer\Microservices\Request
         $this->method = new \Perfumer\Microservices\Undefined();
         $this->version = new \Perfumer\Microservices\Undefined();
         $this->params = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -40,6 +46,9 @@ class DoOriginRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->params instanceof \Perfumer\Microservices\Undefined) {
             $array['params'] = $this->params;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

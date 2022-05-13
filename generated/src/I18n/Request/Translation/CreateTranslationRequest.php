@@ -30,6 +30,11 @@ class CreateTranslationRequest extends \Perfumer\Microservices\Request
     public $tags = [
     ];
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/translation';
@@ -39,6 +44,7 @@ class CreateTranslationRequest extends \Perfumer\Microservices\Request
         $this->is_immutable = new \Perfumer\Microservices\Undefined();
         $this->is_richtext = new \Perfumer\Microservices\Undefined();
         $this->tags = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -58,6 +64,9 @@ class CreateTranslationRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->tags instanceof \Perfumer\Microservices\Undefined) {
             $array['tags'] = $this->tags;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Posts\Request\Module;
 class UpdateModuleRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

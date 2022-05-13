@@ -55,6 +55,11 @@ class ValidateCmsRequest extends \Perfumer\Microservices\Request
      */
     public $verify_crl = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/cms/validate';
@@ -69,6 +74,7 @@ class ValidateCmsRequest extends \Perfumer\Microservices\Request
         $this->constraints = new \Perfumer\Microservices\Undefined();
         $this->verify_ocsp = new \Perfumer\Microservices\Undefined();
         $this->verify_crl = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -103,6 +109,9 @@ class ValidateCmsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->verify_crl instanceof \Perfumer\Microservices\Undefined) {
             $array['verify_crl'] = $this->verify_crl;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

@@ -44,6 +44,11 @@ class UpsertValueRequest extends \Perfumer\Microservices\Request
      */
     public $is_processed = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
     public function __construct()
     {
         $this->_request_url = '/value';
@@ -56,6 +61,7 @@ class UpsertValueRequest extends \Perfumer\Microservices\Request
         $this->text_value = new \Perfumer\Microservices\Undefined();
         $this->numeric_value = new \Perfumer\Microservices\Undefined();
         $this->is_processed = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -84,6 +90,9 @@ class UpsertValueRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_processed instanceof \Perfumer\Microservices\Undefined) {
             $array['is_processed'] = $this->is_processed;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
         }
 
         return $array;

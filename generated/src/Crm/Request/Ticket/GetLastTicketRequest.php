@@ -24,6 +24,16 @@ class GetLastTicketRequest extends \Perfumer\Microservices\Request
      */
     public $with_forms = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/last-ticket';
@@ -32,6 +42,8 @@ class GetLastTicketRequest extends \Perfumer\Microservices\Request
         $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->with_forms = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -48,6 +60,12 @@ class GetLastTicketRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->with_forms instanceof \Perfumer\Microservices\Undefined) {
             $array['with_forms'] = $this->with_forms;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

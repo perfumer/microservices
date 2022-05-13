@@ -35,7 +35,7 @@ class GetRecordsRequest extends \Perfumer\Microservices\Request
     public $search = null;
 
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

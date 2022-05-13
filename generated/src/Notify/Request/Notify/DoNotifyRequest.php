@@ -46,6 +46,11 @@ class DoNotifyRequest extends \Perfumer\Microservices\Request
     public $payload = [
     ];
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/notify';
@@ -58,6 +63,7 @@ class DoNotifyRequest extends \Perfumer\Microservices\Request
         $this->feed_recipient = new \Perfumer\Microservices\Undefined();
         $this->feed_payload = new \Perfumer\Microservices\Undefined();
         $this->payload = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -86,6 +92,9 @@ class DoNotifyRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->payload instanceof \Perfumer\Microservices\Undefined) {
             $array['payload'] = $this->payload;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

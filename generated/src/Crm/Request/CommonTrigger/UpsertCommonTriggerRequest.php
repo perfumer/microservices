@@ -30,6 +30,11 @@ class UpsertCommonTriggerRequest extends \Perfumer\Microservices\Request
     public $arguments = [
     ];
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
     public function __construct()
     {
         $this->_request_url = '/common-trigger';
@@ -39,6 +44,7 @@ class UpsertCommonTriggerRequest extends \Perfumer\Microservices\Request
         $this->url = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->arguments = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -58,6 +64,9 @@ class UpsertCommonTriggerRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->arguments instanceof \Perfumer\Microservices\Undefined) {
             $array['arguments'] = $this->arguments;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
         }
 
         return $array;

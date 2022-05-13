@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Forms\Request\Article;
 class GetArticleRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

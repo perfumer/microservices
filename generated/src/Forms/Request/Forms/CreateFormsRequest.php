@@ -10,11 +10,17 @@ class CreateFormsRequest extends \Perfumer\Microservices\Request
     public $forms = [
     ];
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/forms';
         $this->_request_method = 'post';
         $this->forms = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -22,6 +28,9 @@ class CreateFormsRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->forms instanceof \Perfumer\Microservices\Undefined) {
             $array['forms'] = $this->forms;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

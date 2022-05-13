@@ -14,12 +14,18 @@ class SaveActParticipantRequest extends \Perfumer\Microservices\Request
      */
     public $act = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/participant/act';
         $this->_request_method = 'post';
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->act = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -30,6 +36,9 @@ class SaveActParticipantRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->act instanceof \Perfumer\Microservices\Undefined) {
             $array['act'] = $this->act;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

@@ -69,6 +69,11 @@ class ValidateInstanceRequest extends \Perfumer\Microservices\Request
      */
     public $telegram_username = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/instance/validate';
@@ -86,6 +91,7 @@ class ValidateInstanceRequest extends \Perfumer\Microservices\Request
         $this->org_name = new \Perfumer\Microservices\Undefined();
         $this->telegram_chat_id = new \Perfumer\Microservices\Undefined();
         $this->telegram_username = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -129,6 +135,9 @@ class ValidateInstanceRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->telegram_username instanceof \Perfumer\Microservices\Undefined) {
             $array['telegram_username'] = $this->telegram_username;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

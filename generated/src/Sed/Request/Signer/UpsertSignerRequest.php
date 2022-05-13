@@ -24,6 +24,16 @@ class UpsertSignerRequest extends \Perfumer\Microservices\Request
      */
     public $type = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/signer';
@@ -32,6 +42,8 @@ class UpsertSignerRequest extends \Perfumer\Microservices\Request
         $this->signer_type = new \Perfumer\Microservices\Undefined();
         $this->document = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -48,6 +60,12 @@ class UpsertSignerRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->type instanceof \Perfumer\Microservices\Undefined) {
             $array['type'] = $this->type;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

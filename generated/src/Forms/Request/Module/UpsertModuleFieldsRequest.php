@@ -15,12 +15,24 @@ class UpsertModuleFieldsRequest extends \Perfumer\Microservices\Request
     public $fields = [
     ];
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/module/fields';
         $this->_request_method = 'put';
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->fields = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -31,6 +43,12 @@ class UpsertModuleFieldsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->fields instanceof \Perfumer\Microservices\Undefined) {
             $array['fields'] = $this->fields;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

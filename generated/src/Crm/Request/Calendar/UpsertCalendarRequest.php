@@ -25,6 +25,11 @@ class UpsertCalendarRequest extends \Perfumer\Microservices\Request
      */
     public $is_protected = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
     public function __construct()
     {
         $this->_request_url = '/calendar';
@@ -33,6 +38,7 @@ class UpsertCalendarRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->entries = new \Perfumer\Microservices\Undefined();
         $this->is_protected = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -49,6 +55,9 @@ class UpsertCalendarRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_protected instanceof \Perfumer\Microservices\Undefined) {
             $array['is_protected'] = $this->is_protected;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
         }
 
         return $array;

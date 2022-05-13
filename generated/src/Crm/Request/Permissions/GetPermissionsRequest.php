@@ -20,7 +20,7 @@ class GetPermissionsRequest extends \Perfumer\Microservices\Request
     public $description = null;
 
     /**
-     * @var mixed
+     * @var int
      */
     public $id = null;
 

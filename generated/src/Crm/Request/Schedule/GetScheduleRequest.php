@@ -29,6 +29,16 @@ class GetScheduleRequest extends \Perfumer\Microservices\Request
      */
     public $module = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/schedule';
@@ -38,6 +48,8 @@ class GetScheduleRequest extends \Perfumer\Microservices\Request
         $this->activity = new \Perfumer\Microservices\Undefined();
         $this->calendar = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -57,6 +69,12 @@ class GetScheduleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->module instanceof \Perfumer\Microservices\Undefined) {
             $array['module'] = $this->module;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;
