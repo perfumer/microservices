@@ -62,6 +62,11 @@ class GetTranslationsRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
+    public $id = null;
+
+    /**
+     * @var int
+     */
     public $id_lt = null;
 
     /**
@@ -94,6 +99,7 @@ class GetTranslationsRequest extends \Perfumer\Microservices\Request
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->order_field = new \Perfumer\Microservices\Undefined();
         $this->order_direction = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
         $this->id_lt = new \Perfumer\Microservices\Undefined();
         $this->id_le = new \Perfumer\Microservices\Undefined();
         $this->id_gt = new \Perfumer\Microservices\Undefined();
@@ -135,6 +141,9 @@ class GetTranslationsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->order_direction instanceof \Perfumer\Microservices\Undefined) {
             $array['order_direction'] = $this->order_direction;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
         }
         if (!$this->id_lt instanceof \Perfumer\Microservices\Undefined) {
             $array['id_lt'] = $this->id_lt;

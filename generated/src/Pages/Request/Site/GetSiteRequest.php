@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Pages\Request\Site;
 class GetSiteRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

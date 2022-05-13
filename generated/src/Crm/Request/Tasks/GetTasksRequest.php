@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Tasks;
 class GetTasksRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

@@ -5,10 +5,9 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Customers;
 class GetCustomersRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var array
+     * @var int
      */
-    public $id = [
-    ];
+    public $id = null;
 
     /**
      * @var array

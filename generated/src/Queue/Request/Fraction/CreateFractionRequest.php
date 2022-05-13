@@ -74,6 +74,11 @@ class CreateFractionRequest extends \Perfumer\Microservices\Request
      */
     public $timeout = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/fraction';
@@ -92,6 +97,7 @@ class CreateFractionRequest extends \Perfumer\Microservices\Request
         $this->body = new \Perfumer\Microservices\Undefined();
         $this->sleep = new \Perfumer\Microservices\Undefined();
         $this->timeout = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -138,6 +144,9 @@ class CreateFractionRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->timeout instanceof \Perfumer\Microservices\Undefined) {
             $array['timeout'] = $this->timeout;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

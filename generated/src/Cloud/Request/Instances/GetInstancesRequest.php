@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Cloud\Request\Instances;
 class GetInstancesRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

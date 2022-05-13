@@ -129,6 +129,16 @@ class GetConnectorEventsRequest extends \Perfumer\Microservices\Request
      */
     public $json_key = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/connector/events';
@@ -158,6 +168,8 @@ class GetConnectorEventsRequest extends \Perfumer\Microservices\Request
         $this->description_key = new \Perfumer\Microservices\Undefined();
         $this->html_key = new \Perfumer\Microservices\Undefined();
         $this->json_key = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -237,6 +249,12 @@ class GetConnectorEventsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->json_key instanceof \Perfumer\Microservices\Undefined) {
             $array['json_key'] = $this->json_key;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

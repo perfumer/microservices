@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Customer;
 class GetCustomerCredentialsRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

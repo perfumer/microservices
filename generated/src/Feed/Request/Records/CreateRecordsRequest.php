@@ -21,6 +21,11 @@ class CreateRecordsRequest extends \Perfumer\Microservices\Request
     public $records = [
     ];
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/records';
@@ -28,6 +33,7 @@ class CreateRecordsRequest extends \Perfumer\Microservices\Request
         $this->collection = new \Perfumer\Microservices\Undefined();
         $this->recipients = new \Perfumer\Microservices\Undefined();
         $this->records = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -41,6 +47,9 @@ class CreateRecordsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->records instanceof \Perfumer\Microservices\Undefined) {
             $array['records'] = $this->records;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

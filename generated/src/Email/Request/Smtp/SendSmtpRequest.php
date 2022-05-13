@@ -29,6 +29,11 @@ class SendSmtpRequest extends \Perfumer\Microservices\Request
      */
     public $signature_enabled = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/smtp';
@@ -38,6 +43,7 @@ class SendSmtpRequest extends \Perfumer\Microservices\Request
         $this->text = new \Perfumer\Microservices\Undefined();
         $this->html = new \Perfumer\Microservices\Undefined();
         $this->signature_enabled = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -57,6 +63,9 @@ class SendSmtpRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->signature_enabled instanceof \Perfumer\Microservices\Undefined) {
             $array['signature_enabled'] = $this->signature_enabled;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

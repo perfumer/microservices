@@ -27,6 +27,7 @@ class GetModel extends RequestModel
             $this->submodel = $ucfirst_model;
         }
 
+        $this->fields = array_merge($this->fields, ['id.int', 'code']);
         $this->response_fields[] = $lcfirst_model . '.array';
 
         parent::onCreate();

@@ -19,6 +19,11 @@ class GetAccessRequest extends \Perfumer\Microservices\Request
      */
     public $collection = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/access';
@@ -26,6 +31,7 @@ class GetAccessRequest extends \Perfumer\Microservices\Request
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->client = new \Perfumer\Microservices\Undefined();
         $this->collection = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -39,6 +45,9 @@ class GetAccessRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->collection instanceof \Perfumer\Microservices\Undefined) {
             $array['collection'] = $this->collection;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

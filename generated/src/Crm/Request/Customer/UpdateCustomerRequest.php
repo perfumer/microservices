@@ -15,7 +15,7 @@ class UpdateCustomerRequest extends \Perfumer\Microservices\Request
     public $telegram_username = null;
 
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

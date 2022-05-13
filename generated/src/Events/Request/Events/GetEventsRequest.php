@@ -50,57 +50,12 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
     public $location = null;
 
     /**
-     * @var string
-     */
-    public $opened_at_from = null;
-
-    /**
-     * @var string
-     */
-    public $opened_at_to = null;
-
-    /**
-     * @var string
-     */
-    public $closed_at_from = null;
-
-    /**
-     * @var string
-     */
-    public $closed_at_to = null;
-
-    /**
-     * @var string
-     */
-    public $apply_from_from = null;
-
-    /**
-     * @var string
-     */
-    public $apply_from_to = null;
-
-    /**
-     * @var string
-     */
-    public $apply_till_from = null;
-
-    /**
-     * @var string
-     */
-    public $apply_till_to = null;
-
-    /**
-     * @var string
-     */
-    public $published_at = null;
-
-    /**
-     * @var string
+     * @var int
      */
     public $nb_invites_per_participant = null;
 
     /**
-     * @var string
+     * @var int
      */
     public $nb_invites = null;
 
@@ -137,6 +92,11 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
+    public $id = null;
+
+    /**
+     * @var int
+     */
     public $id_lt = null;
 
     /**
@@ -154,6 +114,106 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
      */
     public $id_ge = null;
 
+    /**
+     * @var string
+     */
+    public $opened_at_le = null;
+
+    /**
+     * @var string
+     */
+    public $opened_at_lt = null;
+
+    /**
+     * @var string
+     */
+    public $opened_at_ge = null;
+
+    /**
+     * @var string
+     */
+    public $opened_at_gt = null;
+
+    /**
+     * @var string
+     */
+    public $closed_at_le = null;
+
+    /**
+     * @var string
+     */
+    public $closed_at_lt = null;
+
+    /**
+     * @var string
+     */
+    public $closed_at_ge = null;
+
+    /**
+     * @var string
+     */
+    public $closed_at_gt = null;
+
+    /**
+     * @var string
+     */
+    public $apply_from_le = null;
+
+    /**
+     * @var string
+     */
+    public $apply_from_lt = null;
+
+    /**
+     * @var string
+     */
+    public $apply_from_ge = null;
+
+    /**
+     * @var string
+     */
+    public $apply_from_gt = null;
+
+    /**
+     * @var string
+     */
+    public $apply_till_le = null;
+
+    /**
+     * @var string
+     */
+    public $apply_till_lt = null;
+
+    /**
+     * @var string
+     */
+    public $apply_till_ge = null;
+
+    /**
+     * @var string
+     */
+    public $apply_till_gt = null;
+
+    /**
+     * @var string
+     */
+    public $published_at_le = null;
+
+    /**
+     * @var string
+     */
+    public $published_at_lt = null;
+
+    /**
+     * @var string
+     */
+    public $published_at_ge = null;
+
+    /**
+     * @var string
+     */
+    public $published_at_gt = null;
+
     public function __construct()
     {
         $this->_request_url = '/events';
@@ -167,15 +227,6 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->format = new \Perfumer\Microservices\Undefined();
         $this->location = new \Perfumer\Microservices\Undefined();
-        $this->opened_at_from = new \Perfumer\Microservices\Undefined();
-        $this->opened_at_to = new \Perfumer\Microservices\Undefined();
-        $this->closed_at_from = new \Perfumer\Microservices\Undefined();
-        $this->closed_at_to = new \Perfumer\Microservices\Undefined();
-        $this->apply_from_from = new \Perfumer\Microservices\Undefined();
-        $this->apply_from_to = new \Perfumer\Microservices\Undefined();
-        $this->apply_till_from = new \Perfumer\Microservices\Undefined();
-        $this->apply_till_to = new \Perfumer\Microservices\Undefined();
-        $this->published_at = new \Perfumer\Microservices\Undefined();
         $this->nb_invites_per_participant = new \Perfumer\Microservices\Undefined();
         $this->nb_invites = new \Perfumer\Microservices\Undefined();
         $this->is_disabled = new \Perfumer\Microservices\Undefined();
@@ -184,10 +235,31 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         $this->count = new \Perfumer\Microservices\Undefined();
         $this->order_field = new \Perfumer\Microservices\Undefined();
         $this->order_direction = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
         $this->id_lt = new \Perfumer\Microservices\Undefined();
         $this->id_le = new \Perfumer\Microservices\Undefined();
         $this->id_gt = new \Perfumer\Microservices\Undefined();
         $this->id_ge = new \Perfumer\Microservices\Undefined();
+        $this->opened_at_le = new \Perfumer\Microservices\Undefined();
+        $this->opened_at_lt = new \Perfumer\Microservices\Undefined();
+        $this->opened_at_ge = new \Perfumer\Microservices\Undefined();
+        $this->opened_at_gt = new \Perfumer\Microservices\Undefined();
+        $this->closed_at_le = new \Perfumer\Microservices\Undefined();
+        $this->closed_at_lt = new \Perfumer\Microservices\Undefined();
+        $this->closed_at_ge = new \Perfumer\Microservices\Undefined();
+        $this->closed_at_gt = new \Perfumer\Microservices\Undefined();
+        $this->apply_from_le = new \Perfumer\Microservices\Undefined();
+        $this->apply_from_lt = new \Perfumer\Microservices\Undefined();
+        $this->apply_from_ge = new \Perfumer\Microservices\Undefined();
+        $this->apply_from_gt = new \Perfumer\Microservices\Undefined();
+        $this->apply_till_le = new \Perfumer\Microservices\Undefined();
+        $this->apply_till_lt = new \Perfumer\Microservices\Undefined();
+        $this->apply_till_ge = new \Perfumer\Microservices\Undefined();
+        $this->apply_till_gt = new \Perfumer\Microservices\Undefined();
+        $this->published_at_le = new \Perfumer\Microservices\Undefined();
+        $this->published_at_lt = new \Perfumer\Microservices\Undefined();
+        $this->published_at_ge = new \Perfumer\Microservices\Undefined();
+        $this->published_at_gt = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -220,33 +292,6 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         if (!$this->location instanceof \Perfumer\Microservices\Undefined) {
             $array['location'] = $this->location;
         }
-        if (!$this->opened_at_from instanceof \Perfumer\Microservices\Undefined) {
-            $array['opened_at_from'] = $this->opened_at_from;
-        }
-        if (!$this->opened_at_to instanceof \Perfumer\Microservices\Undefined) {
-            $array['opened_at_to'] = $this->opened_at_to;
-        }
-        if (!$this->closed_at_from instanceof \Perfumer\Microservices\Undefined) {
-            $array['closed_at_from'] = $this->closed_at_from;
-        }
-        if (!$this->closed_at_to instanceof \Perfumer\Microservices\Undefined) {
-            $array['closed_at_to'] = $this->closed_at_to;
-        }
-        if (!$this->apply_from_from instanceof \Perfumer\Microservices\Undefined) {
-            $array['apply_from_from'] = $this->apply_from_from;
-        }
-        if (!$this->apply_from_to instanceof \Perfumer\Microservices\Undefined) {
-            $array['apply_from_to'] = $this->apply_from_to;
-        }
-        if (!$this->apply_till_from instanceof \Perfumer\Microservices\Undefined) {
-            $array['apply_till_from'] = $this->apply_till_from;
-        }
-        if (!$this->apply_till_to instanceof \Perfumer\Microservices\Undefined) {
-            $array['apply_till_to'] = $this->apply_till_to;
-        }
-        if (!$this->published_at instanceof \Perfumer\Microservices\Undefined) {
-            $array['published_at'] = $this->published_at;
-        }
         if (!$this->nb_invites_per_participant instanceof \Perfumer\Microservices\Undefined) {
             $array['nb_invites_per_participant'] = $this->nb_invites_per_participant;
         }
@@ -271,6 +316,9 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         if (!$this->order_direction instanceof \Perfumer\Microservices\Undefined) {
             $array['order_direction'] = $this->order_direction;
         }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
         if (!$this->id_lt instanceof \Perfumer\Microservices\Undefined) {
             $array['id_lt'] = $this->id_lt;
         }
@@ -282,6 +330,66 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->id_ge instanceof \Perfumer\Microservices\Undefined) {
             $array['id_ge'] = $this->id_ge;
+        }
+        if (!$this->opened_at_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['opened_at_le'] = $this->opened_at_le;
+        }
+        if (!$this->opened_at_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['opened_at_lt'] = $this->opened_at_lt;
+        }
+        if (!$this->opened_at_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['opened_at_ge'] = $this->opened_at_ge;
+        }
+        if (!$this->opened_at_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['opened_at_gt'] = $this->opened_at_gt;
+        }
+        if (!$this->closed_at_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['closed_at_le'] = $this->closed_at_le;
+        }
+        if (!$this->closed_at_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['closed_at_lt'] = $this->closed_at_lt;
+        }
+        if (!$this->closed_at_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['closed_at_ge'] = $this->closed_at_ge;
+        }
+        if (!$this->closed_at_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['closed_at_gt'] = $this->closed_at_gt;
+        }
+        if (!$this->apply_from_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['apply_from_le'] = $this->apply_from_le;
+        }
+        if (!$this->apply_from_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['apply_from_lt'] = $this->apply_from_lt;
+        }
+        if (!$this->apply_from_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['apply_from_ge'] = $this->apply_from_ge;
+        }
+        if (!$this->apply_from_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['apply_from_gt'] = $this->apply_from_gt;
+        }
+        if (!$this->apply_till_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['apply_till_le'] = $this->apply_till_le;
+        }
+        if (!$this->apply_till_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['apply_till_lt'] = $this->apply_till_lt;
+        }
+        if (!$this->apply_till_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['apply_till_ge'] = $this->apply_till_ge;
+        }
+        if (!$this->apply_till_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['apply_till_gt'] = $this->apply_till_gt;
+        }
+        if (!$this->published_at_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['published_at_le'] = $this->published_at_le;
+        }
+        if (!$this->published_at_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['published_at_lt'] = $this->published_at_lt;
+        }
+        if (!$this->published_at_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['published_at_ge'] = $this->published_at_ge;
+        }
+        if (!$this->published_at_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['published_at_gt'] = $this->published_at_gt;
         }
 
         return $array;

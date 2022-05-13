@@ -52,6 +52,11 @@ class UpsertFormRequest extends \Perfumer\Microservices\Request
     public $tags = [
     ];
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
     public function __construct()
     {
         $this->_request_url = '/form';
@@ -65,6 +70,7 @@ class UpsertFormRequest extends \Perfumer\Microservices\Request
         $this->fields = new \Perfumer\Microservices\Undefined();
         $this->payload = new \Perfumer\Microservices\Undefined();
         $this->tags = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -96,6 +102,9 @@ class UpsertFormRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->tags instanceof \Perfumer\Microservices\Undefined) {
             $array['tags'] = $this->tags;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
         }
 
         return $array;

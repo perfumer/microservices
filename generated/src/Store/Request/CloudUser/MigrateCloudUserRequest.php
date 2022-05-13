@@ -19,6 +19,11 @@ class MigrateCloudUserRequest extends \Perfumer\Microservices\Request
      */
     public $id = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/cloud/user/migrate';
@@ -26,6 +31,7 @@ class MigrateCloudUserRequest extends \Perfumer\Microservices\Request
         $this->version_code = new \Perfumer\Microservices\Undefined();
         $this->image = new \Perfumer\Microservices\Undefined();
         $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -39,6 +45,9 @@ class MigrateCloudUserRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

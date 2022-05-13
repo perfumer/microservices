@@ -20,6 +20,16 @@ class UpsertCommonScenarioTriggerRequest extends \Perfumer\Microservices\Request
     public $arguments = [
     ];
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/common-scenario-trigger';
@@ -27,6 +37,8 @@ class UpsertCommonScenarioTriggerRequest extends \Perfumer\Microservices\Request
         $this->common_trigger = new \Perfumer\Microservices\Undefined();
         $this->process_scenario = new \Perfumer\Microservices\Undefined();
         $this->arguments = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -40,6 +52,12 @@ class UpsertCommonScenarioTriggerRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->arguments instanceof \Perfumer\Microservices\Undefined) {
             $array['arguments'] = $this->arguments;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

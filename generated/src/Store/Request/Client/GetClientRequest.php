@@ -14,12 +14,18 @@ class GetClientRequest extends \Perfumer\Microservices\Request
      */
     public $token = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/client';
         $this->_request_method = 'get';
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->token = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -30,6 +36,9 @@ class GetClientRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->token instanceof \Perfumer\Microservices\Undefined) {
             $array['token'] = $this->token;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

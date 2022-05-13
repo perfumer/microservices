@@ -34,6 +34,11 @@ class GetUserCredentialsRequest extends \Perfumer\Microservices\Request
      */
     public $username = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
     public function __construct()
     {
         $this->_request_url = '/user/credentials';
@@ -44,6 +49,7 @@ class GetUserCredentialsRequest extends \Perfumer\Microservices\Request
         $this->password = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->username = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -66,6 +72,9 @@ class GetUserCredentialsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->username instanceof \Perfumer\Microservices\Undefined) {
             $array['username'] = $this->username;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
         }
 
         return $array;

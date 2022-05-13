@@ -14,12 +14,24 @@ class GetUserModuleRequest extends \Perfumer\Microservices\Request
      */
     public $module = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/user-module';
         $this->_request_method = 'get';
         $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -30,6 +42,12 @@ class GetUserModuleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->module instanceof \Perfumer\Microservices\Undefined) {
             $array['module'] = $this->module;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

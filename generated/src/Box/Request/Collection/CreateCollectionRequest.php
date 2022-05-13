@@ -29,6 +29,11 @@ class CreateCollectionRequest extends \Perfumer\Microservices\Request
      */
     public $description = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/collection';
@@ -38,6 +43,7 @@ class CreateCollectionRequest extends \Perfumer\Microservices\Request
         $this->handler = new \Perfumer\Microservices\Undefined();
         $this->is_disabled = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -57,6 +63,9 @@ class CreateCollectionRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->description instanceof \Perfumer\Microservices\Undefined) {
             $array['description'] = $this->description;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

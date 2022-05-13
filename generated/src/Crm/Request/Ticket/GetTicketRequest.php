@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Ticket;
 class GetTicketRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

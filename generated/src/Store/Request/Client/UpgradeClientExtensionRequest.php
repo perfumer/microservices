@@ -19,6 +19,11 @@ class UpgradeClientExtensionRequest extends \Perfumer\Microservices\Request
      */
     public $branch = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
     public function __construct()
     {
         $this->_request_url = '/client/extension';
@@ -26,6 +31,7 @@ class UpgradeClientExtensionRequest extends \Perfumer\Microservices\Request
         $this->client = new \Perfumer\Microservices\Undefined();
         $this->extension = new \Perfumer\Microservices\Undefined();
         $this->branch = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -39,6 +45,9 @@ class UpgradeClientExtensionRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->branch instanceof \Perfumer\Microservices\Undefined) {
             $array['branch'] = $this->branch;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
         }
 
         return $array;

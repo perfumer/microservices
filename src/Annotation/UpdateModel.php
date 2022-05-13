@@ -17,4 +17,11 @@ class UpdateModel extends SaveModel
      * @var string
      */
     public $request_method = 'patch';
+
+    public function onCreate(): void
+    {
+        $this->fields = array_merge($this->fields, ['id.int']);
+
+        parent::onCreate();
+    }
 }

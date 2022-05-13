@@ -108,6 +108,11 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
     public $children = [
     ];
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
     public function __construct()
     {
         $this->_request_url = '/module';
@@ -132,6 +137,7 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
         $this->post_create_message = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->children = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -196,6 +202,9 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->children instanceof \Perfumer\Microservices\Undefined) {
             $array['children'] = $this->children;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
         }
 
         return $array;

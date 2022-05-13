@@ -14,12 +14,24 @@ class ReinstallClientExtensionRequest extends \Perfumer\Microservices\Request
      */
     public $extension = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/client/extension';
         $this->_request_method = 'put';
         $this->client = new \Perfumer\Microservices\Undefined();
         $this->extension = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -30,6 +42,12 @@ class ReinstallClientExtensionRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->extension instanceof \Perfumer\Microservices\Undefined) {
             $array['extension'] = $this->extension;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

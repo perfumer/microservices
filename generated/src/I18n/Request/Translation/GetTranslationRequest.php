@@ -9,11 +9,23 @@ class GetTranslationRequest extends \Perfumer\Microservices\Request
      */
     public $key = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/translation';
         $this->_request_method = 'get';
         $this->key = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -21,6 +33,12 @@ class GetTranslationRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->key instanceof \Perfumer\Microservices\Undefined) {
             $array['key'] = $this->key;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

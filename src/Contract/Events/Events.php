@@ -27,8 +27,8 @@ use Perfumer\Microservices\Annotation\CreateModel;
  *     "act_signed_at_from", "act_signed_at_to", "is_act_signed.bool"})
  * @GetModel(microservice="events", model="participant", fields={"id.int", "event_id.int", "customer_id.int"})
  * @GetModels(microservice="events", model="events", fields={"organizer_id", "locale", "module_id.int", "author_id", "title", "image",
- *     "description", "format", "location", "opened_at_from", "opened_at_to", "closed_at_from", "closed_at_to", "apply_from_from",
- *     "apply_from_to", "apply_till_from", "apply_till_to", "published_at", "nb_invites_per_participant", "nb_invites", "is_disabled.bool"})
+ *     "description", "format", "location", "opened_at.date", "closed_at.date", "apply_from.date", "apply_till.date", "published_at.date",
+ *     "nb_invites_per_participant.int", "nb_invites.int", "is_disabled.bool"})
  *
  * @SaveModel(microservice="events", model="participant", fields={"event_id", "customer_id", "nb_invites"})
  * @UpdateModel(microservice="events", model="participant", fields={"id.int", "event_id", "customer_id", "nb_invites"})

@@ -45,6 +45,11 @@ class CreateSignatureRequest extends \Perfumer\Microservices\Request
      */
     public $silent = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/signature';
@@ -57,6 +62,7 @@ class CreateSignatureRequest extends \Perfumer\Microservices\Request
         $this->version_comment = new \Perfumer\Microservices\Undefined();
         $this->version_created_by = new \Perfumer\Microservices\Undefined();
         $this->silent = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -85,6 +91,9 @@ class CreateSignatureRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->silent instanceof \Perfumer\Microservices\Undefined) {
             $array['silent'] = $this->silent;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

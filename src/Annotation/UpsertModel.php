@@ -18,4 +18,11 @@ class UpsertModel extends SaveModel
      * @var string
      */
     public $request_method = 'put';
+
+    public function onCreate(): void
+    {
+        $this->fields = array_merge($this->fields, ['id.int', 'code']);
+
+        parent::onCreate();
+    }
 }

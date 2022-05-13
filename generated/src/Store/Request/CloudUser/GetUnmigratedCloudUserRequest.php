@@ -19,6 +19,16 @@ class GetUnmigratedCloudUserRequest extends \Perfumer\Microservices\Request
      */
     public $cloud = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/cloud/user/unmigrated';
@@ -26,6 +36,8 @@ class GetUnmigratedCloudUserRequest extends \Perfumer\Microservices\Request
         $this->version_code = new \Perfumer\Microservices\Undefined();
         $this->image = new \Perfumer\Microservices\Undefined();
         $this->cloud = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -39,6 +51,12 @@ class GetUnmigratedCloudUserRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->cloud instanceof \Perfumer\Microservices\Undefined) {
             $array['cloud'] = $this->cloud;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

@@ -25,6 +25,11 @@ class CloseTaskRequest extends \Perfumer\Microservices\Request
      */
     public $message = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/task/close';
@@ -33,6 +38,7 @@ class CloseTaskRequest extends \Perfumer\Microservices\Request
         $this->process_scenario = new \Perfumer\Microservices\Undefined();
         $this->fixes = new \Perfumer\Microservices\Undefined();
         $this->message = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -49,6 +55,9 @@ class CloseTaskRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->message instanceof \Perfumer\Microservices\Undefined) {
             $array['message'] = $this->message;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;
