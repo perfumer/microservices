@@ -398,6 +398,19 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function updateGroup(\Perfumer\Microservices\Crm\Request\Group\UpdateGroupRequest $request): \Perfumer\Microservices\Crm\Response\Group\UpdateGroupResponse
+    {
+        /** @var \Perfumer\Microservices\Crm\Response\Group\UpdateGroupResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\Group\UpdateGroupResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'group');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->group = $item;
+        }
+
+        return $response;
+    }
+
     public function deleteGroup(\Perfumer\Microservices\Crm\Request\Group\DeleteGroupRequest $request): \Perfumer\Microservices\Crm\Response\Group\DeleteGroupResponse
     {
         /** @var \Perfumer\Microservices\Crm\Response\Group\DeleteGroupResponse $response */

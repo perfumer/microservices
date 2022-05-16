@@ -2,17 +2,12 @@
 
 namespace Generated\Perfumer\Microservices\Crm\Request\Group;
 
-class CreateGroupRequest extends \Perfumer\Microservices\Request
+class UpdateGroupRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var int
      */
     public $id = null;
-
-    /**
-     * @var string
-     */
-    public $code = null;
 
     /**
      * @var string
@@ -61,9 +56,8 @@ class CreateGroupRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->_request_url = '/group';
-        $this->_request_method = 'post';
+        $this->_request_method = 'patch';
         $this->id = new \Perfumer\Microservices\Undefined();
-        $this->code = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->owner_id = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
@@ -79,9 +73,6 @@ class CreateGroupRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
-        }
-        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
-            $array['code'] = $this->code;
         }
         if (!$this->name instanceof \Perfumer\Microservices\Undefined) {
             $array['name'] = $this->name;
