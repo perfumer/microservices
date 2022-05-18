@@ -27,6 +27,11 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $ticket_crm_module = null;
+
+    /**
+     * @var string
+     */
     public $allowed_crm_module = null;
 
     /**
@@ -59,6 +64,7 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->customer_name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
+        $this->ticket_crm_module = new \Perfumer\Microservices\Undefined();
         $this->allowed_crm_module = new \Perfumer\Microservices\Undefined();
         $this->allowed_crm_module_mode = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
@@ -80,6 +86,9 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->description instanceof \Perfumer\Microservices\Undefined) {
             $array['description'] = $this->description;
+        }
+        if (!$this->ticket_crm_module instanceof \Perfumer\Microservices\Undefined) {
+            $array['ticket_crm_module'] = $this->ticket_crm_module;
         }
         if (!$this->allowed_crm_module instanceof \Perfumer\Microservices\Undefined) {
             $array['allowed_crm_module'] = $this->allowed_crm_module;
