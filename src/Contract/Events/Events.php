@@ -14,9 +14,9 @@ use Perfumer\Microservices\Annotation\CreateModel;
 
 /**
  * @GetModel(microservice="events", model="module", fields={"id", "code"})
- * @GetMeshModels(microservice="events", model="modules", fields={"name", "code", "description", "is_archived.bool"})
- * @SaveMeshModel(microservice="events", model="module", fields={"code", "name", "customer_name", "description", "allowed_crm_module", "allowed_crm_module_mode", "is_archived.bool"})
- * @SaveMeshModel(microservice="events", model="module", fields={"id", "code", "name", "customer_name", "description", "allowed_crm_module", "allowed_crm_module_mode", "is_archived.bool"}, action="update", request_method="patch")
+ * @GetMeshModels(microservice="events", model="modules", fields={"name", "code", "description", "ticket_crm_module", "is_archived.bool"})
+ * @SaveMeshModel(microservice="events", model="module", fields={"code", "name", "customer_name", "description", "ticket_crm_module", "allowed_crm_module", "allowed_crm_module_mode", "is_archived.bool"})
+ * @SaveMeshModel(microservice="events", model="module", fields={"id", "code", "name", "customer_name", "description", "ticket_crm_module", "allowed_crm_module", "allowed_crm_module_mode", "is_archived.bool"}, action="update", request_method="patch")
  * @DeleteModel(microservice="events", model="module", fields={"id", "code"})
  * @SaveModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="archive")
  * @SaveModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
