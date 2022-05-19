@@ -39,10 +39,11 @@ use Perfumer\Microservices\Annotation\CreateModel;
  *     "description", "html", "json", "format", "location", "opened_at", "closed_at", "apply_from", "apply_till", "published_at", "nb_invites_per_participant", "nb_invites",
  *     "is_confirm_required.bool", "confirmed_at", "is_review_needed.bool", "is_statement_needed.bool", "registration_form", "user_speakers.array"})
  * @DeleteModel(microservice="events", model="event", fields={"id.int"})
- * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/reject", action="reject")
- * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/publish", action="publish")
- * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/enable", action="enable")
- * @SaveModel(microservice="events", model="event", fields={"id.int"}, url="/event/disable", action="disable")
+ * @CreateModel(microservice="events", model="event", fields={"id.int"}, url="/event/reject", action="reject")
+ * @CreateModel(microservice="events", model="event", fields={"id.int"}, url="/event/publish", action="publish")
+ * @CreateModel(microservice="events", model="event", fields={"id.int"}, url="/event/enable", action="enable")
+ * @CreateModel(microservice="events", model="event", fields={"id.int"}, url="/event/disable", action="disable")
+ * @CreateModel(microservice="events", model="event", fields={"id.int"}, url="/event/ticket", action="reset", submodel="EventTickets")
  *
  * @GetModel(microservice="events", model="events", submodel="ConnectorEvents", fields={"parent", "except_id", "limit.int", "is_archived.bool", "is_disabled.bool", "is_deep.bool", "locale", "id_key", "organizer_id_key", "modules_key", "opened_at_key", "closed_at_key", "apply_from_key", "apply_till_key", "published_at_key", "is_registration_open_key", "status_key", "format_key", "location_key", "author_id_key", "image_key", "title_key", "description_key", "html_key", "json_key" }, url="/connector/events", action="get")
  *
