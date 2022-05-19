@@ -2,7 +2,7 @@
 
 namespace Generated\Perfumer\Microservices\Events\Request\Event;
 
-class RejectEventRequest extends \Perfumer\Microservices\Request
+class ResetEventTicketsRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var int
@@ -16,7 +16,7 @@ class RejectEventRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/event/reject';
+        $this->_request_url = '/event/ticket';
         $this->_request_method = 'post';
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();

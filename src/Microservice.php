@@ -234,6 +234,10 @@ class Microservice
                 break;
             }
         }
+        
+        if ($request->_unsuccessful_exception === true && $response->_status === false) {
+            throw new UnsuccessfulRequestException();
+        }
 
         return $response;
     }

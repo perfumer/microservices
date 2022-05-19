@@ -20,6 +20,11 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
     public $description = null;
 
     /**
+     * @var string
+     */
+    public $ticket_crm_module = null;
+
+    /**
      * @var bool
      */
     public $is_archived = null;
@@ -106,6 +111,7 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
+        $this->ticket_crm_module = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->parent = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
@@ -135,6 +141,9 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->description instanceof \Perfumer\Microservices\Undefined) {
             $array['description'] = $this->description;
+        }
+        if (!$this->ticket_crm_module instanceof \Perfumer\Microservices\Undefined) {
+            $array['ticket_crm_module'] = $this->ticket_crm_module;
         }
         if (!$this->is_archived instanceof \Perfumer\Microservices\Undefined) {
             $array['is_archived'] = $this->is_archived;

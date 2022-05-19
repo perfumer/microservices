@@ -17,6 +17,13 @@ class Request
     public $_catch = false;
 
     /**
+     * If enabled, raise Exception if request ends with error code or status=false
+     *
+     * @var bool
+     */
+    public $_unsuccessful_exception = false;
+
+    /**
      * @var int
      */
     public $_timeout = 30;

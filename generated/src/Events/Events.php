@@ -264,6 +264,19 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         return $response;
     }
 
+    public function resetEventTickets(\Perfumer\Microservices\Events\Request\Event\ResetEventTicketsRequest $request): \Perfumer\Microservices\Events\Response\Event\ResetEventTicketsResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Event\ResetEventTicketsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Event\ResetEventTicketsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'event');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->event = $item;
+        }
+
+        return $response;
+    }
+
     public function getConnectorEvents(\Perfumer\Microservices\Events\Request\Events\GetConnectorEventsRequest $request): \Perfumer\Microservices\Events\Response\Events\GetConnectorEventsResponse
     {
         /** @var \Perfumer\Microservices\Events\Response\Events\GetConnectorEventsResponse $response */
