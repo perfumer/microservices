@@ -235,7 +235,7 @@ class Microservice
             }
         }
         
-        if ($request->_throw_exception === true && $response->_status === false) {
+        if ($request->_unsuccessful_exception === true && $response->_status === false) {
             throw new UnsuccessfulRequestException();
         }
 

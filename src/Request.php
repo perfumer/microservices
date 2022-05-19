@@ -21,7 +21,7 @@ class Request
      *
      * @var bool
      */
-    public $_throw_exception = false;
+    public $_unsuccessful_exception = false;
 
     /**
      * @var int
