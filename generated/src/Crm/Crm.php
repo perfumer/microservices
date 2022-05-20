@@ -1147,6 +1147,19 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function updateTicket(\Perfumer\Microservices\Crm\Request\Ticket\UpdateTicketRequest $request): \Perfumer\Microservices\Crm\Response\Ticket\UpdateTicketResponse
+    {
+        /** @var \Perfumer\Microservices\Crm\Response\Ticket\UpdateTicketResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\Ticket\UpdateTicketResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'ticket');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->ticket = $item;
+        }
+
+        return $response;
+    }
+
     public function getTickets(\Perfumer\Microservices\Crm\Request\Tickets\GetTicketsRequest $request): \Perfumer\Microservices\Crm\Response\Tickets\GetTicketsResponse
     {
         /** @var \Perfumer\Microservices\Crm\Response\Tickets\GetTicketsResponse $response */
