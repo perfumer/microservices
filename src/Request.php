@@ -5,6 +5,20 @@ namespace Perfumer\Microservices;
 class Request
 {
     /**
+     * Tenant for Cloud setups
+     *
+     * @var string
+     */
+    public $_tenant;
+
+    /**
+     * Locale for header
+     *
+     * @var string
+     */
+    public $_locale;
+
+    /**
      * @var bool
      */
     public $_debug = false;

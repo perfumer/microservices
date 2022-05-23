@@ -28,6 +28,11 @@ class Microservice
     /**
      * @var string
      */
+    protected $_tenant;
+
+    /**
+     * @var string
+     */
     protected $_locale;
 
     /**
@@ -52,6 +57,21 @@ class Microservice
         $this->_request_catcher_host = $options['request_catcher_host'] ?? null;
         $this->_http_auth_username = $options['http_auth_username'] ?? null;
         $this->_http_auth_password = $options['http_auth_password'] ?? null;
+        $segment = $options['segment'] ?? null; //deprecated
+        $tenant = $options['tenant'] ?? null;
+
+        if ($segment) {
+            $this->_tenant = $segment;
+        }
+
+        if ($tenant) {
+            $this->_tenant = $tenant;
+        }
+
+        if ($this->_tenant) {
+            $this->addHeader('Api-Tenant', $this->_tenant);
+            $this->addHeader('Api-Segment', $this->_tenant); //deprecated
+        }
     }
 
     /**
@@ -135,8 +155,26 @@ class Microservice
 
         $headers = [];
 
+        // Set locale from constructor
         if ($this->_locale) {
             $headers['Api-Locale'] = $this->_locale;
+        }
+
+        // Override locale from request
+        if ($request->_locale) {
+            $headers['Api-Locale'] = $request->_locale;
+        }
+
+        // Set tenant from constructor
+        if ($this->_tenant) {
+            $headers['Api-Segment'] = $this->_tenant;
+            $headers['Api-Tenant'] = $this->_tenant;
+        }
+
+        // Override tenant from request
+        if ($request->_tenant) {
+            $headers['Api-Segment'] = $request->_tenant;
+            $headers['Api-Tenant'] = $request->_tenant;
         }
 
         $headers = array_merge($headers, $this->_headers, $request->getHeaders());
