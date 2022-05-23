@@ -229,18 +229,4 @@ return [
             'request_catcher_host' => '@microservices/request_catcher.host',
         ]]
     ],
-
-    'microservices.webapps' => [
-        'shared' => true,
-        'class' => 'Perfumer\\Microservices\\Webapps\\Webapps',
-        'arguments' => [[
-            'host' => '@microservices/webapps.host',
-            'locale' => '@microservices/locale',
-            'http_auth_username' => '@microservices/http_auth_username',
-            'http_auth_password' => '@microservices/http_auth_password',
-            'request_catcher_host' => '@microservices/request_catcher.host',
-            'segment' => '@microservices/segment',
-            'tenant' => '@microservices/tenant',
-        ]]
-    ],
 ];
