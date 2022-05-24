@@ -15,6 +15,11 @@ class GetReportUsersRequest extends \Perfumer\Microservices\Request
     public $filters = null;
 
     /**
+     * @var string
+     */
+    public $formatting = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -65,6 +70,7 @@ class GetReportUsersRequest extends \Perfumer\Microservices\Request
         $this->_request_method = 'get';
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->filters = new \Perfumer\Microservices\Undefined();
+        $this->formatting = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -84,6 +90,9 @@ class GetReportUsersRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->filters instanceof \Perfumer\Microservices\Undefined) {
             $array['filters'] = $this->filters;
+        }
+        if (!$this->formatting instanceof \Perfumer\Microservices\Undefined) {
+            $array['formatting'] = $this->formatting;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;

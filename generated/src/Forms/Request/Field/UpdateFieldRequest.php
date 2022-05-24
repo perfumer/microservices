@@ -86,6 +86,21 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
      */
     public $aggregation_mode = null;
 
+    /**
+     * @var string
+     */
+    public $alias = null;
+
+    /**
+     * @var string
+     */
+    public $before_text = null;
+
+    /**
+     * @var string
+     */
+    public $after_text = null;
+
     public function __construct()
     {
         $this->_request_url = '/field';
@@ -106,6 +121,9 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
         $this->bind_field_mode = new \Perfumer\Microservices\Undefined();
         $this->aggregation_tag = new \Perfumer\Microservices\Undefined();
         $this->aggregation_mode = new \Perfumer\Microservices\Undefined();
+        $this->alias = new \Perfumer\Microservices\Undefined();
+        $this->before_text = new \Perfumer\Microservices\Undefined();
+        $this->after_text = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -158,6 +176,15 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->aggregation_mode instanceof \Perfumer\Microservices\Undefined) {
             $array['aggregation_mode'] = $this->aggregation_mode;
+        }
+        if (!$this->alias instanceof \Perfumer\Microservices\Undefined) {
+            $array['alias'] = $this->alias;
+        }
+        if (!$this->before_text instanceof \Perfumer\Microservices\Undefined) {
+            $array['before_text'] = $this->before_text;
+        }
+        if (!$this->after_text instanceof \Perfumer\Microservices\Undefined) {
+            $array['after_text'] = $this->after_text;
         }
 
         return $array;

@@ -10,6 +10,16 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
     public $id = null;
 
     /**
+     * @var string
+     */
+    public $tag = null;
+
+    /**
+     * @var bool
+     */
+    public $is_hidden = null;
+
+    /**
      * @var int
      */
     public $operator_user_id = null;
@@ -159,6 +169,8 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/tickets';
         $this->_request_method = 'get';
         $this->id = new \Perfumer\Microservices\Undefined();
+        $this->tag = new \Perfumer\Microservices\Undefined();
+        $this->is_hidden = new \Perfumer\Microservices\Undefined();
         $this->operator_user_id = new \Perfumer\Microservices\Undefined();
         $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->customer_id = new \Perfumer\Microservices\Undefined();
@@ -195,6 +207,12 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
+        }
+        if (!$this->tag instanceof \Perfumer\Microservices\Undefined) {
+            $array['tag'] = $this->tag;
+        }
+        if (!$this->is_hidden instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_hidden'] = $this->is_hidden;
         }
         if (!$this->operator_user_id instanceof \Perfumer\Microservices\Undefined) {
             $array['operator_user_id'] = $this->operator_user_id;

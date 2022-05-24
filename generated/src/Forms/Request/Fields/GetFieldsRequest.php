@@ -27,6 +27,11 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $alias = null;
+
+    /**
+     * @var string
+     */
     public $locale = null;
 
     /**
@@ -102,6 +107,7 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
         $this->hint = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
         $this->model = new \Perfumer\Microservices\Undefined();
+        $this->alias = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->reference = new \Perfumer\Microservices\Undefined();
@@ -132,6 +138,9 @@ class GetFieldsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->model instanceof \Perfumer\Microservices\Undefined) {
             $array['model'] = $this->model;
+        }
+        if (!$this->alias instanceof \Perfumer\Microservices\Undefined) {
+            $array['alias'] = $this->alias;
         }
         if (!$this->locale instanceof \Perfumer\Microservices\Undefined) {
             $array['locale'] = $this->locale;
