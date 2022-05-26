@@ -85,6 +85,26 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
      */
     public $id_ge = null;
 
+    /**
+     * @var string
+     */
+    public $created_at_le = null;
+
+    /**
+     * @var string
+     */
+    public $created_at_lt = null;
+
+    /**
+     * @var string
+     */
+    public $created_at_ge = null;
+
+    /**
+     * @var string
+     */
+    public $created_at_gt = null;
+
     public function __construct()
     {
         $this->_request_url = '/forms';
@@ -105,6 +125,10 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
         $this->id_le = new \Perfumer\Microservices\Undefined();
         $this->id_gt = new \Perfumer\Microservices\Undefined();
         $this->id_ge = new \Perfumer\Microservices\Undefined();
+        $this->created_at_le = new \Perfumer\Microservices\Undefined();
+        $this->created_at_lt = new \Perfumer\Microservices\Undefined();
+        $this->created_at_ge = new \Perfumer\Microservices\Undefined();
+        $this->created_at_gt = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -157,6 +181,18 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->id_ge instanceof \Perfumer\Microservices\Undefined) {
             $array['id_ge'] = $this->id_ge;
+        }
+        if (!$this->created_at_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['created_at_le'] = $this->created_at_le;
+        }
+        if (!$this->created_at_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['created_at_lt'] = $this->created_at_lt;
+        }
+        if (!$this->created_at_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['created_at_ge'] = $this->created_at_ge;
+        }
+        if (!$this->created_at_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['created_at_gt'] = $this->created_at_gt;
         }
 
         return $array;
