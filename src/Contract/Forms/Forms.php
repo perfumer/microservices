@@ -25,7 +25,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @SaveModel(microservice="forms", model="form", fields={"ticket_id.int", "user_id.int", "customer_id.int", "module", "mix", "fields.array", "payload.array", "tags.array"})
  * @CreateModel(microservice="forms", model="forms", fields={"forms.array"})
  * @SaveModel(microservice="forms", model="forms", submodel="FormsTicket", url="/forms/ticket", fields={"user_id.int", "customer_id.int", "ticket_id.int", "module"})
- * @GetModels(microservice="forms", model="forms", fields={"customer_id.int", "module", "ticket_id.int", "user_id.int", "fields.array", "tag"})
+ * @GetModels(microservice="forms", model="forms", fields={"customer_id.int", "created_at.date", "module", "ticket_id.int", "user_id.int", "fields.array", "tag", "formatting"})
  *
  * @UpsertModel(microservice="forms", model="forms", submodel="UserForms", url="/forms/user", fields={"module", "user_id.int", "ticket_id.int", "forms.array"})
  *
