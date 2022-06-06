@@ -180,6 +180,18 @@ return [
         ]]
     ],
 
+    'microservices.postgrest' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Postgrest\\Postgrest',
+        'arguments' => [[
+            'host' => '@microservices/postgrest.host',
+            'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
+            'request_catcher_host' => '@microservices/request_catcher.host',
+        ]]
+    ],
+
     'microservices.posts' => [
         'shared' => true,
         'class' => 'Perfumer\\Microservices\\Posts\\Posts',

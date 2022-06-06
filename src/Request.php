@@ -63,6 +63,11 @@ class Request
     public $_http_auth_password;
 
     /**
+     * @var string
+     */
+    public $_query_string;
+
+    /**
      * @var array
      */
     protected $_body = [];
