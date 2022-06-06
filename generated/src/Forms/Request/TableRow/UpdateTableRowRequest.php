@@ -30,6 +30,11 @@ class UpdateTableRowRequest extends \Perfumer\Microservices\Request
      */
     public $table_id = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/table/row';
@@ -39,6 +44,7 @@ class UpdateTableRowRequest extends \Perfumer\Microservices\Request
         $this->index = new \Perfumer\Microservices\Undefined();
         $this->data = new \Perfumer\Microservices\Undefined();
         $this->table_id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -58,6 +64,9 @@ class UpdateTableRowRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->table_id instanceof \Perfumer\Microservices\Undefined) {
             $array['table_id'] = $this->table_id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

@@ -24,6 +24,11 @@ class DeleteAccessRequest extends \Perfumer\Microservices\Request
      */
     public $level = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/access';
@@ -32,6 +37,7 @@ class DeleteAccessRequest extends \Perfumer\Microservices\Request
         $this->client = new \Perfumer\Microservices\Undefined();
         $this->collection = new \Perfumer\Microservices\Undefined();
         $this->level = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -48,6 +54,9 @@ class DeleteAccessRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->level instanceof \Perfumer\Microservices\Undefined) {
             $array['level'] = $this->level;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

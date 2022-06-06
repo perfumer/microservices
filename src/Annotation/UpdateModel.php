@@ -20,7 +20,7 @@ class UpdateModel extends SaveModel
 
     public function onCreate(): void
     {
-        $this->fields = array_merge($this->fields, ['id.int']);
+        $this->fields = array_merge($this->fields, ['id.int', 'code']);
 
         parent::onCreate();
     }

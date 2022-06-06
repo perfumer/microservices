@@ -34,6 +34,11 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $placeholder = null;
+
+    /**
+     * @var string
+     */
     public $module = null;
 
     /**
@@ -101,6 +106,11 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
      */
     public $after_text = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/field';
@@ -110,6 +120,7 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
         $this->label = new \Perfumer\Microservices\Undefined();
         $this->hint = new \Perfumer\Microservices\Undefined();
         $this->model = new \Perfumer\Microservices\Undefined();
+        $this->placeholder = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->reference = new \Perfumer\Microservices\Undefined();
         $this->is_required = new \Perfumer\Microservices\Undefined();
@@ -124,6 +135,7 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
         $this->alias = new \Perfumer\Microservices\Undefined();
         $this->before_text = new \Perfumer\Microservices\Undefined();
         $this->after_text = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -143,6 +155,9 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->model instanceof \Perfumer\Microservices\Undefined) {
             $array['model'] = $this->model;
+        }
+        if (!$this->placeholder instanceof \Perfumer\Microservices\Undefined) {
+            $array['placeholder'] = $this->placeholder;
         }
         if (!$this->module instanceof \Perfumer\Microservices\Undefined) {
             $array['module'] = $this->module;
@@ -185,6 +200,9 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->after_text instanceof \Perfumer\Microservices\Undefined) {
             $array['after_text'] = $this->after_text;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

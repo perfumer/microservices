@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Pages\Request\Site;
 class DeleteSiteRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 

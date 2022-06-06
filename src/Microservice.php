@@ -203,6 +203,10 @@ class Microservice
             $options['auth'] = [$http_auth_username, $http_auth_password];
         }
 
+        if ($request->_query_string) {
+            $options['query'] = $request->_query_string;
+        }
+
         $body = $request->getBody();
 
         if ($body) {
@@ -280,31 +284,12 @@ class Microservice
         return $response;
     }
 
-    private function getGuzzleClient(): Client
-    {
-        if (!$this->_guzzle_client instanceof Client) {
-            $this->_guzzle_client = new Client();
-        }
-
-        return $this->_guzzle_client;
-    }
-
-    private function buildResponseFromRequestException(Response $response, RequestException $e)
-    {
-        $guzzle_response = $e->getResponse();
-
-        $response = $this->buildResponseFromGuzzleResponse($response, $guzzle_response);
-
-        $response->_status = false;
-
-        return $response;
-    }
-
-    private function buildResponseFromGuzzleResponse(Response $response, ?ResponseInterface $guzzle_response): Response
+    protected function buildResponseFromGuzzleResponse(Response $response, ?ResponseInterface $guzzle_response): Response
     {
         if ($guzzle_response) {
             $response->_http_status_code = $guzzle_response->getStatusCode();
             $response->_raw = $guzzle_response->getBody()->getContents();
+            $response->_headers = $guzzle_response->getHeaders();
 
             $decoded_response = json_decode($response->_raw, true);
 
@@ -328,6 +313,26 @@ class Microservice
                 $response->_content = (array) $decoded_response['content'];
             }
         }
+
+        return $response;
+    }
+
+    private function getGuzzleClient(): Client
+    {
+        if (!$this->_guzzle_client instanceof Client) {
+            $this->_guzzle_client = new Client();
+        }
+
+        return $this->_guzzle_client;
+    }
+
+    private function buildResponseFromRequestException(Response $response, RequestException $e)
+    {
+        $guzzle_response = $e->getResponse();
+
+        $response = $this->buildResponseFromGuzzleResponse($response, $guzzle_response);
+
+        $response->_status = false;
 
         return $response;
     }

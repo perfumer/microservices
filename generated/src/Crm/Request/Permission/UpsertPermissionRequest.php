@@ -5,16 +5,6 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Permission;
 class UpsertPermissionRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var int
-     */
-    public $id = null;
-
-    /**
-     * @var string
-     */
-    public $code = null;
-
-    /**
      * @var string
      */
     public $name = null;
@@ -41,28 +31,32 @@ class UpsertPermissionRequest extends \Perfumer\Microservices\Request
     public $children = [
     ];
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/permission';
         $this->_request_method = 'put';
-        $this->id = new \Perfumer\Microservices\Undefined();
-        $this->code = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->is_protected = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->children = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
     {
         $array = [];
-        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
-            $array['id'] = $this->id;
-        }
-        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
-            $array['code'] = $this->code;
-        }
         if (!$this->name instanceof \Perfumer\Microservices\Undefined) {
             $array['name'] = $this->name;
         }
@@ -77,6 +71,12 @@ class UpsertPermissionRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->children instanceof \Perfumer\Microservices\Undefined) {
             $array['children'] = $this->children;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

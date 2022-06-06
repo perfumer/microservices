@@ -24,6 +24,11 @@ class UpdateSignConstraintRequest extends \Perfumer\Microservices\Request
      */
     public $bin = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/sign-constraint';
@@ -32,6 +37,7 @@ class UpdateSignConstraintRequest extends \Perfumer\Microservices\Request
         $this->document = new \Perfumer\Microservices\Undefined();
         $this->iin = new \Perfumer\Microservices\Undefined();
         $this->bin = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -48,6 +54,9 @@ class UpdateSignConstraintRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->bin instanceof \Perfumer\Microservices\Undefined) {
             $array['bin'] = $this->bin;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

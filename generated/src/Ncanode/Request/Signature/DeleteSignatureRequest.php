@@ -14,12 +14,24 @@ class DeleteSignatureRequest extends \Perfumer\Microservices\Request
      */
     public $thread = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/signature';
         $this->_request_method = 'delete';
         $this->document = new \Perfumer\Microservices\Undefined();
         $this->thread = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -30,6 +42,12 @@ class DeleteSignatureRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->thread instanceof \Perfumer\Microservices\Undefined) {
             $array['thread'] = $this->thread;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

@@ -19,6 +19,11 @@ class DeleteSubscriptionRequest extends \Perfumer\Microservices\Request
      */
     public $module_id = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/subscription';
@@ -26,6 +31,7 @@ class DeleteSubscriptionRequest extends \Perfumer\Microservices\Request
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->subscriber_id = new \Perfumer\Microservices\Undefined();
         $this->module_id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -39,6 +45,9 @@ class DeleteSubscriptionRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
             $array['module_id'] = $this->module_id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;
