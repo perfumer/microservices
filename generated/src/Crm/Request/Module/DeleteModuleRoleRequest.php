@@ -19,6 +19,16 @@ class DeleteModuleRoleRequest extends \Perfumer\Microservices\Request
      */
     public $role_id = null;
 
+    /**
+     * @var int
+     */
+    public $id = null;
+
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/module-role';
@@ -26,6 +36,8 @@ class DeleteModuleRoleRequest extends \Perfumer\Microservices\Request
         $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->group_id = new \Perfumer\Microservices\Undefined();
         $this->role_id = new \Perfumer\Microservices\Undefined();
+        $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -39,6 +51,12 @@ class DeleteModuleRoleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->role_id instanceof \Perfumer\Microservices\Undefined) {
             $array['role_id'] = $this->role_id;
+        }
+        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
+            $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

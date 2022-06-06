@@ -39,6 +39,11 @@ class UpdateUserPasswordRequest extends \Perfumer\Microservices\Request
      */
     public $id = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/user/password';
@@ -50,6 +55,7 @@ class UpdateUserPasswordRequest extends \Perfumer\Microservices\Request
         $this->check_old_password = new \Perfumer\Microservices\Undefined();
         $this->check_password_confirm = new \Perfumer\Microservices\Undefined();
         $this->id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -75,6 +81,9 @@ class UpdateUserPasswordRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

@@ -53,6 +53,11 @@ class UpdateGroupRequest extends \Perfumer\Microservices\Request
     public $children = [
     ];
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/group';
@@ -66,6 +71,7 @@ class UpdateGroupRequest extends \Perfumer\Microservices\Request
         $this->payload = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->children = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -97,6 +103,9 @@ class UpdateGroupRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->children instanceof \Perfumer\Microservices\Undefined) {
             $array['children'] = $this->children;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

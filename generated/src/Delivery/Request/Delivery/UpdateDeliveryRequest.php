@@ -103,6 +103,11 @@ class UpdateDeliveryRequest extends \Perfumer\Microservices\Request
     public $filters = [
     ];
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/delivery';
@@ -125,6 +130,7 @@ class UpdateDeliveryRequest extends \Perfumer\Microservices\Request
         $this->payload = new \Perfumer\Microservices\Undefined();
         $this->data_url = new \Perfumer\Microservices\Undefined();
         $this->filters = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -183,6 +189,9 @@ class UpdateDeliveryRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->filters instanceof \Perfumer\Microservices\Undefined) {
             $array['filters'] = $this->filters;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

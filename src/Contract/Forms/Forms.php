@@ -38,8 +38,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModel(microservice="forms", model="field", fields={"id.int", "locale"})
  * @DeleteModel(microservice="forms", model="field", fields={"id.int"})
- * @SaveModel(microservice="forms", model="field", fields={"label.array", "hint.array", "type", "model", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode", "aggregation_tag", "aggregation_mode", "alias", "before_text", "after_text"})
- * @UpdateModel(microservice="forms", model="field", fields={"id.int", "type", "label.array", "hint.array", "model", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode", "aggregation_tag", "aggregation_mode", "alias", "before_text", "after_text"})
+ * @SaveModel(microservice="forms", model="field", fields={"label.array", "hint.array", "type", "model", "placeholder", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode", "aggregation_tag", "aggregation_mode", "alias", "before_text", "after_text"})
+ * @UpdateModel(microservice="forms", model="field", fields={"id.int", "type", "label.array", "hint.array", "model", "placeholder", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode", "aggregation_tag", "aggregation_mode", "alias", "before_text", "after_text"})
  * @GetModels(microservice="forms", model="fields", fields={"label", "hint", "type", "model", "alias", "locale", "module", "reference", "module_target"})
  * @CreateModel(microservice="forms", model="field", fields={"id.int"}, url="/field/process-values", action="process", submodel="FieldValues")
  * @CreateModel(microservice="forms", model="fields", fields={"module", "models.array"}, url="/fields/order", action="change", submodel="FieldsOrder")

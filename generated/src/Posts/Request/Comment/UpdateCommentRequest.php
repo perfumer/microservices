@@ -19,6 +19,11 @@ class UpdateCommentRequest extends \Perfumer\Microservices\Request
      */
     public $author_id = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/comment';
@@ -26,6 +31,7 @@ class UpdateCommentRequest extends \Perfumer\Microservices\Request
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->text = new \Perfumer\Microservices\Undefined();
         $this->author_id = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -39,6 +45,9 @@ class UpdateCommentRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->author_id instanceof \Perfumer\Microservices\Undefined) {
             $array['author_id'] = $this->author_id;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

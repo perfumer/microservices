@@ -29,6 +29,11 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $placeholder = null;
+
+    /**
+     * @var string
+     */
     public $module = null;
 
     /**
@@ -104,6 +109,7 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
         $this->hint = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
         $this->model = new \Perfumer\Microservices\Undefined();
+        $this->placeholder = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->reference = new \Perfumer\Microservices\Undefined();
         $this->is_required = new \Perfumer\Microservices\Undefined();
@@ -134,6 +140,9 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->model instanceof \Perfumer\Microservices\Undefined) {
             $array['model'] = $this->model;
+        }
+        if (!$this->placeholder instanceof \Perfumer\Microservices\Undefined) {
+            $array['placeholder'] = $this->placeholder;
         }
         if (!$this->module instanceof \Perfumer\Microservices\Undefined) {
             $array['module'] = $this->module;

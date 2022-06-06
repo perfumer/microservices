@@ -14,12 +14,18 @@ class DeleteProcessStateRequest extends \Perfumer\Microservices\Request
      */
     public $process = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/process/state';
         $this->_request_method = 'delete';
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->process = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -30,6 +36,9 @@ class DeleteProcessStateRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->process instanceof \Perfumer\Microservices\Undefined) {
             $array['process'] = $this->process;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

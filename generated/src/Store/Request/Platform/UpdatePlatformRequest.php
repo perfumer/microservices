@@ -30,6 +30,11 @@ class UpdatePlatformRequest extends \Perfumer\Microservices\Request
     public $clients = [
     ];
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/platform';
@@ -39,6 +44,7 @@ class UpdatePlatformRequest extends \Perfumer\Microservices\Request
         $this->version_code = new \Perfumer\Microservices\Undefined();
         $this->next_version = new \Perfumer\Microservices\Undefined();
         $this->clients = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -58,6 +64,9 @@ class UpdatePlatformRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->clients instanceof \Perfumer\Microservices\Undefined) {
             $array['clients'] = $this->clients;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;

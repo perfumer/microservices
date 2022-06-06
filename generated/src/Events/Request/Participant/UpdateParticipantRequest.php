@@ -24,6 +24,11 @@ class UpdateParticipantRequest extends \Perfumer\Microservices\Request
      */
     public $nb_invites = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/participant';
@@ -32,6 +37,7 @@ class UpdateParticipantRequest extends \Perfumer\Microservices\Request
         $this->event_id = new \Perfumer\Microservices\Undefined();
         $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->nb_invites = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -48,6 +54,9 @@ class UpdateParticipantRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->nb_invites instanceof \Perfumer\Microservices\Undefined) {
             $array['nb_invites'] = $this->nb_invites;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;
