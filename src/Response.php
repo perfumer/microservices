@@ -38,4 +38,9 @@ class Response
      * @var int
      */
     public $_http_status_code;
+
+    /**
+     * @var array
+     */
+    public $_headers;
 }
