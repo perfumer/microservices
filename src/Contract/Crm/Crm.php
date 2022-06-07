@@ -271,7 +271,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @CreateModel(microservice="crm", model="calendarEvent", url="/calendar-event", fields={"category", "user", "ticket", "booking_user", "booking_customer", "event_started_at", "event_ended_at", "description"}, response_fields={"calendar_event.array"})
  * @UpdateModel(microservice="crm", model="calendarEvent", url="/calendar-event", fields={"id.int", "category", "user", "ticket", "booking_user", "booking_customer", "event_started_at", "event_ended_at", "description"}, response_fields={"calendar_event.array"})
  * @UpsertModel(microservice="crm", model="calendarEvent", url="/calendar-event", fields={"category", "user", "ticket", "booking_user", "booking_customer", "event_started_at", "event_ended_at", "description"}, response_fields={"calendar_event.array"})
- * @GetModels(microservice="crm", model="calendarEvents", url="/calendar-events", fields={"category", "user", "booking_user", "booking_customer", "min_date", "max_date", "started_at.date", "ticket", "ticket_ne", "description"}, response_fields={"calendar_events.array"})
+ * @GetModels(microservice="crm", model="calendarEvents", url="/calendar-events", fields={"category", "user", "booking_user", "booking_customer", "min_date", "max_date", "event_started_at.date", "event_ended_at.date", "started_at.date", "ticket", "ticket_ne", "description"}, response_fields={"calendar_events.array"})
  *
  * @GetModel(microservice="crm", model="report", fields={"id.int", "code"})
  * @DeleteModel(microservice="crm", model="report", fields={"id.int", "code", "force.bool"})

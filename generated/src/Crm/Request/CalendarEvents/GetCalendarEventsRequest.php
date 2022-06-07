@@ -102,6 +102,46 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $event_started_at_le = null;
+
+    /**
+     * @var string
+     */
+    public $event_started_at_lt = null;
+
+    /**
+     * @var string
+     */
+    public $event_started_at_ge = null;
+
+    /**
+     * @var string
+     */
+    public $event_started_at_gt = null;
+
+    /**
+     * @var string
+     */
+    public $event_ended_at_le = null;
+
+    /**
+     * @var string
+     */
+    public $event_ended_at_lt = null;
+
+    /**
+     * @var string
+     */
+    public $event_ended_at_ge = null;
+
+    /**
+     * @var string
+     */
+    public $event_ended_at_gt = null;
+
+    /**
+     * @var string
+     */
     public $started_at_le = null;
 
     /**
@@ -142,6 +182,14 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
         $this->id_le = new \Perfumer\Microservices\Undefined();
         $this->id_gt = new \Perfumer\Microservices\Undefined();
         $this->id_ge = new \Perfumer\Microservices\Undefined();
+        $this->event_started_at_le = new \Perfumer\Microservices\Undefined();
+        $this->event_started_at_lt = new \Perfumer\Microservices\Undefined();
+        $this->event_started_at_ge = new \Perfumer\Microservices\Undefined();
+        $this->event_started_at_gt = new \Perfumer\Microservices\Undefined();
+        $this->event_ended_at_le = new \Perfumer\Microservices\Undefined();
+        $this->event_ended_at_lt = new \Perfumer\Microservices\Undefined();
+        $this->event_ended_at_ge = new \Perfumer\Microservices\Undefined();
+        $this->event_ended_at_gt = new \Perfumer\Microservices\Undefined();
         $this->started_at_le = new \Perfumer\Microservices\Undefined();
         $this->started_at_lt = new \Perfumer\Microservices\Undefined();
         $this->started_at_ge = new \Perfumer\Microservices\Undefined();
@@ -207,6 +255,30 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->id_ge instanceof \Perfumer\Microservices\Undefined) {
             $array['id_ge'] = $this->id_ge;
+        }
+        if (!$this->event_started_at_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_started_at_le'] = $this->event_started_at_le;
+        }
+        if (!$this->event_started_at_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_started_at_lt'] = $this->event_started_at_lt;
+        }
+        if (!$this->event_started_at_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_started_at_ge'] = $this->event_started_at_ge;
+        }
+        if (!$this->event_started_at_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_started_at_gt'] = $this->event_started_at_gt;
+        }
+        if (!$this->event_ended_at_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_ended_at_le'] = $this->event_ended_at_le;
+        }
+        if (!$this->event_ended_at_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_ended_at_lt'] = $this->event_ended_at_lt;
+        }
+        if (!$this->event_ended_at_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_ended_at_ge'] = $this->event_ended_at_ge;
+        }
+        if (!$this->event_ended_at_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_ended_at_gt'] = $this->event_ended_at_gt;
         }
         if (!$this->started_at_le instanceof \Perfumer\Microservices\Undefined) {
             $array['started_at_le'] = $this->started_at_le;
