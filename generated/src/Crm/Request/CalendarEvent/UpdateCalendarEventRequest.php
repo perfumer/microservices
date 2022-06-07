@@ -47,6 +47,11 @@ class UpdateCalendarEventRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $description = null;
+
+    /**
+     * @var string
+     */
     public $code = null;
 
     public function __construct()
@@ -61,6 +66,7 @@ class UpdateCalendarEventRequest extends \Perfumer\Microservices\Request
         $this->booking_customer = new \Perfumer\Microservices\Undefined();
         $this->event_started_at = new \Perfumer\Microservices\Undefined();
         $this->event_ended_at = new \Perfumer\Microservices\Undefined();
+        $this->description = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
     }
 
@@ -90,6 +96,9 @@ class UpdateCalendarEventRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->event_ended_at instanceof \Perfumer\Microservices\Undefined) {
             $array['event_ended_at'] = $this->event_ended_at;
+        }
+        if (!$this->description instanceof \Perfumer\Microservices\Undefined) {
+            $array['description'] = $this->description;
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;

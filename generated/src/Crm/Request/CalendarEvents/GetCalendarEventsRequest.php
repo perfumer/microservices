@@ -37,37 +37,17 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $started_at = null;
-
-    /**
-     * @var string
-     */
-    public $started_at_gt = null;
-
-    /**
-     * @var string
-     */
-    public $started_at_ge = null;
-
-    /**
-     * @var string
-     */
-    public $started_at_lt = null;
-
-    /**
-     * @var string
-     */
-    public $started_at_le = null;
-
-    /**
-     * @var string
-     */
     public $ticket = null;
 
     /**
      * @var string
      */
     public $ticket_ne = null;
+
+    /**
+     * @var string
+     */
+    public $description = null;
 
     /**
      * @var int
@@ -119,6 +99,26 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
      */
     public $id_ge = null;
 
+    /**
+     * @var string
+     */
+    public $started_at_le = null;
+
+    /**
+     * @var string
+     */
+    public $started_at_lt = null;
+
+    /**
+     * @var string
+     */
+    public $started_at_ge = null;
+
+    /**
+     * @var string
+     */
+    public $started_at_gt = null;
+
     public function __construct()
     {
         $this->_request_url = '/calendar-events';
@@ -129,13 +129,9 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
         $this->booking_customer = new \Perfumer\Microservices\Undefined();
         $this->min_date = new \Perfumer\Microservices\Undefined();
         $this->max_date = new \Perfumer\Microservices\Undefined();
-        $this->started_at = new \Perfumer\Microservices\Undefined();
-        $this->started_at_gt = new \Perfumer\Microservices\Undefined();
-        $this->started_at_ge = new \Perfumer\Microservices\Undefined();
-        $this->started_at_lt = new \Perfumer\Microservices\Undefined();
-        $this->started_at_le = new \Perfumer\Microservices\Undefined();
         $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->ticket_ne = new \Perfumer\Microservices\Undefined();
+        $this->description = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -146,6 +142,10 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
         $this->id_le = new \Perfumer\Microservices\Undefined();
         $this->id_gt = new \Perfumer\Microservices\Undefined();
         $this->id_ge = new \Perfumer\Microservices\Undefined();
+        $this->started_at_le = new \Perfumer\Microservices\Undefined();
+        $this->started_at_lt = new \Perfumer\Microservices\Undefined();
+        $this->started_at_ge = new \Perfumer\Microservices\Undefined();
+        $this->started_at_gt = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -169,26 +169,14 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
         if (!$this->max_date instanceof \Perfumer\Microservices\Undefined) {
             $array['max_date'] = $this->max_date;
         }
-        if (!$this->started_at instanceof \Perfumer\Microservices\Undefined) {
-            $array['started_at'] = $this->started_at;
-        }
-        if (!$this->started_at_gt instanceof \Perfumer\Microservices\Undefined) {
-            $array['started_at_gt'] = $this->started_at_gt;
-        }
-        if (!$this->started_at_ge instanceof \Perfumer\Microservices\Undefined) {
-            $array['started_at_ge'] = $this->started_at_ge;
-        }
-        if (!$this->started_at_lt instanceof \Perfumer\Microservices\Undefined) {
-            $array['started_at_lt'] = $this->started_at_lt;
-        }
-        if (!$this->started_at_le instanceof \Perfumer\Microservices\Undefined) {
-            $array['started_at_le'] = $this->started_at_le;
-        }
         if (!$this->ticket instanceof \Perfumer\Microservices\Undefined) {
             $array['ticket'] = $this->ticket;
         }
         if (!$this->ticket_ne instanceof \Perfumer\Microservices\Undefined) {
             $array['ticket_ne'] = $this->ticket_ne;
+        }
+        if (!$this->description instanceof \Perfumer\Microservices\Undefined) {
+            $array['description'] = $this->description;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
@@ -219,6 +207,18 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->id_ge instanceof \Perfumer\Microservices\Undefined) {
             $array['id_ge'] = $this->id_ge;
+        }
+        if (!$this->started_at_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['started_at_le'] = $this->started_at_le;
+        }
+        if (!$this->started_at_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['started_at_lt'] = $this->started_at_lt;
+        }
+        if (!$this->started_at_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['started_at_ge'] = $this->started_at_ge;
+        }
+        if (!$this->started_at_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['started_at_gt'] = $this->started_at_gt;
         }
 
         return $array;

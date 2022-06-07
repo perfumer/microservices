@@ -40,6 +40,11 @@ class UpsertCalendarEventRequest extends \Perfumer\Microservices\Request
     public $event_ended_at = null;
 
     /**
+     * @var string
+     */
+    public $description = null;
+
+    /**
      * @var int
      */
     public $id = null;
@@ -60,6 +65,7 @@ class UpsertCalendarEventRequest extends \Perfumer\Microservices\Request
         $this->booking_customer = new \Perfumer\Microservices\Undefined();
         $this->event_started_at = new \Perfumer\Microservices\Undefined();
         $this->event_ended_at = new \Perfumer\Microservices\Undefined();
+        $this->description = new \Perfumer\Microservices\Undefined();
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
     }
@@ -87,6 +93,9 @@ class UpsertCalendarEventRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->event_ended_at instanceof \Perfumer\Microservices\Undefined) {
             $array['event_ended_at'] = $this->event_ended_at;
+        }
+        if (!$this->description instanceof \Perfumer\Microservices\Undefined) {
+            $array['description'] = $this->description;
         }
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
