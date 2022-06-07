@@ -13,7 +13,7 @@ use Perfumer\Microservices\Annotation\GetModels;
 use Perfumer\Microservices\Annotation\CreateModel;
 
 /**
- * @GetModel(microservice="events", model="module", fields={"id", "code"})
+ * @GetModel(microservice="events", model="module")
  * @GetMeshModels(microservice="events", model="modules", fields={"name", "code", "description", "ticket_crm_module", "is_archived.bool"})
  * @SaveMeshModel(microservice="events", model="module", fields={"code", "name", "customer_name", "description", "ticket_crm_module", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool"})
  * @SaveMeshModel(microservice="events", model="module", fields={"id", "code", "name", "customer_name", "description", "ticket_crm_module", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool"}, action="update", request_method="patch")
@@ -31,10 +31,9 @@ use Perfumer\Microservices\Annotation\CreateModel;
  *     "nb_invites_per_participant.int", "nb_invites.int", "is_disabled.bool"})
  *
  * @SaveModel(microservice="events", model="participant", fields={"event_id", "customer_id", "nb_invites"})
- * @UpdateModel(microservice="events", model="participant", fields={"id.int", "event_id", "customer_id", "nb_invites"})
- * @DeleteModel(microservice="events", model="participant", fields={"id.int"})
+ * @DeleteModel(microservice="events", model="participant")
  *
- * @GetModel(microservice="events", model="event", fields={"id.int", "locale"})
+ * @GetModel(microservice="events", model="event", fields={"locale"})
  * @SaveModel(microservice="events", model="event", fields={"id.int", "modules.array", "organizer_id", "locale", "author_id", "user_id", "is_registration_open.bool", "title", "image",
  *     "description", "html", "json", "format", "location", "opened_at", "closed_at", "apply_from", "apply_till", "published_at", "nb_invites_per_participant", "nb_invites",
  *     "is_confirm_required.bool", "confirmed_at", "is_review_needed.bool", "is_statement_needed.bool", "registration_form", "user_speakers.array"})
