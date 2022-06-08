@@ -157,19 +157,6 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         return $response;
     }
 
-    public function updateParticipant(\Perfumer\Microservices\Events\Request\Participant\UpdateParticipantRequest $request): \Perfumer\Microservices\Events\Response\Participant\UpdateParticipantResponse
-    {
-        /** @var \Perfumer\Microservices\Events\Response\Participant\UpdateParticipantResponse $response */
-        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Participant\UpdateParticipantResponse());
-        $item = $this->fetchKeyFromContent($response->_content, 'participant');
-
-        if (!$item instanceof \Perfumer\Microservices\Undefined) {
-            $response->participant = $item;
-        }
-
-        return $response;
-    }
-
     public function deleteParticipant(\Perfumer\Microservices\Events\Request\Participant\DeleteParticipantRequest $request): \Perfumer\Microservices\Events\Response\Participant\DeleteParticipantResponse
     {
         /** @var \Perfumer\Microservices\Events\Response\Participant\DeleteParticipantResponse $response */
