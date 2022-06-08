@@ -163,8 +163,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @GetModels(microservice="crm", model="states", url="process/states", action="getProcess", fields={"process", "module", "code", "name", "customer_name", "locale", "description"})
  *
  * @GetModel(microservice="crm", model="scenario", url="process/scenario", action="getProcess", fields={"id.int", "code", "process.int"})
- * @SaveModel(microservice="crm", model="scenario", url="process/scenario", action="saveProcess", fields={"code", "name", "task_term.int", "process.int", "from_state.int", "to_state.int", "has_notification.bool", "has_sms_notification.bool", "webhook"})
- * @UpdateModel(microservice="crm", model="scenario", url="process/scenario", action="updateProcess", fields={"id.int", "name", "task_term.int", "code", "process.int", "from_state.int", "to_state.int", "has_notification.bool", "has_sms_notification.bool", "webhook"})
+ * @SaveModel(microservice="crm", model="scenario", url="process/scenario", action="saveProcess", fields={"code", "name", "task_term.int", "process.int", "from_state.int", "to_state.int", "has_notification.bool", "has_sms_notification.bool", "webhook", "autoclose_days.int", "autoclose_field"})
+ * @UpdateModel(microservice="crm", model="scenario", url="process/scenario", action="updateProcess", fields={"id.int", "name", "task_term.int", "code", "process.int", "from_state.int", "to_state.int", "has_notification.bool", "has_sms_notification.bool", "webhook", "autoclose_days.int", "autoclose_field"})
  * @DeleteModel(microservice="crm", model="scenario", url="process/scenario", action="deleteProcess", fields={"id.int"})
  * @GetModels(microservice="crm", model="scenarios", url="process/scenarios", action="getProcess", fields={"process.int", "code", "name", "from_state", "to_state", "is_disabled.bool"})
  *
