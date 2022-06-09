@@ -54,6 +54,16 @@ class UpdateProcessScenarioRequest extends \Perfumer\Microservices\Request
      */
     public $webhook = null;
 
+    /**
+     * @var int
+     */
+    public $autoclose_days = null;
+
+    /**
+     * @var string
+     */
+    public $autoclose_field = null;
+
     public function __construct()
     {
         $this->_request_url = '/process/scenario';
@@ -68,6 +78,8 @@ class UpdateProcessScenarioRequest extends \Perfumer\Microservices\Request
         $this->has_notification = new \Perfumer\Microservices\Undefined();
         $this->has_sms_notification = new \Perfumer\Microservices\Undefined();
         $this->webhook = new \Perfumer\Microservices\Undefined();
+        $this->autoclose_days = new \Perfumer\Microservices\Undefined();
+        $this->autoclose_field = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -102,6 +114,12 @@ class UpdateProcessScenarioRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->webhook instanceof \Perfumer\Microservices\Undefined) {
             $array['webhook'] = $this->webhook;
+        }
+        if (!$this->autoclose_days instanceof \Perfumer\Microservices\Undefined) {
+            $array['autoclose_days'] = $this->autoclose_days;
+        }
+        if (!$this->autoclose_field instanceof \Perfumer\Microservices\Undefined) {
+            $array['autoclose_field'] = $this->autoclose_field;
         }
 
         return $array;
