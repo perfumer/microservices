@@ -27,7 +27,17 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $ticket_crm_module = null;
+    public $customers_ticket_crm_module = null;
+
+    /**
+     * @var string
+     */
+    public $user_ticket_crm_module = null;
+
+    /**
+     * @var string
+     */
+    public $tickets_mode = null;
 
     /**
      * @var string
@@ -64,7 +74,9 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->customer_name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
-        $this->ticket_crm_module = new \Perfumer\Microservices\Undefined();
+        $this->customers_ticket_crm_module = new \Perfumer\Microservices\Undefined();
+        $this->user_ticket_crm_module = new \Perfumer\Microservices\Undefined();
+        $this->tickets_mode = new \Perfumer\Microservices\Undefined();
         $this->allowed_crm_modules = new \Perfumer\Microservices\Undefined();
         $this->allowed_crm_module_mode = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
@@ -87,8 +99,14 @@ class SaveModuleRequest extends \Perfumer\Microservices\Request
         if (!$this->description instanceof \Perfumer\Microservices\Undefined) {
             $array['description'] = $this->description;
         }
-        if (!$this->ticket_crm_module instanceof \Perfumer\Microservices\Undefined) {
-            $array['ticket_crm_module'] = $this->ticket_crm_module;
+        if (!$this->customers_ticket_crm_module instanceof \Perfumer\Microservices\Undefined) {
+            $array['customers_ticket_crm_module'] = $this->customers_ticket_crm_module;
+        }
+        if (!$this->user_ticket_crm_module instanceof \Perfumer\Microservices\Undefined) {
+            $array['user_ticket_crm_module'] = $this->user_ticket_crm_module;
+        }
+        if (!$this->tickets_mode instanceof \Perfumer\Microservices\Undefined) {
+            $array['tickets_mode'] = $this->tickets_mode;
         }
         if (!$this->allowed_crm_modules instanceof \Perfumer\Microservices\Undefined) {
             $array['allowed_crm_modules'] = $this->allowed_crm_modules;
