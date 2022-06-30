@@ -59,6 +59,16 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $bin = null;
+
+    /**
+     * @var string
+     */
+    public $org_name = null;
+
+    /**
+     * @var string
+     */
     public $code = null;
 
     /**
@@ -145,6 +155,8 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
         $this->email = new \Perfumer\Microservices\Undefined();
         $this->phone = new \Perfumer\Microservices\Undefined();
         $this->iin = new \Perfumer\Microservices\Undefined();
+        $this->bin = new \Perfumer\Microservices\Undefined();
+        $this->org_name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->telegram_chat_id = new \Perfumer\Microservices\Undefined();
         $this->telegram_username = new \Perfumer\Microservices\Undefined();
@@ -194,6 +206,12 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->iin instanceof \Perfumer\Microservices\Undefined) {
             $array['iin'] = $this->iin;
+        }
+        if (!$this->bin instanceof \Perfumer\Microservices\Undefined) {
+            $array['bin'] = $this->bin;
+        }
+        if (!$this->org_name instanceof \Perfumer\Microservices\Undefined) {
+            $array['org_name'] = $this->org_name;
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;
