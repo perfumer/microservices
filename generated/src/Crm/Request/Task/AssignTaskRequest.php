@@ -15,6 +15,11 @@ class AssignTaskRequest extends \Perfumer\Microservices\Request
     public $user = null;
 
     /**
+     * @var bool
+     */
+    public $silent = null;
+
+    /**
      * @var string
      */
     public $code = null;
@@ -25,6 +30,7 @@ class AssignTaskRequest extends \Perfumer\Microservices\Request
         $this->_request_method = 'post';
         $this->task = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();
+        $this->silent = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
     }
 
@@ -36,6 +42,9 @@ class AssignTaskRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->user instanceof \Perfumer\Microservices\Undefined) {
             $array['user'] = $this->user;
+        }
+        if (!$this->silent instanceof \Perfumer\Microservices\Undefined) {
+            $array['silent'] = $this->silent;
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;
