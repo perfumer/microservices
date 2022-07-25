@@ -131,7 +131,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @CreateModel(microservice="crm", model="task", url="task/postpone", action="postpone", fields={"task", "user", "time_to", "text"})
  * @CreateModel(microservice="crm", model="task", url="task/extend", action="extend", fields={"task", "user", "time_to", "text"})
  * @CreateModel(microservice="crm", model="task", url="task/take", action="take", fields={"task", "user"})
- * @CreateModel(microservice="crm", model="task", url="task/assign", action="assign", fields={"task", "user"})
+ * @CreateModel(microservice="crm", model="task", url="task/assign", action="assign", fields={"task", "user", "silent.bool"})
 
  * @GetModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"id", "iin", "phone", "email", "password", "code", "username"}, response_fields={"customer"}, url="/customer/credentials")
  * @GetModel(microservice="crm", model="customer", fields={"email", "phone", "iin", "bin", "code", "username", "id.int"})
