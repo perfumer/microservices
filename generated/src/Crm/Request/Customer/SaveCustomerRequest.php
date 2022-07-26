@@ -7,6 +7,11 @@ class SaveCustomerRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $last_login_at = null;
+
+    /**
+     * @var string
+     */
     public $telegram_chat_id = null;
 
     /**
@@ -128,6 +133,7 @@ class SaveCustomerRequest extends \Perfumer\Microservices\Request
     {
         $this->_request_url = '/customer';
         $this->_request_method = 'post';
+        $this->last_login_at = new \Perfumer\Microservices\Undefined();
         $this->telegram_chat_id = new \Perfumer\Microservices\Undefined();
         $this->telegram_username = new \Perfumer\Microservices\Undefined();
         $this->username = new \Perfumer\Microservices\Undefined();
@@ -156,6 +162,9 @@ class SaveCustomerRequest extends \Perfumer\Microservices\Request
     public function getBody(): array
     {
         $array = [];
+        if (!$this->last_login_at instanceof \Perfumer\Microservices\Undefined) {
+            $array['last_login_at'] = $this->last_login_at;
+        }
         if (!$this->telegram_chat_id instanceof \Perfumer\Microservices\Undefined) {
             $array['telegram_chat_id'] = $this->telegram_chat_id;
         }
