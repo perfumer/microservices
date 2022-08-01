@@ -55,6 +55,6 @@ class PropelProvider implements TransactionProvider
     {
         TransactionRequestQuery::create()
             ->filterByUuid($http_request->uuid)
-            ->delete();
+            ->update(['ProcessedAt' => date('Y-m-d H:i:s')]);
     }
 }
