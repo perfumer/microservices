@@ -76,6 +76,11 @@ class GetDocumentsRequest extends \Perfumer\Microservices\Request
     public $type = null;
 
     /**
+     * @var string
+     */
+    public $serial_number = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -143,6 +148,7 @@ class GetDocumentsRequest extends \Perfumer\Microservices\Request
         $this->updated_at_from = new \Perfumer\Microservices\Undefined();
         $this->updated_at_to = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
+        $this->serial_number = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -199,6 +205,9 @@ class GetDocumentsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->type instanceof \Perfumer\Microservices\Undefined) {
             $array['type'] = $this->type;
+        }
+        if (!$this->serial_number instanceof \Perfumer\Microservices\Undefined) {
+            $array['serial_number'] = $this->serial_number;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;

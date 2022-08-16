@@ -25,7 +25,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @GetModel(microservice="sed", model="document", fields={"id.int", "serial_number_text", "code", "pdf_id"})
  * @GetModels(microservice="sed", model="documents", fields={"module", "template", "status", "name", "author_id",
  *     "ticket_id", "signed_at_from", "signed_at_to", "signers.array",
- *     "created_at_from", "created_at_to", "updated_at_from", "updated_at_to", "type"})
+ *     "created_at_from", "created_at_to", "updated_at_from", "updated_at_to", "type", "serial_number"})
  * @CreateModel(microservice="sed", model="document", fields={"id.int", "code"}, url="/document/publish", action="publish")
  * @CreateModel(microservice="sed", model="document", fields={"id.int", "code"}, url="/document/sign", action="sign")
  * @CreateModel(microservice="sed", model="document", fields={"id.int", "code"}, url="/document/wait", action="wait")
