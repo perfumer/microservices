@@ -101,6 +101,17 @@ class GetCustomersRequest extends \Perfumer\Microservices\Request
     public $telegram_username = null;
 
     /**
+     * @var string
+     */
+    public $locale = null;
+
+    /**
+     * @var array
+     */
+    public $profile_fields = [
+    ];
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -188,6 +199,8 @@ class GetCustomersRequest extends \Perfumer\Microservices\Request
         $this->tag = new \Perfumer\Microservices\Undefined();
         $this->telegram_chat_id = new \Perfumer\Microservices\Undefined();
         $this->telegram_username = new \Perfumer\Microservices\Undefined();
+        $this->locale = new \Perfumer\Microservices\Undefined();
+        $this->profile_fields = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -262,6 +275,12 @@ class GetCustomersRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->telegram_username instanceof \Perfumer\Microservices\Undefined) {
             $array['telegram_username'] = $this->telegram_username;
+        }
+        if (!$this->locale instanceof \Perfumer\Microservices\Undefined) {
+            $array['locale'] = $this->locale;
+        }
+        if (!$this->profile_fields instanceof \Perfumer\Microservices\Undefined) {
+            $array['profile_fields'] = $this->profile_fields;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;

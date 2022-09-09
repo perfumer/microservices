@@ -97,6 +97,17 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
     public $created_at_to = null;
 
     /**
+     * @var string
+     */
+    public $locale = null;
+
+    /**
+     * @var array
+     */
+    public $profile_fields = [
+    ];
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -183,6 +194,8 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
         $this->is_disabled = new \Perfumer\Microservices\Undefined();
         $this->created_at_from = new \Perfumer\Microservices\Undefined();
         $this->created_at_to = new \Perfumer\Microservices\Undefined();
+        $this->locale = new \Perfumer\Microservices\Undefined();
+        $this->profile_fields = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -254,6 +267,12 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->created_at_to instanceof \Perfumer\Microservices\Undefined) {
             $array['created_at_to'] = $this->created_at_to;
+        }
+        if (!$this->locale instanceof \Perfumer\Microservices\Undefined) {
+            $array['locale'] = $this->locale;
+        }
+        if (!$this->profile_fields instanceof \Perfumer\Microservices\Undefined) {
+            $array['profile_fields'] = $this->profile_fields;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
