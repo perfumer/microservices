@@ -83,6 +83,11 @@ class CreateTicketRequest extends \Perfumer\Microservices\Request
     public $disable_box = null;
 
     /**
+     * @var int
+     */
+    public $creator_id = null;
+
+    /**
      * @var string
      */
     public $code = null;
@@ -106,6 +111,7 @@ class CreateTicketRequest extends \Perfumer\Microservices\Request
         $this->tags = new \Perfumer\Microservices\Undefined();
         $this->disable_bpm = new \Perfumer\Microservices\Undefined();
         $this->disable_box = new \Perfumer\Microservices\Undefined();
+        $this->creator_id = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
     }
 
@@ -156,6 +162,9 @@ class CreateTicketRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->disable_box instanceof \Perfumer\Microservices\Undefined) {
             $array['disable_box'] = $this->disable_box;
+        }
+        if (!$this->creator_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['creator_id'] = $this->creator_id;
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;
