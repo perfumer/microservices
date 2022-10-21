@@ -12,6 +12,11 @@ class GetUserCredentialsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $bin = null;
+
+    /**
+     * @var string
+     */
     public $phone = null;
 
     /**
@@ -44,6 +49,7 @@ class GetUserCredentialsRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/user/credentials';
         $this->_request_method = 'get';
         $this->iin = new \Perfumer\Microservices\Undefined();
+        $this->bin = new \Perfumer\Microservices\Undefined();
         $this->phone = new \Perfumer\Microservices\Undefined();
         $this->email = new \Perfumer\Microservices\Undefined();
         $this->password = new \Perfumer\Microservices\Undefined();
@@ -57,6 +63,9 @@ class GetUserCredentialsRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->iin instanceof \Perfumer\Microservices\Undefined) {
             $array['iin'] = $this->iin;
+        }
+        if (!$this->bin instanceof \Perfumer\Microservices\Undefined) {
+            $array['bin'] = $this->bin;
         }
         if (!$this->phone instanceof \Perfumer\Microservices\Undefined) {
             $array['phone'] = $this->phone;
