@@ -27,6 +27,11 @@ class UpdateTaskRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $state = null;
+
+    /**
+     * @var string
+     */
     public $activity = null;
 
     /**
@@ -73,6 +78,7 @@ class UpdateTaskRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();
         $this->customer = new \Perfumer\Microservices\Undefined();
+        $this->state = new \Perfumer\Microservices\Undefined();
         $this->activity = new \Perfumer\Microservices\Undefined();
         $this->group = new \Perfumer\Microservices\Undefined();
         $this->deadline_at = new \Perfumer\Microservices\Undefined();
@@ -97,6 +103,9 @@ class UpdateTaskRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->customer instanceof \Perfumer\Microservices\Undefined) {
             $array['customer'] = $this->customer;
+        }
+        if (!$this->state instanceof \Perfumer\Microservices\Undefined) {
+            $array['state'] = $this->state;
         }
         if (!$this->activity instanceof \Perfumer\Microservices\Undefined) {
             $array['activity'] = $this->activity;
