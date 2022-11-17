@@ -81,7 +81,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @GetModels(microservice="crm", model="activities", fields={"name", "code", "priority.int", "is_forced.bool", "business_case.int", "is_applicant.bool"})
  *
  * @GetModel(microservice="crm", model="user", submodel="UserCredentials", fields={"iin", "bin", "phone", "email", "password", "code", "username"}, response_fields={"user"}, url="/user/credentials")
- * @GetModel(microservice="crm", model="user", fields={"id", "code", "iin", "phone", "email", "username"})
+ * @GetModel(microservice="crm", model="user", fields={"email", "phone", "iin", "bin", "code", "username", "id.int"})
  * @DeleteModel(microservice="crm", model="user")
  * @SaveModel(microservice="crm", model="user", fields={"last_login_at", "telegram_chat_id", "telegram_username", "username", "avatar", "id.int", "profiles.array", "last_name", "first_name", "mid_name", "email", "phone", "iin", "bin", "org_name", "code", "password", "is_admin.bool", "is_disabled.bool", "payload.array", "auto_fields.array", "gender", "locale"})
  * @CreateModel(microservice="crm", model="user", fields={"last_login_at", "telegram_chat_id", "telegram_username", "silent.bool", "is_protected.bool", "profiles.array", "username", "avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "bin", "org_name", "code", "password_hash", "password", "is_admin.bool", "is_disabled.bool", "payload.array", "auto_fields.array", "gender", "locale"})
