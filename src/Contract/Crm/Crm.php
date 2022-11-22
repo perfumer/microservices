@@ -275,9 +275,9 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModel(microservice="crm", model="report", fields={"id.int", "code"})
  * @DeleteModel(microservice="crm", model="report", fields={"id.int", "code", "force.bool"})
- * @CreateModel(microservice="crm", model="report", fields={"name", "code", "dsl", "module", "type", "silent.bool", "is_protected.bool"})
- * @UpdateModel(microservice="crm", model="report", fields={"id.int", "name", "code", "dsl", "module", "type", "is_protected.bool"})
- * @UpsertModel(microservice="crm", model="report", fields={"name", "code", "dsl", "module", "type", "is_protected.bool"})
+ * @CreateModel(microservice="crm", model="report", fields={"name", "code", "dsl", "module", "type", "grouped_reports.array", "silent.bool", "is_protected.bool"})
+ * @UpdateModel(microservice="crm", model="report", fields={"id.int", "name", "code", "dsl", "module", "type", "grouped_reports.array", "is_protected.bool"})
+ * @UpsertModel(microservice="crm", model="report", fields={"name", "code", "dsl", "module", "type", "grouped_reports.array", "is_protected.bool"})
  * @GetModels(microservice="crm", model="reports", fields={"name", "code", "module", "type", "is_protected.bool"})
  * @GetModels(microservice="crm", model="report", fields={"id.int", "filters", "formatting"}, url="/report/customers", submodel="ReportCustomers", response_fields={"customers"})
  * @GetModels(microservice="crm", model="report", fields={"id.int", "filters", "formatting"}, url="/report/users", submodel="ReportUsers", response_fields={"users"})

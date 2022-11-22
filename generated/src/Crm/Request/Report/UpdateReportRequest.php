@@ -35,6 +35,12 @@ class UpdateReportRequest extends \Perfumer\Microservices\Request
     public $type = null;
 
     /**
+     * @var array
+     */
+    public $grouped_reports = [
+    ];
+
+    /**
      * @var bool
      */
     public $is_protected = null;
@@ -49,6 +55,7 @@ class UpdateReportRequest extends \Perfumer\Microservices\Request
         $this->dsl = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->type = new \Perfumer\Microservices\Undefined();
+        $this->grouped_reports = new \Perfumer\Microservices\Undefined();
         $this->is_protected = new \Perfumer\Microservices\Undefined();
     }
 
@@ -72,6 +79,9 @@ class UpdateReportRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->type instanceof \Perfumer\Microservices\Undefined) {
             $array['type'] = $this->type;
+        }
+        if (!$this->grouped_reports instanceof \Perfumer\Microservices\Undefined) {
+            $array['grouped_reports'] = $this->grouped_reports;
         }
         if (!$this->is_protected instanceof \Perfumer\Microservices\Undefined) {
             $array['is_protected'] = $this->is_protected;
