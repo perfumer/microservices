@@ -419,4 +419,87 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
 
         return $response;
     }
+
+    public function getSchedule(\Perfumer\Microservices\Events\Request\Schedule\GetScheduleRequest $request): \Perfumer\Microservices\Events\Response\Schedule\GetScheduleResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Schedule\GetScheduleResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Schedule\GetScheduleResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'schedule');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->schedule = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteSchedule(\Perfumer\Microservices\Events\Request\Schedule\DeleteScheduleRequest $request): \Perfumer\Microservices\Events\Response\Schedule\DeleteScheduleResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Schedule\DeleteScheduleResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Schedule\DeleteScheduleResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'schedule');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->schedule = $item;
+        }
+
+        return $response;
+    }
+
+    public function createSchedule(\Perfumer\Microservices\Events\Request\Schedule\CreateScheduleRequest $request): \Perfumer\Microservices\Events\Response\Schedule\CreateScheduleResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Schedule\CreateScheduleResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Schedule\CreateScheduleResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'schedule');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->schedule = $item;
+        }
+
+        return $response;
+    }
+
+    public function updateSchedule(\Perfumer\Microservices\Events\Request\Schedule\UpdateScheduleRequest $request): \Perfumer\Microservices\Events\Response\Schedule\UpdateScheduleResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Schedule\UpdateScheduleResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Schedule\UpdateScheduleResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'schedule');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->schedule = $item;
+        }
+
+        return $response;
+    }
+
+    public function upsertSchedule(\Perfumer\Microservices\Events\Request\Schedule\UpsertScheduleRequest $request): \Perfumer\Microservices\Events\Response\Schedule\UpsertScheduleResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Schedule\UpsertScheduleResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Schedule\UpsertScheduleResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'schedule');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->schedule = $item;
+        }
+
+        return $response;
+    }
+
+    public function getSchedules(\Perfumer\Microservices\Events\Request\Schedules\GetSchedulesRequest $request): \Perfumer\Microservices\Events\Response\Schedules\GetSchedulesResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Schedules\GetSchedulesResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Schedules\GetSchedulesResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'schedules');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->schedules = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+
+        return $response;
+    }
 }
