@@ -10,15 +10,9 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
     public $id = null;
 
     /**
-     * @var array
+     * @var int
      */
-    public $modules = [
-    ];
-
-    /**
-     * @var string
-     */
-    public $organizer_id = null;
+    public $module_id = null;
 
     /**
      * @var string
@@ -28,12 +22,7 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $author_id = null;
-
-    /**
-     * @var string
-     */
-    public $user_id = null;
+    public $user = null;
 
     /**
      * @var bool
@@ -146,11 +135,9 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/event';
         $this->_request_method = 'post';
         $this->id = new \Perfumer\Microservices\Undefined();
-        $this->modules = new \Perfumer\Microservices\Undefined();
-        $this->organizer_id = new \Perfumer\Microservices\Undefined();
+        $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
-        $this->author_id = new \Perfumer\Microservices\Undefined();
-        $this->user_id = new \Perfumer\Microservices\Undefined();
+        $this->user = new \Perfumer\Microservices\Undefined();
         $this->is_registration_open = new \Perfumer\Microservices\Undefined();
         $this->title = new \Perfumer\Microservices\Undefined();
         $this->image = new \Perfumer\Microservices\Undefined();
@@ -180,20 +167,14 @@ class SaveEventRequest extends \Perfumer\Microservices\Request
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
         }
-        if (!$this->modules instanceof \Perfumer\Microservices\Undefined) {
-            $array['modules'] = $this->modules;
-        }
-        if (!$this->organizer_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['organizer_id'] = $this->organizer_id;
+        if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['module_id'] = $this->module_id;
         }
         if (!$this->locale instanceof \Perfumer\Microservices\Undefined) {
             $array['locale'] = $this->locale;
         }
-        if (!$this->author_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['author_id'] = $this->author_id;
-        }
-        if (!$this->user_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['user_id'] = $this->user_id;
+        if (!$this->user instanceof \Perfumer\Microservices\Undefined) {
+            $array['user'] = $this->user;
         }
         if (!$this->is_registration_open instanceof \Perfumer\Microservices\Undefined) {
             $array['is_registration_open'] = $this->is_registration_open;
