@@ -31,7 +31,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *     "description", "format", "location", "opened_at.date", "closed_at.date", "apply_from.date", "apply_till.date", "published_at.date",
  *     "nb_invites_per_participant.int", "nb_invites.int", "is_disabled.bool"})
  *
- * @SaveModel(microservice="events", model="participant", fields={"event_id", "customer_id", "nb_invites"})
+ * @SaveModel(microservice="events", model="participant", fields={"event_id", "schedule_id", "customer", "ticket", "opened_at", "closed_at", "nb_invites"})
  * @DeleteModel(microservice="events", model="participant")
  *
  * @GetModel(microservice="events", model="event", fields={"locale"})
