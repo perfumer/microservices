@@ -45,6 +45,11 @@ class UpdateScheduleRequest extends \Perfumer\Microservices\Request
     public $time_to = null;
 
     /**
+     * @var string
+     */
+    public $format = null;
+
+    /**
      * @var bool
      */
     public $is_protected = null;
@@ -61,6 +66,7 @@ class UpdateScheduleRequest extends \Perfumer\Microservices\Request
         $this->date = new \Perfumer\Microservices\Undefined();
         $this->time_from = new \Perfumer\Microservices\Undefined();
         $this->time_to = new \Perfumer\Microservices\Undefined();
+        $this->format = new \Perfumer\Microservices\Undefined();
         $this->is_protected = new \Perfumer\Microservices\Undefined();
     }
 
@@ -90,6 +96,9 @@ class UpdateScheduleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->time_to instanceof \Perfumer\Microservices\Undefined) {
             $array['time_to'] = $this->time_to;
+        }
+        if (!$this->format instanceof \Perfumer\Microservices\Undefined) {
+            $array['format'] = $this->format;
         }
         if (!$this->is_protected instanceof \Perfumer\Microservices\Undefined) {
             $array['is_protected'] = $this->is_protected;
