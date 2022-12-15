@@ -502,4 +502,32 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
 
         return $response;
     }
+
+    public function getAvailableSchedules(\Perfumer\Microservices\Events\Request\Schedules\GetAvailableSchedulesRequest $request): \Perfumer\Microservices\Events\Response\Schedules\GetAvailableSchedulesResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Schedules\GetAvailableSchedulesResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Schedules\GetAvailableSchedulesResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'available');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->available = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'possible_times');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->possible_times = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'schedules');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->schedules = $item;
+        }
+
+        return $response;
+    }
 }
