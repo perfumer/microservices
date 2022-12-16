@@ -10,7 +10,7 @@ class CreateScheduleRequest extends \Perfumer\Microservices\Request
     public $user = null;
 
     /**
-     * @var int
+     * @var string
      */
     public $module_id = null;
 
@@ -20,7 +20,7 @@ class CreateScheduleRequest extends \Perfumer\Microservices\Request
     public $code = null;
 
     /**
-     * @var int
+     * @var string
      */
     public $week_day = null;
 

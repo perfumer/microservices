@@ -25,7 +25,7 @@ class UpdateScheduleRequest extends \Perfumer\Microservices\Request
     public $code = null;
 
     /**
-     * @var int
+     * @var string
      */
     public $week_day = null;
 
