@@ -12,7 +12,12 @@ class SaveParticipantRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $schedule_id = null;
+    public $module_id = null;
+
+    /**
+     * @var string
+     */
+    public $user = null;
 
     /**
      * @var string
@@ -44,7 +49,8 @@ class SaveParticipantRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/participant';
         $this->_request_method = 'post';
         $this->event_id = new \Perfumer\Microservices\Undefined();
-        $this->schedule_id = new \Perfumer\Microservices\Undefined();
+        $this->module_id = new \Perfumer\Microservices\Undefined();
+        $this->user = new \Perfumer\Microservices\Undefined();
         $this->customer = new \Perfumer\Microservices\Undefined();
         $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->opened_at = new \Perfumer\Microservices\Undefined();
@@ -58,8 +64,11 @@ class SaveParticipantRequest extends \Perfumer\Microservices\Request
         if (!$this->event_id instanceof \Perfumer\Microservices\Undefined) {
             $array['event_id'] = $this->event_id;
         }
-        if (!$this->schedule_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['schedule_id'] = $this->schedule_id;
+        if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['module_id'] = $this->module_id;
+        }
+        if (!$this->user instanceof \Perfumer\Microservices\Undefined) {
+            $array['user'] = $this->user;
         }
         if (!$this->customer instanceof \Perfumer\Microservices\Undefined) {
             $array['customer'] = $this->customer;
