@@ -71,6 +71,9 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @UpsertModel(microservice="events", model="schedule", fields={"user", "module_id", "code", "week_day", "date", "time_from", "time_to", "format", "is_protected.bool"}, url="/schedule")
  * @GetModels(microservice="events", model="schedules", fields={"user", "module_id.int", "week_day.int", "date"}, response_fields={"schedules.array"}, url="/schedules")
  * @GetModels(microservice="events", model="schedules", submodel="AvailableSchedules", fields={"user", "customer", "format", "module_id.int", "min_date", "max_date", "days_duration.int", "duration.int"}, url="/schedule/available", response_fields={"available.array", "possible_times.array"})
+ *
+ * @GetModel(microservice="events", model="oauth", submodel="OauthStatus", fields={"user", "customer", "redirect_uri"}, url="/oauth/status", response_fields={"login_url"})
+ * @CreateModel(microservice="events", model="oauth", action="logout", fields={"user", "customer"}, url="/oauth/logout")
  */
 interface Events
 {

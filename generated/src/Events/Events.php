@@ -530,4 +530,35 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
 
         return $response;
     }
+
+    public function getOauthStatus(\Perfumer\Microservices\Events\Request\Oauth\GetOauthStatusRequest $request): \Perfumer\Microservices\Events\Response\Oauth\GetOauthStatusResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Oauth\GetOauthStatusResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Oauth\GetOauthStatusResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'login_url');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->login_url = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'oauth');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->oauth = $item;
+        }
+
+        return $response;
+    }
+
+    public function logoutOauth(\Perfumer\Microservices\Events\Request\Oauth\LogoutOauthRequest $request): \Perfumer\Microservices\Events\Response\Oauth\LogoutOauthResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Oauth\LogoutOauthResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Oauth\LogoutOauthResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'oauth');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->oauth = $item;
+        }
+
+        return $response;
+    }
 }
