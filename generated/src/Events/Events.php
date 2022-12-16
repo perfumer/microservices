@@ -540,6 +540,11 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->login_url = $item;
         }
+        $item = $this->fetchKeyFromContent($response->_content, 'email');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->email = $item;
+        }
         $item = $this->fetchKeyFromContent($response->_content, 'oauth');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
