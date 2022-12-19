@@ -7,6 +7,11 @@ class SaveParticipantRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $code = null;
+
+    /**
+     * @var string
+     */
     public $event_id = null;
 
     /**
@@ -44,10 +49,16 @@ class SaveParticipantRequest extends \Perfumer\Microservices\Request
      */
     public $nb_invites = null;
 
+    /**
+     * @var bool
+     */
+    public $silent = null;
+
     public function __construct()
     {
         $this->_request_url = '/participant';
         $this->_request_method = 'post';
+        $this->code = new \Perfumer\Microservices\Undefined();
         $this->event_id = new \Perfumer\Microservices\Undefined();
         $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();
@@ -56,11 +67,15 @@ class SaveParticipantRequest extends \Perfumer\Microservices\Request
         $this->opened_at = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();
         $this->nb_invites = new \Perfumer\Microservices\Undefined();
+        $this->silent = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
     {
         $array = [];
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
+        }
         if (!$this->event_id instanceof \Perfumer\Microservices\Undefined) {
             $array['event_id'] = $this->event_id;
         }
@@ -84,6 +99,9 @@ class SaveParticipantRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->nb_invites instanceof \Perfumer\Microservices\Undefined) {
             $array['nb_invites'] = $this->nb_invites;
+        }
+        if (!$this->silent instanceof \Perfumer\Microservices\Undefined) {
+            $array['silent'] = $this->silent;
         }
 
         return $array;
