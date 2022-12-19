@@ -30,6 +30,11 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
     public $is_archived = null;
 
     /**
+     * @var bool
+     */
+    public $is_scheduled = null;
+
+    /**
      * @var string
      */
     public $parent = null;
@@ -113,6 +118,7 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         $this->description = new \Perfumer\Microservices\Undefined();
         $this->ticket_crm_module = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
+        $this->is_scheduled = new \Perfumer\Microservices\Undefined();
         $this->parent = new \Perfumer\Microservices\Undefined();
         $this->parents = new \Perfumer\Microservices\Undefined();
         $this->child = new \Perfumer\Microservices\Undefined();
@@ -147,6 +153,9 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_archived instanceof \Perfumer\Microservices\Undefined) {
             $array['is_archived'] = $this->is_archived;
+        }
+        if (!$this->is_scheduled instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_scheduled'] = $this->is_scheduled;
         }
         if (!$this->parent instanceof \Perfumer\Microservices\Undefined) {
             $array['parent'] = $this->parent;
