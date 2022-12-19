@@ -25,6 +25,11 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
     public $date = null;
 
     /**
+     * @var string
+     */
+    public $format = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -82,6 +87,7 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
         $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->week_day = new \Perfumer\Microservices\Undefined();
         $this->date = new \Perfumer\Microservices\Undefined();
+        $this->format = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -108,6 +114,9 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->date instanceof \Perfumer\Microservices\Undefined) {
             $array['date'] = $this->date;
+        }
+        if (!$this->format instanceof \Perfumer\Microservices\Undefined) {
+            $array['format'] = $this->format;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
