@@ -14,8 +14,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
 /**
  * @GetModel(microservice="events", model="module")
  * @GetModels(microservice="events", model="modules", fields={"name", "code", "description", "ticket_crm_module", "is_archived.bool", "is_scheduled.bool"})
- * @CreateModel(microservice="events", model="module", fields={"code", "name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int"})
- * @UpdateModel(microservice="events", model="module", fields={"id", "code", "name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int"})
+ * @CreateModel(microservice="events", model="module", fields={"code", "name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int", "schedule_only.bool"})
+ * @UpdateModel(microservice="events", model="module", fields={"id", "code", "name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int", "schedule_only.bool"})
  * @DeleteModel(microservice="events", model="module", fields={"id", "code"})
  * @SaveModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="archive")
  * @SaveModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")

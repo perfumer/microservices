@@ -59,6 +59,11 @@ class CreateModuleRequest extends \Perfumer\Microservices\Request
      */
     public $weekly_schedule_limit = null;
 
+    /**
+     * @var bool
+     */
+    public $schedule_only = null;
+
     public function __construct()
     {
         $this->_request_url = '/module';
@@ -74,6 +79,7 @@ class CreateModuleRequest extends \Perfumer\Microservices\Request
         $this->allowed_crm_module_mode = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->weekly_schedule_limit = new \Perfumer\Microservices\Undefined();
+        $this->schedule_only = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -111,6 +117,9 @@ class CreateModuleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->weekly_schedule_limit instanceof \Perfumer\Microservices\Undefined) {
             $array['weekly_schedule_limit'] = $this->weekly_schedule_limit;
+        }
+        if (!$this->schedule_only instanceof \Perfumer\Microservices\Undefined) {
+            $array['schedule_only'] = $this->schedule_only;
         }
 
         return $array;
