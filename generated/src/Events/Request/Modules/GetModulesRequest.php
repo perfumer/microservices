@@ -35,31 +35,6 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
     public $is_scheduled = null;
 
     /**
-     * @var string
-     */
-    public $parent = null;
-
-    /**
-     * @var string
-     */
-    public $parents = null;
-
-    /**
-     * @var string
-     */
-    public $child = null;
-
-    /**
-     * @var string
-     */
-    public $children = null;
-
-    /**
-     * @var bool
-     */
-    public $root = null;
-
-    /**
      * @var int
      */
     public $limit = null;
@@ -119,11 +94,6 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         $this->ticket_crm_module = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->is_scheduled = new \Perfumer\Microservices\Undefined();
-        $this->parent = new \Perfumer\Microservices\Undefined();
-        $this->parents = new \Perfumer\Microservices\Undefined();
-        $this->child = new \Perfumer\Microservices\Undefined();
-        $this->children = new \Perfumer\Microservices\Undefined();
-        $this->root = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -156,21 +126,6 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_scheduled instanceof \Perfumer\Microservices\Undefined) {
             $array['is_scheduled'] = $this->is_scheduled;
-        }
-        if (!$this->parent instanceof \Perfumer\Microservices\Undefined) {
-            $array['parent'] = $this->parent;
-        }
-        if (!$this->parents instanceof \Perfumer\Microservices\Undefined) {
-            $array['parents'] = $this->parents;
-        }
-        if (!$this->child instanceof \Perfumer\Microservices\Undefined) {
-            $array['child'] = $this->child;
-        }
-        if (!$this->children instanceof \Perfumer\Microservices\Undefined) {
-            $array['children'] = $this->children;
-        }
-        if (!$this->root instanceof \Perfumer\Microservices\Undefined) {
-            $array['root'] = $this->root;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;

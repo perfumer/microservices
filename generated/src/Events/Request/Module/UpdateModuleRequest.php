@@ -5,7 +5,7 @@ namespace Generated\Perfumer\Microservices\Events\Request\Module;
 class UpdateModuleRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var int
      */
     public $id = null;
 
@@ -60,16 +60,9 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
     public $is_archived = null;
 
     /**
-     * @var array
+     * @var int
      */
-    public $parents = [
-    ];
-
-    /**
-     * @var array
-     */
-    public $children = [
-    ];
+    public $weekly_schedule_limit = null;
 
     public function __construct()
     {
@@ -86,8 +79,7 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
         $this->allowed_crm_modules = new \Perfumer\Microservices\Undefined();
         $this->allowed_crm_module_mode = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
-        $this->parents = new \Perfumer\Microservices\Undefined();
-        $this->children = new \Perfumer\Microservices\Undefined();
+        $this->weekly_schedule_limit = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -126,11 +118,8 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
         if (!$this->is_archived instanceof \Perfumer\Microservices\Undefined) {
             $array['is_archived'] = $this->is_archived;
         }
-        if (!$this->parents instanceof \Perfumer\Microservices\Undefined) {
-            $array['parents'] = $this->parents;
-        }
-        if (!$this->children instanceof \Perfumer\Microservices\Undefined) {
-            $array['children'] = $this->children;
+        if (!$this->weekly_schedule_limit instanceof \Perfumer\Microservices\Undefined) {
+            $array['weekly_schedule_limit'] = $this->weekly_schedule_limit;
         }
 
         return $array;

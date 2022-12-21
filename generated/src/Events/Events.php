@@ -35,10 +35,10 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         return $response;
     }
 
-    public function saveModule(\Perfumer\Microservices\Events\Request\Module\SaveModuleRequest $request): \Perfumer\Microservices\Events\Response\Module\SaveModuleResponse
+    public function createModule(\Perfumer\Microservices\Events\Request\Module\CreateModuleRequest $request): \Perfumer\Microservices\Events\Response\Module\CreateModuleResponse
     {
-        /** @var \Perfumer\Microservices\Events\Response\Module\SaveModuleResponse $response */
-        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Module\SaveModuleResponse());
+        /** @var \Perfumer\Microservices\Events\Response\Module\CreateModuleResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Module\CreateModuleResponse());
         $item = $this->fetchKeyFromContent($response->_content, 'module');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
