@@ -22,14 +22,12 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @SaveModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="archive")
  * @SaveModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
  *
- * @GetModels(microservice="events", model="participants", fields={"event_id", "customer_id", "nb_invites", "has_act.bool",
- *     "event_title", "event_modules", "event_format", "event_created_at_to", "event_created_at_from", "event_opened_at_from", "event_opened_at_to",
- *     "event_closed_at_from", "event_closed_at_to", "event_apply_from_from", "event_apply_from_to", "event_apply_till_from", "event_apply_till_to",
- *     "act_signed_at_from", "act_signed_at_to", "is_act_signed.bool"})
+ * @GetModels(microservice="events", model="participants", fields={"event_id", "is_scheduled.bool", "user", "customer", "nb_invites",
+ *     "module_id", "format", "event_opened_at.date", "event_closed_at.date", "created_at.date", "updated_at.date"})
  * @GetModel(microservice="events", model="participant", fields={"id.int", "event_id.int", "customer_id.int"})
- * @GetModels(microservice="events", model="events", fields={"organizer_id", "locale", "module_id.int", "author_id", "title", "image",
+ * @GetModels(microservice="events", model="events", fields={"locale", "module_id", "title", "image",
  *     "description", "format", "location", "opened_at.date", "closed_at.date", "apply_from.date", "apply_till.date", "published_at.date",
- *     "nb_invites_per_participant.int", "nb_invites.int", "is_disabled.bool"})
+ *     "nb_invites_per_participant.int", "nb_invites.int", "is_scheduled.bool", "is_disabled.bool"})
  *
  * @SaveModel(microservice="events", model="participant", fields={"code", "event_id", "module_id", "user", "customer", "ticket", "opened_at", "closed_at", "nb_invites", "silent.bool"})
  * @DeleteModel(microservice="events", model="participant")
