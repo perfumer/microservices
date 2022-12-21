@@ -35,6 +35,11 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
     public $is_scheduled = null;
 
     /**
+     * @var bool
+     */
+    public $has_schedules = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -94,6 +99,7 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         $this->ticket_crm_module = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->is_scheduled = new \Perfumer\Microservices\Undefined();
+        $this->has_schedules = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -126,6 +132,9 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_scheduled instanceof \Perfumer\Microservices\Undefined) {
             $array['is_scheduled'] = $this->is_scheduled;
+        }
+        if (!$this->has_schedules instanceof \Perfumer\Microservices\Undefined) {
+            $array['has_schedules'] = $this->has_schedules;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
