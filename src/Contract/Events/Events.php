@@ -27,7 +27,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *     "nb_invites_per_participant.int", "nb_invites.int", "is_scheduled.bool", "is_disabled.bool"})
  *
  * @CreateModel(microservice="events", model="participant", fields={"event_id", "module_id", "user", "customer", "ticket", "opened_at", "closed_at", "nb_invites", "silent.bool"})
- * @GetModel(microservice="events", model="participant", action="check", fields={"module_id", "user", "customer", "format", "opened_at", "closed_at"})
+ * @GetModel(microservice="events", model="participant", action="check", url="/participant/check", fields={"module_id", "user", "customer", "format", "opened_at", "closed_at"})
  * @DeleteModel(microservice="events", model="participant")
  *
  * @GetModel(microservice="events", model="event", fields={"locale"})

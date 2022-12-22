@@ -46,7 +46,7 @@ class CheckParticipantRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/participant';
+        $this->_request_url = '/participant/check';
         $this->_request_method = 'get';
         $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();
