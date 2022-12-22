@@ -144,10 +144,23 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         return $response;
     }
 
-    public function saveParticipant(\Perfumer\Microservices\Events\Request\Participant\SaveParticipantRequest $request): \Perfumer\Microservices\Events\Response\Participant\SaveParticipantResponse
+    public function createParticipant(\Perfumer\Microservices\Events\Request\Participant\CreateParticipantRequest $request): \Perfumer\Microservices\Events\Response\Participant\CreateParticipantResponse
     {
-        /** @var \Perfumer\Microservices\Events\Response\Participant\SaveParticipantResponse $response */
-        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Participant\SaveParticipantResponse());
+        /** @var \Perfumer\Microservices\Events\Response\Participant\CreateParticipantResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Participant\CreateParticipantResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'participant');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->participant = $item;
+        }
+
+        return $response;
+    }
+
+    public function checkParticipant(\Perfumer\Microservices\Events\Request\Participant\CheckParticipantRequest $request): \Perfumer\Microservices\Events\Response\Participant\CheckParticipantResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Participant\CheckParticipantResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Participant\CheckParticipantResponse());
         $item = $this->fetchKeyFromContent($response->_content, 'participant');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
@@ -178,10 +191,10 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         return $response;
     }
 
-    public function saveEvent(\Perfumer\Microservices\Events\Request\Event\SaveEventRequest $request): \Perfumer\Microservices\Events\Response\Event\SaveEventResponse
+    public function createEvent(\Perfumer\Microservices\Events\Request\Event\CreateEventRequest $request): \Perfumer\Microservices\Events\Response\Event\CreateEventResponse
     {
-        /** @var \Perfumer\Microservices\Events\Response\Event\SaveEventResponse $response */
-        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Event\SaveEventResponse());
+        /** @var \Perfumer\Microservices\Events\Response\Event\CreateEventResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Event\CreateEventResponse());
         $item = $this->fetchKeyFromContent($response->_content, 'event');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {

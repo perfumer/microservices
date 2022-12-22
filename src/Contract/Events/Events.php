@@ -5,7 +5,6 @@ namespace Perfumer\Microservices\Contract\Events;
 use Perfumer\Microservices\Annotation\DeleteModel;
 use Perfumer\Microservices\Annotation\GetModel;
 use Perfumer\Microservices\Annotation\RequestModel;
-use Perfumer\Microservices\Annotation\SaveModel;
 use Perfumer\Microservices\Annotation\UpdateModel;
 use Perfumer\Microservices\Annotation\GetModels;
 use Perfumer\Microservices\Annotation\CreateModel;
@@ -14,11 +13,11 @@ use Perfumer\Microservices\Annotation\UpsertModel;
 /**
  * @GetModel(microservice="events", model="module")
  * @GetModels(microservice="events", model="modules", fields={"name", "code", "description", "ticket_crm_module", "is_archived.bool", "is_scheduled.bool", "has_schedules.bool"})
- * @CreateModel(microservice="events", model="module", fields={"code", "name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int", "is_scheduled.bool"})
- * @UpdateModel(microservice="events", model="module", fields={"id", "code", "name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int", "is_scheduled.bool"})
- * @DeleteModel(microservice="events", model="module", fields={"id", "code"})
- * @SaveModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="archive")
- * @SaveModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
+ * @CreateModel(microservice="events", model="module", fields={"name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int", "is_scheduled.bool"})
+ * @UpdateModel(microservice="events", model="module", fields={"name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int", "is_scheduled.bool"})
+ * @DeleteModel(microservice="events", model="module")
+ * @CreateModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="archive")
+ * @CreateModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
  *
  * @GetModels(microservice="events", model="participants", fields={"event_id", "is_scheduled.bool", "user", "customer", "nb_invites",
  *     "module_id", "format", "event_opened_at.date", "event_closed_at.date", "created_at.date", "updated_at.date"})
@@ -27,11 +26,12 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *     "description", "format", "location", "opened_at.date", "closed_at.date", "apply_from.date", "apply_till.date", "published_at.date",
  *     "nb_invites_per_participant.int", "nb_invites.int", "is_scheduled.bool", "is_disabled.bool"})
  *
- * @SaveModel(microservice="events", model="participant", fields={"code", "event_id", "module_id", "user", "customer", "ticket", "opened_at", "closed_at", "nb_invites", "silent.bool"})
+ * @CreateModel(microservice="events", model="participant", fields={"event_id", "module_id", "user", "customer", "ticket", "opened_at", "closed_at", "nb_invites", "silent.bool"})
+ * @GetModel(microservice="events", model="participant", action="check", fields={"module_id", "user", "customer", "format", "opened_at", "closed_at"})
  * @DeleteModel(microservice="events", model="participant")
  *
  * @GetModel(microservice="events", model="event", fields={"locale"})
- * @SaveModel(microservice="events", model="event", fields={"id.int", "module_id.int", "locale", "user", "is_registration_open.bool", "title", "image",
+ * @CreateModel(microservice="events", model="event", fields={"id.int", "module_id.int", "locale", "user", "is_registration_open.bool", "title", "image",
  *     "description", "html", "json", "format", "location", "opened_at", "closed_at", "apply_from", "apply_till", "published_at", "nb_invites_per_participant", "nb_invites",
  *     "is_confirm_required.bool", "confirmed_at", "is_review_needed.bool", "is_statement_needed.bool", "registration_form", "user_speakers.array"})
  * @DeleteModel(microservice="events", model="event", fields={"id.int"})

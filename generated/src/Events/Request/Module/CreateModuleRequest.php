@@ -7,11 +7,6 @@ class CreateModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
-
-    /**
-     * @var string
-     */
     public $name = null;
 
     /**
@@ -64,11 +59,15 @@ class CreateModuleRequest extends \Perfumer\Microservices\Request
      */
     public $is_scheduled = null;
 
+    /**
+     * @var string
+     */
+    public $code = null;
+
     public function __construct()
     {
         $this->_request_url = '/module';
         $this->_request_method = 'post';
-        $this->code = new \Perfumer\Microservices\Undefined();
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->customer_name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
@@ -80,14 +79,12 @@ class CreateModuleRequest extends \Perfumer\Microservices\Request
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->weekly_schedule_limit = new \Perfumer\Microservices\Undefined();
         $this->is_scheduled = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
     {
         $array = [];
-        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
-            $array['code'] = $this->code;
-        }
         if (!$this->name instanceof \Perfumer\Microservices\Undefined) {
             $array['name'] = $this->name;
         }
@@ -120,6 +117,9 @@ class CreateModuleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_scheduled instanceof \Perfumer\Microservices\Undefined) {
             $array['is_scheduled'] = $this->is_scheduled;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;
