@@ -1,48 +1,18 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Events\Request\Modules;
+namespace Generated\Perfumer\Microservices\Events\Request\User;
 
-class GetModulesRequest extends \Perfumer\Microservices\Request
+class GetUserModulesRequest extends \Perfumer\Microservices\Request
 {
-    /**
-     * @var string
-     */
-    public $name = null;
-
-    /**
-     * @var string
-     */
-    public $code = null;
-
-    /**
-     * @var string
-     */
-    public $description = null;
-
-    /**
-     * @var string
-     */
-    public $ticket_crm_module = null;
-
-    /**
-     * @var bool
-     */
-    public $is_archived = null;
-
-    /**
-     * @var bool
-     */
-    public $is_scheduled = null;
-
     /**
      * @var string
      */
     public $user = null;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $has_schedules = null;
+    public $module_id = null;
 
     /**
      * @var int
@@ -96,16 +66,10 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/modules';
+        $this->_request_url = '/user/modules';
         $this->_request_method = 'get';
-        $this->name = new \Perfumer\Microservices\Undefined();
-        $this->code = new \Perfumer\Microservices\Undefined();
-        $this->description = new \Perfumer\Microservices\Undefined();
-        $this->ticket_crm_module = new \Perfumer\Microservices\Undefined();
-        $this->is_archived = new \Perfumer\Microservices\Undefined();
-        $this->is_scheduled = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();
-        $this->has_schedules = new \Perfumer\Microservices\Undefined();
+        $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -121,29 +85,11 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
     public function getBody(): array
     {
         $array = [];
-        if (!$this->name instanceof \Perfumer\Microservices\Undefined) {
-            $array['name'] = $this->name;
-        }
-        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
-            $array['code'] = $this->code;
-        }
-        if (!$this->description instanceof \Perfumer\Microservices\Undefined) {
-            $array['description'] = $this->description;
-        }
-        if (!$this->ticket_crm_module instanceof \Perfumer\Microservices\Undefined) {
-            $array['ticket_crm_module'] = $this->ticket_crm_module;
-        }
-        if (!$this->is_archived instanceof \Perfumer\Microservices\Undefined) {
-            $array['is_archived'] = $this->is_archived;
-        }
-        if (!$this->is_scheduled instanceof \Perfumer\Microservices\Undefined) {
-            $array['is_scheduled'] = $this->is_scheduled;
-        }
         if (!$this->user instanceof \Perfumer\Microservices\Undefined) {
             $array['user'] = $this->user;
         }
-        if (!$this->has_schedules instanceof \Perfumer\Microservices\Undefined) {
-            $array['has_schedules'] = $this->has_schedules;
+        if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['module_id'] = $this->module_id;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;

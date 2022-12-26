@@ -12,7 +12,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
 
 /**
  * @GetModel(microservice="events", model="module")
- * @GetModels(microservice="events", model="modules", fields={"name", "code", "description", "ticket_crm_module", "is_archived.bool", "is_scheduled.bool", "has_schedules.bool"})
+ * @GetModels(microservice="events", model="modules", fields={"name", "code", "description", "ticket_crm_module", "is_archived.bool", "is_scheduled.bool", "user", "has_schedules.bool"})
  * @CreateModel(microservice="events", model="module", fields={"name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int", "is_scheduled.bool"})
  * @UpdateModel(microservice="events", model="module", fields={"name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int", "is_scheduled.bool"})
  * @DeleteModel(microservice="events", model="module")
@@ -67,6 +67,11 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @UpsertModel(microservice="events", model="schedule", fields={"user", "module_id", "code", "week_day", "date", "time_from", "time_to", "format", "is_protected.bool"}, url="/schedule")
  * @GetModels(microservice="events", model="schedules", fields={"user", "module_id.int", "week_day.int", "date", "format"}, response_fields={"schedules.array"}, url="/schedules")
  * @GetModels(microservice="events", model="schedules", submodel="AvailableSchedules", fields={"user", "customer", "format", "module_id.int", "min_date", "max_date", "days_duration.int", "duration.int"}, url="/schedule/available", response_fields={"available.array", "possible_times.array"})
+ *
+ * @CreateModel(microservice="events", model="user", fields={"user", "module_id.int"}, action="add", submodel="UserModule", url="/user/module")
+ * @DeleteModel(microservice="events", model="user", fields={"user", "module_id.int"}, action="delete", submodel="UserModule", url="/user/module")
+ * @GetModels(microservice="events", model="user", fields={"user", "module_id.int"}, submodel="UserModules", url="/user/modules", response_fields={"modules"})
+ * @GetModels(microservice="events", model="users", fields={"module_id.int"})
  *
  * @GetModel(microservice="events", model="oauth", submodel="OauthStatus", fields={"user", "customer", "redirect_uri"}, url="/oauth/status", response_fields={"login_url", "email"})
  * @CreateModel(microservice="events", model="oauth", action="logout", fields={"user", "customer"}, url="/oauth/logout")
