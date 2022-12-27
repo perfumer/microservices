@@ -10,6 +10,11 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
     public $module_id = null;
 
     /**
+     * @var string
+     */
+    public $module_code = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -64,6 +69,7 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/users';
         $this->_request_method = 'get';
         $this->module_id = new \Perfumer\Microservices\Undefined();
+        $this->module_code = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -81,6 +87,9 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
             $array['module_id'] = $this->module_id;
+        }
+        if (!$this->module_code instanceof \Perfumer\Microservices\Undefined) {
+            $array['module_code'] = $this->module_code;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
