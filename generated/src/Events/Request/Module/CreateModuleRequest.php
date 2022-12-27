@@ -62,6 +62,11 @@ class CreateModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $tags = null;
+
+    /**
+     * @var string
+     */
     public $code = null;
 
     public function __construct()
@@ -79,6 +84,7 @@ class CreateModuleRequest extends \Perfumer\Microservices\Request
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->weekly_schedule_limit = new \Perfumer\Microservices\Undefined();
         $this->is_scheduled = new \Perfumer\Microservices\Undefined();
+        $this->tags = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
     }
 
@@ -117,6 +123,9 @@ class CreateModuleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_scheduled instanceof \Perfumer\Microservices\Undefined) {
             $array['is_scheduled'] = $this->is_scheduled;
+        }
+        if (!$this->tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['tags'] = $this->tags;
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;

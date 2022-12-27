@@ -40,9 +40,24 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
     public $user = null;
 
     /**
+     * @var string
+     */
+    public $has_tags = null;
+
+    /**
+     * @var string
+     */
+    public $has_not_tags = null;
+
+    /**
      * @var bool
      */
     public $has_schedules = null;
+
+    /**
+     * @var bool
+     */
+    public $with_tags = null;
 
     /**
      * @var int
@@ -105,7 +120,10 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->is_scheduled = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();
+        $this->has_tags = new \Perfumer\Microservices\Undefined();
+        $this->has_not_tags = new \Perfumer\Microservices\Undefined();
         $this->has_schedules = new \Perfumer\Microservices\Undefined();
+        $this->with_tags = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -142,8 +160,17 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
         if (!$this->user instanceof \Perfumer\Microservices\Undefined) {
             $array['user'] = $this->user;
         }
+        if (!$this->has_tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['has_tags'] = $this->has_tags;
+        }
+        if (!$this->has_not_tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['has_not_tags'] = $this->has_not_tags;
+        }
         if (!$this->has_schedules instanceof \Perfumer\Microservices\Undefined) {
             $array['has_schedules'] = $this->has_schedules;
+        }
+        if (!$this->with_tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['with_tags'] = $this->with_tags;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
