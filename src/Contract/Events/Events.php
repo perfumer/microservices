@@ -3,38 +3,35 @@
 namespace Perfumer\Microservices\Contract\Events;
 
 use Perfumer\Microservices\Annotation\DeleteModel;
-use Perfumer\Microservices\Annotation\GetMeshModels;
 use Perfumer\Microservices\Annotation\GetModel;
 use Perfumer\Microservices\Annotation\RequestModel;
-use Perfumer\Microservices\Annotation\SaveMeshModel;
-use Perfumer\Microservices\Annotation\SaveModel;
 use Perfumer\Microservices\Annotation\UpdateModel;
 use Perfumer\Microservices\Annotation\GetModels;
 use Perfumer\Microservices\Annotation\CreateModel;
+use Perfumer\Microservices\Annotation\UpsertModel;
 
 /**
- * @GetModel(microservice="events", model="module")
- * @GetMeshModels(microservice="events", model="modules", fields={"name", "code", "description", "ticket_crm_module", "is_archived.bool"})
- * @SaveMeshModel(microservice="events", model="module", fields={"code", "name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool"})
- * @SaveMeshModel(microservice="events", model="module", fields={"id", "code", "name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool"}, action="update", request_method="patch")
- * @DeleteModel(microservice="events", model="module", fields={"id", "code"})
- * @SaveModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="archive")
- * @SaveModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
+ * @GetModel(microservice="events", model="module", fields={"with_tags.bool"})
+ * @GetModels(microservice="events", model="modules", fields={"name", "code", "description", "ticket_crm_module", "is_archived.bool", "is_scheduled.bool", "user", "has_tags", "has_not_tags", "has_schedules.bool", "with_tags.bool"})
+ * @CreateModel(microservice="events", model="module", fields={"name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int", "is_scheduled.bool", "tags"})
+ * @UpdateModel(microservice="events", model="module", fields={"name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int", "is_scheduled.bool", "tags"})
+ * @DeleteModel(microservice="events", model="module")
+ * @CreateModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="archive")
+ * @CreateModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
  *
- * @GetModels(microservice="events", model="participants", fields={"event_id", "customer_id", "nb_invites", "has_act.bool",
- *     "event_title", "event_modules", "event_format", "event_created_at_to", "event_created_at_from", "event_opened_at_from", "event_opened_at_to",
- *     "event_closed_at_from", "event_closed_at_to", "event_apply_from_from", "event_apply_from_to", "event_apply_till_from", "event_apply_till_to",
- *     "act_signed_at_from", "act_signed_at_to", "is_act_signed.bool"})
+ * @GetModels(microservice="events", model="participants", fields={"event_id", "is_scheduled.bool", "user", "customer", "nb_invites",
+ *     "module_id", "format", "event_opened_at.date", "event_closed_at.date", "created_at.date", "updated_at.date"})
  * @GetModel(microservice="events", model="participant", fields={"id.int", "event_id.int", "customer_id.int"})
- * @GetModels(microservice="events", model="events", fields={"organizer_id", "locale", "module_id.int", "author_id", "title", "image",
+ * @GetModels(microservice="events", model="events", fields={"locale", "module_id", "title", "image",
  *     "description", "format", "location", "opened_at.date", "closed_at.date", "apply_from.date", "apply_till.date", "published_at.date",
- *     "nb_invites_per_participant.int", "nb_invites.int", "is_disabled.bool"})
+ *     "nb_invites_per_participant.int", "nb_invites.int", "is_scheduled.bool", "is_disabled.bool"})
  *
- * @SaveModel(microservice="events", model="participant", fields={"event_id", "customer_id", "nb_invites"})
+ * @CreateModel(microservice="events", model="participant", fields={"event_id", "module_id", "user", "customer", "ticket", "opened_at", "closed_at", "nb_invites", "silent.bool"})
+ * @GetModel(microservice="events", model="participant", action="check", url="/participant/check", fields={"module_id", "user", "customer", "format", "opened_at", "closed_at"})
  * @DeleteModel(microservice="events", model="participant")
  *
  * @GetModel(microservice="events", model="event", fields={"locale"})
- * @SaveModel(microservice="events", model="event", fields={"id.int", "modules.array", "organizer_id", "locale", "author_id", "user_id", "is_registration_open.bool", "title", "image",
+ * @CreateModel(microservice="events", model="event", fields={"id.int", "module_id.int", "locale", "user", "is_registration_open.bool", "title", "image",
  *     "description", "html", "json", "format", "location", "opened_at", "closed_at", "apply_from", "apply_till", "published_at", "nb_invites_per_participant", "nb_invites",
  *     "is_confirm_required.bool", "confirmed_at", "is_review_needed.bool", "is_statement_needed.bool", "registration_form", "user_speakers.array"})
  * @DeleteModel(microservice="events", model="event", fields={"id.int"})
@@ -63,6 +60,21 @@ use Perfumer\Microservices\Annotation\CreateModel;
  * @UpdateModel(microservice="events", model="review", fields={"id.int", "author_id", "event", "rating", "text"})
  * @DeleteModel(microservice="events", model="review", fields={"id.int"})
  *
+ * @GetModel(microservice="events", model="schedule", fields={"id.int", "code"}, url="/schedule", response_fields={"schedule.array"})
+ * @DeleteModel(microservice="events", model="schedule", fields={"id.int", "code", "force.bool"}, url="/schedule", response_fields={"schedule.array"})
+ * @CreateModel(microservice="events", model="schedule", fields={"user", "module_id", "code", "week_day", "date", "time_from", "time_to", "format", "is_protected.bool", "silent.bool"}, url="/schedule", response_fields={"schedule.array"})
+ * @UpdateModel(microservice="events", model="schedule", fields={"id.int", "user", "module_id", "code", "week_day", "date", "time_from", "time_to", "format", "is_protected.bool"}, url="/schedule", response_fields={"schedule.array"})
+ * @UpsertModel(microservice="events", model="schedule", fields={"user", "module_id", "code", "week_day", "date", "time_from", "time_to", "format", "is_protected.bool"}, url="/schedule")
+ * @GetModels(microservice="events", model="schedules", fields={"user", "module_id.int", "week_day.int", "date", "format"}, response_fields={"schedules.array"}, url="/schedules")
+ * @GetModels(microservice="events", model="schedules", submodel="AvailableSchedules", fields={"user", "customer", "format", "module_id.int", "min_date", "max_date", "days_duration.int", "duration.int"}, url="/schedule/available", response_fields={"available.array", "possible_times.array"})
+ *
+ * @CreateModel(microservice="events", model="user", fields={"user", "module_id.int"}, action="add", submodel="UserModule", url="/user/module")
+ * @DeleteModel(microservice="events", model="user", fields={"user", "module_id.int"}, action="delete", submodel="UserModule", url="/user/module")
+ * @GetModels(microservice="events", model="user", fields={"user", "module_id.int"}, submodel="UserModules", url="/user/modules", response_fields={"modules"})
+ * @GetModels(microservice="events", model="users", fields={"module_id.int", "module_code"})
+ *
+ * @GetModel(microservice="events", model="oauth", submodel="OauthStatus", fields={"user", "customer", "redirect_uri"}, url="/oauth/status", response_fields={"login_url", "email"})
+ * @CreateModel(microservice="events", model="oauth", action="logout", fields={"user", "customer"}, url="/oauth/logout")
  */
 interface Events
 {

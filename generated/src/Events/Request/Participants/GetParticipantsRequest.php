@@ -10,9 +10,19 @@ class GetParticipantsRequest extends \Perfumer\Microservices\Request
     public $event_id = null;
 
     /**
+     * @var bool
+     */
+    public $is_scheduled = null;
+
+    /**
      * @var string
      */
-    public $customer_id = null;
+    public $user = null;
+
+    /**
+     * @var string
+     */
+    public $customer = null;
 
     /**
      * @var string
@@ -20,89 +30,14 @@ class GetParticipantsRequest extends \Perfumer\Microservices\Request
     public $nb_invites = null;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $has_act = null;
+    public $module_id = null;
 
     /**
      * @var string
      */
-    public $event_title = null;
-
-    /**
-     * @var string
-     */
-    public $event_modules = null;
-
-    /**
-     * @var string
-     */
-    public $event_format = null;
-
-    /**
-     * @var string
-     */
-    public $event_created_at_to = null;
-
-    /**
-     * @var string
-     */
-    public $event_created_at_from = null;
-
-    /**
-     * @var string
-     */
-    public $event_opened_at_from = null;
-
-    /**
-     * @var string
-     */
-    public $event_opened_at_to = null;
-
-    /**
-     * @var string
-     */
-    public $event_closed_at_from = null;
-
-    /**
-     * @var string
-     */
-    public $event_closed_at_to = null;
-
-    /**
-     * @var string
-     */
-    public $event_apply_from_from = null;
-
-    /**
-     * @var string
-     */
-    public $event_apply_from_to = null;
-
-    /**
-     * @var string
-     */
-    public $event_apply_till_from = null;
-
-    /**
-     * @var string
-     */
-    public $event_apply_till_to = null;
-
-    /**
-     * @var string
-     */
-    public $act_signed_at_from = null;
-
-    /**
-     * @var string
-     */
-    public $act_signed_at_to = null;
-
-    /**
-     * @var bool
-     */
-    public $is_act_signed = null;
+    public $format = null;
 
     /**
      * @var int
@@ -154,30 +89,97 @@ class GetParticipantsRequest extends \Perfumer\Microservices\Request
      */
     public $id_ge = null;
 
+    /**
+     * @var string
+     */
+    public $event_opened_at_le = null;
+
+    /**
+     * @var string
+     */
+    public $event_opened_at_lt = null;
+
+    /**
+     * @var string
+     */
+    public $event_opened_at_ge = null;
+
+    /**
+     * @var string
+     */
+    public $event_opened_at_gt = null;
+
+    /**
+     * @var string
+     */
+    public $event_closed_at_le = null;
+
+    /**
+     * @var string
+     */
+    public $event_closed_at_lt = null;
+
+    /**
+     * @var string
+     */
+    public $event_closed_at_ge = null;
+
+    /**
+     * @var string
+     */
+    public $event_closed_at_gt = null;
+
+    /**
+     * @var string
+     */
+    public $created_at_le = null;
+
+    /**
+     * @var string
+     */
+    public $created_at_lt = null;
+
+    /**
+     * @var string
+     */
+    public $created_at_ge = null;
+
+    /**
+     * @var string
+     */
+    public $created_at_gt = null;
+
+    /**
+     * @var string
+     */
+    public $updated_at_le = null;
+
+    /**
+     * @var string
+     */
+    public $updated_at_lt = null;
+
+    /**
+     * @var string
+     */
+    public $updated_at_ge = null;
+
+    /**
+     * @var string
+     */
+    public $updated_at_gt = null;
+
     public function __construct()
     {
         $this->_request_url = '/participants';
         $this->_request_method = 'get';
         $this->event_id = new \Perfumer\Microservices\Undefined();
-        $this->customer_id = new \Perfumer\Microservices\Undefined();
+        $this->is_scheduled = new \Perfumer\Microservices\Undefined();
+        $this->user = new \Perfumer\Microservices\Undefined();
+        $this->customer = new \Perfumer\Microservices\Undefined();
         $this->nb_invites = new \Perfumer\Microservices\Undefined();
-        $this->has_act = new \Perfumer\Microservices\Undefined();
-        $this->event_title = new \Perfumer\Microservices\Undefined();
-        $this->event_modules = new \Perfumer\Microservices\Undefined();
-        $this->event_format = new \Perfumer\Microservices\Undefined();
-        $this->event_created_at_to = new \Perfumer\Microservices\Undefined();
-        $this->event_created_at_from = new \Perfumer\Microservices\Undefined();
-        $this->event_opened_at_from = new \Perfumer\Microservices\Undefined();
-        $this->event_opened_at_to = new \Perfumer\Microservices\Undefined();
-        $this->event_closed_at_from = new \Perfumer\Microservices\Undefined();
-        $this->event_closed_at_to = new \Perfumer\Microservices\Undefined();
-        $this->event_apply_from_from = new \Perfumer\Microservices\Undefined();
-        $this->event_apply_from_to = new \Perfumer\Microservices\Undefined();
-        $this->event_apply_till_from = new \Perfumer\Microservices\Undefined();
-        $this->event_apply_till_to = new \Perfumer\Microservices\Undefined();
-        $this->act_signed_at_from = new \Perfumer\Microservices\Undefined();
-        $this->act_signed_at_to = new \Perfumer\Microservices\Undefined();
-        $this->is_act_signed = new \Perfumer\Microservices\Undefined();
+        $this->module_id = new \Perfumer\Microservices\Undefined();
+        $this->format = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -188,6 +190,22 @@ class GetParticipantsRequest extends \Perfumer\Microservices\Request
         $this->id_le = new \Perfumer\Microservices\Undefined();
         $this->id_gt = new \Perfumer\Microservices\Undefined();
         $this->id_ge = new \Perfumer\Microservices\Undefined();
+        $this->event_opened_at_le = new \Perfumer\Microservices\Undefined();
+        $this->event_opened_at_lt = new \Perfumer\Microservices\Undefined();
+        $this->event_opened_at_ge = new \Perfumer\Microservices\Undefined();
+        $this->event_opened_at_gt = new \Perfumer\Microservices\Undefined();
+        $this->event_closed_at_le = new \Perfumer\Microservices\Undefined();
+        $this->event_closed_at_lt = new \Perfumer\Microservices\Undefined();
+        $this->event_closed_at_ge = new \Perfumer\Microservices\Undefined();
+        $this->event_closed_at_gt = new \Perfumer\Microservices\Undefined();
+        $this->created_at_le = new \Perfumer\Microservices\Undefined();
+        $this->created_at_lt = new \Perfumer\Microservices\Undefined();
+        $this->created_at_ge = new \Perfumer\Microservices\Undefined();
+        $this->created_at_gt = new \Perfumer\Microservices\Undefined();
+        $this->updated_at_le = new \Perfumer\Microservices\Undefined();
+        $this->updated_at_lt = new \Perfumer\Microservices\Undefined();
+        $this->updated_at_ge = new \Perfumer\Microservices\Undefined();
+        $this->updated_at_gt = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -196,62 +214,23 @@ class GetParticipantsRequest extends \Perfumer\Microservices\Request
         if (!$this->event_id instanceof \Perfumer\Microservices\Undefined) {
             $array['event_id'] = $this->event_id;
         }
-        if (!$this->customer_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['customer_id'] = $this->customer_id;
+        if (!$this->is_scheduled instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_scheduled'] = $this->is_scheduled;
+        }
+        if (!$this->user instanceof \Perfumer\Microservices\Undefined) {
+            $array['user'] = $this->user;
+        }
+        if (!$this->customer instanceof \Perfumer\Microservices\Undefined) {
+            $array['customer'] = $this->customer;
         }
         if (!$this->nb_invites instanceof \Perfumer\Microservices\Undefined) {
             $array['nb_invites'] = $this->nb_invites;
         }
-        if (!$this->has_act instanceof \Perfumer\Microservices\Undefined) {
-            $array['has_act'] = $this->has_act;
+        if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['module_id'] = $this->module_id;
         }
-        if (!$this->event_title instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_title'] = $this->event_title;
-        }
-        if (!$this->event_modules instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_modules'] = $this->event_modules;
-        }
-        if (!$this->event_format instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_format'] = $this->event_format;
-        }
-        if (!$this->event_created_at_to instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_created_at_to'] = $this->event_created_at_to;
-        }
-        if (!$this->event_created_at_from instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_created_at_from'] = $this->event_created_at_from;
-        }
-        if (!$this->event_opened_at_from instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_opened_at_from'] = $this->event_opened_at_from;
-        }
-        if (!$this->event_opened_at_to instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_opened_at_to'] = $this->event_opened_at_to;
-        }
-        if (!$this->event_closed_at_from instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_closed_at_from'] = $this->event_closed_at_from;
-        }
-        if (!$this->event_closed_at_to instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_closed_at_to'] = $this->event_closed_at_to;
-        }
-        if (!$this->event_apply_from_from instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_apply_from_from'] = $this->event_apply_from_from;
-        }
-        if (!$this->event_apply_from_to instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_apply_from_to'] = $this->event_apply_from_to;
-        }
-        if (!$this->event_apply_till_from instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_apply_till_from'] = $this->event_apply_till_from;
-        }
-        if (!$this->event_apply_till_to instanceof \Perfumer\Microservices\Undefined) {
-            $array['event_apply_till_to'] = $this->event_apply_till_to;
-        }
-        if (!$this->act_signed_at_from instanceof \Perfumer\Microservices\Undefined) {
-            $array['act_signed_at_from'] = $this->act_signed_at_from;
-        }
-        if (!$this->act_signed_at_to instanceof \Perfumer\Microservices\Undefined) {
-            $array['act_signed_at_to'] = $this->act_signed_at_to;
-        }
-        if (!$this->is_act_signed instanceof \Perfumer\Microservices\Undefined) {
-            $array['is_act_signed'] = $this->is_act_signed;
+        if (!$this->format instanceof \Perfumer\Microservices\Undefined) {
+            $array['format'] = $this->format;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
@@ -282,6 +261,54 @@ class GetParticipantsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->id_ge instanceof \Perfumer\Microservices\Undefined) {
             $array['id_ge'] = $this->id_ge;
+        }
+        if (!$this->event_opened_at_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_opened_at_le'] = $this->event_opened_at_le;
+        }
+        if (!$this->event_opened_at_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_opened_at_lt'] = $this->event_opened_at_lt;
+        }
+        if (!$this->event_opened_at_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_opened_at_ge'] = $this->event_opened_at_ge;
+        }
+        if (!$this->event_opened_at_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_opened_at_gt'] = $this->event_opened_at_gt;
+        }
+        if (!$this->event_closed_at_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_closed_at_le'] = $this->event_closed_at_le;
+        }
+        if (!$this->event_closed_at_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_closed_at_lt'] = $this->event_closed_at_lt;
+        }
+        if (!$this->event_closed_at_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_closed_at_ge'] = $this->event_closed_at_ge;
+        }
+        if (!$this->event_closed_at_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['event_closed_at_gt'] = $this->event_closed_at_gt;
+        }
+        if (!$this->created_at_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['created_at_le'] = $this->created_at_le;
+        }
+        if (!$this->created_at_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['created_at_lt'] = $this->created_at_lt;
+        }
+        if (!$this->created_at_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['created_at_ge'] = $this->created_at_ge;
+        }
+        if (!$this->created_at_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['created_at_gt'] = $this->created_at_gt;
+        }
+        if (!$this->updated_at_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['updated_at_le'] = $this->updated_at_le;
+        }
+        if (!$this->updated_at_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['updated_at_lt'] = $this->updated_at_lt;
+        }
+        if (!$this->updated_at_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['updated_at_ge'] = $this->updated_at_ge;
+        }
+        if (!$this->updated_at_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['updated_at_gt'] = $this->updated_at_gt;
         }
 
         return $array;

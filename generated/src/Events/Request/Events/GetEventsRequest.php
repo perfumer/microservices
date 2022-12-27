@@ -7,22 +7,12 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $organizer_id = null;
-
-    /**
-     * @var string
-     */
     public $locale = null;
 
     /**
-     * @var int
-     */
-    public $module_id = null;
-
-    /**
      * @var string
      */
-    public $author_id = null;
+    public $module_id = null;
 
     /**
      * @var string
@@ -58,6 +48,11 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
      * @var int
      */
     public $nb_invites = null;
+
+    /**
+     * @var bool
+     */
+    public $is_scheduled = null;
 
     /**
      * @var bool
@@ -218,10 +213,8 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
     {
         $this->_request_url = '/events';
         $this->_request_method = 'get';
-        $this->organizer_id = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->module_id = new \Perfumer\Microservices\Undefined();
-        $this->author_id = new \Perfumer\Microservices\Undefined();
         $this->title = new \Perfumer\Microservices\Undefined();
         $this->image = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
@@ -229,6 +222,7 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         $this->location = new \Perfumer\Microservices\Undefined();
         $this->nb_invites_per_participant = new \Perfumer\Microservices\Undefined();
         $this->nb_invites = new \Perfumer\Microservices\Undefined();
+        $this->is_scheduled = new \Perfumer\Microservices\Undefined();
         $this->is_disabled = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
@@ -265,17 +259,11 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
     public function getBody(): array
     {
         $array = [];
-        if (!$this->organizer_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['organizer_id'] = $this->organizer_id;
-        }
         if (!$this->locale instanceof \Perfumer\Microservices\Undefined) {
             $array['locale'] = $this->locale;
         }
         if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
             $array['module_id'] = $this->module_id;
-        }
-        if (!$this->author_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['author_id'] = $this->author_id;
         }
         if (!$this->title instanceof \Perfumer\Microservices\Undefined) {
             $array['title'] = $this->title;
@@ -297,6 +285,9 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->nb_invites instanceof \Perfumer\Microservices\Undefined) {
             $array['nb_invites'] = $this->nb_invites;
+        }
+        if (!$this->is_scheduled instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_scheduled'] = $this->is_scheduled;
         }
         if (!$this->is_disabled instanceof \Perfumer\Microservices\Undefined) {
             $array['is_disabled'] = $this->is_disabled;

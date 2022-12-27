@@ -2,7 +2,7 @@
 
 namespace Generated\Perfumer\Microservices\Events\Request\Module;
 
-class UpdateModuleRequest extends \Perfumer\Microservices\Request
+class CreateModuleRequest extends \Perfumer\Microservices\Request
 {
     /**
      * @var string
@@ -65,11 +65,6 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
     public $tags = null;
 
     /**
-     * @var int
-     */
-    public $id = null;
-
-    /**
      * @var string
      */
     public $code = null;
@@ -77,7 +72,7 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
     public function __construct()
     {
         $this->_request_url = '/module';
-        $this->_request_method = 'patch';
+        $this->_request_method = 'post';
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->customer_name = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
@@ -90,7 +85,6 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
         $this->weekly_schedule_limit = new \Perfumer\Microservices\Undefined();
         $this->is_scheduled = new \Perfumer\Microservices\Undefined();
         $this->tags = new \Perfumer\Microservices\Undefined();
-        $this->id = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
     }
 
@@ -132,9 +126,6 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->tags instanceof \Perfumer\Microservices\Undefined) {
             $array['tags'] = $this->tags;
-        }
-        if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
-            $array['id'] = $this->id;
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;

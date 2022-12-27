@@ -1,14 +1,9 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Events\Request\Module;
+namespace Generated\Perfumer\Microservices\Events\Request\Schedule;
 
-class GetModuleRequest extends \Perfumer\Microservices\Request
+class DeleteScheduleRequest extends \Perfumer\Microservices\Request
 {
-    /**
-     * @var bool
-     */
-    public $with_tags = null;
-
     /**
      * @var int
      */
@@ -19,26 +14,31 @@ class GetModuleRequest extends \Perfumer\Microservices\Request
      */
     public $code = null;
 
+    /**
+     * @var bool
+     */
+    public $force = null;
+
     public function __construct()
     {
-        $this->_request_url = '/module';
-        $this->_request_method = 'get';
-        $this->with_tags = new \Perfumer\Microservices\Undefined();
+        $this->_request_url = '/schedule';
+        $this->_request_method = 'delete';
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
+        $this->force = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
     {
         $array = [];
-        if (!$this->with_tags instanceof \Perfumer\Microservices\Undefined) {
-            $array['with_tags'] = $this->with_tags;
-        }
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;
+        }
+        if (!$this->force instanceof \Perfumer\Microservices\Undefined) {
+            $array['force'] = $this->force;
         }
 
         return $array;
