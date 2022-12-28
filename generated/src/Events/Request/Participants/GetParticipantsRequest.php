@@ -169,11 +169,6 @@ class GetParticipantsRequest extends \Perfumer\Microservices\Request
      */
     public $updated_at_gt = null;
 
-    /**
-     * @var string
-     */
-    public $locale = null;
-
     public function __construct()
     {
         $this->_request_url = '/participants';
@@ -211,7 +206,6 @@ class GetParticipantsRequest extends \Perfumer\Microservices\Request
         $this->updated_at_lt = new \Perfumer\Microservices\Undefined();
         $this->updated_at_ge = new \Perfumer\Microservices\Undefined();
         $this->updated_at_gt = new \Perfumer\Microservices\Undefined();
-        $this->locale = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -315,9 +309,6 @@ class GetParticipantsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->updated_at_gt instanceof \Perfumer\Microservices\Undefined) {
             $array['updated_at_gt'] = $this->updated_at_gt;
-        }
-        if (!$this->locale instanceof \Perfumer\Microservices\Undefined) {
-            $array['locale'] = $this->locale;
         }
 
         return $array;
