@@ -60,6 +60,7 @@ class GetModels extends RequestModel
             $this->fields[] = $date_field . '_gt';
         }
 
+        $this->fields[] = 'locale';
         $this->response_fields[] = $lcfirst_model . '.array';
 
         parent::onCreate();

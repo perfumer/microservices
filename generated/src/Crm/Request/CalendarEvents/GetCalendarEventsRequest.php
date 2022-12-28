@@ -159,6 +159,11 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
      */
     public $started_at_gt = null;
 
+    /**
+     * @var string
+     */
+    public $locale = null;
+
     public function __construct()
     {
         $this->_request_url = '/calendar-events';
@@ -194,6 +199,7 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
         $this->started_at_lt = new \Perfumer\Microservices\Undefined();
         $this->started_at_ge = new \Perfumer\Microservices\Undefined();
         $this->started_at_gt = new \Perfumer\Microservices\Undefined();
+        $this->locale = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -291,6 +297,9 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->started_at_gt instanceof \Perfumer\Microservices\Undefined) {
             $array['started_at_gt'] = $this->started_at_gt;
+        }
+        if (!$this->locale instanceof \Perfumer\Microservices\Undefined) {
+            $array['locale'] = $this->locale;
         }
 
         return $array;
