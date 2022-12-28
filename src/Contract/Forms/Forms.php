@@ -68,7 +68,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @CopyModel(microservice="forms", model="reference")
  * @MigrateModel(microservice="forms", model="reference")
  * @GetModels(microservice="forms", model="references", fields={"name", "code", "is_archived.bool", "is_external.bool"})
- * @CreateModel(microservice="forms", model="reference", action="triggerExternal", fields={"id.int", "code"})
+ * @CreateModel(microservice="forms", model="reference", action="triggerExternal", url="/reference/trigger-external", fields={"id.int", "code"})
  *
  * @GetModel(microservice="forms", model="value", fields={"id.int", "code"})
  * @DeleteModel(microservice="forms", model="value", fields={"id.int", "code"})

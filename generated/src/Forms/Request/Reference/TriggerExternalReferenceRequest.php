@@ -16,7 +16,7 @@ class TriggerExternalReferenceRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/reference';
+        $this->_request_url = '/reference/trigger-external';
         $this->_request_method = 'post';
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
