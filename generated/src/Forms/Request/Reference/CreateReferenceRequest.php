@@ -32,6 +32,16 @@ class CreateReferenceRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
+    public $is_external = null;
+
+    /**
+     * @var string
+     */
+    public $external_url = null;
+
+    /**
+     * @var bool
+     */
     public $silent = null;
 
     public function __construct()
@@ -43,6 +53,8 @@ class CreateReferenceRequest extends \Perfumer\Microservices\Request
         $this->ordering = new \Perfumer\Microservices\Undefined();
         $this->is_protected = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
+        $this->is_external = new \Perfumer\Microservices\Undefined();
+        $this->external_url = new \Perfumer\Microservices\Undefined();
         $this->silent = new \Perfumer\Microservices\Undefined();
     }
 
@@ -63,6 +75,12 @@ class CreateReferenceRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_archived instanceof \Perfumer\Microservices\Undefined) {
             $array['is_archived'] = $this->is_archived;
+        }
+        if (!$this->is_external instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_external'] = $this->is_external;
+        }
+        if (!$this->external_url instanceof \Perfumer\Microservices\Undefined) {
+            $array['external_url'] = $this->external_url;
         }
         if (!$this->silent instanceof \Perfumer\Microservices\Undefined) {
             $array['silent'] = $this->silent;
