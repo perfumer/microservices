@@ -17,6 +17,16 @@ class UpsertReferenceRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
+    public $is_external = null;
+
+    /**
+     * @var string
+     */
+    public $external_url = null;
+
+    /**
+     * @var bool
+     */
     public $is_protected = null;
 
     /**
@@ -35,6 +45,8 @@ class UpsertReferenceRequest extends \Perfumer\Microservices\Request
         $this->_request_method = 'put';
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
+        $this->is_external = new \Perfumer\Microservices\Undefined();
+        $this->external_url = new \Perfumer\Microservices\Undefined();
         $this->is_protected = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->id = new \Perfumer\Microservices\Undefined();
@@ -48,6 +60,12 @@ class UpsertReferenceRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;
+        }
+        if (!$this->is_external instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_external'] = $this->is_external;
+        }
+        if (!$this->external_url instanceof \Perfumer\Microservices\Undefined) {
+            $array['external_url'] = $this->external_url;
         }
         if (!$this->is_protected instanceof \Perfumer\Microservices\Undefined) {
             $array['is_protected'] = $this->is_protected;

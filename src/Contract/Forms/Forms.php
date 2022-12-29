@@ -62,12 +62,13 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModel(microservice="forms", model="reference", fields={"id.int", "code"})
  * @DeleteModel(microservice="forms", model="reference", fields={"id.int", "code", "force.bool"})
- * @CreateModel(microservice="forms", model="reference", fields={"name", "code", "ordering", "is_protected.bool", "is_archived.bool", "silent.bool"})
- * @UpdateModel(microservice="forms", model="reference", fields={"id.int", "name", "code", "ordering", "is_protected.bool", "is_archived.bool"})
- * @UpsertModel(microservice="forms", model="reference", fields={"name", "code", "is_protected.bool", "is_archived.bool"})
+ * @CreateModel(microservice="forms", model="reference", fields={"name", "code", "ordering", "is_protected.bool", "is_archived.bool", "is_external.bool", "external_url", "silent.bool"})
+ * @UpdateModel(microservice="forms", model="reference", fields={"id.int", "name", "code", "ordering", "is_protected.bool", "is_external.bool", "external_url", "is_archived.bool"})
+ * @UpsertModel(microservice="forms", model="reference", fields={"name", "code", "is_external.bool", "external_url", "is_protected.bool", "is_archived.bool"})
  * @CopyModel(microservice="forms", model="reference")
  * @MigrateModel(microservice="forms", model="reference")
- * @GetModels(microservice="forms", model="references", fields={"name", "code", "is_archived.bool"})
+ * @GetModels(microservice="forms", model="references", fields={"name", "code", "is_archived.bool", "is_external.bool"})
+ * @CreateModel(microservice="forms", model="reference", action="triggerExternal", url="/reference/trigger-external", fields={"id.int", "code"})
  *
  * @GetModel(microservice="forms", model="value", fields={"id.int", "code"})
  * @DeleteModel(microservice="forms", model="value", fields={"id.int", "code"})

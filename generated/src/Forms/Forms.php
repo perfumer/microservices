@@ -587,6 +587,19 @@ abstract class Forms extends \Perfumer\Microservices\Microservice implements \Pe
         return $response;
     }
 
+    public function triggerExternalReference(\Perfumer\Microservices\Forms\Request\Reference\TriggerExternalReferenceRequest $request): \Perfumer\Microservices\Forms\Response\Reference\TriggerExternalReferenceResponse
+    {
+        /** @var \Perfumer\Microservices\Forms\Response\Reference\TriggerExternalReferenceResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Forms\Response\Reference\TriggerExternalReferenceResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'reference');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->reference = $item;
+        }
+
+        return $response;
+    }
+
     public function getValue(\Perfumer\Microservices\Forms\Request\Value\GetValueRequest $request): \Perfumer\Microservices\Forms\Response\Value\GetValueResponse
     {
         /** @var \Perfumer\Microservices\Forms\Response\Value\GetValueResponse $response */

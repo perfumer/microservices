@@ -20,6 +20,11 @@ class GetReferencesRequest extends \Perfumer\Microservices\Request
     public $is_archived = null;
 
     /**
+     * @var bool
+     */
+    public $is_external = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -76,6 +81,7 @@ class GetReferencesRequest extends \Perfumer\Microservices\Request
         $this->name = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
+        $this->is_external = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -99,6 +105,9 @@ class GetReferencesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_archived instanceof \Perfumer\Microservices\Undefined) {
             $array['is_archived'] = $this->is_archived;
+        }
+        if (!$this->is_external instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_external'] = $this->is_external;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
