@@ -22,11 +22,6 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $date = null;
-
-    /**
-     * @var string
-     */
     public $format = null;
 
     /**
@@ -79,6 +74,26 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
      */
     public $id_ge = null;
 
+    /**
+     * @var string
+     */
+    public $date_le = null;
+
+    /**
+     * @var string
+     */
+    public $date_lt = null;
+
+    /**
+     * @var string
+     */
+    public $date_ge = null;
+
+    /**
+     * @var string
+     */
+    public $date_gt = null;
+
     public function __construct()
     {
         $this->_request_url = '/schedules';
@@ -86,7 +101,6 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
         $this->user = new \Perfumer\Microservices\Undefined();
         $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->week_day = new \Perfumer\Microservices\Undefined();
-        $this->date = new \Perfumer\Microservices\Undefined();
         $this->format = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
@@ -98,6 +112,10 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
         $this->id_le = new \Perfumer\Microservices\Undefined();
         $this->id_gt = new \Perfumer\Microservices\Undefined();
         $this->id_ge = new \Perfumer\Microservices\Undefined();
+        $this->date_le = new \Perfumer\Microservices\Undefined();
+        $this->date_lt = new \Perfumer\Microservices\Undefined();
+        $this->date_ge = new \Perfumer\Microservices\Undefined();
+        $this->date_gt = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -111,9 +129,6 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->week_day instanceof \Perfumer\Microservices\Undefined) {
             $array['week_day'] = $this->week_day;
-        }
-        if (!$this->date instanceof \Perfumer\Microservices\Undefined) {
-            $array['date'] = $this->date;
         }
         if (!$this->format instanceof \Perfumer\Microservices\Undefined) {
             $array['format'] = $this->format;
@@ -147,6 +162,18 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->id_ge instanceof \Perfumer\Microservices\Undefined) {
             $array['id_ge'] = $this->id_ge;
+        }
+        if (!$this->date_le instanceof \Perfumer\Microservices\Undefined) {
+            $array['date_le'] = $this->date_le;
+        }
+        if (!$this->date_lt instanceof \Perfumer\Microservices\Undefined) {
+            $array['date_lt'] = $this->date_lt;
+        }
+        if (!$this->date_ge instanceof \Perfumer\Microservices\Undefined) {
+            $array['date_ge'] = $this->date_ge;
+        }
+        if (!$this->date_gt instanceof \Perfumer\Microservices\Undefined) {
+            $array['date_gt'] = $this->date_gt;
         }
 
         return $array;
