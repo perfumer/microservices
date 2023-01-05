@@ -75,6 +75,10 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModel(microservice="events", model="oauth", submodel="OauthStatus", fields={"user", "customer", "redirect_uri"}, url="/oauth/status", response_fields={"login_url", "email"})
  * @CreateModel(microservice="events", model="oauth", action="logout", fields={"user", "customer"}, url="/oauth/logout")
+ *
+ * @GetModels(microservice="events", model="customer", submodel="CustomerScheduledEventsStats", url="/customer/stats/scheduled-events", fields={"customer"}, response_fields={"stats"})
+ * @GetModels(microservice="events", model="user", submodel="UserScheduledEventsStats", url="/user/stats/scheduled-events", fields={"user"}, response_fields={"stats"})
+ *
  */
 interface Events
 {

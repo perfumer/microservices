@@ -93,6 +93,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @GetModel(microservice="crm", model="user", submodel="UserProfile", fields={"module", "email", "phone", "iin", "code", "username", "id.int", "build.bool"}, url="/user/profile", response_fields={"profile.array", "built_profile.array"})
  * @SaveModel(microservice="crm", model="user", url="user/work-session", submodel="UserWorkSession", fields={"user"}, response_fields={"is_working.bool"}, action="create")
  * @DeleteModel(microservice="crm", model="user", url="user/work-session", submodel="UserWorkSession", fields={"user"}, response_fields={"is_working.bool"})
+ * @GetModels(microservice="crm", model="user", submodel="UserTicketsStats", url="/user/stats/tickets", fields={"user_id.int"}, response_fields={"stats"})
  *
  * @CreateModel(microservice="crm", model="user", fields={"user_id.int", "group_id.int", "role_id.int"}, action="add", submodel="UserRole", url="/user-role")
  * @DeleteModel(microservice="crm", model="user", fields={"user_id.int", "group_id.int", "role_id.int"}, action="delete", submodel="UserRole", url="/user-role")
@@ -144,6 +145,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @GetModels(microservice="crm", model="customer", submodel="CustomerForms", fields={"customer_id.int"}, url="/customer/forms", response_fields={"forms"})
  * @GetModels(microservice="crm", model="customer", submodel="CustomerProfiles", fields={"modules.array", "email", "phone", "iin", "bin", "code", "username", "id.int", "build.bool"}, url="/customer/profiles", response_fields={"profiles.array", "built_profiles.array"})
  * @GetModel(microservice="crm", model="customer", submodel="CustomerProfile", fields={"module", "email", "phone", "iin", "bin", "code", "username", "id.int", "build.bool"}, url="/customer/profile", response_fields={"profile.array", "built_profile.array"})
+ * @GetModels(microservice="crm", model="customer", submodel="CustomerTicketsStats", url="/customer/stats/tickets", fields={"customer_id.int"}, response_fields={"stats"})
  *
  * @SaveModel(microservice="crm", model="customer", fields={"customer", "group"}, action="add", submodel="CustomerGroup", url="/customer-group")
  * @DeleteModel(microservice="crm", model="customer", fields={"customer", "group"}, action="delete", submodel="CustomerGroup", url="/customer-group")

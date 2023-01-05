@@ -965,6 +965,29 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function getUserTicketsStats(\Perfumer\Microservices\Crm\Request\User\GetUserTicketsStatsRequest $request): \Perfumer\Microservices\Crm\Response\User\GetUserTicketsStatsResponse
+    {
+        /** @var \Perfumer\Microservices\Crm\Response\User\GetUserTicketsStatsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\User\GetUserTicketsStatsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'stats');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->stats = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user = $item;
+        }
+
+        return $response;
+    }
+
     public function addUserRole(\Perfumer\Microservices\Crm\Request\User\AddUserRoleRequest $request): \Perfumer\Microservices\Crm\Response\User\AddUserRoleResponse
     {
         /** @var \Perfumer\Microservices\Crm\Response\User\AddUserRoleResponse $response */
@@ -1569,6 +1592,29 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
             $response->built_profile = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'customer');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->customer = $item;
+        }
+
+        return $response;
+    }
+
+    public function getCustomerTicketsStats(\Perfumer\Microservices\Crm\Request\Customer\GetCustomerTicketsStatsRequest $request): \Perfumer\Microservices\Crm\Response\Customer\GetCustomerTicketsStatsResponse
+    {
+        /** @var \Perfumer\Microservices\Crm\Response\Customer\GetCustomerTicketsStatsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\Customer\GetCustomerTicketsStatsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'stats');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->stats = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
         }
         $item = $this->fetchKeyFromContent($response->_content, 'customer');
 
