@@ -641,4 +641,50 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
 
         return $response;
     }
+
+    public function getCustomerScheduledEventsStats(\Perfumer\Microservices\Events\Request\Customer\GetCustomerScheduledEventsStatsRequest $request): \Perfumer\Microservices\Events\Response\Customer\GetCustomerScheduledEventsStatsResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Customer\GetCustomerScheduledEventsStatsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Customer\GetCustomerScheduledEventsStatsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'stats');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->stats = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'customer');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->customer = $item;
+        }
+
+        return $response;
+    }
+
+    public function getUserScheduledEventsStats(\Perfumer\Microservices\Events\Request\User\GetUserScheduledEventsStatsRequest $request): \Perfumer\Microservices\Events\Response\User\GetUserScheduledEventsStatsResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\User\GetUserScheduledEventsStatsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\User\GetUserScheduledEventsStatsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'stats');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->stats = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user = $item;
+        }
+
+        return $response;
+    }
 }
