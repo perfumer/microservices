@@ -94,6 +94,11 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
      */
     public $date_gt = null;
 
+    /**
+     * @var string
+     */
+    public $search = null;
+
     public function __construct()
     {
         $this->_request_url = '/schedules';
@@ -116,6 +121,7 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
         $this->date_lt = new \Perfumer\Microservices\Undefined();
         $this->date_ge = new \Perfumer\Microservices\Undefined();
         $this->date_gt = new \Perfumer\Microservices\Undefined();
+        $this->search = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -174,6 +180,9 @@ class GetSchedulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->date_gt instanceof \Perfumer\Microservices\Undefined) {
             $array['date_gt'] = $this->date_gt;
+        }
+        if (!$this->search instanceof \Perfumer\Microservices\Undefined) {
+            $array['search'] = $this->search;
         }
 
         return $array;

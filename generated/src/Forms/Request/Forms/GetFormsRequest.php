@@ -110,6 +110,11 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
      */
     public $created_at_gt = null;
 
+    /**
+     * @var string
+     */
+    public $search = null;
+
     public function __construct()
     {
         $this->_request_url = '/forms';
@@ -135,6 +140,7 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
         $this->created_at_lt = new \Perfumer\Microservices\Undefined();
         $this->created_at_ge = new \Perfumer\Microservices\Undefined();
         $this->created_at_gt = new \Perfumer\Microservices\Undefined();
+        $this->search = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -202,6 +208,9 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->created_at_gt instanceof \Perfumer\Microservices\Undefined) {
             $array['created_at_gt'] = $this->created_at_gt;
+        }
+        if (!$this->search instanceof \Perfumer\Microservices\Undefined) {
+            $array['search'] = $this->search;
         }
 
         return $array;

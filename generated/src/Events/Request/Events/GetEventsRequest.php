@@ -209,6 +209,11 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
      */
     public $published_at_gt = null;
 
+    /**
+     * @var string
+     */
+    public $search = null;
+
     public function __construct()
     {
         $this->_request_url = '/events';
@@ -254,6 +259,7 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         $this->published_at_lt = new \Perfumer\Microservices\Undefined();
         $this->published_at_ge = new \Perfumer\Microservices\Undefined();
         $this->published_at_gt = new \Perfumer\Microservices\Undefined();
+        $this->search = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -381,6 +387,9 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->published_at_gt instanceof \Perfumer\Microservices\Undefined) {
             $array['published_at_gt'] = $this->published_at_gt;
+        }
+        if (!$this->search instanceof \Perfumer\Microservices\Undefined) {
+            $array['search'] = $this->search;
         }
 
         return $array;
