@@ -9,11 +9,17 @@ class DumpTranslationsRequest extends \Perfumer\Microservices\Request
      */
     public $locale = null;
 
+    /**
+     * @var string
+     */
+    public $search = null;
+
     public function __construct()
     {
         $this->_request_url = '/dump';
         $this->_request_method = 'get';
         $this->locale = new \Perfumer\Microservices\Undefined();
+        $this->search = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -21,6 +27,9 @@ class DumpTranslationsRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->locale instanceof \Perfumer\Microservices\Undefined) {
             $array['locale'] = $this->locale;
+        }
+        if (!$this->search instanceof \Perfumer\Microservices\Undefined) {
+            $array['search'] = $this->search;
         }
 
         return $array;

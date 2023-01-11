@@ -79,6 +79,11 @@ class GetNotificationsRequest extends \Perfumer\Microservices\Request
      */
     public $id_ge = null;
 
+    /**
+     * @var string
+     */
+    public $search = null;
+
     public function __construct()
     {
         $this->_request_url = '/notifications';
@@ -98,6 +103,7 @@ class GetNotificationsRequest extends \Perfumer\Microservices\Request
         $this->id_le = new \Perfumer\Microservices\Undefined();
         $this->id_gt = new \Perfumer\Microservices\Undefined();
         $this->id_ge = new \Perfumer\Microservices\Undefined();
+        $this->search = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -147,6 +153,9 @@ class GetNotificationsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->id_ge instanceof \Perfumer\Microservices\Undefined) {
             $array['id_ge'] = $this->id_ge;
+        }
+        if (!$this->search instanceof \Perfumer\Microservices\Undefined) {
+            $array['search'] = $this->search;
         }
 
         return $array;

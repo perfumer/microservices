@@ -62,6 +62,8 @@ class GetModels extends RequestModel
 
         $this->response_fields[] = $lcfirst_model . '.array';
 
+        $this->fields[] = 'search';
+
         parent::onCreate();
     }
 }
