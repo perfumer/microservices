@@ -592,6 +592,11 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
     {
         /** @var \Perfumer\Microservices\Events\Response\Users\GetUsersResponse $response */
         $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Users\GetUsersResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'schedules');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->schedules = $item;
+        }
         $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
