@@ -2799,6 +2799,19 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function getCustomerMenu(\Perfumer\Microservices\Crm\Request\Menu\GetCustomerMenuRequest $request): \Perfumer\Microservices\Crm\Response\Menu\GetCustomerMenuResponse
+    {
+        /** @var \Perfumer\Microservices\Crm\Response\Menu\GetCustomerMenuResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\Menu\GetCustomerMenuResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'menu');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->menu = $item;
+        }
+
+        return $response;
+    }
+
     public function getMenuDivision(\Perfumer\Microservices\Crm\Request\Menu\GetMenuDivisionRequest $request): \Perfumer\Microservices\Crm\Response\Menu\GetMenuDivisionResponse
     {
         /** @var \Perfumer\Microservices\Crm\Response\Menu\GetMenuDivisionResponse $response */
