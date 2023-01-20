@@ -242,6 +242,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @UpsertModel(microservice="crm", model="menu", fields={"name", "description", "code", "is_protected.bool", "divisions.array"})
  * @GetModels(microservice="crm", model="menus", fields={"name", "code"})
  * @GetModel(microservice="crm", model="menu", fields={"id.int", "code", "locale", "requested_user_id.int"}, submodel="UserMenu", url="/user/menu")
+ * @GetModel(microservice="crm", model="menu", fields={"id.int", "code", "locale", "requested_customer_id.int"}, submodel="CustomerMenu", url="/customer/menu")
  *
  * @GetModel(microservice="crm", model="menu", fields={"id.int", "code", "locale"}, submodel="MenuDivision", response_fields={"division"}, url="/menu/division")
  * @DeleteModel(microservice="crm", model="menu", fields={"id.int", "code", "force.bool"}, submodel="MenuDivision", response_fields={"division"}, url="/menu/division")
