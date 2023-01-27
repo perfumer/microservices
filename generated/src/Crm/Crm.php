@@ -1363,6 +1363,11 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
     {
         /** @var \Perfumer\Microservices\Crm\Response\Task\CloseTaskResponse $response */
         $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\Task\CloseTaskResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'next_task_id');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->next_task_id = $item;
+        }
         $item = $this->fetchKeyFromContent($response->_content, 'task');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {
