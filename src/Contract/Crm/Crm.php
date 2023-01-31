@@ -115,7 +115,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @UpdateModel(microservice="crm", model="ticket", fields={"deadline_at", "opened_at", "closed_at", "payload.array", "pub_url", "back_url", "is_hidden.bool", "tags.array", "disable_box.bool"})
  * @GetModels(microservice="crm", model="tickets", fields={"id.int","tag","is_hidden.bool","operator_user_id.int","user_id.int", "customer_id.int", "module_code", "module_id.int", "created_at_from", "created_at_to", "opened_at_from", "opened_at_to", "deadline_at_from", "deadline_at_to", "code", "business_case_id.int", "business_case_name", "process_state.int", "process_state_name", "closed_at",  "with_forms.bool", "is_closed.bool", "is_closed_successfully.bool"})
  * @UpdateModel(microservice="crm", model="ticket", url="ticket/payload", action="updatePayload", fields={"payload.array"})
- * @CreateModel(microservice="crm", model="ticket", url="ticket/email", action="email", fields={"email"})
+ * @CreateModel(microservice="crm", model="ticket", url="ticket/email", action="email", fields={"id.int", "email"})
  * @GetModel(microservice="crm", model="ticket", submodel="LastTicket", url="/last-ticket", fields={"user_id.int", "customer_id.int", "module", "with_forms"})
  *
  * @SaveModel(microservice="crm", model="log", url="ticket/log", action="saveTicket", fields={"ticket", "ticket_id", "type", "text", "html", "user", "customer", "code", "payload.array", "is_customer_visible.bool", "process_scenario"})
