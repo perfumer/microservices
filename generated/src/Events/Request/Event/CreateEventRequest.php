@@ -131,6 +131,12 @@ class CreateEventRequest extends \Perfumer\Microservices\Request
     ];
 
     /**
+     * @var array
+     */
+    public $hidden_files = [
+    ];
+
+    /**
      * @var string
      */
     public $code = null;
@@ -164,6 +170,7 @@ class CreateEventRequest extends \Perfumer\Microservices\Request
         $this->is_statement_needed = new \Perfumer\Microservices\Undefined();
         $this->registration_form = new \Perfumer\Microservices\Undefined();
         $this->user_speakers = new \Perfumer\Microservices\Undefined();
+        $this->hidden_files = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
     }
 
@@ -244,6 +251,9 @@ class CreateEventRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->user_speakers instanceof \Perfumer\Microservices\Undefined) {
             $array['user_speakers'] = $this->user_speakers;
+        }
+        if (!$this->hidden_files instanceof \Perfumer\Microservices\Undefined) {
+            $array['hidden_files'] = $this->hidden_files;
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;
