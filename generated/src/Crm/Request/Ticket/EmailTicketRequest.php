@@ -12,20 +12,20 @@ class EmailTicketRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $email = null;
 
     /**
      * @var string
      */
-    public $email = null;
+    public $code = null;
 
     public function __construct()
     {
         $this->_request_url = '/ticket/email';
         $this->_request_method = 'post';
         $this->id = new \Perfumer\Microservices\Undefined();
-        $this->code = new \Perfumer\Microservices\Undefined();
         $this->email = new \Perfumer\Microservices\Undefined();
+        $this->code = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -34,11 +34,11 @@ class EmailTicketRequest extends \Perfumer\Microservices\Request
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
         }
-        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
-            $array['code'] = $this->code;
-        }
         if (!$this->email instanceof \Perfumer\Microservices\Undefined) {
             $array['email'] = $this->email;
+        }
+        if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
+            $array['code'] = $this->code;
         }
 
         return $array;
