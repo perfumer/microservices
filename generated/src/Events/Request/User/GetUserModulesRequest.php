@@ -10,7 +10,7 @@ class GetUserModulesRequest extends \Perfumer\Microservices\Request
     public $user = null;
 
     /**
-     * @var int
+     * @var string
      */
     public $module_id = null;
 
