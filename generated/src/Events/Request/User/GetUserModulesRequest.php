@@ -15,6 +15,16 @@ class GetUserModulesRequest extends \Perfumer\Microservices\Request
     public $module_id = null;
 
     /**
+     * @var string
+     */
+    public $has_tags = null;
+
+    /**
+     * @var string
+     */
+    public $has_not_tags = null;
+
+    /**
      * @var int
      */
     public $limit = null;
@@ -75,6 +85,8 @@ class GetUserModulesRequest extends \Perfumer\Microservices\Request
         $this->_request_method = 'get';
         $this->user = new \Perfumer\Microservices\Undefined();
         $this->module_id = new \Perfumer\Microservices\Undefined();
+        $this->has_tags = new \Perfumer\Microservices\Undefined();
+        $this->has_not_tags = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -96,6 +108,12 @@ class GetUserModulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
             $array['module_id'] = $this->module_id;
+        }
+        if (!$this->has_tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['has_tags'] = $this->has_tags;
+        }
+        if (!$this->has_not_tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['has_not_tags'] = $this->has_not_tags;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
