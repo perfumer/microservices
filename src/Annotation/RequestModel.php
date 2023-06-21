@@ -60,11 +60,14 @@ class RequestModel extends LayoutAnnotation
         $microservice = ucfirst($this->microservice);
         $ucfirst_action = ucfirst($this->action);
         $lcfirst_action = lcfirst($this->action);
+        $options = $this->getOptions();
+        $class_prefix = $options['class_prefix'] ?? 'Perfumer\\Microservices';
+        $contract_prefix = $options['contract_prefix'] ?? 'Perfumer\\Microservices\\Contract';
+        $namespace = str_replace($contract_prefix, $class_prefix, $this->getReflectionClass()->getName());
+        $namespace = str_replace($microservice.'\\'.$microservice, $microservice, $namespace);
 
-        $parameter_type_string = '\\Perfumer\\Microservices\\%s\\Request\\%s\\%s%sRequest';
-        $return_type_string = '\\Perfumer\\Microservices\\%s\\Response\\%s\\%s%sResponse';
-        $parameter_type = sprintf($parameter_type_string, $microservice, $ucfirst_model, $ucfirst_action, $this->submodel);
-        $return_type = sprintf($return_type_string, $microservice, $ucfirst_model, $ucfirst_action, $this->submodel);
+        $parameter_type = sprintf('\\%s\\Request\\%s\\%s%sRequest', $namespace, $ucfirst_model, $ucfirst_action, $this->submodel);
+        $return_type = sprintf('\\%s\\Response\\%s\\%s%sResponse', $namespace, $ucfirst_model, $ucfirst_action, $this->submodel);
 
         $parameter = new ParameterGenerator();
         $parameter->setName('request');
