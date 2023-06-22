@@ -24,6 +24,11 @@ class LayoutAnnotation extends ContractClassAnnotation
      */
     public $microservice;
 
+    /**
+     * @var bool
+     */
+    public $undefined = true;
+
     protected function generateClass(ClassGenerator $generator, string $type, bool $base): void
     {
         $ucfirst_model = ucfirst($this->model);
@@ -100,7 +105,9 @@ class LayoutAnnotation extends ContractClassAnnotation
 
             $base_generator->addPropertyFromGenerator($property);
 
-            $constructor_body .= '$this->' . $property_name . ' = new \\Perfumer\\Microservices\\Undefined();' . PHP_EOL;
+            if ($this->undefined) {
+                $constructor_body .= '$this->' . $property_name . ' = new \\Perfumer\\Microservices\\Undefined();' . PHP_EOL;
+            }
         }
 
         if ($constructor_body) {
