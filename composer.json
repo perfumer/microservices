@@ -16,6 +16,7 @@
     "ext-json": "*"
   },
   "require-dev": {
+    "doctrine/annotations": "~1",
     "perfumerlabs/perfumer": "*"
   },
   "autoload": {

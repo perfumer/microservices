@@ -24,14 +24,30 @@ class LayoutAnnotation extends ContractClassAnnotation
      */
     public $microservice;
 
+    /**
+     * @var bool
+     */
+    public $undefined = true;
+
     protected function generateClass(ClassGenerator $generator, string $type, bool $base): void
     {
         $ucfirst_model = ucfirst($this->model);
         $microservice = ucfirst($this->microservice);
+        $options = $this->getOptions();
+        $class_prefix = $options['class_prefix'] ?? 'Perfumer\\Microservices';
+        $generated_src_path = $options['generated_src_path'] ?? 'generated/src';
+        $src_path = $options['src_path'] ?? 'src';
+        $root_dir = rtrim($options['root_dir'], '/').'/' ?? __DIR__ . '/../../';
+        $path = $base ? $generated_src_path : $src_path;
+        $prefix = $base ? 'Generated\\' : '';
 
-        $path = $base ? 'generated/src' : 'src';
+        $output_name = str_replace('\\', '/', trim(str_replace($prefix . $class_prefix, '', $generator->getNamespaceName()), '\\'));
 
-        $output_name = sprintf(__DIR__ . '/../../%s/%s/%s/%s/', $path, $microservice, $type, $ucfirst_model);
+        if ($output_name) {
+            $output_name .= '/';
+        }
+
+        $output_name = sprintf($root_dir . '%s/%s', $path, $output_name);
 
         @mkdir($output_name, 0777, true);
 
@@ -51,10 +67,15 @@ class LayoutAnnotation extends ContractClassAnnotation
         $action = ucfirst($action);
         $ucfirst_model = ucfirst($this->model);
         $microservice = ucfirst($this->microservice);
+        $options = $this->getOptions();
+        $class_prefix = $options['class_prefix'] ?? 'Perfumer\\Microservices';
+        $contract_prefix = $options['contract_prefix'] ?? 'Perfumer\\Microservices\\Contract';
+        $namespace = str_replace($contract_prefix, $class_prefix, $this->getReflectionClass()->getName());
+        $namespace = str_replace($microservice.'\\'.$microservice, $microservice, $namespace);
 
         // Base Request
         $base_generator = new ClassGenerator();
-        $base_generator->setNamespaceName(sprintf('Generated\\Perfumer\\Microservices\\%s\\Request\\%s', $microservice, $ucfirst_model));
+        $base_generator->setNamespaceName(sprintf('Generated\\%s\\Request\\%s', $namespace, $ucfirst_model));
         $base_generator->setName(sprintf('%s%sRequest', $action, $submodel));
         $base_generator->setExtendedClass('\\Perfumer\\Microservices\\Request');
 
@@ -84,7 +105,9 @@ class LayoutAnnotation extends ContractClassAnnotation
 
             $base_generator->addPropertyFromGenerator($property);
 
-            $constructor_body .= '$this->' . $property_name . ' = new \\Perfumer\\Microservices\\Undefined();' . PHP_EOL;
+            if ($this->undefined) {
+                $constructor_body .= '$this->' . $property_name . ' = new \\Perfumer\\Microservices\\Undefined();' . PHP_EOL;
+            }
         }
 
         if ($constructor_body) {
@@ -118,7 +141,7 @@ EOD;
 
         // Request
         $generator = new ClassGenerator();
-        $generator->setNamespaceName(sprintf('Perfumer\\Microservices\\%s\\Request\\%s', $microservice, $ucfirst_model));
+        $generator->setNamespaceName(sprintf('%s\\Request\\%s', $namespace, $ucfirst_model));
         $generator->setName(sprintf('%s%sRequest', $action, $submodel));
         $generator->setExtendedClass('\\' . $base_generator->getNamespaceName() . '\\' . $base_generator->getName());
 
@@ -128,12 +151,17 @@ EOD;
     protected function generateResponse($action, $submodel, $properties = [])
     {
         $action = ucfirst($action);
-        $ucfirst_model = ucfirst($this->model);
         $microservice = ucfirst($this->microservice);
+        $ucfirst_model = ucfirst($this->model);
+        $options = $this->getOptions();
+        $class_prefix = $options['class_prefix'] ?? 'Perfumer\\Microservices';
+        $contract_prefix = $options['contract_prefix'] ?? 'Perfumer\\Microservices\\Contract';
+        $namespace = str_replace($contract_prefix, $class_prefix, $this->getReflectionClass()->getName());
+        $namespace = str_replace($microservice.'\\'.$microservice, $microservice, $namespace);
 
         // Base response
         $base_generator = new ClassGenerator();
-        $base_generator->setNamespaceName(sprintf('Generated\\Perfumer\\Microservices\\%s\\Response\\%s', $microservice, $ucfirst_model));
+        $base_generator->setNamespaceName(sprintf('Generated\\%s\\Response\\%s', $namespace, $ucfirst_model));
         $base_generator->setName(sprintf('%s%sResponse', $action, $submodel));
         $base_generator->setExtendedClass('\\Perfumer\\Microservices\\Response');
 
@@ -168,7 +196,7 @@ EOD;
 
         // Response
         $generator = new ClassGenerator();
-        $generator->setNamespaceName(sprintf('Perfumer\\Microservices\\%s\\Response\\%s', $microservice, $ucfirst_model));
+        $generator->setNamespaceName(sprintf('%s\\Response\\%s', $namespace, $ucfirst_model));
         $generator->setName(sprintf('%s%sResponse', $action, $submodel));
         $generator->setExtendedClass('\\' . $base_generator->getNamespaceName() . '\\' . $base_generator->getName());
 
