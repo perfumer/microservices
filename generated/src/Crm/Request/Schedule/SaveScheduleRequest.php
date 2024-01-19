@@ -7,27 +7,27 @@ class SaveScheduleRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $role_id = null;
+    public $role_id;
 
     /**
      * @var int
      */
-    public $group_id = null;
+    public $group_id;
 
     /**
      * @var int
      */
-    public $activity_id = null;
+    public $activity_id;
 
     /**
      * @var int
      */
-    public $calendar_id = null;
+    public $calendar_id;
 
     /**
      * @var int
      */
-    public $module_id = null;
+    public $module_id;
 
     public function __construct()
     {

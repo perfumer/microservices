@@ -7,7 +7,7 @@ class SaveBusinessCaseResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $business_case = null;
+    public $business_case;
 
     /**
      * @var array

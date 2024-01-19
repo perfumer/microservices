@@ -7,87 +7,87 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $module_id = null;
+    public $module_id;
 
     /**
      * @var string
      */
-    public $module_code = null;
+    public $module_code;
 
     /**
      * @var string
      */
-    public $format = null;
+    public $format;
 
     /**
      * @var bool
      */
-    public $has_schedules = null;
+    public $has_schedules;
 
     /**
      * @var string
      */
-    public $has_tags = null;
+    public $has_tags;
 
     /**
      * @var string
      */
-    public $has_not_tags = null;
+    public $has_not_tags;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

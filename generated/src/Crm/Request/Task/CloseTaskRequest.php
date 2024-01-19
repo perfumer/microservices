@@ -7,12 +7,12 @@ class CloseTaskRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $task = null;
+    public $task;
 
     /**
      * @var string
      */
-    public $process_scenario = null;
+    public $process_scenario;
 
     /**
      * @var array
@@ -23,12 +23,12 @@ class CloseTaskRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $message = null;
+    public $message;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

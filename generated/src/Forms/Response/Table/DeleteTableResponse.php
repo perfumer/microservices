@@ -7,5 +7,5 @@ class DeleteTableResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $table = null;
+    public $table;
 }

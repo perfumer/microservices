@@ -7,7 +7,7 @@ class DisableCommentRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     public function __construct()
     {

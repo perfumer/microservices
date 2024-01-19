@@ -7,7 +7,7 @@ class CreateCloudUserResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $cloud_user = null;
+    public $cloud_user;
 
     /**
      * @var array

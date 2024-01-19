@@ -7,122 +7,122 @@ class CreateEventRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $module_id = null;
+    public $module_id;
 
     /**
      * @var string
      */
-    public $locale = null;
+    public $locale;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var bool
      */
-    public $is_registration_open = null;
+    public $is_registration_open;
 
     /**
      * @var string
      */
-    public $title = null;
+    public $title;
 
     /**
      * @var string
      */
-    public $image = null;
+    public $image;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $html = null;
+    public $html;
 
     /**
      * @var string
      */
-    public $json = null;
+    public $json;
 
     /**
      * @var string
      */
-    public $format = null;
+    public $format;
 
     /**
      * @var string
      */
-    public $location = null;
+    public $location;
 
     /**
      * @var string
      */
-    public $opened_at = null;
+    public $opened_at;
 
     /**
      * @var string
      */
-    public $closed_at = null;
+    public $closed_at;
 
     /**
      * @var string
      */
-    public $apply_from = null;
+    public $apply_from;
 
     /**
      * @var string
      */
-    public $apply_till = null;
+    public $apply_till;
 
     /**
      * @var string
      */
-    public $published_at = null;
+    public $published_at;
 
     /**
      * @var string
      */
-    public $nb_invites_per_participant = null;
+    public $nb_invites_per_participant;
 
     /**
      * @var string
      */
-    public $nb_invites = null;
+    public $nb_invites;
 
     /**
      * @var bool
      */
-    public $is_confirm_required = null;
+    public $is_confirm_required;
 
     /**
      * @var string
      */
-    public $confirmed_at = null;
+    public $confirmed_at;
 
     /**
      * @var bool
      */
-    public $is_review_needed = null;
+    public $is_review_needed;
 
     /**
      * @var bool
      */
-    public $is_statement_needed = null;
+    public $is_statement_needed;
 
     /**
      * @var string
      */
-    public $registration_form = null;
+    public $registration_form;
 
     /**
      * @var array
@@ -139,7 +139,7 @@ class CreateEventRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

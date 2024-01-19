@@ -7,12 +7,12 @@ class GetTableRowsResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $table_rows = null;
+    public $table_rows;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

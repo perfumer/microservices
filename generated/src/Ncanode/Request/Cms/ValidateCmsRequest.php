@@ -7,37 +7,37 @@ class ValidateCmsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $cms = null;
+    public $cms;
 
     /**
      * @var string
      */
-    public $data = null;
+    public $data;
 
     /**
      * @var string
      */
-    public $document = null;
+    public $document;
 
     /**
      * @var string
      */
-    public $thread = null;
+    public $thread;
 
     /**
      * @var string
      */
-    public $iin = null;
+    public $iin;
 
     /**
      * @var string
      */
-    public $bin = null;
+    public $bin;
 
     /**
      * @var string
      */
-    public $rule = null;
+    public $rule;
 
     /**
      * @var array
@@ -48,17 +48,17 @@ class ValidateCmsRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
-    public $verify_ocsp = null;
+    public $verify_ocsp;
 
     /**
      * @var bool
      */
-    public $verify_crl = null;
+    public $verify_crl;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

@@ -7,67 +7,67 @@ class CreateDocumentRequest extends \Perfumer\Microservices\Request
     /**
      * @var true
      */
-    public $silent = null;
+    public $silent;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var string
      */
-    public $serial_number_text = null;
+    public $serial_number_text;
 
     /**
      * @var string
      */
-    public $template = null;
+    public $template;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $html = null;
+    public $html;
 
     /**
      * @var string
      */
-    public $signed_at = null;
+    public $signed_at;
 
     /**
      * @var string
      */
-    public $author_id = null;
+    public $author_id;
 
     /**
      * @var string
      */
-    public $signature = null;
+    public $signature;
 
     /**
      * @var string
      */
-    public $status = null;
+    public $status;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $file = null;
+    public $file;
 
     /**
      * @var array
@@ -84,7 +84,7 @@ class CreateDocumentRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     public function __construct()
     {

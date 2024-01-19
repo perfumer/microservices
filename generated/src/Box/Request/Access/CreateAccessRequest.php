@@ -7,22 +7,22 @@ class CreateAccessRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $client = null;
+    public $client;
 
     /**
      * @var int
      */
-    public $collection = null;
+    public $collection;
 
     /**
      * @var string
      */
-    public $level = null;
+    public $level;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

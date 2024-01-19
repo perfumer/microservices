@@ -7,17 +7,17 @@ class UpdateTicketRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $deadline_at = null;
+    public $deadline_at;
 
     /**
      * @var string
      */
-    public $opened_at = null;
+    public $opened_at;
 
     /**
      * @var string
      */
-    public $closed_at = null;
+    public $closed_at;
 
     /**
      * @var array
@@ -28,17 +28,17 @@ class UpdateTicketRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $pub_url = null;
+    public $pub_url;
 
     /**
      * @var string
      */
-    public $back_url = null;
+    public $back_url;
 
     /**
      * @var bool
      */
-    public $is_hidden = null;
+    public $is_hidden;
 
     /**
      * @var array
@@ -49,17 +49,17 @@ class UpdateTicketRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
-    public $disable_box = null;
+    public $disable_box;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

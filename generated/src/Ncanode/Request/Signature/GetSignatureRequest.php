@@ -7,22 +7,22 @@ class GetSignatureRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $document = null;
+    public $document;
 
     /**
      * @var string
      */
-    public $thread = null;
+    public $thread;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

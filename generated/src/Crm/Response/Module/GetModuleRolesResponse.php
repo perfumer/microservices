@@ -7,12 +7,12 @@ class GetModuleRolesResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $module_roles = null;
+    public $module_roles;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

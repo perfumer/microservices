@@ -7,17 +7,17 @@ class SavePageActiveRevisionRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $page_id = null;
+    public $page_id;
 
     /**
      * @var int
      */
-    public $revision_id = null;
+    public $revision_id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

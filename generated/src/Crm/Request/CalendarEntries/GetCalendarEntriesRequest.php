@@ -7,92 +7,92 @@ class GetCalendarEntriesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $category = null;
+    public $category;
 
     /**
      * @var string
      */
-    public $calendar = null;
+    public $calendar;
 
     /**
      * @var int
      */
-    public $week_day = null;
+    public $week_day;
 
     /**
      * @var string
      */
-    public $date = null;
+    public $date;
 
     /**
      * @var bool
      */
-    public $users_only = null;
+    public $users_only;
 
     /**
      * @var bool
      */
-    public $calendars_only = null;
+    public $calendars_only;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

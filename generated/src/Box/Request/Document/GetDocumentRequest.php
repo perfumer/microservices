@@ -7,17 +7,17 @@ class GetDocumentRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $collection = null;
+    public $collection;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

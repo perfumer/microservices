@@ -7,47 +7,47 @@ class UpdatePageRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $address = null;
+    public $address;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var int
      */
-    public $module_id = null;
+    public $module_id;
 
     /**
      * @var int
      */
-    public $site_id = null;
+    public $site_id;
 
     /**
      * @var string
      */
-    public $module_code = null;
+    public $module_code;
 
     /**
      * @var bool
      */
-    public $is_archived = null;
+    public $is_archived;
 
     public function __construct()
     {

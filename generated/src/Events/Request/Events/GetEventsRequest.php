@@ -7,212 +7,212 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $locale = null;
+    public $locale;
 
     /**
      * @var string
      */
-    public $module_id = null;
+    public $module_id;
 
     /**
      * @var string
      */
-    public $title = null;
+    public $title;
 
     /**
      * @var string
      */
-    public $image = null;
+    public $image;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $format = null;
+    public $format;
 
     /**
      * @var string
      */
-    public $location = null;
+    public $location;
 
     /**
      * @var int
      */
-    public $nb_invites_per_participant = null;
+    public $nb_invites_per_participant;
 
     /**
      * @var int
      */
-    public $nb_invites = null;
+    public $nb_invites;
 
     /**
      * @var bool
      */
-    public $is_scheduled = null;
+    public $is_scheduled;
 
     /**
      * @var bool
      */
-    public $is_disabled = null;
+    public $is_disabled;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $opened_at_le = null;
+    public $opened_at_le;
 
     /**
      * @var string
      */
-    public $opened_at_lt = null;
+    public $opened_at_lt;
 
     /**
      * @var string
      */
-    public $opened_at_ge = null;
+    public $opened_at_ge;
 
     /**
      * @var string
      */
-    public $opened_at_gt = null;
+    public $opened_at_gt;
 
     /**
      * @var string
      */
-    public $closed_at_le = null;
+    public $closed_at_le;
 
     /**
      * @var string
      */
-    public $closed_at_lt = null;
+    public $closed_at_lt;
 
     /**
      * @var string
      */
-    public $closed_at_ge = null;
+    public $closed_at_ge;
 
     /**
      * @var string
      */
-    public $closed_at_gt = null;
+    public $closed_at_gt;
 
     /**
      * @var string
      */
-    public $apply_from_le = null;
+    public $apply_from_le;
 
     /**
      * @var string
      */
-    public $apply_from_lt = null;
+    public $apply_from_lt;
 
     /**
      * @var string
      */
-    public $apply_from_ge = null;
+    public $apply_from_ge;
 
     /**
      * @var string
      */
-    public $apply_from_gt = null;
+    public $apply_from_gt;
 
     /**
      * @var string
      */
-    public $apply_till_le = null;
+    public $apply_till_le;
 
     /**
      * @var string
      */
-    public $apply_till_lt = null;
+    public $apply_till_lt;
 
     /**
      * @var string
      */
-    public $apply_till_ge = null;
+    public $apply_till_ge;
 
     /**
      * @var string
      */
-    public $apply_till_gt = null;
+    public $apply_till_gt;
 
     /**
      * @var string
      */
-    public $published_at_le = null;
+    public $published_at_le;
 
     /**
      * @var string
      */
-    public $published_at_lt = null;
+    public $published_at_lt;
 
     /**
      * @var string
      */
-    public $published_at_ge = null;
+    public $published_at_ge;
 
     /**
      * @var string
      */
-    public $published_at_gt = null;
+    public $published_at_gt;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

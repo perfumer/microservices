@@ -7,22 +7,22 @@ class DeleteSubscriptionRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $subscriber_id = null;
+    public $subscriber_id;
 
     /**
      * @var string
      */
-    public $module_id = null;
+    public $module_id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

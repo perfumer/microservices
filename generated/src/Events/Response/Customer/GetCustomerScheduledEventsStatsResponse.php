@@ -7,12 +7,12 @@ class GetCustomerScheduledEventsStatsResponse extends \Perfumer\Microservices\Re
     /**
      * @var string
      */
-    public $stats = null;
+    public $stats;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

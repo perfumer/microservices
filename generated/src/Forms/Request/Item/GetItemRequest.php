@@ -7,22 +7,22 @@ class GetItemRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $locale = null;
+    public $locale;
 
     /**
      * @var string
      */
-    public $reference = null;
+    public $reference;
 
     public function __construct()
     {

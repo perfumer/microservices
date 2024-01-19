@@ -7,27 +7,27 @@ class UpdateSignConstraintRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $document = null;
+    public $document;
 
     /**
      * @var string
      */
-    public $iin = null;
+    public $iin;
 
     /**
      * @var string
      */
-    public $bin = null;
+    public $bin;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

@@ -7,27 +7,27 @@ class CreateReportRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $dsl = null;
+    public $dsl;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var array
@@ -38,12 +38,12 @@ class CreateReportRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
-    public $silent = null;
+    public $silent;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     public function __construct()
     {

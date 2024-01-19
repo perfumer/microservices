@@ -7,37 +7,37 @@ class UpdateItemRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $value = null;
+    public $value;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $reference = null;
+    public $reference;
 
     /**
      * @var int
      */
-    public $priority = null;
+    public $priority;
 
     /**
      * @var array

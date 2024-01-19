@@ -7,27 +7,27 @@ class UpdateTableRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $csv_file = null;
+    public $csv_file;
 
     /**
      * @var array
@@ -38,7 +38,7 @@ class UpdateTableRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $google_spread_sheet_url = null;
+    public $google_spread_sheet_url;
 
     public function __construct()
     {

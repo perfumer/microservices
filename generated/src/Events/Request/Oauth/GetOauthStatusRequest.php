@@ -7,27 +7,27 @@ class GetOauthStatusRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $customer = null;
+    public $customer;
 
     /**
      * @var string
      */
-    public $redirect_uri = null;
+    public $redirect_uri;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

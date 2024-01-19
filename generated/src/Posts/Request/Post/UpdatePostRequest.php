@@ -7,72 +7,72 @@ class UpdatePostRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $title = null;
+    public $title;
 
     /**
      * @var string
      */
-    public $author_id = null;
+    public $author_id;
 
     /**
      * @var string
      */
-    public $locale = null;
+    public $locale;
 
     /**
      * @var string
      */
-    public $image = null;
+    public $image;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $html = null;
+    public $html;
 
     /**
      * @var string
      */
-    public $json = null;
+    public $json;
 
     /**
      * @var bool
      */
-    public $is_disabled = null;
+    public $is_disabled;
 
     /**
      * @var string
      */
-    public $tags = null;
+    public $tags;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $modules = null;
+    public $modules;
 
     /**
      * @var bool
      */
-    public $is_comments_enabled = null;
+    public $is_comments_enabled;
 
     /**
      * @var bool
      */
-    public $is_likes_enabled = null;
+    public $is_likes_enabled;
 
     public function __construct()
     {

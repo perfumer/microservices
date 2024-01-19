@@ -7,32 +7,32 @@ class CreateCollectionRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var string
      */
-    public $handler = null;
+    public $handler;
 
     /**
      * @var bool
      */
-    public $is_disabled = null;
+    public $is_disabled;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

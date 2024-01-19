@@ -7,7 +7,7 @@ class UpgradeClientRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $client = null;
+    public $client;
 
     public function __construct()
     {

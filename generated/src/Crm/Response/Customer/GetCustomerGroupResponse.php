@@ -7,12 +7,12 @@ class GetCustomerGroupResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $customer_groups = null;
+    public $customer_groups;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

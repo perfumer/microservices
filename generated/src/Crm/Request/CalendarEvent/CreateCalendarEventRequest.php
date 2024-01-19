@@ -7,47 +7,47 @@ class CreateCalendarEventRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $category = null;
+    public $category;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $ticket = null;
+    public $ticket;
 
     /**
      * @var string
      */
-    public $booking_user = null;
+    public $booking_user;
 
     /**
      * @var string
      */
-    public $booking_customer = null;
+    public $booking_customer;
 
     /**
      * @var string
      */
-    public $event_started_at = null;
+    public $event_started_at;
 
     /**
      * @var string
      */
-    public $event_ended_at = null;
+    public $event_ended_at;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

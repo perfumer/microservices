@@ -7,7 +7,7 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var array
@@ -24,82 +24,82 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $last_name = null;
+    public $last_name;
 
     /**
      * @var string
      */
-    public $first_name = null;
+    public $first_name;
 
     /**
      * @var string
      */
-    public $mid_name = null;
+    public $mid_name;
 
     /**
      * @var string
      */
-    public $full_name = null;
+    public $full_name;
 
     /**
      * @var string
      */
-    public $email = null;
+    public $email;
 
     /**
      * @var string
      */
-    public $phone = null;
+    public $phone;
 
     /**
      * @var string
      */
-    public $iin = null;
+    public $iin;
 
     /**
      * @var string
      */
-    public $bin = null;
+    public $bin;
 
     /**
      * @var string
      */
-    public $org_name = null;
+    public $org_name;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $telegram_chat_id = null;
+    public $telegram_chat_id;
 
     /**
      * @var string
      */
-    public $telegram_username = null;
+    public $telegram_username;
 
     /**
      * @var bool
      */
-    public $is_disabled = null;
+    public $is_disabled;
 
     /**
      * @var string
      */
-    public $created_at_from = null;
+    public $created_at_from;
 
     /**
      * @var string
      */
-    public $created_at_to = null;
+    public $created_at_to;
 
     /**
      * @var string
      */
-    public $locale = null;
+    public $locale;
 
     /**
      * @var array
@@ -110,72 +110,72 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $last_login_at_le = null;
+    public $last_login_at_le;
 
     /**
      * @var string
      */
-    public $last_login_at_lt = null;
+    public $last_login_at_lt;
 
     /**
      * @var string
      */
-    public $last_login_at_ge = null;
+    public $last_login_at_ge;
 
     /**
      * @var string
      */
-    public $last_login_at_gt = null;
+    public $last_login_at_gt;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

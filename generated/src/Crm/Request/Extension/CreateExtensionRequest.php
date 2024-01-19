@@ -7,32 +7,32 @@ class CreateExtensionRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $composer_version = null;
+    public $composer_version;
 
     /**
      * @var string
      */
-    public $composer_name = null;
+    public $composer_name;
 
     /**
      * @var string
      */
-    public $image = null;
+    public $image;
 
     public function __construct()
     {

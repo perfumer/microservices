@@ -7,12 +7,12 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var array
@@ -29,87 +29,87 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $model = null;
+    public $model;
 
     /**
      * @var string
      */
-    public $placeholder = null;
+    public $placeholder;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var string
      */
-    public $reference = null;
+    public $reference;
 
     /**
      * @var bool
      */
-    public $is_required = null;
+    public $is_required;
 
     /**
      * @var bool
      */
-    public $is_dedicated = null;
+    public $is_dedicated;
 
     /**
      * @var bool
      */
-    public $is_invisible_for_applicant = null;
+    public $is_invisible_for_applicant;
 
     /**
      * @var string
      */
-    public $dedicated_column_index = null;
+    public $dedicated_column_index;
 
     /**
      * @var int
      */
-    public $priority = null;
+    public $priority;
 
     /**
      * @var string
      */
-    public $bind_field = null;
+    public $bind_field;
 
     /**
      * @var string
      */
-    public $bind_field_mode = null;
+    public $bind_field_mode;
 
     /**
      * @var string
      */
-    public $aggregation_tag = null;
+    public $aggregation_tag;
 
     /**
      * @var string
      */
-    public $aggregation_mode = null;
+    public $aggregation_mode;
 
     /**
      * @var string
      */
-    public $alias = null;
+    public $alias;
 
     /**
      * @var string
      */
-    public $before_text = null;
+    public $before_text;
 
     /**
      * @var string
      */
-    public $after_text = null;
+    public $after_text;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

@@ -79,6 +79,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @GetModels(microservice="events", model="customer", submodel="CustomerScheduledEventsStats", url="/customer/stats/scheduled-events", fields={"customer"}, response_fields={"stats"})
  * @GetModels(microservice="events", model="user", submodel="UserScheduledEventsStats", url="/user/stats/scheduled-events", fields={"user"}, response_fields={"stats"})
  *
+ * @CreateModel(microservice="events", model="Zoom", submodel="ZoomMeeting", fields={"ticket", "start_url_field", "join_url_field", "duration_field", "record_field", "start_at", "end_at"}, url="/zoom/meeting")
+ *
  */
 interface Events
 {

@@ -7,62 +7,62 @@ class UpdateProcessScenarioRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var int
      */
-    public $task_term = null;
+    public $task_term;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $process = null;
+    public $process;
 
     /**
      * @var int
      */
-    public $from_state = null;
+    public $from_state;
 
     /**
      * @var int
      */
-    public $to_state = null;
+    public $to_state;
 
     /**
      * @var bool
      */
-    public $has_notification = null;
+    public $has_notification;
 
     /**
      * @var bool
      */
-    public $has_sms_notification = null;
+    public $has_sms_notification;
 
     /**
      * @var string
      */
-    public $webhook = null;
+    public $webhook;
 
     /**
      * @var int
      */
-    public $autoclose_days = null;
+    public $autoclose_days;
 
     /**
      * @var string
      */
-    public $autoclose_field = null;
+    public $autoclose_field;
 
     public function __construct()
     {

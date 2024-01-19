@@ -7,7 +7,7 @@ class UpdateMenuBlockResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $block = null;
+    public $block;
 
     /**
      * @var array

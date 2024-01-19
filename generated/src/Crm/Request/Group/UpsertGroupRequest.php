@@ -7,22 +7,22 @@ class UpsertGroupRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var int
      */
-    public $owner_id = null;
+    public $owner_id;
 
     /**
      * @var bool
      */
-    public $is_archived = null;
+    public $is_archived;
 
     /**
      * @var array
@@ -33,7 +33,7 @@ class UpsertGroupRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     /**
      * @var array
@@ -56,7 +56,7 @@ class UpsertGroupRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     public function __construct()
     {

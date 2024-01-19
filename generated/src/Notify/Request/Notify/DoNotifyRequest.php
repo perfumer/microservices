@@ -7,32 +7,32 @@ class DoNotifyRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $notification = null;
+    public $notification;
 
     /**
      * @var string
      */
-    public $locale = null;
+    public $locale;
 
     /**
      * @var string
      */
-    public $phone = null;
+    public $phone;
 
     /**
      * @var string
      */
-    public $email = null;
+    public $email;
 
     /**
      * @var string
      */
-    public $feed_collection = null;
+    public $feed_collection;
 
     /**
      * @var string
      */
-    public $feed_recipient = null;
+    public $feed_recipient;
 
     /**
      * @var array
@@ -49,7 +49,7 @@ class DoNotifyRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

@@ -7,67 +7,67 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $customer_name = null;
+    public $customer_name;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $applicant = null;
+    public $applicant;
 
     /**
      * @var string
      */
-    public $target = null;
+    public $target;
 
     /**
      * @var bool
      */
-    public $is_archived = null;
+    public $is_archived;
 
     /**
      * @var bool
      */
-    public $is_invisible_for_applicant = null;
+    public $is_invisible_for_applicant;
 
     /**
      * @var bool
      */
-    public $is_visible_for_roles = null;
+    public $is_visible_for_roles;
 
     /**
      * @var bool
      */
-    public $is_dedicated_table = null;
+    public $is_dedicated_table;
 
     /**
      * @var string
      */
-    public $form_page = null;
+    public $form_page;
 
     /**
      * @var string
      */
-    public $form_page_bulk = null;
+    public $form_page_bulk;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     /**
      * @var array
@@ -78,7 +78,7 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $data_module_id = null;
+    public $data_module_id;
 
     /**
      * @var array
@@ -89,12 +89,12 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $pre_create_webhook = null;
+    public $pre_create_webhook;
 
     /**
      * @var string
      */
-    public $post_create_message = null;
+    public $post_create_message;
 
     /**
      * @var array
@@ -111,7 +111,7 @@ class UpsertModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     public function __construct()
     {

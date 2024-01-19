@@ -7,32 +7,32 @@ class SaveRevisionRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $page_id = null;
+    public $page_id;
 
     /**
      * @var string
      */
-    public $page_code = null;
+    public $page_code;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var array
@@ -49,7 +49,7 @@ class SaveRevisionRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
-    public $is_archived = null;
+    public $is_archived;
 
     public function __construct()
     {

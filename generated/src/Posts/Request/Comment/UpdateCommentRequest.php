@@ -7,22 +7,22 @@ class UpdateCommentRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $text = null;
+    public $text;
 
     /**
      * @var string
      */
-    public $author_id = null;
+    public $author_id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

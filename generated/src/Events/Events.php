@@ -692,4 +692,17 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
 
         return $response;
     }
+
+    public function createZoomMeeting(\Perfumer\Microservices\Events\Request\Zoom\CreateZoomMeetingRequest $request): \Perfumer\Microservices\Events\Response\Zoom\CreateZoomMeetingResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\Zoom\CreateZoomMeetingResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\Zoom\CreateZoomMeetingResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'zoom');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->zoom = $item;
+        }
+
+        return $response;
+    }
 }

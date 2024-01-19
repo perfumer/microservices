@@ -7,52 +7,52 @@ class UpdateCalendarEntryRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $category = null;
+    public $category;
 
     /**
      * @var string
      */
-    public $calendar = null;
+    public $calendar;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $week_day = null;
+    public $week_day;
 
     /**
      * @var string
      */
-    public $date = null;
+    public $date;
 
     /**
      * @var string
      */
-    public $time_from = null;
+    public $time_from;
 
     /**
      * @var string
      */
-    public $time_to = null;
+    public $time_to;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     public function __construct()
     {

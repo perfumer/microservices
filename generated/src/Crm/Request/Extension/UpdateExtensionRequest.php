@@ -7,37 +7,37 @@ class UpdateExtensionRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $composer_version = null;
+    public $composer_version;
 
     /**
      * @var string
      */
-    public $composer_name = null;
+    public $composer_name;
 
     /**
      * @var string
      */
-    public $image = null;
+    public $image;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

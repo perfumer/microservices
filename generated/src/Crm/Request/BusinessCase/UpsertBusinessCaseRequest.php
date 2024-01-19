@@ -7,27 +7,27 @@ class UpsertBusinessCaseRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     public function __construct()
     {

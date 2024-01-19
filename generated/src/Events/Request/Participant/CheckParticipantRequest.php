@@ -7,42 +7,42 @@ class CheckParticipantRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $module_id = null;
+    public $module_id;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $customer = null;
+    public $customer;
 
     /**
      * @var string
      */
-    public $format = null;
+    public $format;
 
     /**
      * @var string
      */
-    public $opened_at = null;
+    public $opened_at;
 
     /**
      * @var string
      */
-    public $closed_at = null;
+    public $closed_at;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

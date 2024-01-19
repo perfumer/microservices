@@ -7,22 +7,22 @@ class SyncClientExtensionsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $client = null;
+    public $client;
 
     /**
      * @var string
      */
-    public $extensions = null;
+    public $extensions;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

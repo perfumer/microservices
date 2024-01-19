@@ -7,47 +7,47 @@ class SaveComponentRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $html = null;
+    public $html;
 
     /**
      * @var string
      */
-    public $json = null;
+    public $json;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var string
      */
-    public $old_module = null;
+    public $old_module;
 
     /**
      * @var string
      */
-    public $old_type = null;
+    public $old_type;
 
     /**
      * @var bool
      */
-    public $is_sub = null;
+    public $is_sub;
 
     /**
      * @var array

@@ -7,117 +7,117 @@ class GetPostsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $title = null;
+    public $title;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $author_id = null;
+    public $author_id;
 
     /**
      * @var string
      */
-    public $locale = null;
+    public $locale;
 
     /**
      * @var string
      */
-    public $status = null;
+    public $status;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $is_disabled = null;
+    public $is_disabled;
 
     /**
      * @var string
      */
-    public $liked_at_from = null;
+    public $liked_at_from;
 
     /**
      * @var string
      */
-    public $liked_at_to = null;
+    public $liked_at_to;
 
     /**
      * @var string
      */
-    public $rated_at_from = null;
+    public $rated_at_from;
 
     /**
      * @var string
      */
-    public $rater_id = null;
+    public $rater_id;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

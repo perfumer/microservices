@@ -7,12 +7,12 @@ class SaveDocumentTicketRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $document = null;
+    public $document;
 
     /**
      * @var string
      */
-    public $ticket = null;
+    public $ticket;
 
     public function __construct()
     {

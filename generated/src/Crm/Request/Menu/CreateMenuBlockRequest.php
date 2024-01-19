@@ -7,42 +7,42 @@ class CreateMenuBlockRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $division = null;
+    public $division;
 
     /**
      * @var string
      */
-    public $text = null;
+    public $text;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $icon = null;
+    public $icon;
 
     /**
      * @var string
      */
-    public $image = null;
+    public $image;
 
     /**
      * @var int
      */
-    public $priority = null;
+    public $priority;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     /**
      * @var bool
      */
-    public $silent = null;
+    public $silent;
 
     /**
      * @var array

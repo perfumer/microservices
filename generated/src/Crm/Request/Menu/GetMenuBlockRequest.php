@@ -7,17 +7,17 @@ class GetMenuBlockRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $locale = null;
+    public $locale;
 
     public function __construct()
     {

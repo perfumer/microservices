@@ -7,17 +7,17 @@ class ReadRecordsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $collection = null;
+    public $collection;
 
     /**
      * @var string
      */
-    public $recipient = null;
+    public $recipient;
 
     /**
      * @var string
      */
-    public $badge_user = null;
+    public $badge_user;
 
     public function __construct()
     {

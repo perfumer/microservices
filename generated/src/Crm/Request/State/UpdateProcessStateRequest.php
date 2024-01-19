@@ -7,62 +7,62 @@ class UpdateProcessStateRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $process = null;
+    public $process;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $task_page_id = null;
+    public $task_page_id;
 
     /**
      * @var string
      */
-    public $task_page_code = null;
+    public $task_page_code;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $customer_name = null;
+    public $customer_name;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var bool
      */
-    public $is_final = null;
+    public $is_final;
 
     /**
      * @var bool
      */
-    public $is_success = null;
+    public $is_success;
 
     /**
      * @var string
      */
-    public $log_text = null;
+    public $log_text;
 
     /**
      * @var int
      */
-    public $priority = null;
+    public $priority;
 
     public function __construct()
     {

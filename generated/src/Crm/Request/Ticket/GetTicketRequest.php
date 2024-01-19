@@ -7,17 +7,17 @@ class GetTicketRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var bool
      */
-    public $with_forms = null;
+    public $with_forms;
 
     public function __construct()
     {

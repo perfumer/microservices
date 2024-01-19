@@ -7,27 +7,27 @@ class SaveTriggerRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var int
      */
-    public $process = null;
+    public $process;
 
     /**
      * @var string
      */
-    public $criteria = null;
+    public $criteria;
 
     public function __construct()
     {

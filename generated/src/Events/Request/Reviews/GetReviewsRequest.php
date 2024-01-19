@@ -7,152 +7,152 @@ class GetReviewsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $author_id = null;
+    public $author_id;
 
     /**
      * @var string
      */
-    public $event_id = null;
+    public $event_id;
 
     /**
      * @var string
      */
-    public $rating = null;
+    public $rating;
 
     /**
      * @var string
      */
-    public $text = null;
+    public $text;
 
     /**
      * @var string
      */
-    public $event_title = null;
+    public $event_title;
 
     /**
      * @var string
      */
-    public $event_modules = null;
+    public $event_modules;
 
     /**
      * @var string
      */
-    public $event_format = null;
+    public $event_format;
 
     /**
      * @var string
      */
-    public $event_created_at_to = null;
+    public $event_created_at_to;
 
     /**
      * @var string
      */
-    public $event_created_at_from = null;
+    public $event_created_at_from;
 
     /**
      * @var string
      */
-    public $event_opened_at_from = null;
+    public $event_opened_at_from;
 
     /**
      * @var string
      */
-    public $event_opened_at_to = null;
+    public $event_opened_at_to;
 
     /**
      * @var string
      */
-    public $event_closed_at_from = null;
+    public $event_closed_at_from;
 
     /**
      * @var string
      */
-    public $event_closed_at_to = null;
+    public $event_closed_at_to;
 
     /**
      * @var string
      */
-    public $event_apply_from_from = null;
+    public $event_apply_from_from;
 
     /**
      * @var string
      */
-    public $event_apply_from_to = null;
+    public $event_apply_from_to;
 
     /**
      * @var string
      */
-    public $event_apply_till_from = null;
+    public $event_apply_till_from;
 
     /**
      * @var string
      */
-    public $event_apply_till_to = null;
+    public $event_apply_till_to;
 
     /**
      * @var string
      */
-    public $created_at_from = null;
+    public $created_at_from;
 
     /**
      * @var string
      */
-    public $created_at_to = null;
+    public $created_at_to;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

@@ -7,72 +7,72 @@ class CreateCloudUserRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $cloud = null;
+    public $cloud;
 
     /**
      * @var string
      */
-    public $first_name = null;
+    public $first_name;
 
     /**
      * @var string
      */
-    public $last_name = null;
+    public $last_name;
 
     /**
      * @var string
      */
-    public $mid_name = null;
+    public $mid_name;
 
     /**
      * @var string
      */
-    public $email = null;
+    public $email;
 
     /**
      * @var string
      */
-    public $phone = null;
+    public $phone;
 
     /**
      * @var string
      */
-    public $subdomain = null;
+    public $subdomain;
 
     /**
      * @var string
      */
-    public $password = null;
+    public $password;
 
     /**
      * @var string
      */
-    public $pg_database = null;
+    public $pg_database;
 
     /**
      * @var string
      */
-    public $iin = null;
+    public $iin;
 
     /**
      * @var string
      */
-    public $bin = null;
+    public $bin;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     /**
      * @var bool
      */
-    public $silent = null;
+    public $silent;
 
     public function __construct()
     {

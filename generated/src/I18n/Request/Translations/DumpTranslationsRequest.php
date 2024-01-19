@@ -7,12 +7,12 @@ class DumpTranslationsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $locale = null;
+    public $locale;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

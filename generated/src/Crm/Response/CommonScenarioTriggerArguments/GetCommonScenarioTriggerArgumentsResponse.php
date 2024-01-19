@@ -13,7 +13,7 @@ class GetCommonScenarioTriggerArgumentsResponse extends \Perfumer\Microservices\
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

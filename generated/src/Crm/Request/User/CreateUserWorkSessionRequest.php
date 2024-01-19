@@ -7,7 +7,7 @@ class CreateUserWorkSessionRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     public function __construct()
     {

@@ -7,7 +7,7 @@ class ImportRevisionRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $page = null;
+    public $page;
 
     /**
      * @var array

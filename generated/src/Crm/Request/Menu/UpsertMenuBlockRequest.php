@@ -7,37 +7,37 @@ class UpsertMenuBlockRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $division = null;
+    public $division;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $text = null;
+    public $text;
 
     /**
      * @var string
      */
-    public $icon = null;
+    public $icon;
 
     /**
      * @var string
      */
-    public $image = null;
+    public $image;
 
     /**
      * @var int
      */
-    public $priority = null;
+    public $priority;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     /**
      * @var array
@@ -48,7 +48,7 @@ class UpsertMenuBlockRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     public function __construct()
     {

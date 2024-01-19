@@ -7,52 +7,52 @@ class UpdateScheduleRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $module_id = null;
+    public $module_id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $week_day = null;
+    public $week_day;
 
     /**
      * @var string
      */
-    public $date = null;
+    public $date;
 
     /**
      * @var string
      */
-    public $time_from = null;
+    public $time_from;
 
     /**
      * @var string
      */
-    public $time_to = null;
+    public $time_to;
 
     /**
      * @var string
      */
-    public $format = null;
+    public $format;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     public function __construct()
     {

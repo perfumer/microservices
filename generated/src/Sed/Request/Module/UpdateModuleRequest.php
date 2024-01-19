@@ -7,22 +7,22 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $serial_number_prefix = null;
+    public $serial_number_prefix;
 
     public function __construct()
     {

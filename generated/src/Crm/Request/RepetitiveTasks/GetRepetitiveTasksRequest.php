@@ -7,92 +7,92 @@ class GetRepetitiveTasksRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $time = null;
+    public $time;
 
     /**
      * @var string
      */
-    public $day = null;
+    public $day;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var int
      */
-    public $customer_id = null;
+    public $customer_id;
 
     /**
      * @var int
      */
-    public $user_id = null;
+    public $user_id;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

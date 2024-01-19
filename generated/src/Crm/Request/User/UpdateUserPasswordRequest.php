@@ -7,42 +7,42 @@ class UpdateUserPasswordRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $user_id = null;
+    public $user_id;
 
     /**
      * @var string
      */
-    public $password = null;
+    public $password;
 
     /**
      * @var string
      */
-    public $password_confirm = null;
+    public $password_confirm;
 
     /**
      * @var string
      */
-    public $old_password = null;
+    public $old_password;
 
     /**
      * @var bool
      */
-    public $check_old_password = null;
+    public $check_old_password;
 
     /**
      * @var bool
      */
-    public $check_password_confirm = null;
+    public $check_password_confirm;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

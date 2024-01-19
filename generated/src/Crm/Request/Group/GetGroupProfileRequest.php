@@ -7,17 +7,17 @@ class GetGroupProfileRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     public function __construct()
     {

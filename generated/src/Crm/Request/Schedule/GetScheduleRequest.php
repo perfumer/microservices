@@ -7,37 +7,37 @@ class GetScheduleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $role = null;
+    public $role;
 
     /**
      * @var string
      */
-    public $group = null;
+    public $group;
 
     /**
      * @var string
      */
-    public $activity = null;
+    public $activity;
 
     /**
      * @var string
      */
-    public $calendar = null;
+    public $calendar;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

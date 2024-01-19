@@ -7,47 +7,47 @@ class SaveArticleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $image = null;
+    public $image;
 
     /**
      * @var int
      */
-    public $category_id = null;
+    public $category_id;
 
     /**
      * @var string
      */
-    public $title = null;
+    public $title;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $html = null;
+    public $html;
 
     /**
      * @var string
      */
-    public $json = null;
+    public $json;
 
     /**
      * @var string
      */
-    public $locale = null;
+    public $locale;
 
     /**
      * @var array

@@ -7,12 +7,12 @@ class GetMenuBlocksResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $blocks = null;
+    public $blocks;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

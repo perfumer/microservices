@@ -7,47 +7,47 @@ class UpdateClientRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $email = null;
+    public $email;
 
     /**
      * @var string
      */
-    public $phone = null;
+    public $phone;
 
     /**
      * @var string
      */
-    public $domain = null;
+    public $domain;
 
     /**
      * @var string
      */
-    public $full_name = null;
+    public $full_name;
 
     /**
      * @var string
      */
-    public $server_ip = null;
+    public $server_ip;
 
     /**
      * @var bool
      */
-    public $is_manual_mode = null;
+    public $is_manual_mode;
 
     /**
      * @var bool
      */
-    public $has_latest_platform = null;
+    public $has_latest_platform;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

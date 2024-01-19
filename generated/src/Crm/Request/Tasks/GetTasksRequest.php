@@ -7,187 +7,187 @@ class GetTasksRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $ticket = null;
+    public $ticket;
 
     /**
      * @var string
      */
-    public $state = null;
+    public $state;
 
     /**
      * @var string
      */
-    public $process_scenario = null;
+    public $process_scenario;
 
     /**
      * @var int
      */
-    public $pipeline_branch = null;
+    public $pipeline_branch;
 
     /**
      * @var bool
      */
-    public $is_closed = null;
+    public $is_closed;
 
     /**
      * @var int
      */
-    public $user_id = null;
+    public $user_id;
 
     /**
      * @var int
      */
-    public $customer_id = null;
+    public $customer_id;
 
     /**
      * @var bool
      */
-    public $is_applicant = null;
+    public $is_applicant;
 
     /**
      * @var int
      */
-    public $applicant_user_id = null;
+    public $applicant_user_id;
 
     /**
      * @var int
      */
-    public $applicant_customer_id = null;
+    public $applicant_customer_id;
 
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $wake_at_from = null;
+    public $wake_at_from;
 
     /**
      * @var string
      */
-    public $wake_at_to = null;
+    public $wake_at_to;
 
     /**
      * @var string
      */
-    public $deadline_at_from = null;
+    public $deadline_at_from;
 
     /**
      * @var string
      */
-    public $deadline_at_to = null;
+    public $deadline_at_to;
 
     /**
      * @var string
      */
-    public $closed_at_from = null;
+    public $closed_at_from;
 
     /**
      * @var string
      */
-    public $closed_at_to = null;
+    public $closed_at_to;
 
     /**
      * @var string
      */
-    public $expire_at_from = null;
+    public $expire_at_from;
 
     /**
      * @var string
      */
-    public $expire_at_to = null;
+    public $expire_at_to;
 
     /**
      * @var string
      */
-    public $activity = null;
+    public $activity;
 
     /**
      * @var string
      */
-    public $group = null;
+    public $group;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $closed_at = null;
+    public $closed_at;
 
     /**
      * @var string
      */
-    public $complexity = null;
+    public $complexity;
 
     /**
      * @var string
      */
-    public $link = null;
+    public $link;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

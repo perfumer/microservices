@@ -7,22 +7,22 @@ class AssignTaskRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $task = null;
+    public $task;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var bool
      */
-    public $silent = null;
+    public $silent;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

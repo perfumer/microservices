@@ -7,62 +7,62 @@ class UpdateTaskRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $customer = null;
+    public $customer;
 
     /**
      * @var string
      */
-    public $state = null;
+    public $state;
 
     /**
      * @var string
      */
-    public $activity = null;
+    public $activity;
 
     /**
      * @var string
      */
-    public $group = null;
+    public $group;
 
     /**
      * @var string
      */
-    public $deadline_at = null;
+    public $deadline_at;
 
     /**
      * @var string
      */
-    public $wake_at = null;
+    public $wake_at;
 
     /**
      * @var string
      */
-    public $complexity = null;
+    public $complexity;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $link = null;
+    public $link;
 
     /**
      * @var array

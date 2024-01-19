@@ -7,57 +7,57 @@ class UpdateCloudUserRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $first_name = null;
+    public $first_name;
 
     /**
      * @var string
      */
-    public $last_name = null;
+    public $last_name;
 
     /**
      * @var string
      */
-    public $mid_name = null;
+    public $mid_name;
 
     /**
      * @var string
      */
-    public $email = null;
+    public $email;
 
     /**
      * @var string
      */
-    public $phone = null;
+    public $phone;
 
     /**
      * @var string
      */
-    public $password = null;
+    public $password;
 
     /**
      * @var string
      */
-    public $iin = null;
+    public $iin;
 
     /**
      * @var string
      */
-    public $bin = null;
+    public $bin;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     public function __construct()
     {

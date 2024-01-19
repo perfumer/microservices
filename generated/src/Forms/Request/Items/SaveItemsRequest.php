@@ -13,7 +13,7 @@ class SaveItemsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $reference = null;
+    public $reference;
 
     public function __construct()
     {

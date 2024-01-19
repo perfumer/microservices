@@ -7,37 +7,37 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $customer_name = null;
+    public $customer_name;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var bool
      */
-    public $is_archived = null;
+    public $is_archived;
 
     /**
      * @var int
      */
-    public $business_case = null;
+    public $business_case;
 
     /**
      * @var array
@@ -54,17 +54,17 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $fields_page_id = null;
+    public $fields_page_id;
 
     /**
      * @var string
      */
-    public $back_service_page = null;
+    public $back_service_page;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     /**
      * @var array

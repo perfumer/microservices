@@ -7,12 +7,12 @@ class GetMenuDivisionsResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $divisions = null;
+    public $divisions;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

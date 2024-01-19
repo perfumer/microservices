@@ -7,12 +7,12 @@ class UpsertCalendarRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var array
@@ -23,12 +23,12 @@ class UpsertCalendarRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     public function __construct()
     {

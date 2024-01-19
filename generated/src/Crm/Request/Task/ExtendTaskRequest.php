@@ -7,27 +7,27 @@ class ExtendTaskRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $task = null;
+    public $task;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $time_to = null;
+    public $time_to;
 
     /**
      * @var string
      */
-    public $text = null;
+    public $text;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

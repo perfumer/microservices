@@ -7,27 +7,27 @@ class GetAccessRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $role_id = null;
+    public $role_id;
 
     /**
      * @var string
      */
-    public $group_id = null;
+    public $group_id;
 
     /**
      * @var string
      */
-    public $permission_id = null;
+    public $permission_id;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

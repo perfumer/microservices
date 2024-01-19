@@ -7,7 +7,7 @@ class SaveTranslationsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $translations = null;
+    public $translations;
 
     public function __construct()
     {

@@ -7,72 +7,72 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $customer_name = null;
+    public $customer_name;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $customers_ticket_crm_module = null;
+    public $customers_ticket_crm_module;
 
     /**
      * @var string
      */
-    public $user_ticket_crm_module = null;
+    public $user_ticket_crm_module;
 
     /**
      * @var string
      */
-    public $tickets_mode = null;
+    public $tickets_mode;
 
     /**
      * @var string
      */
-    public $allowed_crm_modules = null;
+    public $allowed_crm_modules;
 
     /**
      * @var string
      */
-    public $allowed_crm_module_mode = null;
+    public $allowed_crm_module_mode;
 
     /**
      * @var bool
      */
-    public $is_archived = null;
+    public $is_archived;
 
     /**
      * @var int
      */
-    public $weekly_schedule_limit = null;
+    public $weekly_schedule_limit;
 
     /**
      * @var bool
      */
-    public $is_scheduled = null;
+    public $is_scheduled;
 
     /**
      * @var string
      */
-    public $tags = null;
+    public $tags;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

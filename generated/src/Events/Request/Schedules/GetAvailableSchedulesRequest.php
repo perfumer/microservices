@@ -7,97 +7,97 @@ class GetAvailableSchedulesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $customer = null;
+    public $customer;
 
     /**
      * @var string
      */
-    public $format = null;
+    public $format;
 
     /**
      * @var int
      */
-    public $module_id = null;
+    public $module_id;
 
     /**
      * @var string
      */
-    public $min_date = null;
+    public $min_date;
 
     /**
      * @var string
      */
-    public $max_date = null;
+    public $max_date;
 
     /**
      * @var int
      */
-    public $days_duration = null;
+    public $days_duration;
 
     /**
      * @var int
      */
-    public $duration = null;
+    public $duration;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

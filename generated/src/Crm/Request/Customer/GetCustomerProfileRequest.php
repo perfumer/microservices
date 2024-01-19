@@ -7,47 +7,47 @@ class GetCustomerProfileRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var string
      */
-    public $email = null;
+    public $email;
 
     /**
      * @var string
      */
-    public $phone = null;
+    public $phone;
 
     /**
      * @var string
      */
-    public $iin = null;
+    public $iin;
 
     /**
      * @var string
      */
-    public $bin = null;
+    public $bin;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $username = null;
+    public $username;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var bool
      */
-    public $build = null;
+    public $build;
 
     public function __construct()
     {

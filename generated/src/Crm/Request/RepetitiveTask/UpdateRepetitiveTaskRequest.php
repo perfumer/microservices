@@ -7,47 +7,47 @@ class UpdateRepetitiveTaskRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $customer_id = null;
+    public $customer_id;
 
     /**
      * @var int
      */
-    public $user_id = null;
+    public $user_id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $time = null;
+    public $time;
 
     /**
      * @var string
      */
-    public $day = null;
+    public $day;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     public function __construct()
     {

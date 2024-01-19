@@ -7,17 +7,17 @@ class CreateSignatureRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $document = null;
+    public $document;
 
     /**
      * @var string
      */
-    public $thread = null;
+    public $thread;
 
     /**
      * @var string
      */
-    public $cms = null;
+    public $cms;
 
     /**
      * @var array
@@ -28,27 +28,27 @@ class CreateSignatureRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $version = null;
+    public $version;
 
     /**
      * @var string
      */
-    public $version_comment = null;
+    public $version_comment;
 
     /**
      * @var string
      */
-    public $version_created_by = null;
+    public $version_created_by;
 
     /**
      * @var bool
      */
-    public $silent = null;
+    public $silent;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

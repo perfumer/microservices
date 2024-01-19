@@ -7,17 +7,17 @@ class SaveSignConstraintRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $document = null;
+    public $document;
 
     /**
      * @var string
      */
-    public $iin = null;
+    public $iin;
 
     /**
      * @var string
      */
-    public $bin = null;
+    public $bin;
 
     public function __construct()
     {

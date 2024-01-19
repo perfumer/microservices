@@ -7,17 +7,17 @@ class SaveClientExtensionRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $client = null;
+    public $client;
 
     /**
      * @var string
      */
-    public $extension = null;
+    public $extension;
 
     /**
      * @var string
      */
-    public $branch = null;
+    public $branch;
 
     public function __construct()
     {

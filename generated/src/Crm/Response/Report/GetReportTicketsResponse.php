@@ -7,12 +7,12 @@ class GetReportTicketsResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $tickets = null;
+    public $tickets;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

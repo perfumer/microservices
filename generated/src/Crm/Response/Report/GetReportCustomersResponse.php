@@ -7,12 +7,12 @@ class GetReportCustomersResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $customers = null;
+    public $customers;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

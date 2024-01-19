@@ -7,22 +7,22 @@ class UpdatePlatformRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $version_title = null;
+    public $version_title;
 
     /**
      * @var string
      */
-    public $version_code = null;
+    public $version_code;
 
     /**
      * @var string
      */
-    public $next_version = null;
+    public $next_version;
 
     /**
      * @var array
@@ -33,7 +33,7 @@ class UpdatePlatformRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

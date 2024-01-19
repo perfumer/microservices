@@ -7,7 +7,7 @@ class ExtractCmsResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $data = null;
+    public $data;
 
     /**
      * @var array

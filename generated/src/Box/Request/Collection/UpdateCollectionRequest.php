@@ -7,32 +7,32 @@ class UpdateCollectionRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var string
      */
-    public $handler = null;
+    public $handler;
 
     /**
      * @var bool
      */
-    public $is_disabled = null;
+    public $is_disabled;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

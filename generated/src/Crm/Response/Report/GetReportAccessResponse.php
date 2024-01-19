@@ -7,7 +7,7 @@ class GetReportAccessResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $access = null;
+    public $access;
 
     /**
      * @var array

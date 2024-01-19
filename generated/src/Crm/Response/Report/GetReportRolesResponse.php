@@ -7,12 +7,12 @@ class GetReportRolesResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $report_roles = null;
+    public $report_roles;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

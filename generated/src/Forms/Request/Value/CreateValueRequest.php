@@ -7,47 +7,47 @@ class CreateValueRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $tag = null;
+    public $tag;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $user_id = null;
+    public $user_id;
 
     /**
      * @var int
      */
-    public $customer_id = null;
+    public $customer_id;
 
     /**
      * @var int
      */
-    public $ticket_id = null;
+    public $ticket_id;
 
     /**
      * @var string
      */
-    public $text_value = null;
+    public $text_value;
 
     /**
      * @var string
      */
-    public $numeric_value = null;
+    public $numeric_value;
 
     /**
      * @var bool
      */
-    public $is_processed = null;
+    public $is_processed;
 
     /**
      * @var bool
      */
-    public $silent = null;
+    public $silent;
 
     public function __construct()
     {

@@ -7,12 +7,12 @@ class GetUserRolesResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $user_roles = null;
+    public $user_roles;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

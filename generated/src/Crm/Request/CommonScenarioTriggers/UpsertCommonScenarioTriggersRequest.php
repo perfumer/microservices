@@ -13,12 +13,12 @@ class UpsertCommonScenarioTriggersRequest extends \Perfumer\Microservices\Reques
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {
