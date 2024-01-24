@@ -57,6 +57,11 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
     public $is_invisible_for_applicant;
 
     /**
+     * @var bool
+     */
+    public $is_for_notification;
+
+    /**
      * @var string
      */
     public $dedicated_column_index;
@@ -115,6 +120,7 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
         $this->is_required = new \Perfumer\Microservices\Undefined();
         $this->is_dedicated = new \Perfumer\Microservices\Undefined();
         $this->is_invisible_for_applicant = new \Perfumer\Microservices\Undefined();
+        $this->is_for_notification = new \Perfumer\Microservices\Undefined();
         $this->dedicated_column_index = new \Perfumer\Microservices\Undefined();
         $this->priority = new \Perfumer\Microservices\Undefined();
         $this->bind_field = new \Perfumer\Microservices\Undefined();
@@ -158,6 +164,9 @@ class SaveFieldRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_invisible_for_applicant instanceof \Perfumer\Microservices\Undefined) {
             $array['is_invisible_for_applicant'] = $this->is_invisible_for_applicant;
+        }
+        if (!$this->is_for_notification instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_for_notification'] = $this->is_for_notification;
         }
         if (!$this->dedicated_column_index instanceof \Perfumer\Microservices\Undefined) {
             $array['dedicated_column_index'] = $this->dedicated_column_index;
