@@ -20,6 +20,11 @@ class GetAvailableSchedulesRequest extends \Perfumer\Microservices\Request
     public $format;
 
     /**
+     * @var string
+     */
+    public $ticket;
+
+    /**
      * @var int
      */
     public $module_id;
@@ -106,6 +111,7 @@ class GetAvailableSchedulesRequest extends \Perfumer\Microservices\Request
         $this->user = new \Perfumer\Microservices\Undefined();
         $this->customer = new \Perfumer\Microservices\Undefined();
         $this->format = new \Perfumer\Microservices\Undefined();
+        $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->min_date = new \Perfumer\Microservices\Undefined();
         $this->max_date = new \Perfumer\Microservices\Undefined();
@@ -135,6 +141,9 @@ class GetAvailableSchedulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->format instanceof \Perfumer\Microservices\Undefined) {
             $array['format'] = $this->format;
+        }
+        if (!$this->ticket instanceof \Perfumer\Microservices\Undefined) {
+            $array['ticket'] = $this->ticket;
         }
         if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
             $array['module_id'] = $this->module_id;

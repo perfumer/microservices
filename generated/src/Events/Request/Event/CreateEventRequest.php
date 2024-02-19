@@ -25,6 +25,11 @@ class CreateEventRequest extends \Perfumer\Microservices\Request
     public $user;
 
     /**
+     * @var string
+     */
+    public $ticket;
+
+    /**
      * @var bool
      */
     public $is_registration_open;
@@ -149,6 +154,7 @@ class CreateEventRequest extends \Perfumer\Microservices\Request
         $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();
+        $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->is_registration_open = new \Perfumer\Microservices\Undefined();
         $this->title = new \Perfumer\Microservices\Undefined();
         $this->image = new \Perfumer\Microservices\Undefined();
@@ -188,6 +194,9 @@ class CreateEventRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->user instanceof \Perfumer\Microservices\Undefined) {
             $array['user'] = $this->user;
+        }
+        if (!$this->ticket instanceof \Perfumer\Microservices\Undefined) {
+            $array['ticket'] = $this->ticket;
         }
         if (!$this->is_registration_open instanceof \Perfumer\Microservices\Undefined) {
             $array['is_registration_open'] = $this->is_registration_open;

@@ -31,7 +31,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @DeleteModel(microservice="events", model="participant")
  *
  * @GetModel(microservice="events", model="event", fields={"locale"})
- * @CreateModel(microservice="events", model="event", fields={"id.int", "module_id.int", "locale", "user", "is_registration_open.bool", "title", "image",
+ * @CreateModel(microservice="events", model="event", fields={"id.int", "module_id.int", "locale", "user", "ticket", "is_registration_open.bool", "title", "image",
  *     "description", "html", "json", "format", "location", "opened_at", "closed_at", "apply_from", "apply_till", "published_at", "nb_invites_per_participant", "nb_invites",
  *     "is_confirm_required.bool", "confirmed_at", "is_review_needed.bool", "is_statement_needed.bool", "registration_form", "user_speakers.array", "hidden_files.array"})
  * @DeleteModel(microservice="events", model="event", fields={"id.int"})
@@ -66,7 +66,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @UpdateModel(microservice="events", model="schedule", fields={"id.int", "user", "module_id", "code", "week_day", "date", "time_from", "time_to", "format", "is_protected.bool"}, url="/schedule", response_fields={"schedule.array"})
  * @UpsertModel(microservice="events", model="schedule", fields={"user", "module_id", "code", "week_day", "date", "time_from", "time_to", "format", "is_protected.bool"}, url="/schedule")
  * @GetModels(microservice="events", model="schedules", fields={"user", "module_id.int", "week_day.int", "date.date", "format"}, response_fields={"schedules.array"}, url="/schedules")
- * @GetModels(microservice="events", model="schedules", submodel="AvailableSchedules", fields={"user", "customer", "format", "module_id.int", "min_date", "max_date", "days_duration.int", "duration.int"}, url="/schedule/available", response_fields={"available.array", "possible_times.array"})
+ * @GetModels(microservice="events", model="schedules", submodel="AvailableSchedules", fields={"user", "customer", "format", "ticket", "module_id.int", "min_date", "max_date", "days_duration.int", "duration.int"}, url="/schedule/available", response_fields={"available.array", "possible_times.array"})
  *
  * @CreateModel(microservice="events", model="user", fields={"user", "module_id.int"}, action="add", submodel="UserModule", url="/user/module")
  * @DeleteModel(microservice="events", model="user", fields={"user", "module_id.int"}, action="delete", submodel="UserModule", url="/user/module")
