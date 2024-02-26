@@ -598,4 +598,22 @@ abstract class Sed extends \Perfumer\Microservices\Microservice implements \Perf
 
         return $response;
     }
+
+    public function getLastSignature(\Perfumer\Microservices\Sed\Request\Signature\GetLastSignatureRequest $request): \Perfumer\Microservices\Sed\Response\Signature\GetLastSignatureResponse
+    {
+        /** @var \Perfumer\Microservices\Sed\Response\Signature\GetLastSignatureResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Sed\Response\Signature\GetLastSignatureResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'cms');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->cms = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'signature');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->signature = $item;
+        }
+
+        return $response;
+    }
 }
