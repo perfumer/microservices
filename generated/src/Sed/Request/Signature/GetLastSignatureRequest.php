@@ -21,7 +21,7 @@ class GetLastSignatureRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/signature';
+        $this->_request_url = '/signature/last';
         $this->_request_method = 'get';
         $this->document_id = new \Perfumer\Microservices\Undefined();
         $this->id = new \Perfumer\Microservices\Undefined();

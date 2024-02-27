@@ -72,7 +72,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @DeleteModel(microservice="sed", model="documentTicket", fields={"id.int"}, url="/document-ticket")
  *
  * @GetModel(microservice="sed", model="healthcheck")
- * @GetModel(microservice="sed", model="signature", submodel="LastSignature", fields={"document_id"}, response_fields={"cms"})
+ * @GetModel(microservice="sed", model="signature", submodel="LastSignature", url="/signature/last", fields={"document_id"}, response_fields={"cms"})
  */
 interface Sed
 {
