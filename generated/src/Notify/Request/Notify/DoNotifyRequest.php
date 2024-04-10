@@ -25,6 +25,11 @@ class DoNotifyRequest extends \Perfumer\Microservices\Request
     public $email;
 
     /**
+     * @var int
+     */
+    public $telegram_chat_id;
+
+    /**
      * @var string
      */
     public $feed_collection;
@@ -59,6 +64,7 @@ class DoNotifyRequest extends \Perfumer\Microservices\Request
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->phone = new \Perfumer\Microservices\Undefined();
         $this->email = new \Perfumer\Microservices\Undefined();
+        $this->telegram_chat_id = new \Perfumer\Microservices\Undefined();
         $this->feed_collection = new \Perfumer\Microservices\Undefined();
         $this->feed_recipient = new \Perfumer\Microservices\Undefined();
         $this->feed_payload = new \Perfumer\Microservices\Undefined();
@@ -80,6 +86,9 @@ class DoNotifyRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->email instanceof \Perfumer\Microservices\Undefined) {
             $array['email'] = $this->email;
+        }
+        if (!$this->telegram_chat_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['telegram_chat_id'] = $this->telegram_chat_id;
         }
         if (!$this->feed_collection instanceof \Perfumer\Microservices\Undefined) {
             $array['feed_collection'] = $this->feed_collection;

@@ -30,6 +30,11 @@ class GetNotificationsRequest extends \Perfumer\Microservices\Request
     public $has_feed;
 
     /**
+     * @var bool
+     */
+    public $has_telegram;
+
+    /**
      * @var int
      */
     public $limit;
@@ -93,6 +98,7 @@ class GetNotificationsRequest extends \Perfumer\Microservices\Request
         $this->has_email = new \Perfumer\Microservices\Undefined();
         $this->has_sms = new \Perfumer\Microservices\Undefined();
         $this->has_feed = new \Perfumer\Microservices\Undefined();
+        $this->has_telegram = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -123,6 +129,9 @@ class GetNotificationsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->has_feed instanceof \Perfumer\Microservices\Undefined) {
             $array['has_feed'] = $this->has_feed;
+        }
+        if (!$this->has_telegram instanceof \Perfumer\Microservices\Undefined) {
+            $array['has_telegram'] = $this->has_telegram;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
