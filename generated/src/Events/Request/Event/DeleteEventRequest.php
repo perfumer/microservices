@@ -12,6 +12,11 @@ class DeleteEventRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $ticket;
+
+    /**
+     * @var string
+     */
     public $code;
 
     public function __construct()
@@ -19,6 +24,7 @@ class DeleteEventRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/event';
         $this->_request_method = 'delete';
         $this->id = new \Perfumer\Microservices\Undefined();
+        $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
     }
 
@@ -27,6 +33,9 @@ class DeleteEventRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
+        }
+        if (!$this->ticket instanceof \Perfumer\Microservices\Undefined) {
+            $array['ticket'] = $this->ticket;
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;

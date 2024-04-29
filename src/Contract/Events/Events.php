@@ -34,7 +34,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @CreateModel(microservice="events", model="event", fields={"id.int", "module_id.int", "locale", "user", "ticket", "is_registration_open.bool", "title", "image",
  *     "description", "html", "json", "format", "location", "opened_at", "closed_at", "apply_from", "apply_till", "published_at", "nb_invites_per_participant", "nb_invites",
  *     "is_confirm_required.bool", "confirmed_at", "is_review_needed.bool", "is_statement_needed.bool", "registration_form", "user_speakers.array", "hidden_files.array"})
- * @DeleteModel(microservice="events", model="event", fields={"id.int"})
+ * @DeleteModel(microservice="events", model="event", fields={"id.int", "ticket"})
  * @CreateModel(microservice="events", model="event", fields={"id.int"}, url="/event/reject", action="reject")
  * @CreateModel(microservice="events", model="event", fields={"id.int"}, url="/event/publish", action="publish")
  * @CreateModel(microservice="events", model="event", fields={"id.int"}, url="/event/enable", action="enable")
