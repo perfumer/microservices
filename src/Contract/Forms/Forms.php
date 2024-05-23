@@ -72,9 +72,9 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModel(microservice="forms", model="value", fields={"id.int", "code"})
  * @DeleteModel(microservice="forms", model="value", fields={"id.int", "code"})
- * @CreateModel(microservice="forms", model="value", fields={"tag", "code", "user_id.int", "customer_id.int", "ticket_id.int", "text_value", "numeric_value", "is_processed.bool", "silent.bool"})
- * @UpdateModel(microservice="forms", model="value", fields={"id.int", "tag", "code", "user_id.int", "customer_id.int", "ticket_id.int", "text_value", "numeric_value", "is_processed.bool"})
- * @UpsertModel(microservice="forms", model="value", fields={"tag", "code", "user_id.int", "customer_id.int", "ticket_id.int", "text_value", "numeric_value", "is_processed.bool"})
+ * @CreateModel(microservice="forms", model="value", fields={"tag", "code", "user_id.int", "customer_id.int", "ticket_id.int", "form_id.int", "field_id.int", "text_value", "numeric_value", "is_processed.bool", "silent.bool"})
+ * @UpdateModel(microservice="forms", model="value", fields={"id.int", "tag", "code", "user_id.int", "customer_id.int", "ticket_id.int","form_id.int", "field_id.int", "text_value", "numeric_value", "is_processed.bool"})
+ * @UpsertModel(microservice="forms", model="value", fields={"tag", "code", "user_id.int", "customer_id.int", "ticket_id.int","form_id.int", "field_id.int", "text_value", "numeric_value", "is_processed.bool"})
  *
  * @GetModel(microservice="forms", model="article", fields={"id", "locale", "code"})
  * @DeleteModel(microservice="forms", model="article", fields={"id"})

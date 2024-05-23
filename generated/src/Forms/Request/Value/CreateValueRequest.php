@@ -30,6 +30,16 @@ class CreateValueRequest extends \Perfumer\Microservices\Request
     public $ticket_id;
 
     /**
+     * @var int
+     */
+    public $form_id;
+
+    /**
+     * @var int
+     */
+    public $field_id;
+
+    /**
      * @var string
      */
     public $text_value;
@@ -58,6 +68,8 @@ class CreateValueRequest extends \Perfumer\Microservices\Request
         $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->ticket_id = new \Perfumer\Microservices\Undefined();
+        $this->form_id = new \Perfumer\Microservices\Undefined();
+        $this->field_id = new \Perfumer\Microservices\Undefined();
         $this->text_value = new \Perfumer\Microservices\Undefined();
         $this->numeric_value = new \Perfumer\Microservices\Undefined();
         $this->is_processed = new \Perfumer\Microservices\Undefined();
@@ -81,6 +93,12 @@ class CreateValueRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->ticket_id instanceof \Perfumer\Microservices\Undefined) {
             $array['ticket_id'] = $this->ticket_id;
+        }
+        if (!$this->form_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['form_id'] = $this->form_id;
+        }
+        if (!$this->field_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['field_id'] = $this->field_id;
         }
         if (!$this->text_value instanceof \Perfumer\Microservices\Undefined) {
             $array['text_value'] = $this->text_value;
