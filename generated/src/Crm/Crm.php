@@ -3556,6 +3556,24 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
         return $response;
     }
 
+    public function getTags(\Perfumer\Microservices\Crm\Request\Tags\GetTagsRequest $request): \Perfumer\Microservices\Crm\Response\Tags\GetTagsResponse
+    {
+        /** @var \Perfumer\Microservices\Crm\Response\Tags\GetTagsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\Tags\GetTagsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'tags');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->tags = $item;
+        }
+
+        return $response;
+    }
+
     public function getHealthcheck(\Perfumer\Microservices\Crm\Request\Healthcheck\GetHealthcheckRequest $request): \Perfumer\Microservices\Crm\Response\Healthcheck\GetHealthcheckResponse
     {
         /** @var \Perfumer\Microservices\Crm\Response\Healthcheck\GetHealthcheckResponse $response */
