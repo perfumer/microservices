@@ -7,5 +7,5 @@ class DeleteMenuLinkResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $link = null;
+    public $link;
 }

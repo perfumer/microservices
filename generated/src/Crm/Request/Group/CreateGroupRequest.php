@@ -7,27 +7,27 @@ class CreateGroupRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var int
      */
-    public $owner_id = null;
+    public $owner_id;
 
     /**
      * @var bool
      */
-    public $is_archived = null;
+    public $is_archived;
 
     /**
      * @var array
@@ -38,7 +38,7 @@ class CreateGroupRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     /**
      * @var array

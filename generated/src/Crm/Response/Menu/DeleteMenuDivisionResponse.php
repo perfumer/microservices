@@ -7,5 +7,5 @@ class DeleteMenuDivisionResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $division = null;
+    public $division;
 }

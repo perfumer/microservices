@@ -7,12 +7,12 @@ class GetReportLabelsResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $labels = null;
+    public $labels;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

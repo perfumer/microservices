@@ -7,27 +7,27 @@ class SaveExtensionVersionRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $extension = null;
+    public $extension;
 
     /**
      * @var string
      */
-    public $version_title = null;
+    public $version_title;
 
     /**
      * @var string
      */
-    public $version_code = null;
+    public $version_code;
 
     /**
      * @var string
      */
-    public $next_version = null;
+    public $next_version;
 
     /**
      * @var string
      */
-    public $min_platform_version = null;
+    public $min_platform_version;
 
     public function __construct()
     {

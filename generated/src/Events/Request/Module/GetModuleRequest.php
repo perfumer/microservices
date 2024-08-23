@@ -7,17 +7,17 @@ class GetModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
-    public $with_tags = null;
+    public $with_tags;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

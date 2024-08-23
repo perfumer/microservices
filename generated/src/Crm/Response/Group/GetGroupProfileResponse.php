@@ -7,7 +7,7 @@ class GetGroupProfileResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $profile = null;
+    public $profile;
 
     /**
      * @var array

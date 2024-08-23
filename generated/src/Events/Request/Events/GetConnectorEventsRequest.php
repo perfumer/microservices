@@ -7,137 +7,137 @@ class GetConnectorEventsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $parent = null;
+    public $parent;
 
     /**
      * @var string
      */
-    public $except_id = null;
+    public $except_id;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var bool
      */
-    public $is_archived = null;
+    public $is_archived;
 
     /**
      * @var bool
      */
-    public $is_disabled = null;
+    public $is_disabled;
 
     /**
      * @var bool
      */
-    public $is_deep = null;
+    public $is_deep;
 
     /**
      * @var string
      */
-    public $locale = null;
+    public $locale;
 
     /**
      * @var string
      */
-    public $id_key = null;
+    public $id_key;
 
     /**
      * @var string
      */
-    public $organizer_id_key = null;
+    public $organizer_id_key;
 
     /**
      * @var string
      */
-    public $modules_key = null;
+    public $modules_key;
 
     /**
      * @var string
      */
-    public $opened_at_key = null;
+    public $opened_at_key;
 
     /**
      * @var string
      */
-    public $closed_at_key = null;
+    public $closed_at_key;
 
     /**
      * @var string
      */
-    public $apply_from_key = null;
+    public $apply_from_key;
 
     /**
      * @var string
      */
-    public $apply_till_key = null;
+    public $apply_till_key;
 
     /**
      * @var string
      */
-    public $published_at_key = null;
+    public $published_at_key;
 
     /**
      * @var string
      */
-    public $is_registration_open_key = null;
+    public $is_registration_open_key;
 
     /**
      * @var string
      */
-    public $status_key = null;
+    public $status_key;
 
     /**
      * @var string
      */
-    public $format_key = null;
+    public $format_key;
 
     /**
      * @var string
      */
-    public $location_key = null;
+    public $location_key;
 
     /**
      * @var string
      */
-    public $author_id_key = null;
+    public $author_id_key;
 
     /**
      * @var string
      */
-    public $image_key = null;
+    public $image_key;
 
     /**
      * @var string
      */
-    public $title_key = null;
+    public $title_key;
 
     /**
      * @var string
      */
-    public $description_key = null;
+    public $description_key;
 
     /**
      * @var string
      */
-    public $html_key = null;
+    public $html_key;
 
     /**
      * @var string
      */
-    public $json_key = null;
+    public $json_key;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

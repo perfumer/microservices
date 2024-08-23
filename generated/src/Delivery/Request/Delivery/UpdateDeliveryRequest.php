@@ -7,42 +7,42 @@ class UpdateDeliveryRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $min = null;
+    public $min;
 
     /**
      * @var int
      */
-    public $max = null;
+    public $max;
 
     /**
      * @var int
      */
-    public $gap = null;
+    public $gap;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var bool
      */
-    public $has_email = null;
+    public $has_email;
 
     /**
      * @var bool
      */
-    public $has_sms = null;
+    public $has_sms;
 
     /**
      * @var bool
      */
-    public $has_feed = null;
+    public $has_feed;
 
     /**
      * @var array
@@ -95,7 +95,7 @@ class UpdateDeliveryRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $data_url = null;
+    public $data_url;
 
     /**
      * @var array
@@ -106,7 +106,7 @@ class UpdateDeliveryRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

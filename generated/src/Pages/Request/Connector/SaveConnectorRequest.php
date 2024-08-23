@@ -7,37 +7,37 @@ class SaveConnectorRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $html = null;
+    public $html;
 
     /**
      * @var string
      */
-    public $json = null;
+    public $json;
 
     /**
      * @var string
      */
-    public $service = null;
+    public $service;
 
     /**
      * @var string
      */
-    public $method = null;
+    public $method;
 
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var array

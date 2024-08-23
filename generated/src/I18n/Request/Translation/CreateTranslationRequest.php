@@ -7,22 +7,22 @@ class CreateTranslationRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $key = null;
+    public $key;
 
     /**
      * @var string
      */
-    public $text = null;
+    public $text;
 
     /**
      * @var string
      */
-    public $is_immutable = null;
+    public $is_immutable;
 
     /**
      * @var string
      */
-    public $is_richtext = null;
+    public $is_richtext;
 
     /**
      * @var array
@@ -33,7 +33,7 @@ class CreateTranslationRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

@@ -7,32 +7,32 @@ class UpsertSignerRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $signer_id = null;
+    public $signer_id;
 
     /**
      * @var string
      */
-    public $signer_type = null;
+    public $signer_type;
 
     /**
      * @var string
      */
-    public $document = null;
+    public $document;
 
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

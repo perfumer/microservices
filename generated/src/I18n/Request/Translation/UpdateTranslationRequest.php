@@ -7,27 +7,27 @@ class UpdateTranslationRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $key = null;
+    public $key;
 
     /**
      * @var string
      */
-    public $new_key = null;
+    public $new_key;
 
     /**
      * @var string
      */
-    public $text = null;
+    public $text;
 
     /**
      * @var string
      */
-    public $is_immutable = null;
+    public $is_immutable;
 
     /**
      * @var string
      */
-    public $is_richtext = null;
+    public $is_richtext;
 
     /**
      * @var array
@@ -38,12 +38,12 @@ class UpdateTranslationRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

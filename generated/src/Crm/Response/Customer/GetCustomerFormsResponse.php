@@ -7,12 +7,12 @@ class GetCustomerFormsResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $forms = null;
+    public $forms;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

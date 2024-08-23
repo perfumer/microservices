@@ -7,12 +7,12 @@ class SaveLimitPhoneCallRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $ips = null;
+    public $ips;
 
     /**
      * @var string
      */
-    public $phones = null;
+    public $phones;
 
     public function __construct()
     {

@@ -7,22 +7,22 @@ class GetTargetRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $channel = null;
+    public $channel;
 
     /**
      * @var string
      */
-    public $password = null;
+    public $password;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

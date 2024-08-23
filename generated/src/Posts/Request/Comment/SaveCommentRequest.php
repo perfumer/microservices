@@ -7,32 +7,32 @@ class SaveCommentRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $post_id = null;
+    public $post_id;
 
     /**
      * @var string
      */
-    public $text = null;
+    public $text;
 
     /**
      * @var string
      */
-    public $author_id = null;
+    public $author_id;
 
     /**
      * @var string
      */
-    public $status = null;
+    public $status;
 
     /**
      * @var string
      */
-    public $parent_id = null;
+    public $parent_id;
 
     /**
      * @var string
      */
-    public $files = null;
+    public $files;
 
     public function __construct()
     {

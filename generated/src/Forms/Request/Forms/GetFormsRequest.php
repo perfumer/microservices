@@ -7,22 +7,22 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $customer_id = null;
+    public $customer_id;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var int
      */
-    public $ticket_id = null;
+    public $ticket_id;
 
     /**
      * @var int
      */
-    public $user_id = null;
+    public $user_id;
 
     /**
      * @var array
@@ -33,87 +33,87 @@ class GetFormsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $tag = null;
+    public $tag;
 
     /**
      * @var string
      */
-    public $formatting = null;
+    public $formatting;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $created_at_le = null;
+    public $created_at_le;
 
     /**
      * @var string
      */
-    public $created_at_lt = null;
+    public $created_at_lt;
 
     /**
      * @var string
      */
-    public $created_at_ge = null;
+    public $created_at_ge;
 
     /**
      * @var string
      */
-    public $created_at_gt = null;
+    public $created_at_gt;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

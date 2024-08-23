@@ -7,12 +7,12 @@ class DoOriginRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $method = null;
+    public $method;
 
     /**
      * @var string
      */
-    public $version = null;
+    public $version;
 
     /**
      * @var array
@@ -23,7 +23,7 @@ class DoOriginRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

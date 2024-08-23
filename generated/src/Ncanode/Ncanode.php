@@ -8,6 +8,51 @@ abstract class Ncanode extends \Perfumer\Microservices\Microservice implements \
     {
         /** @var \Perfumer\Microservices\Ncanode\Response\Validate\DoValidateResponse $response */
         $response = $this->doRequest($request, new \Perfumer\Microservices\Ncanode\Response\Validate\DoValidateResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'iin');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->iin = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'bin');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->bin = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'first_name');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->first_name = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'last_name');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->last_name = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'mid_name');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->mid_name = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'org_name');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->org_name = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'gender');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->gender = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'email');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->email = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'birthday');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->birthday = $item;
+        }
         $item = $this->fetchKeyFromContent($response->_content, 'validate');
 
         if (!$item instanceof \Perfumer\Microservices\Undefined) {

@@ -7,17 +7,17 @@ class SaveBusinessCaseSchemaRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $xml = null;
+    public $xml;
 
     public function __construct()
     {

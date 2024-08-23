@@ -7,37 +7,37 @@ class DoValidateRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $cms = null;
+    public $cms;
 
     /**
      * @var string
      */
-    public $xml = null;
+    public $xml;
 
     /**
      * @var string
      */
-    public $iin = null;
+    public $iin;
 
     /**
      * @var string
      */
-    public $bin = null;
+    public $bin;
 
     /**
      * @var string
      */
-    public $rule = null;
+    public $rule;
 
     /**
      * @var bool
      */
-    public $expiration = null;
+    public $expiration;
 
     /**
      * @var string
      */
-    public $criteria = null;
+    public $criteria;
 
     public function __construct()
     {

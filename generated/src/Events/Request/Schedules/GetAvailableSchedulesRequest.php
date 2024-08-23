@@ -7,97 +7,102 @@ class GetAvailableSchedulesRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $customer = null;
+    public $customer;
 
     /**
      * @var string
      */
-    public $format = null;
-
-    /**
-     * @var int
-     */
-    public $module_id = null;
+    public $format;
 
     /**
      * @var string
      */
-    public $min_date = null;
+    public $ticket;
+
+    /**
+     * @var int
+     */
+    public $module_id;
 
     /**
      * @var string
      */
-    public $max_date = null;
-
-    /**
-     * @var int
-     */
-    public $days_duration = null;
-
-    /**
-     * @var int
-     */
-    public $duration = null;
-
-    /**
-     * @var int
-     */
-    public $limit = null;
-
-    /**
-     * @var int
-     */
-    public $offset = null;
-
-    /**
-     * @var int
-     */
-    public $count = null;
+    public $min_date;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $max_date;
+
+    /**
+     * @var int
+     */
+    public $days_duration;
+
+    /**
+     * @var int
+     */
+    public $duration;
+
+    /**
+     * @var int
+     */
+    public $limit;
+
+    /**
+     * @var int
+     */
+    public $offset;
+
+    /**
+     * @var int
+     */
+    public $count;
 
     /**
      * @var string
      */
-    public $order_direction = null;
-
-    /**
-     * @var int
-     */
-    public $id = null;
-
-    /**
-     * @var int
-     */
-    public $id_lt = null;
-
-    /**
-     * @var int
-     */
-    public $id_le = null;
-
-    /**
-     * @var int
-     */
-    public $id_gt = null;
-
-    /**
-     * @var int
-     */
-    public $id_ge = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $order_direction;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $id_lt;
+
+    /**
+     * @var int
+     */
+    public $id_le;
+
+    /**
+     * @var int
+     */
+    public $id_gt;
+
+    /**
+     * @var int
+     */
+    public $id_ge;
+
+    /**
+     * @var string
+     */
+    public $search;
 
     public function __construct()
     {
@@ -106,6 +111,7 @@ class GetAvailableSchedulesRequest extends \Perfumer\Microservices\Request
         $this->user = new \Perfumer\Microservices\Undefined();
         $this->customer = new \Perfumer\Microservices\Undefined();
         $this->format = new \Perfumer\Microservices\Undefined();
+        $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->min_date = new \Perfumer\Microservices\Undefined();
         $this->max_date = new \Perfumer\Microservices\Undefined();
@@ -135,6 +141,9 @@ class GetAvailableSchedulesRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->format instanceof \Perfumer\Microservices\Undefined) {
             $array['format'] = $this->format;
+        }
+        if (!$this->ticket instanceof \Perfumer\Microservices\Undefined) {
+            $array['ticket'] = $this->ticket;
         }
         if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
             $array['module_id'] = $this->module_id;

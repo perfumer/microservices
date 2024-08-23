@@ -7,17 +7,17 @@ class GetReportAccessRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $requested_user_id = null;
+    public $requested_user_id;
 
     public function __construct()
     {

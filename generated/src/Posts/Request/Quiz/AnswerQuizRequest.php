@@ -7,7 +7,7 @@ class AnswerQuizRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $customer_id = null;
+    public $customer_id;
 
     /**
      * @var array

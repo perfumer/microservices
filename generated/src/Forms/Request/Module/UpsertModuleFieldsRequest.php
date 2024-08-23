@@ -7,7 +7,7 @@ class UpsertModuleFieldsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var array
@@ -18,12 +18,12 @@ class UpsertModuleFieldsRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

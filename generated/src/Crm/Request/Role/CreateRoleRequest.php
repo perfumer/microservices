@@ -7,22 +7,22 @@ class CreateRoleRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     /**
      * @var bool
      */
-    public $silent = null;
+    public $silent;
 
     public function __construct()
     {

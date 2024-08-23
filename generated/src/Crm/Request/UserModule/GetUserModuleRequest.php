@@ -7,22 +7,22 @@ class GetUserModuleRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $user_id = null;
+    public $user_id;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

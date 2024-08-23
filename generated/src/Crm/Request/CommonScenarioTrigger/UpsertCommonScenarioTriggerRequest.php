@@ -7,12 +7,12 @@ class UpsertCommonScenarioTriggerRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $common_trigger = null;
+    public $common_trigger;
 
     /**
      * @var string
      */
-    public $process_scenario = null;
+    public $process_scenario;
 
     /**
      * @var array
@@ -23,12 +23,12 @@ class UpsertCommonScenarioTriggerRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

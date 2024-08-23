@@ -7,42 +7,42 @@ class SaveTicketLogRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $ticket = null;
+    public $ticket;
 
     /**
      * @var string
      */
-    public $ticket_id = null;
+    public $ticket_id;
 
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var string
      */
-    public $text = null;
+    public $text;
 
     /**
      * @var string
      */
-    public $html = null;
+    public $html;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $customer = null;
+    public $customer;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var array
@@ -53,12 +53,12 @@ class SaveTicketLogRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
-    public $is_customer_visible = null;
+    public $is_customer_visible;
 
     /**
      * @var string
      */
-    public $process_scenario = null;
+    public $process_scenario;
 
     public function __construct()
     {

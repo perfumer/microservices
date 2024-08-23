@@ -7,22 +7,22 @@ class DeleteCustomerGroupRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $customer = null;
+    public $customer;
 
     /**
      * @var string
      */
-    public $group = null;
+    public $group;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

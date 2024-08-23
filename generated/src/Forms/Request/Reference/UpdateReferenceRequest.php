@@ -7,42 +7,42 @@ class UpdateReferenceRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $ordering = null;
+    public $ordering;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     /**
      * @var bool
      */
-    public $is_external = null;
+    public $is_external;
 
     /**
      * @var string
      */
-    public $external_url = null;
+    public $external_url;
 
     /**
      * @var bool
      */
-    public $is_archived = null;
+    public $is_archived;
 
     public function __construct()
     {

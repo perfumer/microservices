@@ -7,37 +7,37 @@ class SaveEmailRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $ip = null;
+    public $ip;
 
     /**
      * @var string
      */
-    public $email = null;
+    public $email;
 
     /**
      * @var string
      */
-    public $password = null;
+    public $password;
 
     /**
      * @var string
      */
-    public $subject = null;
+    public $subject;
 
     /**
      * @var string
      */
-    public $text = null;
+    public $text;
 
     /**
      * @var string
      */
-    public $html = null;
+    public $html;
 
     /**
      * @var string
      */
-    public $lifetime = null;
+    public $lifetime;
 
     public function __construct()
     {

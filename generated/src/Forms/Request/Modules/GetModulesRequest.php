@@ -7,127 +7,127 @@ class GetModulesRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $target = null;
+    public $target;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $applicant = null;
+    public $applicant;
 
     /**
      * @var bool
      */
-    public $is_archived = null;
+    public $is_archived;
 
     /**
      * @var bool
      */
-    public $is_invisible_for_applicant = null;
+    public $is_invisible_for_applicant;
 
     /**
      * @var bool
      */
-    public $is_visible_for_roles = null;
+    public $is_visible_for_roles;
 
     /**
      * @var string
      */
-    public $tag = null;
+    public $tag;
 
     /**
      * @var string
      */
-    public $parent = null;
+    public $parent;
 
     /**
      * @var string
      */
-    public $parents = null;
+    public $parents;
 
     /**
      * @var string
      */
-    public $child = null;
+    public $child;
 
     /**
      * @var string
      */
-    public $children = null;
+    public $children;
 
     /**
      * @var bool
      */
-    public $root = null;
+    public $root;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

@@ -7,172 +7,172 @@ class GetParticipantsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $event_id = null;
+    public $event_id;
 
     /**
      * @var bool
      */
-    public $is_scheduled = null;
+    public $is_scheduled;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $customer = null;
+    public $customer;
 
     /**
      * @var string
      */
-    public $nb_invites = null;
+    public $nb_invites;
 
     /**
      * @var string
      */
-    public $module_id = null;
+    public $module_id;
 
     /**
      * @var string
      */
-    public $format = null;
+    public $format;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $event_opened_at_le = null;
+    public $event_opened_at_le;
 
     /**
      * @var string
      */
-    public $event_opened_at_lt = null;
+    public $event_opened_at_lt;
 
     /**
      * @var string
      */
-    public $event_opened_at_ge = null;
+    public $event_opened_at_ge;
 
     /**
      * @var string
      */
-    public $event_opened_at_gt = null;
+    public $event_opened_at_gt;
 
     /**
      * @var string
      */
-    public $event_closed_at_le = null;
+    public $event_closed_at_le;
 
     /**
      * @var string
      */
-    public $event_closed_at_lt = null;
+    public $event_closed_at_lt;
 
     /**
      * @var string
      */
-    public $event_closed_at_ge = null;
+    public $event_closed_at_ge;
 
     /**
      * @var string
      */
-    public $event_closed_at_gt = null;
+    public $event_closed_at_gt;
 
     /**
      * @var string
      */
-    public $created_at_le = null;
+    public $created_at_le;
 
     /**
      * @var string
      */
-    public $created_at_lt = null;
+    public $created_at_lt;
 
     /**
      * @var string
      */
-    public $created_at_ge = null;
+    public $created_at_ge;
 
     /**
      * @var string
      */
-    public $created_at_gt = null;
+    public $created_at_gt;
 
     /**
      * @var string
      */
-    public $updated_at_le = null;
+    public $updated_at_le;
 
     /**
      * @var string
      */
-    public $updated_at_lt = null;
+    public $updated_at_lt;
 
     /**
      * @var string
      */
-    public $updated_at_ge = null;
+    public $updated_at_ge;
 
     /**
      * @var string
      */
-    public $updated_at_gt = null;
+    public $updated_at_gt;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

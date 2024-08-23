@@ -7,167 +7,167 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $tag = null;
+    public $tag;
 
     /**
      * @var bool
      */
-    public $is_hidden = null;
+    public $is_hidden;
 
     /**
      * @var int
      */
-    public $operator_user_id = null;
+    public $operator_user_id;
 
     /**
      * @var int
      */
-    public $user_id = null;
+    public $user_id;
 
     /**
      * @var int
      */
-    public $customer_id = null;
+    public $customer_id;
 
     /**
      * @var string
      */
-    public $module_code = null;
+    public $module_code;
 
     /**
      * @var int
      */
-    public $module_id = null;
+    public $module_id;
 
     /**
      * @var string
      */
-    public $created_at_from = null;
+    public $created_at_from;
 
     /**
      * @var string
      */
-    public $created_at_to = null;
+    public $created_at_to;
 
     /**
      * @var string
      */
-    public $opened_at_from = null;
+    public $opened_at_from;
 
     /**
      * @var string
      */
-    public $opened_at_to = null;
+    public $opened_at_to;
 
     /**
      * @var string
      */
-    public $deadline_at_from = null;
+    public $deadline_at_from;
 
     /**
      * @var string
      */
-    public $deadline_at_to = null;
+    public $deadline_at_to;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $business_case_id = null;
+    public $business_case_id;
 
     /**
      * @var string
      */
-    public $business_case_name = null;
+    public $business_case_name;
 
     /**
      * @var int
      */
-    public $process_state = null;
+    public $process_state;
 
     /**
      * @var string
      */
-    public $process_state_name = null;
+    public $process_state_name;
 
     /**
      * @var string
      */
-    public $closed_at = null;
+    public $closed_at;
 
     /**
      * @var bool
      */
-    public $with_forms = null;
+    public $with_forms;
 
     /**
      * @var bool
      */
-    public $is_closed = null;
+    public $is_closed;
 
     /**
      * @var bool
      */
-    public $is_closed_successfully = null;
+    public $is_closed_successfully;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

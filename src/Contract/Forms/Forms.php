@@ -36,10 +36,10 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @GetMeshModels(microservice="forms", model="items", fields={"name", "code", "locale", "reference"})
  * @SaveModel(microservice="forms", model="items", fields={"data.array", "reference"})
  *
- * @GetModel(microservice="forms", model="field", fields={"id.int", "locale"})
+ * @GetModel(microservice="forms", model="field", fields={"id.int", "model", "module_code", "locale"})
  * @DeleteModel(microservice="forms", model="field", fields={"id.int"})
- * @SaveModel(microservice="forms", model="field", fields={"label.array", "hint.array", "type", "model", "placeholder", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode", "aggregation_tag", "aggregation_mode", "alias", "before_text", "after_text"})
- * @UpdateModel(microservice="forms", model="field", fields={"id.int", "type", "label.array", "hint.array", "model", "placeholder", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode", "aggregation_tag", "aggregation_mode", "alias", "before_text", "after_text"})
+ * @SaveModel(microservice="forms", model="field", fields={"label.array", "hint.array", "type", "model", "placeholder", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "is_for_notification.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode", "aggregation_tag", "aggregation_mode", "alias", "before_text", "after_text"})
+ * @UpdateModel(microservice="forms", model="field", fields={"id.int", "type", "label.array", "hint.array", "model", "placeholder", "module", "reference", "is_required.bool", "is_dedicated.bool", "is_invisible_for_applicant.bool", "is_for_notification.bool", "dedicated_column_index", "priority.int", "bind_field", "bind_field_mode", "aggregation_tag", "aggregation_mode", "alias", "before_text", "after_text"})
  * @GetModels(microservice="forms", model="fields", fields={"label", "hint", "type", "model", "alias", "locale", "module", "reference", "module_target"})
  * @CreateModel(microservice="forms", model="field", fields={"id.int"}, url="/field/process-values", action="process", submodel="FieldValues")
  * @CreateModel(microservice="forms", model="fields", fields={"module", "models.array"}, url="/fields/order", action="change", submodel="FieldsOrder")
@@ -72,9 +72,9 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModel(microservice="forms", model="value", fields={"id.int", "code"})
  * @DeleteModel(microservice="forms", model="value", fields={"id.int", "code"})
- * @CreateModel(microservice="forms", model="value", fields={"tag", "code", "user_id.int", "customer_id.int", "ticket_id.int", "text_value", "numeric_value", "is_processed.bool", "silent.bool"})
- * @UpdateModel(microservice="forms", model="value", fields={"id.int", "tag", "code", "user_id.int", "customer_id.int", "ticket_id.int", "text_value", "numeric_value", "is_processed.bool"})
- * @UpsertModel(microservice="forms", model="value", fields={"tag", "code", "user_id.int", "customer_id.int", "ticket_id.int", "text_value", "numeric_value", "is_processed.bool"})
+ * @CreateModel(microservice="forms", model="value", fields={"tag", "code", "user_id.int", "customer_id.int", "ticket_id.int", "form_id.int", "field_id.int", "text_value", "numeric_value", "is_processed.bool", "silent.bool"})
+ * @UpdateModel(microservice="forms", model="value", fields={"id.int", "tag", "code", "user_id.int", "customer_id.int", "ticket_id.int","form_id.int", "field_id.int", "text_value", "numeric_value", "is_processed.bool"})
+ * @UpsertModel(microservice="forms", model="value", fields={"tag", "code", "user_id.int", "customer_id.int", "ticket_id.int","form_id.int", "field_id.int", "text_value", "numeric_value", "is_processed.bool"})
  *
  * @GetModel(microservice="forms", model="article", fields={"id", "locale", "code"})
  * @DeleteModel(microservice="forms", model="article", fields={"id"})

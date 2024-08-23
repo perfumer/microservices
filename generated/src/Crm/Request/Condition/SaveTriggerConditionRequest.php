@@ -7,32 +7,32 @@ class SaveTriggerConditionRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $trigger = null;
+    public $trigger;
 
     /**
      * @var string
      */
-    public $type = null;
+    public $type;
 
     /**
      * @var int
      */
-    public $process = null;
+    public $process;
 
     /**
      * @var int
      */
-    public $state = null;
+    public $state;
 
     /**
      * @var int
      */
-    public $scenario = null;
+    public $scenario;
 
     public function __construct()
     {

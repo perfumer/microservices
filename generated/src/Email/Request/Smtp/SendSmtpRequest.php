@@ -7,32 +7,32 @@ class SendSmtpRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $subject = null;
+    public $subject;
 
     /**
      * @var string
      */
-    public $to = null;
+    public $to;
 
     /**
      * @var string
      */
-    public $text = null;
+    public $text;
 
     /**
      * @var string
      */
-    public $html = null;
+    public $html;
 
     /**
      * @var bool
      */
-    public $signature_enabled = null;
+    public $signature_enabled;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

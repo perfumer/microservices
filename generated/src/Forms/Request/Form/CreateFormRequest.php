@@ -7,37 +7,37 @@ class CreateFormRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var bool
      */
-    public $silent = null;
+    public $silent;
 
     /**
      * @var int
      */
-    public $ticket_id = null;
+    public $ticket_id;
 
     /**
      * @var int
      */
-    public $user_id = null;
+    public $user_id;
 
     /**
      * @var int
      */
-    public $customer_id = null;
+    public $customer_id;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var string
      */
-    public $mix = null;
+    public $mix;
 
     /**
      * @var array

@@ -7,162 +7,162 @@ class GetCalendarEventsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $category = null;
+    public $category;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $booking_user = null;
+    public $booking_user;
 
     /**
      * @var string
      */
-    public $booking_customer = null;
+    public $booking_customer;
 
     /**
      * @var string
      */
-    public $min_date = null;
+    public $min_date;
 
     /**
      * @var string
      */
-    public $max_date = null;
+    public $max_date;
 
     /**
      * @var string
      */
-    public $ticket = null;
+    public $ticket;
 
     /**
      * @var string
      */
-    public $ticket_ne = null;
+    public $ticket_ne;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     /**
      * @var string
      */
-    public $event_started_at_le = null;
+    public $event_started_at_le;
 
     /**
      * @var string
      */
-    public $event_started_at_lt = null;
+    public $event_started_at_lt;
 
     /**
      * @var string
      */
-    public $event_started_at_ge = null;
+    public $event_started_at_ge;
 
     /**
      * @var string
      */
-    public $event_started_at_gt = null;
+    public $event_started_at_gt;
 
     /**
      * @var string
      */
-    public $event_ended_at_le = null;
+    public $event_ended_at_le;
 
     /**
      * @var string
      */
-    public $event_ended_at_lt = null;
+    public $event_ended_at_lt;
 
     /**
      * @var string
      */
-    public $event_ended_at_ge = null;
+    public $event_ended_at_ge;
 
     /**
      * @var string
      */
-    public $event_ended_at_gt = null;
+    public $event_ended_at_gt;
 
     /**
      * @var string
      */
-    public $started_at_le = null;
+    public $started_at_le;
 
     /**
      * @var string
      */
-    public $started_at_lt = null;
+    public $started_at_lt;
 
     /**
      * @var string
      */
-    public $started_at_ge = null;
+    public $started_at_ge;
 
     /**
      * @var string
      */
-    public $started_at_gt = null;
+    public $started_at_gt;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     public function __construct()
     {

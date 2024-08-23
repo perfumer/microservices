@@ -7,12 +7,12 @@ class ExtractCmsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $cms = null;
+    public $cms;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

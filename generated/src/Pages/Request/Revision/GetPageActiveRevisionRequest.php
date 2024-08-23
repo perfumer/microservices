@@ -7,27 +7,27 @@ class GetPageActiveRevisionRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $page_id = null;
+    public $page_id;
 
     /**
      * @var string
      */
-    public $address = null;
+    public $address;
 
     /**
      * @var string
      */
-    public $site = null;
+    public $site;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

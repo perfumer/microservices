@@ -7,12 +7,12 @@ class GetOauthStatusResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $login_url = null;
+    public $login_url;
 
     /**
      * @var string
      */
-    public $email = null;
+    public $email;
 
     /**
      * @var array

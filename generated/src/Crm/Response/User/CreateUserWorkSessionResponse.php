@@ -7,7 +7,7 @@ class CreateUserWorkSessionResponse extends \Perfumer\Microservices\Response
     /**
      * @var bool
      */
-    public $is_working = null;
+    public $is_working;
 
     /**
      * @var array

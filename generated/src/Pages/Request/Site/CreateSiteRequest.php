@@ -7,17 +7,17 @@ class CreateSiteRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     public function __construct()
     {

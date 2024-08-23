@@ -27,14 +27,14 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *     "nb_invites_per_participant.int", "nb_invites.int", "is_scheduled.bool", "is_disabled.bool"})
  *
  * @CreateModel(microservice="events", model="participant", fields={"event_id", "module_id", "user", "customer", "ticket", "opened_at", "closed_at", "nb_invites", "silent.bool"})
- * @GetModel(microservice="events", model="participant", action="check", url="/participant/check", fields={"module_id", "user", "customer", "format", "opened_at", "closed_at"})
+ * @GetModel(microservice="events", model="participant", action="check", url="/participant/check", fields={"module_id", "user", "customer", "ticket", "format", "opened_at", "closed_at"})
  * @DeleteModel(microservice="events", model="participant")
  *
  * @GetModel(microservice="events", model="event", fields={"locale"})
- * @CreateModel(microservice="events", model="event", fields={"id.int", "module_id.int", "locale", "user", "is_registration_open.bool", "title", "image",
+ * @CreateModel(microservice="events", model="event", fields={"id.int", "module_id.int", "locale", "user", "ticket", "is_registration_open.bool", "title", "image",
  *     "description", "html", "json", "format", "location", "opened_at", "closed_at", "apply_from", "apply_till", "published_at", "nb_invites_per_participant", "nb_invites",
  *     "is_confirm_required.bool", "confirmed_at", "is_review_needed.bool", "is_statement_needed.bool", "registration_form", "user_speakers.array", "hidden_files.array"})
- * @DeleteModel(microservice="events", model="event", fields={"id.int"})
+ * @DeleteModel(microservice="events", model="event", fields={"id.int", "ticket"})
  * @CreateModel(microservice="events", model="event", fields={"id.int"}, url="/event/reject", action="reject")
  * @CreateModel(microservice="events", model="event", fields={"id.int"}, url="/event/publish", action="publish")
  * @CreateModel(microservice="events", model="event", fields={"id.int"}, url="/event/enable", action="enable")
@@ -66,7 +66,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @UpdateModel(microservice="events", model="schedule", fields={"id.int", "user", "module_id", "code", "week_day", "date", "time_from", "time_to", "format", "is_protected.bool"}, url="/schedule", response_fields={"schedule.array"})
  * @UpsertModel(microservice="events", model="schedule", fields={"user", "module_id", "code", "week_day", "date", "time_from", "time_to", "format", "is_protected.bool"}, url="/schedule")
  * @GetModels(microservice="events", model="schedules", fields={"user", "module_id.int", "week_day.int", "date.date", "format"}, response_fields={"schedules.array"}, url="/schedules")
- * @GetModels(microservice="events", model="schedules", submodel="AvailableSchedules", fields={"user", "customer", "format", "module_id.int", "min_date", "max_date", "days_duration.int", "duration.int"}, url="/schedule/available", response_fields={"available.array", "possible_times.array"})
+ * @GetModels(microservice="events", model="schedules", submodel="AvailableSchedules", fields={"user", "customer", "format", "ticket", "module_id.int", "min_date", "max_date", "days_duration.int", "duration.int"}, url="/schedule/available", response_fields={"available.array", "possible_times.array"})
  *
  * @CreateModel(microservice="events", model="user", fields={"user", "module_id.int"}, action="add", submodel="UserModule", url="/user/module")
  * @DeleteModel(microservice="events", model="user", fields={"user", "module_id.int"}, action="delete", submodel="UserModule", url="/user/module")
@@ -78,6 +78,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModels(microservice="events", model="customer", submodel="CustomerScheduledEventsStats", url="/customer/stats/scheduled-events", fields={"customer"}, response_fields={"stats"})
  * @GetModels(microservice="events", model="user", submodel="UserScheduledEventsStats", url="/user/stats/scheduled-events", fields={"user"}, response_fields={"stats"})
+ *
+ * @CreateModel(microservice="events", model="Zoom", submodel="ZoomMeeting", fields={"ticket", "start_url_field", "join_url_field", "duration_field", "record_field", "start_at", "end_at"}, url="/zoom/meeting")
  *
  */
 interface Events

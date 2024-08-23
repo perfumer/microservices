@@ -7,17 +7,17 @@ class GetProcessScenarioRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $process = null;
+    public $process;
 
     public function __construct()
     {

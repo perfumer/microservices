@@ -7,17 +7,17 @@ class DeletePermissionRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
-    public $force = null;
+    public $force;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

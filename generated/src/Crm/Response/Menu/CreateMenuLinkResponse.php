@@ -7,7 +7,7 @@ class CreateMenuLinkResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $link = null;
+    public $link;
 
     /**
      * @var array

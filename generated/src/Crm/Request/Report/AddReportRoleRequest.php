@@ -7,22 +7,22 @@ class AddReportRoleRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $report_id = null;
+    public $report_id;
 
     /**
      * @var int
      */
-    public $group_id = null;
+    public $group_id;
 
     /**
      * @var int
      */
-    public $role_id = null;
+    public $role_id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

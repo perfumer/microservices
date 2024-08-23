@@ -7,52 +7,52 @@ class UpdateDocumentRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $html = null;
+    public $html;
 
     /**
      * @var string
      */
-    public $signed_at = null;
+    public $signed_at;
 
     /**
      * @var string
      */
-    public $author_id = null;
+    public $author_id;
 
     /**
      * @var string
      */
-    public $signature = null;
+    public $signature;
 
     /**
      * @var string
      */
-    public $status = null;
+    public $status;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $description = null;
+    public $description;
 
     /**
      * @var string
      */
-    public $file = null;
+    public $file;
 
     /**
      * @var array
@@ -63,7 +63,7 @@ class UpdateDocumentRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
-    public $rebuild = null;
+    public $rebuild;
 
     public function __construct()
     {

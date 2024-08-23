@@ -7,27 +7,27 @@ class DeleteUserRoleRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $user_id = null;
+    public $user_id;
 
     /**
      * @var int
      */
-    public $group_id = null;
+    public $group_id;
 
     /**
      * @var int
      */
-    public $role_id = null;
+    public $role_id;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

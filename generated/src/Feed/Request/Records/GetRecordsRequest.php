@@ -7,92 +7,92 @@ class GetRecordsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $collection = null;
+    public $collection;
 
     /**
      * @var string
      */
-    public $sender = null;
+    public $sender;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $thread = null;
+    public $thread;
 
     /**
      * @var string
      */
-    public $recipient = null;
+    public $recipient;
 
     /**
      * @var string
      */
-    public $search = null;
+    public $search;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $order = null;
+    public $order;
 
     /**
      * @var string
      */
-    public $is_read = null;
+    public $is_read;
 
     /**
      * @var int
      */
-    public $limit = null;
+    public $limit;
 
     /**
      * @var int
      */
-    public $offset = null;
+    public $offset;
 
     /**
      * @var int
      */
-    public $count = null;
+    public $count;
 
     /**
      * @var string
      */
-    public $order_field = null;
+    public $order_field;
 
     /**
      * @var string
      */
-    public $order_direction = null;
+    public $order_direction;
 
     /**
      * @var int
      */
-    public $id_lt = null;
+    public $id_lt;
 
     /**
      * @var int
      */
-    public $id_le = null;
+    public $id_le;
 
     /**
      * @var int
      */
-    public $id_gt = null;
+    public $id_gt;
 
     /**
      * @var int
      */
-    public $id_ge = null;
+    public $id_ge;
 
     public function __construct()
     {

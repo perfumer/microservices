@@ -7,62 +7,62 @@ class CreateRecordRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $collection = null;
+    public $collection;
 
     /**
      * @var string
      */
-    public $recipient = null;
+    public $recipient;
 
     /**
      * @var string
      */
-    public $websocket_channel = null;
+    public $websocket_channel;
 
     /**
      * @var string
      */
-    public $badge_user = null;
+    public $badge_user;
 
     /**
      * @var string
      */
-    public $sender = null;
+    public $sender;
 
     /**
      * @var string
      */
-    public $thread = null;
+    public $thread;
 
     /**
      * @var string
      */
-    public $title = null;
+    public $title;
 
     /**
      * @var string
      */
-    public $text = null;
+    public $text;
 
     /**
      * @var string
      */
-    public $image = null;
+    public $image;
 
     /**
      * @var string
      */
-    public $created_at = null;
+    public $created_at;
 
     /**
      * @var string
      */
-    public $payload = null;
+    public $payload;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

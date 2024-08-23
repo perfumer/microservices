@@ -7,12 +7,12 @@ class SaveLimitEmailsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $ips = null;
+    public $ips;
 
     /**
      * @var string
      */
-    public $emails = null;
+    public $emails;
 
     public function __construct()
     {

@@ -7,32 +7,32 @@ class SaveProcessTaskRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $state = null;
+    public $state;
 
     /**
      * @var string
      */
-    public $activity = null;
+    public $activity;
 
     /**
      * @var string
      */
-    public $group = null;
+    public $group;
 
     /**
      * @var string
      */
-    public $form_field = null;
+    public $form_field;
 
     /**
      * @var bool
      */
-    public $is_customer = null;
+    public $is_customer;
 
     public function __construct()
     {

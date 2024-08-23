@@ -7,7 +7,7 @@ class GetUserModuleResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var array

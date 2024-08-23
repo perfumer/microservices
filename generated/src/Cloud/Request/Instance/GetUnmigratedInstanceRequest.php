@@ -7,22 +7,22 @@ class GetUnmigratedInstanceRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $version_code = null;
+    public $version_code;
 
     /**
      * @var string
      */
-    public $image = null;
+    public $image;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

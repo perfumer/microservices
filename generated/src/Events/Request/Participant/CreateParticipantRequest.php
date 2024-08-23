@@ -7,52 +7,52 @@ class CreateParticipantRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $event_id = null;
+    public $event_id;
 
     /**
      * @var string
      */
-    public $module_id = null;
+    public $module_id;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $customer = null;
+    public $customer;
 
     /**
      * @var string
      */
-    public $ticket = null;
+    public $ticket;
 
     /**
      * @var string
      */
-    public $opened_at = null;
+    public $opened_at;
 
     /**
      * @var string
      */
-    public $closed_at = null;
+    public $closed_at;
 
     /**
      * @var string
      */
-    public $nb_invites = null;
+    public $nb_invites;
 
     /**
      * @var bool
      */
-    public $silent = null;
+    public $silent;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

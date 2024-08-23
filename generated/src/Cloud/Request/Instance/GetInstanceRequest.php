@@ -7,17 +7,17 @@ class GetInstanceRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $subdomain = null;
+    public $subdomain;
 
     public function __construct()
     {

@@ -7,12 +7,12 @@ class AddCustomerGroupRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $customer = null;
+    public $customer;
 
     /**
      * @var string
      */
-    public $group = null;
+    public $group;
 
     public function __construct()
     {

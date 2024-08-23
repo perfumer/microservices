@@ -7,7 +7,7 @@ class CloseTaskResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $next_task_id = null;
+    public $next_task_id;
 
     /**
      * @var array

@@ -7,47 +7,57 @@ class UpsertValueRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $tag = null;
+    public $tag;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $user_id = null;
+    public $user_id;
 
     /**
      * @var int
      */
-    public $customer_id = null;
+    public $customer_id;
 
     /**
      * @var int
      */
-    public $ticket_id = null;
+    public $ticket_id;
+
+    /**
+     * @var int
+     */
+    public $form_id;
+
+    /**
+     * @var int
+     */
+    public $field_id;
 
     /**
      * @var string
      */
-    public $text_value = null;
+    public $text_value;
 
     /**
      * @var string
      */
-    public $numeric_value = null;
+    public $numeric_value;
 
     /**
      * @var bool
      */
-    public $is_processed = null;
+    public $is_processed;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     public function __construct()
     {
@@ -58,6 +68,8 @@ class UpsertValueRequest extends \Perfumer\Microservices\Request
         $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->ticket_id = new \Perfumer\Microservices\Undefined();
+        $this->form_id = new \Perfumer\Microservices\Undefined();
+        $this->field_id = new \Perfumer\Microservices\Undefined();
         $this->text_value = new \Perfumer\Microservices\Undefined();
         $this->numeric_value = new \Perfumer\Microservices\Undefined();
         $this->is_processed = new \Perfumer\Microservices\Undefined();
@@ -81,6 +93,12 @@ class UpsertValueRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->ticket_id instanceof \Perfumer\Microservices\Undefined) {
             $array['ticket_id'] = $this->ticket_id;
+        }
+        if (!$this->form_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['form_id'] = $this->form_id;
+        }
+        if (!$this->field_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['field_id'] = $this->field_id;
         }
         if (!$this->text_value instanceof \Perfumer\Microservices\Undefined) {
             $array['text_value'] = $this->text_value;

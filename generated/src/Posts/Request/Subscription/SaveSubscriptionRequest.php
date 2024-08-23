@@ -7,12 +7,12 @@ class SaveSubscriptionRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $subscriber_id = null;
+    public $subscriber_id;
 
     /**
      * @var string
      */
-    public $module_id = null;
+    public $module_id;
 
     public function __construct()
     {

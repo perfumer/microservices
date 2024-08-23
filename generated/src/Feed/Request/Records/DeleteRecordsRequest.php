@@ -7,37 +7,37 @@ class DeleteRecordsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $collection = null;
+    public $collection;
 
     /**
      * @var string
      */
-    public $badge_user = null;
+    public $badge_user;
 
     /**
      * @var string
      */
-    public $recipient = null;
+    public $recipient;
 
     /**
      * @var string
      */
-    public $sender = null;
+    public $sender;
 
     /**
      * @var string
      */
-    public $thread = null;
+    public $thread;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

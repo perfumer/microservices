@@ -7,7 +7,7 @@ class AddModuleFieldsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var array
@@ -18,7 +18,7 @@ class AddModuleFieldsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

@@ -7,17 +7,17 @@ class UpdateTableRowRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var bool
      */
-    public $is_header = null;
+    public $is_header;
 
     /**
      * @var int
      */
-    public $index = null;
+    public $index;
 
     /**
      * @var array
@@ -28,12 +28,12 @@ class UpdateTableRowRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $table_id = null;
+    public $table_id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

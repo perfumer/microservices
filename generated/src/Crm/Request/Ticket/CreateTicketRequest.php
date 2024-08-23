@@ -7,22 +7,22 @@ class CreateTicketRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $customer = null;
+    public $customer;
 
     /**
      * @var string
      */
-    public $module = null;
+    public $module;
 
     /**
      * @var string
      */
-    public $forms_module = null;
+    public $forms_module;
 
     /**
      * @var array
@@ -33,17 +33,17 @@ class CreateTicketRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $deadline_at = null;
+    public $deadline_at;
 
     /**
      * @var string
      */
-    public $opened_at = null;
+    public $opened_at;
 
     /**
      * @var string
      */
-    public $closed_at = null;
+    public $closed_at;
 
     /**
      * @var array
@@ -54,17 +54,17 @@ class CreateTicketRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $pub_url = null;
+    public $pub_url;
 
     /**
      * @var string
      */
-    public $back_url = null;
+    public $back_url;
 
     /**
      * @var bool
      */
-    public $is_hidden = null;
+    public $is_hidden;
 
     /**
      * @var array
@@ -75,22 +75,22 @@ class CreateTicketRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
-    public $disable_bpm = null;
+    public $disable_bpm;
 
     /**
      * @var bool
      */
-    public $disable_box = null;
+    public $disable_box;
 
     /**
      * @var int
      */
-    public $creator_id = null;
+    public $creator_id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

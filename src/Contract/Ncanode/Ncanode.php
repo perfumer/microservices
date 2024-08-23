@@ -10,7 +10,7 @@ use Perfumer\Microservices\Annotation\SaveModel;
 
 /**
  * deprecated
- * @SaveModel(microservice="ncanode", model="validate", action="do", fields={"cms", "xml", "iin", "bin", "rule", "expiration.bool", "criteria"})
+ * @SaveModel(microservice="ncanode", model="validate", action="do", fields={"cms", "xml", "iin", "bin", "rule", "expiration.bool", "criteria"}, response_fields={"iin", "bin", "first_name", "last_name", "mid_name", "org_name", "gender", "email", "birthday"})
  *
  * actual
  * @GetModel(microservice="ncanode", model="signature", fields={"document", "thread"})

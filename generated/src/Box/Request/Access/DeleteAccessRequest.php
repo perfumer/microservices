@@ -7,27 +7,27 @@ class DeleteAccessRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var int
      */
-    public $client = null;
+    public $client;
 
     /**
      * @var int
      */
-    public $collection = null;
+    public $collection;
 
     /**
      * @var string
      */
-    public $level = null;
+    public $level;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

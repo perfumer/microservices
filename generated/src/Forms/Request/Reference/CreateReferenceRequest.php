@@ -7,42 +7,42 @@ class CreateReferenceRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $ordering = null;
+    public $ordering;
 
     /**
      * @var bool
      */
-    public $is_protected = null;
+    public $is_protected;
 
     /**
      * @var bool
      */
-    public $is_archived = null;
+    public $is_archived;
 
     /**
      * @var bool
      */
-    public $is_external = null;
+    public $is_external;
 
     /**
      * @var string
      */
-    public $external_url = null;
+    public $external_url;
 
     /**
      * @var bool
      */
-    public $silent = null;
+    public $silent;
 
     public function __construct()
     {

@@ -7,7 +7,7 @@ class GetComponentsResponse extends \Perfumer\Microservices\Response
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

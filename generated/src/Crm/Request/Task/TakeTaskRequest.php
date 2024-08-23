@@ -7,17 +7,17 @@ class TakeTaskRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $task = null;
+    public $task;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

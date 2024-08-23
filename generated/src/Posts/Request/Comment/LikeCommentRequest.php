@@ -7,22 +7,22 @@ class LikeCommentRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $rater_id = null;
+    public $rater_id;
 
     /**
      * @var string
      */
-    public $post_id = null;
+    public $post_id;
 
     /**
      * @var string
      */
-    public $comment_id = null;
+    public $comment_id;
 
     public function __construct()
     {

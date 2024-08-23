@@ -7,12 +7,12 @@ class GetCloudUsersResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $cloud_users = null;
+    public $cloud_users;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

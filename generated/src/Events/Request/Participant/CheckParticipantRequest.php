@@ -7,42 +7,47 @@ class CheckParticipantRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $module_id = null;
+    public $module_id;
 
     /**
      * @var string
      */
-    public $user = null;
+    public $user;
 
     /**
      * @var string
      */
-    public $customer = null;
+    public $customer;
 
     /**
      * @var string
      */
-    public $format = null;
+    public $ticket;
 
     /**
      * @var string
      */
-    public $opened_at = null;
+    public $format;
 
     /**
      * @var string
      */
-    public $closed_at = null;
+    public $opened_at;
+
+    /**
+     * @var string
+     */
+    public $closed_at;
 
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {
@@ -51,6 +56,7 @@ class CheckParticipantRequest extends \Perfumer\Microservices\Request
         $this->module_id = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();
         $this->customer = new \Perfumer\Microservices\Undefined();
+        $this->ticket = new \Perfumer\Microservices\Undefined();
         $this->format = new \Perfumer\Microservices\Undefined();
         $this->opened_at = new \Perfumer\Microservices\Undefined();
         $this->closed_at = new \Perfumer\Microservices\Undefined();
@@ -69,6 +75,9 @@ class CheckParticipantRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->customer instanceof \Perfumer\Microservices\Undefined) {
             $array['customer'] = $this->customer;
+        }
+        if (!$this->ticket instanceof \Perfumer\Microservices\Undefined) {
+            $array['ticket'] = $this->ticket;
         }
         if (!$this->format instanceof \Perfumer\Microservices\Undefined) {
             $array['format'] = $this->format;

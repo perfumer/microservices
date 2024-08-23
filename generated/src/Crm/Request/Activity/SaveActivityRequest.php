@@ -7,32 +7,32 @@ class SaveActivityRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $name = null;
+    public $name;
 
     /**
      * @var string
      */
-    public $customer_name = null;
+    public $customer_name;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var int
      */
-    public $priority = null;
+    public $priority;
 
     /**
      * @var bool
      */
-    public $is_forced = null;
+    public $is_forced;
 
     /**
      * @var bool
      */
-    public $is_applicant = null;
+    public $is_applicant;
 
     public function __construct()
     {

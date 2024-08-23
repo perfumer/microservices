@@ -7,77 +7,77 @@ class UpdateInstanceRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $first_name = null;
+    public $first_name;
 
     /**
      * @var string
      */
-    public $last_name = null;
+    public $last_name;
 
     /**
      * @var string
      */
-    public $mid_name = null;
+    public $mid_name;
 
     /**
      * @var string
      */
-    public $username = null;
+    public $username;
 
     /**
      * @var string
      */
-    public $email = null;
+    public $email;
 
     /**
      * @var string
      */
-    public $phone = null;
+    public $phone;
 
     /**
      * @var string
      */
-    public $password = null;
+    public $password;
 
     /**
      * @var string
      */
-    public $iin = null;
+    public $iin;
 
     /**
      * @var string
      */
-    public $bin = null;
+    public $bin;
 
     /**
      * @var string
      */
-    public $org_name = null;
+    public $org_name;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var bool
      */
-    public $reset_password = null;
+    public $reset_password;
 
     /**
      * @var string
      */
-    public $telegram_chat_id = null;
+    public $telegram_chat_id;
 
     /**
      * @var string
      */
-    public $telegram_username = null;
+    public $telegram_username;
 
     public function __construct()
     {

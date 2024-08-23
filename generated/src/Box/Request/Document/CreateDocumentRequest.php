@@ -7,32 +7,32 @@ class CreateDocumentRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $uuid = null;
+    public $uuid;
 
     /**
      * @var string
      */
-    public $event = null;
+    public $event;
 
     /**
      * @var string
      */
-    public $data = null;
+    public $data;
 
     /**
      * @var string
      */
-    public $webhook = null;
+    public $webhook;
 
     /**
      * @var string
      */
-    public $collection = null;
+    public $collection;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {

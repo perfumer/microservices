@@ -7,22 +7,22 @@ class SaveCallRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $ip = null;
+    public $ip;
 
     /**
      * @var string
      */
-    public $phone = null;
+    public $phone;
 
     /**
      * @var string
      */
-    public $password = null;
+    public $password;
 
     /**
      * @var string
      */
-    public $lifetime = null;
+    public $lifetime;
 
     public function __construct()
     {

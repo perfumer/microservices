@@ -7,12 +7,12 @@ class GetMenuLinksResponse extends \Perfumer\Microservices\Response
     /**
      * @var string
      */
-    public $links = null;
+    public $links;
 
     /**
      * @var int
      */
-    public $nb_results = null;
+    public $nb_results;
 
     /**
      * @var array

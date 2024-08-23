@@ -7,22 +7,22 @@ class GetCustomerMenuRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
-    public $id = null;
+    public $id;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $locale = null;
+    public $locale;
 
     /**
      * @var int
      */
-    public $requested_customer_id = null;
+    public $requested_customer_id;
 
     public function __construct()
     {

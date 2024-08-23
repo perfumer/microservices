@@ -7,12 +7,12 @@ class CreateDeploymentRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     /**
      * @var string
      */
-    public $client = null;
+    public $client;
 
     public function __construct()
     {

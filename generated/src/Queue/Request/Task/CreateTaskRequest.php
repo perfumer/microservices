@@ -7,62 +7,62 @@ class CreateTaskRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
-    public $worker = null;
+    public $worker;
 
     /**
      * @var string
      */
-    public $url = null;
+    public $url;
 
     /**
      * @var string
      */
-    public $method = null;
+    public $method;
 
     /**
      * @var string
      */
-    public $delay = null;
+    public $delay;
 
     /**
      * @var string
      */
-    public $json = null;
+    public $json;
 
     /**
      * @var string
      */
-    public $datetime = null;
+    public $datetime;
 
     /**
      * @var string
      */
-    public $headers = null;
+    public $headers;
 
     /**
      * @var string
      */
-    public $query_string = null;
+    public $query_string;
 
     /**
      * @var string
      */
-    public $body = null;
+    public $body;
 
     /**
      * @var string
      */
-    public $sleep = null;
+    public $sleep;
 
     /**
      * @var string
      */
-    public $timeout = null;
+    public $timeout;
 
     /**
      * @var string
      */
-    public $code = null;
+    public $code;
 
     public function __construct()
     {
