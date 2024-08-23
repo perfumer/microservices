@@ -81,7 +81,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @GetModels(microservice="crm", model="activities", fields={"name", "code", "priority.int", "is_forced.bool", "business_case.int", "is_applicant.bool"})
  *
  * @GetModel(microservice="crm", model="user", submodel="UserCredentials", fields={"iin", "bin", "phone", "email", "password", "code", "username"}, response_fields={"user"}, url="/user/credentials")
- * @GetModel(microservice="crm", model="user", fields={"email", "phone", "iin", "bin", "code", "username", "id.int"})
+ * @GetModel(microservice="crm", model="user", fields={"email", "phone", "iin", "bin", "code", "username", "id.int", "profile_fields.array"})
  * @DeleteModel(microservice="crm", model="user")
  * @SaveModel(microservice="crm", model="user", fields={"last_login_at", "telegram_chat_id", "telegram_username", "username", "avatar", "id.int", "profiles.array", "last_name", "first_name", "mid_name", "email", "phone", "iin", "bin", "org_name", "code", "password", "is_admin.bool", "is_disabled.bool", "payload.array", "auto_fields.array", "gender", "locale"})
  * @CreateModel(microservice="crm", model="user", fields={"last_login_at", "telegram_chat_id", "telegram_username", "silent.bool", "is_protected.bool", "profiles.array", "username", "avatar", "last_name", "first_name", "mid_name", "email", "phone", "iin", "bin", "org_name", "code", "password_hash", "password", "is_admin.bool", "is_disabled.bool", "payload.array", "auto_fields.array", "gender", "locale"})
@@ -136,7 +136,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @CreateModel(microservice="crm", model="task", url="task/assign", action="assign", fields={"task", "user", "silent.bool"})
 
  * @GetModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"id", "iin", "bin", "phone", "email", "password", "code", "username"}, response_fields={"customer"}, url="/customer/credentials")
- * @GetModel(microservice="crm", model="customer", fields={"email", "phone", "iin", "bin", "code", "username", "id.int"})
+ * @GetModel(microservice="crm", model="customer", fields={"email", "phone", "iin", "bin", "code", "username", "id.int", "profile_fields.array"})
  * @DeleteModel(microservice="crm", model="customer")
  * @SaveModel(microservice="crm", model="customer", fields={"last_login_at", "telegram_chat_id", "telegram_username", "username", "avatar", "profiles.array", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password", "bin", "org_name", "is_nca_customer.bool", "is_disabled.bool", "groups.array", "payload.array", "auto_fields.array", "gender", "locale", "tags.array"})
  * @CreateModel(microservice="crm", model="customer", fields={"last_login_at", "telegram_chat_id", "telegram_username", "silent.bool", "is_protected.bool", "username", "avatar", "profiles.array", "last_name", "first_name", "mid_name", "email", "phone", "iin", "code", "password", "bin", "org_name", "is_nca_customer.bool", "is_disabled.bool", "groups.array", "payload.array", "auto_fields.array", "gender", "locale", "tags.array"})

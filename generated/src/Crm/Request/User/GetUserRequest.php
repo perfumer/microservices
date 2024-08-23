@@ -39,6 +39,12 @@ class GetUserRequest extends \Perfumer\Microservices\Request
      */
     public $id;
 
+    /**
+     * @var array
+     */
+    public $profile_fields = [
+    ];
+
     public function __construct()
     {
         $this->_request_url = '/user';
@@ -50,6 +56,7 @@ class GetUserRequest extends \Perfumer\Microservices\Request
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->username = new \Perfumer\Microservices\Undefined();
         $this->id = new \Perfumer\Microservices\Undefined();
+        $this->profile_fields = new \Perfumer\Microservices\Undefined();
     }
 
     public function getBody(): array
@@ -75,6 +82,9 @@ class GetUserRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->id instanceof \Perfumer\Microservices\Undefined) {
             $array['id'] = $this->id;
+        }
+        if (!$this->profile_fields instanceof \Perfumer\Microservices\Undefined) {
+            $array['profile_fields'] = $this->profile_fields;
         }
 
         return $array;
