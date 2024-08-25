@@ -294,7 +294,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @GetModel(microservice="crm", model="report", fields={"id.int", "code", "requested_user_id.int"}, submodel="ReportAccess", url="/report/access", response_fields={"access"})
  *
  * @GetModels(microservice="crm", model="tags", fields={"filters", "user_id.int", "user_code"})
- * @CreateModel(microservice="crm", model="tags", fields={"filters", "user_id.int", "user_code"})
+ * @CreateModel(microservice="crm", model="tags", fields={"filters", "names"})
+ * @CreateModel(microservice="crm", model="tags", submodel="UserTags", url="/user/tags", fields={"tags", "user_id.int", "user_code"})
  *
  * @GetModel(microservice="crm", model="healthcheck")
  */

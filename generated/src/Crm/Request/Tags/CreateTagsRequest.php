@@ -10,14 +10,9 @@ class CreateTagsRequest extends \Perfumer\Microservices\Request
     public $filters;
 
     /**
-     * @var int
-     */
-    public $user_id;
-
-    /**
      * @var string
      */
-    public $user_code;
+    public $names;
 
     /**
      * @var string
@@ -29,8 +24,7 @@ class CreateTagsRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/tags';
         $this->_request_method = 'post';
         $this->filters = new \Perfumer\Microservices\Undefined();
-        $this->user_id = new \Perfumer\Microservices\Undefined();
-        $this->user_code = new \Perfumer\Microservices\Undefined();
+        $this->names = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
     }
 
@@ -40,11 +34,8 @@ class CreateTagsRequest extends \Perfumer\Microservices\Request
         if (!$this->filters instanceof \Perfumer\Microservices\Undefined) {
             $array['filters'] = $this->filters;
         }
-        if (!$this->user_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['user_id'] = $this->user_id;
-        }
-        if (!$this->user_code instanceof \Perfumer\Microservices\Undefined) {
-            $array['user_code'] = $this->user_code;
+        if (!$this->names instanceof \Perfumer\Microservices\Undefined) {
+            $array['names'] = $this->names;
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;
