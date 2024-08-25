@@ -12,6 +12,16 @@ class GetTagsRequest extends \Perfumer\Microservices\Request
     /**
      * @var int
      */
+    public $user_id;
+
+    /**
+     * @var string
+     */
+    public $user_code;
+
+    /**
+     * @var int
+     */
     public $limit;
 
     /**
@@ -69,6 +79,8 @@ class GetTagsRequest extends \Perfumer\Microservices\Request
         $this->_request_url = '/tags';
         $this->_request_method = 'get';
         $this->filters = new \Perfumer\Microservices\Undefined();
+        $this->user_id = new \Perfumer\Microservices\Undefined();
+        $this->user_code = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -87,6 +99,12 @@ class GetTagsRequest extends \Perfumer\Microservices\Request
         $array = [];
         if (!$this->filters instanceof \Perfumer\Microservices\Undefined) {
             $array['filters'] = $this->filters;
+        }
+        if (!$this->user_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['user_id'] = $this->user_id;
+        }
+        if (!$this->user_code instanceof \Perfumer\Microservices\Undefined) {
+            $array['user_code'] = $this->user_code;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;

@@ -293,7 +293,7 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @GetModels(microservice="crm", model="report", fields={"report_id.int", "group_id.int", "role_id.int"}, submodel="ReportRoles", url="/report/roles", response_fields={"report_roles"})
  * @GetModel(microservice="crm", model="report", fields={"id.int", "code", "requested_user_id.int"}, submodel="ReportAccess", url="/report/access", response_fields={"access"})
  *
- * @GetModels(microservice="crm", model="tags", fields={"filters"})
+ * @GetModels(microservice="crm", model="tags", fields={"filters", "user_id.int", "user_code"})
  *
  * @GetModel(microservice="crm", model="healthcheck")
  */
