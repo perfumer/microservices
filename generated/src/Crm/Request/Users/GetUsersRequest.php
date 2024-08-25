@@ -113,6 +113,11 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
     public $tags;
 
     /**
+     * @var bool
+     */
+    public $with_tags;
+
+    /**
      * @var int
      */
     public $limit;
@@ -207,6 +212,7 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->profile_fields = new \Perfumer\Microservices\Undefined();
         $this->tags = new \Perfumer\Microservices\Undefined();
+        $this->with_tags = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -288,6 +294,9 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->tags instanceof \Perfumer\Microservices\Undefined) {
             $array['tags'] = $this->tags;
+        }
+        if (!$this->with_tags instanceof \Perfumer\Microservices\Undefined) {
+            $array['with_tags'] = $this->with_tags;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
