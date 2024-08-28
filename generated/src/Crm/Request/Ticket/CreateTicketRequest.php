@@ -5,9 +5,10 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Ticket;
 class CreateTicketRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
+     * @var array
      */
-    public $user;
+    public $users = [
+    ];
 
     /**
      * @var string
@@ -96,7 +97,7 @@ class CreateTicketRequest extends \Perfumer\Microservices\Request
     {
         $this->_request_url = '/ticket';
         $this->_request_method = 'post';
-        $this->user = new \Perfumer\Microservices\Undefined();
+        $this->users = new \Perfumer\Microservices\Undefined();
         $this->customer = new \Perfumer\Microservices\Undefined();
         $this->module = new \Perfumer\Microservices\Undefined();
         $this->forms_module = new \Perfumer\Microservices\Undefined();
@@ -118,8 +119,8 @@ class CreateTicketRequest extends \Perfumer\Microservices\Request
     public function getBody(): array
     {
         $array = [];
-        if (!$this->user instanceof \Perfumer\Microservices\Undefined) {
-            $array['user'] = $this->user;
+        if (!$this->users instanceof \Perfumer\Microservices\Undefined) {
+            $array['users'] = $this->users;
         }
         if (!$this->customer instanceof \Perfumer\Microservices\Undefined) {
             $array['customer'] = $this->customer;
