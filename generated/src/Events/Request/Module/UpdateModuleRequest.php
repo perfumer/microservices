@@ -45,6 +45,11 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
     public $allowed_crm_module_mode;
 
     /**
+     * @var string
+     */
+    public $allowed_crm_ticket_from;
+
+    /**
      * @var bool
      */
     public $is_archived;
@@ -86,6 +91,7 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
         $this->tickets_mode = new \Perfumer\Microservices\Undefined();
         $this->allowed_crm_modules = new \Perfumer\Microservices\Undefined();
         $this->allowed_crm_module_mode = new \Perfumer\Microservices\Undefined();
+        $this->allowed_crm_ticket_from = new \Perfumer\Microservices\Undefined();
         $this->is_archived = new \Perfumer\Microservices\Undefined();
         $this->weekly_schedule_limit = new \Perfumer\Microservices\Undefined();
         $this->is_scheduled = new \Perfumer\Microservices\Undefined();
@@ -120,6 +126,9 @@ class UpdateModuleRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->allowed_crm_module_mode instanceof \Perfumer\Microservices\Undefined) {
             $array['allowed_crm_module_mode'] = $this->allowed_crm_module_mode;
+        }
+        if (!$this->allowed_crm_ticket_from instanceof \Perfumer\Microservices\Undefined) {
+            $array['allowed_crm_ticket_from'] = $this->allowed_crm_ticket_from;
         }
         if (!$this->is_archived instanceof \Perfumer\Microservices\Undefined) {
             $array['is_archived'] = $this->is_archived;

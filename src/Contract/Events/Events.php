@@ -13,8 +13,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
 /**
  * @GetModel(microservice="events", model="module", fields={"with_tags.bool"})
  * @GetModels(microservice="events", model="modules", fields={"name", "code", "description", "ticket_crm_module", "is_archived.bool", "is_scheduled.bool", "user", "has_tags", "has_not_tags", "has_schedules.bool", "with_tags.bool"})
- * @CreateModel(microservice="events", model="module", fields={"name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int", "is_scheduled.bool", "tags"})
- * @UpdateModel(microservice="events", model="module", fields={"name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "is_archived.bool", "weekly_schedule_limit.int", "is_scheduled.bool", "tags"})
+ * @CreateModel(microservice="events", model="module", fields={"name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "allowed_crm_ticket_from", "is_archived.bool", "weekly_schedule_limit.int", "is_scheduled.bool", "tags"})
+ * @UpdateModel(microservice="events", model="module", fields={"name", "customer_name", "description", "customers_ticket_crm_module", "user_ticket_crm_module", "tickets_mode", "allowed_crm_modules", "allowed_crm_module_mode", "allowed_crm_ticket_from", "is_archived.bool", "weekly_schedule_limit.int", "is_scheduled.bool", "tags"})
  * @DeleteModel(microservice="events", model="module")
  * @CreateModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="archive")
  * @CreateModel(microservice="events", model="module", fields={"id.int"}, url="/module/archive", action="unarchive", request_method="delete")
