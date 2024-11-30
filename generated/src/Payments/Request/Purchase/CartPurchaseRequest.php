@@ -57,7 +57,7 @@ class CartPurchaseRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/purchase';
+        $this->_request_url = '/cart';
         $this->_request_method = 'post';
         $this->sum = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();

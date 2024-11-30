@@ -16,7 +16,7 @@ class InitPurchaseRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/purchase';
+        $this->_request_url = '/init';
         $this->_request_method = 'post';
         $this->uuid = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
