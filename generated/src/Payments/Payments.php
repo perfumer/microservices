@@ -39,4 +39,17 @@ abstract class Payments extends \Perfumer\Microservices\Microservice implements 
 
         return $response;
     }
+
+    public function refundPurchase(\Perfumer\Microservices\Payments\Request\Purchase\RefundPurchaseRequest $request): \Perfumer\Microservices\Payments\Response\Purchase\RefundPurchaseResponse
+    {
+        /** @var \Perfumer\Microservices\Payments\Response\Purchase\RefundPurchaseResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Payments\Response\Purchase\RefundPurchaseResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'purchase');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->purchase = $item;
+        }
+
+        return $response;
+    }
 }
