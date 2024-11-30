@@ -180,6 +180,20 @@ return [
         ]]
     ],
 
+    'microservices.payments' => [
+        'shared' => true,
+        'class' => 'Perfumer\\Microservices\\Payments\\Payments',
+        'arguments' => [[
+            'host' => '@microservices/payments.host',
+            'locale' => '@microservices/locale',
+            'http_auth_username' => '@microservices/http_auth_username',
+            'http_auth_password' => '@microservices/http_auth_password',
+            'segment' => '@microservices/segment',
+            'tenant' => '@microservices/tenant',
+            'request_catcher_host' => '@microservices/request_catcher.host',
+        ]]
+    ],
+
     'microservices.postgrest' => [
         'shared' => true,
         'class' => 'Perfumer\\Microservices\\Postgrest\\Postgrest',
