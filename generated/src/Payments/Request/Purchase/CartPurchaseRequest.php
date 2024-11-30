@@ -53,6 +53,16 @@ class CartPurchaseRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $init_success_url;
+
+    /**
+     * @var string
+     */
+    public $init_failure_url;
+
+    /**
+     * @var string
+     */
     public $code;
 
     public function __construct()
@@ -68,6 +78,8 @@ class CartPurchaseRequest extends \Perfumer\Microservices\Request
         $this->payload = new \Perfumer\Microservices\Undefined();
         $this->init = new \Perfumer\Microservices\Undefined();
         $this->delivery_callback = new \Perfumer\Microservices\Undefined();
+        $this->init_success_url = new \Perfumer\Microservices\Undefined();
+        $this->init_failure_url = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
     }
 
@@ -100,6 +112,12 @@ class CartPurchaseRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->delivery_callback instanceof \Perfumer\Microservices\Undefined) {
             $array['delivery_callback'] = $this->delivery_callback;
+        }
+        if (!$this->init_success_url instanceof \Perfumer\Microservices\Undefined) {
+            $array['init_success_url'] = $this->init_success_url;
+        }
+        if (!$this->init_failure_url instanceof \Perfumer\Microservices\Undefined) {
+            $array['init_failure_url'] = $this->init_failure_url;
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;
