@@ -106,7 +106,7 @@ class GetSvetoforSgTrackingTicketsRequest extends \Perfumer\Microservices\Reques
 
     public function __construct()
     {
-        $this->_request_url = '/tickets';
+        $this->_request_url = '/svetofor/sg/tracking';
         $this->_request_method = 'get';
         $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->tracker_id = new \Perfumer\Microservices\Undefined();

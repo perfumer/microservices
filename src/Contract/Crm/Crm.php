@@ -297,8 +297,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @CreateModel(microservice="crm", model="tags", submodel="UserTags", url="/user/tags", fields={"tags", "user_id.int", "user_code"})
  *
  * @GetModel(microservice="crm", model="healthcheck")
- * 
- * @GetModels(microservice="crm", model="tickets", submodel="SvetoforSgTrackingTickets", fields={"customer_id.int", "tracker_id.int", "lead_tracker_id.int", "process_state_id.int", "week.int", "meeting_date_at.date"})
+ *
+ * @GetModels(microservice="crm", url="/svetofor/sg/tracking", model="tickets", submodel="SvetoforSgTrackingTickets", fields={"customer_id.int", "tracker_id.int", "lead_tracker_id.int", "process_state_id.int", "week.int", "meeting_date_at.date"})
  */
 interface Crm
 {
