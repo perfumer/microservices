@@ -3612,4 +3612,22 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         return $response;
     }
+
+    public function getSvetoforSgTrackingTickets(\Perfumer\Microservices\Crm\Request\Tickets\GetSvetoforSgTrackingTicketsRequest $request): \Perfumer\Microservices\Crm\Response\Tickets\GetSvetoforSgTrackingTicketsResponse
+    {
+        /** @var \Perfumer\Microservices\Crm\Response\Tickets\GetSvetoforSgTrackingTicketsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\Tickets\GetSvetoforSgTrackingTicketsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'tickets');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->tickets = $item;
+        }
+
+        return $response;
+    }
 }

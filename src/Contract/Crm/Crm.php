@@ -134,7 +134,6 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @CreateModel(microservice="crm", model="task", url="task/extend", action="extend", fields={"task", "user", "time_to", "text"})
  * @CreateModel(microservice="crm", model="task", url="task/take", action="take", fields={"task", "user"})
  * @CreateModel(microservice="crm", model="task", url="task/assign", action="assign", fields={"task", "user", "silent.bool"})
-
  * @GetModel(microservice="crm", model="customer", submodel="CustomerCredentials", fields={"id", "iin", "bin", "phone", "email", "password", "code", "username"}, response_fields={"customer"}, url="/customer/credentials")
  * @GetModel(microservice="crm", model="customer", fields={"email", "phone", "iin", "bin", "code", "username", "id.int", "profile_fields.array"})
  * @DeleteModel(microservice="crm", model="customer")
@@ -298,6 +297,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  * @CreateModel(microservice="crm", model="tags", submodel="UserTags", url="/user/tags", fields={"tags", "user_id.int", "user_code"})
  *
  * @GetModel(microservice="crm", model="healthcheck")
+ * 
+ * @GetModels(microservice="crm", model="tickets", submodel="SvetoforSgTrackingTickets", fields={"customer_id.int", "tracker_id.int", "lead_tracker_id.int", "process_state_id.int", "week.int", "meeting_date_at.date"})
  */
 interface Crm
 {
