@@ -3630,4 +3630,58 @@ abstract class Crm extends \Perfumer\Microservices\Microservice implements \Perf
 
         return $response;
     }
+
+    public function getSvetoforSgConsultingTickets(\Perfumer\Microservices\Crm\Request\Tickets\GetSvetoforSgConsultingTicketsRequest $request): \Perfumer\Microservices\Crm\Response\Tickets\GetSvetoforSgConsultingTicketsResponse
+    {
+        /** @var \Perfumer\Microservices\Crm\Response\Tickets\GetSvetoforSgConsultingTicketsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\Tickets\GetSvetoforSgConsultingTicketsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'tickets');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->tickets = $item;
+        }
+
+        return $response;
+    }
+
+    public function getSvetoforStartups(\Perfumer\Microservices\Crm\Request\Startups\GetSvetoforStartupsRequest $request): \Perfumer\Microservices\Crm\Response\Startups\GetSvetoforStartupsResponse
+    {
+        /** @var \Perfumer\Microservices\Crm\Response\Startups\GetSvetoforStartupsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\Startups\GetSvetoforStartupsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'startups');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->startups = $item;
+        }
+
+        return $response;
+    }
+
+    public function getSvetoforStates(\Perfumer\Microservices\Crm\Request\States\GetSvetoforStatesRequest $request): \Perfumer\Microservices\Crm\Response\States\GetSvetoforStatesResponse
+    {
+        /** @var \Perfumer\Microservices\Crm\Response\States\GetSvetoforStatesResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Crm\Response\States\GetSvetoforStatesResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'states');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->states = $item;
+        }
+
+        return $response;
+    }
 }
