@@ -5,6 +5,11 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Tickets;
 class GetSvetoforSgConsultingTicketsRequest extends \Perfumer\Microservices\Request
 {
     /**
+     * @var string
+     */
+    public $leading_tracker;
+
+    /**
      * @var int
      */
     public $customer_id;
@@ -113,6 +118,7 @@ class GetSvetoforSgConsultingTicketsRequest extends \Perfumer\Microservices\Requ
     {
         $this->_request_url = '/svetofor/sg/consulting';
         $this->_request_method = 'get';
+        $this->leading_tracker = new \Perfumer\Microservices\Undefined();
         $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->tracker_id = new \Perfumer\Microservices\Undefined();
@@ -139,6 +145,9 @@ class GetSvetoforSgConsultingTicketsRequest extends \Perfumer\Microservices\Requ
     public function getBody(): array
     {
         $array = [];
+        if (!$this->leading_tracker instanceof \Perfumer\Microservices\Undefined) {
+            $array['leading_tracker'] = $this->leading_tracker;
+        }
         if (!$this->customer_id instanceof \Perfumer\Microservices\Undefined) {
             $array['customer_id'] = $this->customer_id;
         }
