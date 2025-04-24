@@ -298,8 +298,8 @@ use Perfumer\Microservices\Annotation\UpsertModel;
  *
  * @GetModel(microservice="crm", model="healthcheck")
  *
- * @GetModels(microservice="crm", url="/svetofor/sg/tracking", model="tickets", submodel="SvetoforSgTrackingTickets", fields={"leading_tracker", "customer_id.int", "tracker_id.int", "lead_tracker_id.int", "process_state_id.int", "week.int", "meeting_date_at.date"})
- * @GetModels(microservice="crm", url="/svetofor/sg/consulting", model="tickets", submodel="SvetoforSgConsultingTickets", fields={"leading_tracker", "customer_id.int", "user_id.int", "tracker_id.int", "lead_tracker_id.int", "process_state_id.int", "week.int", "meeting_date_at.date"})
+ * @GetModels(microservice="crm", url="/svetofor/sg/tracking", model="tickets", submodel="SvetoforSgTrackingTickets", fields={"customer_id.int", "tracker_id.int", "leading_tracker_id.int", "process_state_id.int", "week.int", "meeting_date_at.date"})
+ * @GetModels(microservice="crm", url="/svetofor/sg/consulting", model="tickets", submodel="SvetoforSgConsultingTickets", fields={"customer_id.int", "user_id.int", "tracker_id.int", "leading_tracker_id.int", "process_state_id.int", "week.int", "meeting_date_at.date"})
  * @GetModels(microservice="crm", model="startups", submodel="SvetoforStartups", url="/svetofor/startups")
  * @GetModels(microservice="crm", model="states", submodel="SvetoforStates", url="/svetofor/sg/states")
  */

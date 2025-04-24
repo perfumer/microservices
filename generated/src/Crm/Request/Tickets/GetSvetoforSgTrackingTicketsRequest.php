@@ -5,11 +5,6 @@ namespace Generated\Perfumer\Microservices\Crm\Request\Tickets;
 class GetSvetoforSgTrackingTicketsRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var string
-     */
-    public $leading_tracker;
-
-    /**
      * @var int
      */
     public $customer_id;
@@ -22,7 +17,7 @@ class GetSvetoforSgTrackingTicketsRequest extends \Perfumer\Microservices\Reques
     /**
      * @var int
      */
-    public $lead_tracker_id;
+    public $leading_tracker_id;
 
     /**
      * @var int
@@ -113,10 +108,9 @@ class GetSvetoforSgTrackingTicketsRequest extends \Perfumer\Microservices\Reques
     {
         $this->_request_url = '/svetofor/sg/tracking';
         $this->_request_method = 'get';
-        $this->leading_tracker = new \Perfumer\Microservices\Undefined();
         $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->tracker_id = new \Perfumer\Microservices\Undefined();
-        $this->lead_tracker_id = new \Perfumer\Microservices\Undefined();
+        $this->leading_tracker_id = new \Perfumer\Microservices\Undefined();
         $this->process_state_id = new \Perfumer\Microservices\Undefined();
         $this->week = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
@@ -139,17 +133,14 @@ class GetSvetoforSgTrackingTicketsRequest extends \Perfumer\Microservices\Reques
     public function getBody(): array
     {
         $array = [];
-        if (!$this->leading_tracker instanceof \Perfumer\Microservices\Undefined) {
-            $array['leading_tracker'] = $this->leading_tracker;
-        }
         if (!$this->customer_id instanceof \Perfumer\Microservices\Undefined) {
             $array['customer_id'] = $this->customer_id;
         }
         if (!$this->tracker_id instanceof \Perfumer\Microservices\Undefined) {
             $array['tracker_id'] = $this->tracker_id;
         }
-        if (!$this->lead_tracker_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['lead_tracker_id'] = $this->lead_tracker_id;
+        if (!$this->leading_tracker_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['leading_tracker_id'] = $this->leading_tracker_id;
         }
         if (!$this->process_state_id instanceof \Perfumer\Microservices\Undefined) {
             $array['process_state_id'] = $this->process_state_id;
