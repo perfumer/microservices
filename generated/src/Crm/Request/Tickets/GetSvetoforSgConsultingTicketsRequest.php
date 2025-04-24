@@ -22,7 +22,7 @@ class GetSvetoforSgConsultingTicketsRequest extends \Perfumer\Microservices\Requ
     /**
      * @var int
      */
-    public $leading_tracker_id;
+    public $lead_tracker_id;
 
     /**
      * @var int
@@ -116,7 +116,7 @@ class GetSvetoforSgConsultingTicketsRequest extends \Perfumer\Microservices\Requ
         $this->customer_id = new \Perfumer\Microservices\Undefined();
         $this->user_id = new \Perfumer\Microservices\Undefined();
         $this->tracker_id = new \Perfumer\Microservices\Undefined();
-        $this->leading_tracker_id = new \Perfumer\Microservices\Undefined();
+        $this->lead_tracker_id = new \Perfumer\Microservices\Undefined();
         $this->process_state_id = new \Perfumer\Microservices\Undefined();
         $this->week = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
@@ -148,8 +148,8 @@ class GetSvetoforSgConsultingTicketsRequest extends \Perfumer\Microservices\Requ
         if (!$this->tracker_id instanceof \Perfumer\Microservices\Undefined) {
             $array['tracker_id'] = $this->tracker_id;
         }
-        if (!$this->leading_tracker_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['leading_tracker_id'] = $this->leading_tracker_id;
+        if (!$this->lead_tracker_id instanceof \Perfumer\Microservices\Undefined) {
+            $array['lead_tracker_id'] = $this->lead_tracker_id;
         }
         if (!$this->process_state_id instanceof \Perfumer\Microservices\Undefined) {
             $array['process_state_id'] = $this->process_state_id;
