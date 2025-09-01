@@ -1,44 +1,18 @@
 <?php
 
-namespace Generated\Perfumer\Microservices\Events\Request\Users;
+namespace Generated\Perfumer\Microservices\Events\Request\User;
 
-class GetUsersRequest extends \Perfumer\Microservices\Request
+class GetUserRegionsRequest extends \Perfumer\Microservices\Request
 {
     /**
-     * @var int
+     * @var string
      */
-    public $module_id;
+    public $user;
 
     /**
      * @var string
      */
-    public $module_code;
-
-    /**
-     * @var string
-     */
-    public $format;
-
-    /**
-     * @var bool
-     */
-    public $has_schedules;
-
-    /**
-     * @var string
-     */
-    public $has_tags;
-
-    /**
-     * @var string
-     */
-    public $has_not_tags;
-
-    /**
-     * @var array
-     */
-    public $regions = [
-    ];
+    public $region;
 
     /**
      * @var int
@@ -97,15 +71,10 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
 
     public function __construct()
     {
-        $this->_request_url = '/users';
+        $this->_request_url = '/user/regions';
         $this->_request_method = 'get';
-        $this->module_id = new \Perfumer\Microservices\Undefined();
-        $this->module_code = new \Perfumer\Microservices\Undefined();
-        $this->format = new \Perfumer\Microservices\Undefined();
-        $this->has_schedules = new \Perfumer\Microservices\Undefined();
-        $this->has_tags = new \Perfumer\Microservices\Undefined();
-        $this->has_not_tags = new \Perfumer\Microservices\Undefined();
-        $this->regions = new \Perfumer\Microservices\Undefined();
+        $this->user = new \Perfumer\Microservices\Undefined();
+        $this->region = new \Perfumer\Microservices\Undefined();
         $this->limit = new \Perfumer\Microservices\Undefined();
         $this->offset = new \Perfumer\Microservices\Undefined();
         $this->count = new \Perfumer\Microservices\Undefined();
@@ -122,26 +91,11 @@ class GetUsersRequest extends \Perfumer\Microservices\Request
     public function getBody(): array
     {
         $array = [];
-        if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
-            $array['module_id'] = $this->module_id;
+        if (!$this->user instanceof \Perfumer\Microservices\Undefined) {
+            $array['user'] = $this->user;
         }
-        if (!$this->module_code instanceof \Perfumer\Microservices\Undefined) {
-            $array['module_code'] = $this->module_code;
-        }
-        if (!$this->format instanceof \Perfumer\Microservices\Undefined) {
-            $array['format'] = $this->format;
-        }
-        if (!$this->has_schedules instanceof \Perfumer\Microservices\Undefined) {
-            $array['has_schedules'] = $this->has_schedules;
-        }
-        if (!$this->has_tags instanceof \Perfumer\Microservices\Undefined) {
-            $array['has_tags'] = $this->has_tags;
-        }
-        if (!$this->has_not_tags instanceof \Perfumer\Microservices\Undefined) {
-            $array['has_not_tags'] = $this->has_not_tags;
-        }
-        if (!$this->regions instanceof \Perfumer\Microservices\Undefined) {
-            $array['regions'] = $this->regions;
+        if (!$this->region instanceof \Perfumer\Microservices\Undefined) {
+            $array['region'] = $this->region;
         }
         if (!$this->limit instanceof \Perfumer\Microservices\Undefined) {
             $array['limit'] = $this->limit;
