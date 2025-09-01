@@ -15,6 +15,12 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
     public $module_id;
 
     /**
+     * @var array
+     */
+    public $regions = [
+    ];
+
+    /**
      * @var string
      */
     public $title;
@@ -220,6 +226,7 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         $this->_request_method = 'get';
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->module_id = new \Perfumer\Microservices\Undefined();
+        $this->regions = new \Perfumer\Microservices\Undefined();
         $this->title = new \Perfumer\Microservices\Undefined();
         $this->image = new \Perfumer\Microservices\Undefined();
         $this->description = new \Perfumer\Microservices\Undefined();
@@ -270,6 +277,9 @@ class GetEventsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
             $array['module_id'] = $this->module_id;
+        }
+        if (!$this->regions instanceof \Perfumer\Microservices\Undefined) {
+            $array['regions'] = $this->regions;
         }
         if (!$this->title instanceof \Perfumer\Microservices\Undefined) {
             $array['title'] = $this->title;

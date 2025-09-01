@@ -588,6 +588,50 @@ abstract class Events extends \Perfumer\Microservices\Microservice implements \P
         return $response;
     }
 
+    public function addUserRegion(\Perfumer\Microservices\Events\Request\User\AddUserRegionRequest $request): \Perfumer\Microservices\Events\Response\User\AddUserRegionResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\User\AddUserRegionResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\User\AddUserRegionResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user = $item;
+        }
+
+        return $response;
+    }
+
+    public function deleteUserRegion(\Perfumer\Microservices\Events\Request\User\DeleteUserRegionRequest $request): \Perfumer\Microservices\Events\Response\User\DeleteUserRegionResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\User\DeleteUserRegionResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\User\DeleteUserRegionResponse());
+
+        return $response;
+    }
+
+    public function getUserRegions(\Perfumer\Microservices\Events\Request\User\GetUserRegionsRequest $request): \Perfumer\Microservices\Events\Response\User\GetUserRegionsResponse
+    {
+        /** @var \Perfumer\Microservices\Events\Response\User\GetUserRegionsResponse $response */
+        $response = $this->doRequest($request, new \Perfumer\Microservices\Events\Response\User\GetUserRegionsResponse());
+        $item = $this->fetchKeyFromContent($response->_content, 'regions');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->regions = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'nb_results');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->nb_results = $item;
+        }
+        $item = $this->fetchKeyFromContent($response->_content, 'user');
+
+        if (!$item instanceof \Perfumer\Microservices\Undefined) {
+            $response->user = $item;
+        }
+
+        return $response;
+    }
+
     public function getUsers(\Perfumer\Microservices\Events\Request\Users\GetUsersRequest $request): \Perfumer\Microservices\Events\Response\Users\GetUsersResponse
     {
         /** @var \Perfumer\Microservices\Events\Response\Users\GetUsersResponse $response */

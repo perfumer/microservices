@@ -15,6 +15,12 @@ class CreateEventRequest extends \Perfumer\Microservices\Request
     public $module_id;
 
     /**
+     * @var array
+     */
+    public $regions = [
+    ];
+
+    /**
      * @var string
      */
     public $locale;
@@ -152,6 +158,7 @@ class CreateEventRequest extends \Perfumer\Microservices\Request
         $this->_request_method = 'post';
         $this->id = new \Perfumer\Microservices\Undefined();
         $this->module_id = new \Perfumer\Microservices\Undefined();
+        $this->regions = new \Perfumer\Microservices\Undefined();
         $this->locale = new \Perfumer\Microservices\Undefined();
         $this->user = new \Perfumer\Microservices\Undefined();
         $this->ticket = new \Perfumer\Microservices\Undefined();
@@ -188,6 +195,9 @@ class CreateEventRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->module_id instanceof \Perfumer\Microservices\Undefined) {
             $array['module_id'] = $this->module_id;
+        }
+        if (!$this->regions instanceof \Perfumer\Microservices\Undefined) {
+            $array['regions'] = $this->regions;
         }
         if (!$this->locale instanceof \Perfumer\Microservices\Undefined) {
             $array['locale'] = $this->locale;

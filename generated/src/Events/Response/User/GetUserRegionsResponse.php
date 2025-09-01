@@ -2,12 +2,12 @@
 
 namespace Generated\Perfumer\Microservices\Events\Response\User;
 
-class GetUserModulesResponse extends \Perfumer\Microservices\Response
+class GetUserRegionsResponse extends \Perfumer\Microservices\Response
 {
     /**
      * @var array
      */
-    public $modules = [
+    public $regions = [
     ];
 
     /**
