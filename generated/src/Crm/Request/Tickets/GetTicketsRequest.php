@@ -77,6 +77,11 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
     /**
      * @var string
      */
+    public $astanahub_status;
+
+    /**
+     * @var string
+     */
     public $code;
 
     /**
@@ -187,6 +192,7 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
         $this->opened_at_to = new \Perfumer\Microservices\Undefined();
         $this->deadline_at_from = new \Perfumer\Microservices\Undefined();
         $this->deadline_at_to = new \Perfumer\Microservices\Undefined();
+        $this->astanahub_status = new \Perfumer\Microservices\Undefined();
         $this->code = new \Perfumer\Microservices\Undefined();
         $this->business_case_id = new \Perfumer\Microservices\Undefined();
         $this->business_case_name = new \Perfumer\Microservices\Undefined();
@@ -252,6 +258,9 @@ class GetTicketsRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->deadline_at_to instanceof \Perfumer\Microservices\Undefined) {
             $array['deadline_at_to'] = $this->deadline_at_to;
+        }
+        if (!$this->astanahub_status instanceof \Perfumer\Microservices\Undefined) {
+            $array['astanahub_status'] = $this->astanahub_status;
         }
         if (!$this->code instanceof \Perfumer\Microservices\Undefined) {
             $array['code'] = $this->code;
