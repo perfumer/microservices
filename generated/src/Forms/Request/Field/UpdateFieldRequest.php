@@ -64,6 +64,11 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
     /**
      * @var bool
      */
+    public $is_editable_after_submit;
+
+    /**
+     * @var bool
+     */
     public $is_for_notification;
 
     /**
@@ -131,6 +136,7 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
         $this->is_required = new \Perfumer\Microservices\Undefined();
         $this->is_dedicated = new \Perfumer\Microservices\Undefined();
         $this->is_invisible_for_applicant = new \Perfumer\Microservices\Undefined();
+        $this->is_editable_after_submit = new \Perfumer\Microservices\Undefined();
         $this->is_for_notification = new \Perfumer\Microservices\Undefined();
         $this->dedicated_column_index = new \Perfumer\Microservices\Undefined();
         $this->priority = new \Perfumer\Microservices\Undefined();
@@ -179,6 +185,9 @@ class UpdateFieldRequest extends \Perfumer\Microservices\Request
         }
         if (!$this->is_invisible_for_applicant instanceof \Perfumer\Microservices\Undefined) {
             $array['is_invisible_for_applicant'] = $this->is_invisible_for_applicant;
+        }
+        if (!$this->is_editable_after_submit instanceof \Perfumer\Microservices\Undefined) {
+            $array['is_editable_after_submit'] = $this->is_editable_after_submit;
         }
         if (!$this->is_for_notification instanceof \Perfumer\Microservices\Undefined) {
             $array['is_for_notification'] = $this->is_for_notification;
